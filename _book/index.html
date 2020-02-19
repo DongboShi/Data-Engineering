@@ -1,13 +1,12 @@
 <!DOCTYPE html>
-<html >
-
+<html lang="" xml:lang="">
 <head>
 
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>麻麻说我们可以用 R Markdown 写书了</title>
-  <meta name="description" content="一个简单的中文书示例。">
-  <meta name="generator" content="bookdown  and GitBook 2.6.7">
+  <meta name="description" content="一个简单的中文书示例。" />
+  <meta name="generator" content="bookdown 0.17 and GitBook 2.6.7" />
 
   <meta property="og:title" content="麻麻说我们可以用 R Markdown 写书了" />
   <meta property="og:type" content="book" />
@@ -22,18 +21,19 @@
   <meta name="twitter:description" content="一个简单的中文书示例。" />
   
 
-<meta name="author" content="张三">
+<meta name="author" content="张三" />
 
 
-<meta name="date" content="2019-06-08">
+<meta name="date" content="2020-02-19" />
 
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
 
-<link rel="next" href="author.html">
+<link rel="next" href="author.html"/>
+<script src="libs/header-attrs/header-attrs.js"></script>
 <script src="libs/jquery/jquery.min.js"></script>
 <link href="libs/gitbook/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook/css/plugin-table.css" rel="stylesheet" />
@@ -41,6 +41,9 @@
 <link href="libs/gitbook/css/plugin-highlight.css" rel="stylesheet" />
 <link href="libs/gitbook/css/plugin-search.css" rel="stylesheet" />
 <link href="libs/gitbook/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook/css/plugin-clipboard.css" rel="stylesheet" />
+
+
 
 
 
@@ -51,41 +54,67 @@
 
 
 <style type="text/css">
-div.sourceCode { overflow-x: auto; }
-table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
-  margin: 0; padding: 0; vertical-align: baseline; border: none; }
-table.sourceCode { width: 100%; line-height: 100%; }
-td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
-td.sourceCode { padding-left: 5px; }
-code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code > span.dt { color: #902000; } /* DataType */
-code > span.dv { color: #40a070; } /* DecVal */
-code > span.bn { color: #40a070; } /* BaseN */
-code > span.fl { color: #40a070; } /* Float */
-code > span.ch { color: #4070a0; } /* Char */
-code > span.st { color: #4070a0; } /* String */
-code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code > span.ot { color: #007020; } /* Other */
-code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code > span.fu { color: #06287e; } /* Function */
-code > span.er { color: #ff0000; font-weight: bold; } /* Error */
-code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-code > span.cn { color: #880000; } /* Constant */
-code > span.sc { color: #4070a0; } /* SpecialChar */
-code > span.vs { color: #4070a0; } /* VerbatimString */
-code > span.ss { color: #bb6688; } /* SpecialString */
-code > span.im { } /* Import */
-code > span.va { color: #19177c; } /* Variable */
-code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code > span.op { color: #666666; } /* Operator */
-code > span.bu { } /* BuiltIn */
-code > span.ex { } /* Extension */
-code > span.pp { color: #bc7a00; } /* Preprocessor */
-code > span.at { color: #7d9029; } /* Attribute */
-code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 <link rel="stylesheet" href="css/style.css" type="text/css" />
@@ -104,20 +133,25 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li><a href="./">中文书示例</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>前言</a><ul>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#e887b4e8b0a2"><i class="fa fa-check"></i>致谢</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>前言</a>
+<ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#致谢"><i class="fa fa-check"></i>致谢</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="author.html"><a href="author.html"><i class="fa fa-check"></i>作者简介</a></li>
-<li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> 牛刀小试</a></li>
-<li class="chapter" data-level="2" data-path="wind.html"><a href="wind.html"><i class="fa fa-check"></i><b>2</b> 白苹风末</a><ul>
-<li class="chapter" data-level="2.1" data-path="wind.html"><a href="wind.html#section-2.1"><i class="fa fa-check"></i><b>2.1</b> 张老爷子</a></li>
-<li class="chapter" data-level="2.2" data-path="wind.html"><a href="wind.html#section-2.2"><i class="fa fa-check"></i><b>2.2</b> 彭大将领</a></li>
+<li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> 为什么要写这本书</a></li>
+<li class="chapter" data-level="2" data-path="wind.html"><a href="wind.html"><i class="fa fa-check"></i><b>2</b> 白苹风末</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="wind.html"><a href="wind.html#张老爷子"><i class="fa fa-check"></i><b>2.1</b> 张老爷子</a></li>
+<li class="chapter" data-level="2.2" data-path="wind.html"><a href="wind.html#彭大将领"><i class="fa fa-check"></i><b>2.2</b> 彭大将领</a></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="gun-make.html"><a href="gun-make.html"><i class="fa fa-check"></i><b>3</b> GUN Make</a><ul>
-<li class="chapter" data-level="3.1" data-path="gun-make.html"><a href="gun-make.html#make"><i class="fa fa-check"></i><b>3.1</b> 使用Make的必要性</a></li>
-<li class="chapter" data-level="3.2" data-path="gun-make.html"><a href="gun-make.html#make"><i class="fa fa-check"></i><b>3.2</b> Make的基本语法</a></li>
-<li class="chapter" data-level="3.3" data-path="gun-make.html"><a href="gun-make.html#make"><i class="fa fa-check"></i><b>3.3</b> Make的高级语法</a></li>
-<li class="chapter" data-level="3.4" data-path="gun-make.html"><a href="gun-make.html#including-plots"><i class="fa fa-check"></i><b>3.4</b> Including Plots</a></li>
+<li class="chapter" data-level="3" data-path="make.html"><a href="make.html"><i class="fa fa-check"></i><b>3</b> GUN Make</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="make.html"><a href="make.html#使用make的必要性"><i class="fa fa-check"></i><b>3.1</b> 使用Make的必要性</a></li>
+<li class="chapter" data-level="3.2" data-path="make.html"><a href="make.html#make安装"><i class="fa fa-check"></i><b>3.2</b> Make安装</a></li>
+<li class="chapter" data-level="3.3" data-path="make.html"><a href="make.html#快速上手make"><i class="fa fa-check"></i><b>3.3</b> 快速上手Make</a></li>
+<li class="chapter" data-level="3.4" data-path="make.html"><a href="make.html#make的高级语法"><i class="fa fa-check"></i><b>3.4</b> Make的高级语法</a></li>
+<li class="chapter" data-level="3.5" data-path="make.html"><a href="make.html#参考资料"><i class="fa fa-check"></i><b>3.5</b> 参考资料</a></li>
+<li class="chapter" data-level="3.6" data-path="make.html"><a href="make.html#including-plots"><i class="fa fa-check"></i><b>3.6</b> Including Plots</a></li>
 </ul></li>
 <li class="appendix"><span><b>附录</b></span></li>
 <li class="chapter" data-level="A" data-path="sound.html"><a href="sound.html"><i class="fa fa-check"></i><b>A</b> 余音绕梁</a></li>
@@ -145,20 +179,20 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div id="header">
 <h1 class="title">麻麻说我们可以用 R Markdown 写书了</h1>
 <p class="author"><em>张三</em></p>
-<p class="date"><em>2019-06-08</em></p>
+<p class="date"><em>2020-02-19</em></p>
 </div>
-<div id="e5898de8a880" class="section level1 unnumbered">
+<div id="前言" class="section level1 unnumbered" number="">
 <h1>前言</h1>
 <p>你好，世界。我写了一本书。这本书是这样的，第 <a href="intro.html#intro">1</a> 章介绍了啥啥，第 <a href="wind.html#wind">2</a> 章说了啥啥，然后是啥啥……</p>
-<p>我用了两个 R 包编译这本书，分别是 <strong>knitr</strong> <span class="citation">(Xie <a href="#ref-xie2015">2015</a>)</span> 和 <strong>bookdown</strong> <span class="citation">(Xie <a href="#ref-R-bookdown">2018</a>)</span>。以下是我的 R 进程信息：</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sessionInfo</span>()</code></pre></div>
-<pre><code>## R version 3.5.2 (2018-12-20)
+<p>我用了两个 R 包编译这本书，分别是 <strong>knitr</strong> <span class="citation">(Xie <a href="#ref-xie2015" role="doc-biblioref">2015</a>)</span> 和 <strong>bookdown</strong> <span class="citation">(Xie <a href="#ref-R-bookdown" role="doc-biblioref">2020</a>)</span>。以下是我的 R 进程信息：</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="index.html#cb1-1"></a><span class="kw">sessionInfo</span>()</span></code></pre></div>
+<pre><code>## R version 3.6.2 (2019-12-12)
 ## Platform: x86_64-apple-darwin15.6.0 (64-bit)
-## Running under: macOS High Sierra 10.13.6
+## Running under: macOS Catalina 10.15
 ## 
 ## Matrix products: default
-## BLAS: /Library/Frameworks/R.framework/Versions/3.5/Resources/lib/libRblas.0.dylib
-## LAPACK: /Library/Frameworks/R.framework/Versions/3.5/Resources/lib/libRlapack.dylib
+## BLAS:   /Library/Frameworks/R.framework/Versions/3.6/Resources/lib/libRblas.0.dylib
+## LAPACK: /Library/Frameworks/R.framework/Versions/3.6/Resources/lib/libRlapack.dylib
 ## 
 ## locale:
 ## [1] en_US.UTF-8/en_US.UTF-8/en_US.UTF-8/C/en_US.UTF-8/en_US.UTF-8
@@ -168,13 +202,13 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 ## [6] methods   base     
 ## 
 ## loaded via a namespace (and not attached):
-##  [1] compiler_3.5.2  backports_1.1.2 magrittr_1.5   
-##  [4] bookdown_0.9    rprojroot_1.3-2 tools_3.5.2    
-##  [7] htmltools_0.3.6 rstudioapi_0.8  yaml_2.2.0     
-## [10] Rcpp_1.0.0      stringi_1.4.3   rmarkdown_1.10 
-## [13] knitr_1.20      stringr_1.4.0   xfun_0.4       
-## [16] digest_0.6.18   evaluate_0.12</code></pre>
-<div id="e887b4e8b0a2" class="section level2 unnumbered">
+##  [1] compiler_3.6.2  magrittr_1.5    bookdown_0.17  
+##  [4] tools_3.6.2     htmltools_0.4.0 rstudioapi_0.11
+##  [7] yaml_2.2.0      Rcpp_1.0.3      stringi_1.4.3  
+## [10] rmarkdown_2.1   knitr_1.28      stringr_1.4.0  
+## [13] xfun_0.11       digest_0.6.23   rlang_0.4.2    
+## [16] evaluate_0.14</code></pre>
+<div id="致谢" class="section level2 unnumbered" number="">
 <h2>致谢</h2>
 <p>非常感谢谁谁以及谁谁对我的帮助。艾玛，要不是他们神一样的队友，我两年前就写完这本书了。</p>
 
@@ -183,16 +217,15 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 于 A 村某角落
 </p>
 
-
 </div>
 </div>
 <h3>参考文献</h3>
 <div id="refs" class="references">
 <div id="ref-xie2015">
-<p>Xie, Yihui. 2015. <em>Dynamic Documents with R and Knitr</em>. 2nd ed. Boca Raton, Florida: Chapman; Hall/CRC. <a href="http://yihui.name/knitr/" class="uri">http://yihui.name/knitr/</a>.</p>
+<p>Xie, Yihui. 2015. <em>Dynamic Documents with R and Knitr</em>. 2nd ed. Boca Raton, Florida: Chapman; Hall/CRC. <a href="http://yihui.name/knitr/">http://yihui.name/knitr/</a>.</p>
 </div>
 <div id="ref-R-bookdown">
-<p>Xie, Yihui. 2018. <em>Bookdown: Authoring Books and Technical Documents with R Markdown</em>. <a href="https://CRAN.R-project.org/package=bookdown" class="uri">https://CRAN.R-project.org/package=bookdown</a>.</p>
+<p>Xie, Yihui. 2020. <em>Bookdown: Authoring Books and Technical Documents with R Markdown</em>. <a href="https://CRAN.R-project.org/package=bookdown">https://CRAN.R-project.org/package=bookdown</a>.</p>
 </div>
 </div>
             </section>
@@ -206,11 +239,13 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
   </div>
 <script src="libs/gitbook/js/app.min.js"></script>
 <script src="libs/gitbook/js/lunr.js"></script>
+<script src="libs/gitbook/js/clipboard.min.js"></script>
 <script src="libs/gitbook/js/plugin-search.js"></script>
 <script src="libs/gitbook/js/plugin-sharing.js"></script>
 <script src="libs/gitbook/js/plugin-fontsettings.js"></script>
 <script src="libs/gitbook/js/plugin-bookdown.js"></script>
 <script src="libs/gitbook/js/jquery.highlight.js"></script>
+<script src="libs/gitbook/js/plugin-clipboard.js"></script>
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
@@ -218,12 +253,11 @@ gitbook.start({
 "github": true,
 "facebook": false,
 "twitter": true,
-"google": false,
 "linkedin": false,
 "weibo": false,
 "instapaper": false,
 "vk": false,
-"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {
 "theme": "white",
@@ -235,6 +269,10 @@ gitbook.start({
 "text": "编辑"
 },
 "history": {
+"link": null,
+"text": null
+},
+"view": {
 "link": null,
 "text": null
 },
