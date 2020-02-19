@@ -1,0 +1,20 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1582093365680.000,
+    "dirty" : true,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "2262776445",
+    "id" : "7ADBF6D7",
+    "lastKnownWriteTime" : 1582093083,
+    "last_content_update" : 1582093083,
+    "path" : "~/Documents/GitHub/Data-Engineering/index.Rmd",
+    "project_path" : "index.Rmd",
+    "properties" : {
+    },
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_markdown"
+}
