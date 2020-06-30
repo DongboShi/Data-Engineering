@@ -1,0 +1,9277 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>第 3 章 回归分析 | 数据工程讲义：经济学分册</title>
+  <meta name="description" content="一个简单的中文书示例。" />
+  <meta name="generator" content="bookdown 0.17 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="第 3 章 回归分析 | 数据工程讲义：经济学分册" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="一个简单的中文书示例。" />
+  <meta name="github-repo" content="yihui/bookdown-chinese" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="第 3 章 回归分析 | 数据工程讲义：经济学分册" />
+  
+  <meta name="twitter:description" content="一个简单的中文书示例。" />
+  
+
+<meta name="author" content="史冬波 续本达" />
+
+
+<meta name="date" content="2020-06-30" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="flow.html"/>
+<link rel="next" href="make.html"/>
+<script src="libs/header-attrs-2.1/header-attrs.js"></script>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="css/style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">数据工程讲义</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>前言</a>
+<ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#致谢"><i class="fa fa-check"></i>致谢</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="author.html"><a href="author.html"><i class="fa fa-check"></i>作者简介</a></li>
+<li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> 写在前面</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="intro.html"><a href="intro.html#为什么要写这本书"><i class="fa fa-check"></i><b>1.1</b> 为什么要写这本书</a></li>
+<li class="chapter" data-level="1.2" data-path="intro.html"><a href="intro.html#数据工程data-engineering"><i class="fa fa-check"></i><b>1.2</b> 数据工程(Data Engineering)</a></li>
+<li class="chapter" data-level="1.3" data-path="intro.html"><a href="intro.html#如何阅读这本书"><i class="fa fa-check"></i><b>1.3</b> 如何阅读这本书</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="flow.html"><a href="flow.html"><i class="fa fa-check"></i><b>2</b> 重塑经济学研究的流程</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="flow.html"><a href="flow.html#人工智能时代的社会科学研究基于与挑战"><i class="fa fa-check"></i><b>2.1</b> 人工智能时代的社会科学研究：基于与挑战</a></li>
+<li class="chapter" data-level="2.2" data-path="flow.html"><a href="flow.html#数据工程与数据科学"><i class="fa fa-check"></i><b>2.2</b> 数据工程与数据科学</a></li>
+<li class="chapter" data-level="2.3" data-path="flow.html"><a href="flow.html#数据工程的四大原则"><i class="fa fa-check"></i><b>2.3</b> 数据工程的四大原则</a></li>
+<li class="chapter" data-level="2.4" data-path="flow.html"><a href="flow.html#数据处理的灵魂数据流"><i class="fa fa-check"></i><b>2.4</b> 数据处理的灵魂：数据流</a></li>
+<li class="chapter" data-level="2.5" data-path="flow.html"><a href="flow.html#数据处理的钥匙数据结构"><i class="fa fa-check"></i><b>2.5</b> 数据处理的钥匙：数据结构</a></li>
+<li class="chapter" data-level="2.6" data-path="flow.html"><a href="flow.html#数据工程师的工具箱"><i class="fa fa-check"></i><b>2.6</b> 数据工程师的工具箱</a></li>
+<li class="chapter" data-level="2.7" data-path="flow.html"><a href="flow.html#数据工程师的一天"><i class="fa fa-check"></i><b>2.7</b> 数据工程师的一天</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="reg.html"><a href="reg.html"><i class="fa fa-check"></i><b>3</b> 回归分析</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="reg.html"><a href="reg.html#一般线性回归"><i class="fa fa-check"></i><b>3.1</b> 一般线性回归</a></li>
+<li class="chapter" data-level="3.2" data-path="reg.html"><a href="reg.html#使用stargazer输出表格"><i class="fa fa-check"></i><b>3.2</b> 使用stargazer输出表格</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="reg.html"><a href="reg.html#标准回归表"><i class="fa fa-check"></i><b>3.2.1</b> 标准回归表</a></li>
+<li class="chapter" data-level="3.2.2" data-path="reg.html"><a href="reg.html#默认格式"><i class="fa fa-check"></i><b>3.2.2</b> 默认格式</a></li>
+<li class="chapter" data-level="3.2.3" data-path="reg.html"><a href="reg.html#表格表头"><i class="fa fa-check"></i><b>3.2.3</b> 表格表头</a></li>
+<li class="chapter" data-level="3.2.4" data-path="reg.html"><a href="reg.html#表格正文"><i class="fa fa-check"></i><b>3.2.4</b> 表格正文</a></li>
+<li class="chapter" data-level="3.2.5" data-path="reg.html"><a href="reg.html#添加变量信息"><i class="fa fa-check"></i><b>3.2.5</b> 添加变量信息</a></li>
+<li class="chapter" data-level="3.2.6" data-path="reg.html"><a href="reg.html#选择统计量"><i class="fa fa-check"></i><b>3.2.6</b> 选择统计量</a></li>
+<li class="chapter" data-level="3.2.7" data-path="reg.html"><a href="reg.html#表格注释"><i class="fa fa-check"></i><b>3.2.7</b> 表格注释</a></li>
+<li class="chapter" data-level="3.2.8" data-path="reg.html"><a href="reg.html#整体布局"><i class="fa fa-check"></i><b>3.2.8</b> 整体布局</a></li>
+<li class="chapter" data-level="3.2.9" data-path="reg.html"><a href="reg.html#其他"><i class="fa fa-check"></i><b>3.2.9</b> 其他</a></li>
+<li class="chapter" data-level="3.2.10" data-path="reg.html"><a href="reg.html#描述性统计表"><i class="fa fa-check"></i><b>3.2.10</b> 描述性统计表</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="make.html"><a href="make.html"><i class="fa fa-check"></i><b>4</b> GUN Make</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="make.html"><a href="make.html#使用make的必要性"><i class="fa fa-check"></i><b>4.1</b> 使用Make的必要性</a></li>
+<li class="chapter" data-level="4.2" data-path="make.html"><a href="make.html#make安装"><i class="fa fa-check"></i><b>4.2</b> Make安装</a></li>
+<li class="chapter" data-level="4.3" data-path="make.html"><a href="make.html#快速上手make"><i class="fa fa-check"></i><b>4.3</b> 快速上手Make</a></li>
+<li class="chapter" data-level="4.4" data-path="make.html"><a href="make.html#make的高级语法"><i class="fa fa-check"></i><b>4.4</b> Make的高级语法</a></li>
+<li class="chapter" data-level="4.5" data-path="make.html"><a href="make.html#参考资料"><i class="fa fa-check"></i><b>4.5</b> 参考资料</a></li>
+<li class="chapter" data-level="4.6" data-path="make.html"><a href="make.html#including-plots"><i class="fa fa-check"></i><b>4.6</b> Including Plots</a></li>
+</ul></li>
+<li class="appendix"><span><b>附录</b></span></li>
+<li class="chapter" data-level="A" data-path="sound.html"><a href="sound.html"><i class="fa fa-check"></i><b>A</b> 余音绕梁</a></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>参考文献</a></li>
+<li class="divider"></li>
+<li><a href="https://bookdown.org" target="blank">本书由 bookdown 强力驱动</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">数据工程讲义：经济学分册</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="reg" class="section level1" number="3">
+<h1><span class="header-section-number">第 3 章</span> 回归分析</h1>
+<div id="一般线性回归" class="section level2" number="3.1">
+<h2><span class="header-section-number">3.1</span> 一般线性回归</h2>
+</div>
+<div id="使用stargazer输出表格" class="section level2" number="3.2">
+<h2><span class="header-section-number">3.2</span> 使用stargazer输出表格</h2>
+<p>上一节中我们介绍了在R中如何拟合常见的回归模型。在实际的经济学研究中，拟合回归模型仅仅完成了回归分析一半的工作量，我们至少还需要花同样的时间将回归结果整理成正式发表（或投稿）论文中的标准回归表格式。初学者往往人工整理回归结果，这不仅与我们数据工程的自动化原则相违背，更重要的是，一旦在研究中对回归结果进行调整（这几乎是百分之百会发生的），人工整理将会耗费大量的时间与精力。</p>
+<p>本节我们将介绍如何使用stargazer包输出回归结果表。stargazer<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a>是政治经济学家 Marek Hlavac博士在哈佛大学肯尼迪学院攻读博士学位期间完成的包，已成为目前最流行的R包之一。stargazer可以将R的回归模型编码为html代码，LaTex代码或者是ASCII文本，将回归模型输出为可发表格式。除此之外，stargazer也可以输出描述性统计表，或者直接输出data.frame。通过下列代码安装与加载stargazer：</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="reg.html#cb1-1"></a><span class="kw">install.packages</span>(<span class="st">&quot;stargazer&quot;</span>)</span>
+<span id="cb1-2"><a href="reg.html#cb1-2"></a><span class="kw">library</span>(stargazer)</span></code></pre></div>
+<div id="标准回归表" class="section level3" number="3.2.1">
+<h3><span class="header-section-number">3.2.1</span> 标准回归表</h3>
+<p>在学习使用stagazer之前，我们首先来看下正式发表论文的标准回归表。下表源自Giroud在The Quarterly Journal of Economics发表的论文<em>Proximity and Investment: Evidence from Plant-Level Data</em><a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a>，我们可以发现，从上至下，标准回归表可以分为五个部分：第一部分包括因变量名、模型名以及模型编号；第二部分是自变量名与回归结果，包括回归系数、标准误差与显著性；第三部分是未汇报系数的变量；第三四部分是模型的统计指标；第五部分是注释。其中，第二部分是回归表的核心，而其他部分的重要性往往被初学者忽视。我们在回归表中标注了每一部分调整对应的stagazer中的参数，接下来我们将详细介绍各参数的使用方法。</p>
+<p><img src="regtb.png" width="80%" /></p>
+</div>
+<div id="默认格式" class="section level3" number="3.2.2">
+<h3><span class="header-section-number">3.2.2</span> 默认格式</h3>
+<p>我们使用Wooldridge(2012)<a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a> 收录的JTRAIN数据集(详情见第十四章习题C3)，该数据集源自Holzer等人(1993)<a href="#fn4" class="footnote-ref" id="fnref4"><sup>4</sup></a>的劳动经济学论文，研究了工作培训津贴对于公司为雇员提供培训的作用。我们使用jtrain数据集拟合回归模型。</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="reg.html#cb2-1"></a><span class="cf">if</span>(<span class="op">!</span><span class="kw">require</span>(wooldridge)){</span>
+<span id="cb2-2"><a href="reg.html#cb2-2"></a>  <span class="kw">install.packages</span>(<span class="st">&#39;wooldridge&#39;</span>)</span>
+<span id="cb2-3"><a href="reg.html#cb2-3"></a>}</span>
+<span id="cb2-4"><a href="reg.html#cb2-4"></a><span class="kw">library</span>(wooldridge)</span>
+<span id="cb2-5"><a href="reg.html#cb2-5"></a><span class="kw">library</span>(stargazer)</span>
+<span id="cb2-6"><a href="reg.html#cb2-6"></a></span>
+<span id="cb2-7"><a href="reg.html#cb2-7"></a><span class="kw">data</span>(<span class="st">&#39;jtrain&#39;</span>)</span>
+<span id="cb2-8"><a href="reg.html#cb2-8"></a><span class="kw">names</span>(jtrain)</span></code></pre></div>
+<pre><code>##  [1] &quot;year&quot;     &quot;fcode&quot;    &quot;employ&quot;   &quot;sales&quot;    &quot;avgsal&quot;   &quot;scrap&quot;   
+##  [7] &quot;rework&quot;   &quot;tothrs&quot;   &quot;union&quot;    &quot;grant&quot;    &quot;d89&quot;      &quot;d88&quot;     
+## [13] &quot;totrain&quot;  &quot;hrsemp&quot;   &quot;lscrap&quot;   &quot;lemploy&quot;  &quot;lsales&quot;   &quot;lrework&quot; 
+## [19] &quot;lhrsemp&quot;  &quot;lscrap_1&quot; &quot;grant_1&quot;  &quot;clscrap&quot;  &quot;cgrant&quot;   &quot;clemploy&quot;
+## [25] &quot;clsales&quot;  &quot;lavgsal&quot;  &quot;clavgsal&quot; &quot;cgrant_1&quot; &quot;chrsemp&quot;  &quot;clhrsemp&quot;</code></pre>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="reg.html#cb4-1"></a>mod1 &lt;-<span class="st"> </span><span class="kw">lm</span>(hrsemp <span class="op">~</span><span class="st"> </span>grant <span class="op">+</span><span class="st"> </span>grant_<span class="dv">1</span> <span class="op">+</span><span class="st"> </span>lemploy, <span class="dt">data =</span> jtrain)</span>
+<span id="cb4-2"><a href="reg.html#cb4-2"></a>mod2 &lt;-<span class="st"> </span><span class="kw">lm</span>(hrsemp <span class="op">~</span><span class="st"> </span>grant <span class="op">+</span><span class="st"> </span>grant_<span class="dv">1</span> <span class="op">+</span><span class="st"> </span>lemploy <span class="op">+</span><span class="st"> </span>union, <span class="dt">data =</span> jtrain)</span>
+<span id="cb4-3"><a href="reg.html#cb4-3"></a>mod3 &lt;-<span class="st"> </span><span class="kw">lm</span>(hrsemp <span class="op">~</span><span class="st"> </span>grant <span class="op">+</span><span class="st"> </span>grant_<span class="dv">1</span> <span class="op">+</span><span class="st"> </span>lemploy <span class="op">+</span><span class="st"> </span>union <span class="op">+</span><span class="st"> </span><span class="kw">factor</span>(fcode), <span class="dt">data =</span> jtrain)</span>
+<span id="cb4-4"><a href="reg.html#cb4-4"></a>mod4 &lt;-<span class="st"> </span><span class="kw">lm</span>(hrsemp <span class="op">~</span><span class="st"> </span>grant <span class="op">+</span><span class="st"> </span>grant_<span class="dv">1</span> <span class="op">+</span><span class="st"> </span>lemploy <span class="op">+</span><span class="st"> </span>union <span class="op">+</span><span class="st"> </span><span class="kw">factor</span>(fcode) <span class="op">+</span><span class="st"> </span><span class="kw">factor</span>(year), <span class="dt">data =</span> jtrain)</span>
+<span id="cb4-5"><a href="reg.html#cb4-5"></a>mod5 &lt;-<span class="st"> </span><span class="kw">glm</span>(grant<span class="op">~</span>lemploy <span class="op">+</span><span class="st"> </span>union, <span class="dt">data =</span> jtrain,<span class="dt">family =</span> <span class="kw">binomial</span>(<span class="dt">link =</span> <span class="st">&quot;logit&quot;</span>))</span>
+<span id="cb4-6"><a href="reg.html#cb4-6"></a><span class="co"># 在数据分析过程中，我们可以使用summary函数查看回归模型的结果</span></span>
+<span id="cb4-7"><a href="reg.html#cb4-7"></a><span class="kw">summary</span>(mod1)</span></code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = hrsemp ~ grant + grant_1 + lemploy, data = jtrain)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -43.240 -11.641  -5.498   2.823 136.183 
+## 
+## Coefficients:
+##             Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)  26.3527     4.0395   6.524 2.15e-10 ***
+## grant        33.3370     3.1937  10.438  &lt; 2e-16 ***
+## grant_1       0.7895     4.0059   0.197    0.844    
+## lemploy      -4.6289     1.0806  -4.283 2.33e-05 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 22.39 on 386 degrees of freedom
+##   (81 observations deleted due to missingness)
+## Multiple R-squared:  0.2473, Adjusted R-squared:  0.2415 
+## F-statistic: 42.28 on 3 and 386 DF,  p-value: &lt; 2.2e-16</code></pre>
+<p>在数据分析结束后，使用stargazer输出回归结果，stargazer定义了三种输出格式：html，LaTex和text，为方便我们使用html来做演示。</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="reg.html#cb6-1"></a><span class="kw">stargazer</span>(mod1, mod2, mod5, <span class="dt">type =</span> <span class="st">&quot;html&quot;</span>)</span></code></pre></div>
+<table style="text-align:center">
+<tr>
+<td colspan="4" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td colspan="3">
+<em>Dependent variable:</em>
+</td>
+</tr>
+<tr>
+<td>
+</td>
+<td colspan="3" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td colspan="2">
+hrsemp
+</td>
+<td>
+grant
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td colspan="2">
+<em>OLS</em>
+</td>
+<td>
+<em>logistic</em>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(1)
+</td>
+<td>
+(2)
+</td>
+<td>
+(3)
+</td>
+</tr>
+<tr>
+<td colspan="4" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+grant
+</td>
+<td>
+33.337<sup>***</sup>
+</td>
+<td>
+33.545<sup>***</sup>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(3.194)
+</td>
+<td>
+(3.170)
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+grant_1
+</td>
+<td>
+0.790
+</td>
+<td>
+1.229
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(4.006)
+</td>
+<td>
+(3.979)
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+lemploy
+</td>
+<td>
+-4.629<sup>***</sup>
+</td>
+<td>
+-3.892<sup>***</sup>
+</td>
+<td>
+0.089
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(1.081)
+</td>
+<td>
+(1.108)
+</td>
+<td>
+(0.134)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+union
+</td>
+<td>
+</td>
+<td>
+-7.734<sup>***</sup>
+</td>
+<td>
+0.213
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+(2.925)
+</td>
+<td>
+(0.332)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Constant
+</td>
+<td>
+26.353<sup>***</sup>
+</td>
+<td>
+25.181<sup>***</sup>
+</td>
+<td>
+-2.155<sup>***</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(4.039)
+</td>
+<td>
+(4.033)
+</td>
+<td>
+(0.494)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td colspan="4" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Observations
+</td>
+<td>
+390
+</td>
+<td>
+390
+</td>
+<td>
+440
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+R<sup>2</sup>
+</td>
+<td>
+0.247
+</td>
+<td>
+0.261
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Adjusted R<sup>2</sup>
+</td>
+<td>
+0.241
+</td>
+<td>
+0.253
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Log Likelihood
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+-180.165
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Akaike Inf. Crit.
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+366.331
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Residual Std. Error
+</td>
+<td>
+22.392 (df = 386)
+</td>
+<td>
+22.220 (df = 385)
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+F Statistic
+</td>
+<td>
+42.280<sup>***</sup> (df = 3; 386)
+</td>
+<td>
+33.949<sup>***</sup> (df = 4; 385)
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td colspan="4" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+<em>Note:</em>
+</td>
+<td colspan="3" style="text-align:right">
+<sup><em></sup>p&lt;0.1; <sup><strong></sup>p&lt;0.05; <sup></strong></em></sup>p&lt;0.01
+</td>
+</tr>
+</table>
+<p>stargazer内置了一些期刊风格的格式，可以使用style参数来指定，例如QJE的风格：</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="reg.html#cb7-1"></a><span class="co"># 在数据分析结束后，使用stargazer输出回归结果</span></span>
+<span id="cb7-2"><a href="reg.html#cb7-2"></a><span class="kw">stargazer</span>(mod1, mod2, mod5, <span class="dt">type =</span> <span class="st">&quot;html&quot;</span>,<span class="dt">style =</span> <span class="st">&quot;qje&quot;</span>)</span></code></pre></div>
+<table style="text-align:center">
+<tr>
+<td colspan="4" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td colspan="2">
+hrsemp
+</td>
+<td>
+grant
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td colspan="2">
+<em>OLS</em>
+</td>
+<td>
+<em>logistic</em>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(1)
+</td>
+<td>
+(2)
+</td>
+<td>
+(3)
+</td>
+</tr>
+<tr>
+<td colspan="4" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+grant
+</td>
+<td>
+33.337<sup>***</sup>
+</td>
+<td>
+33.545<sup>***</sup>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(3.194)
+</td>
+<td>
+(3.170)
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+grant_1
+</td>
+<td>
+0.790
+</td>
+<td>
+1.229
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(4.006)
+</td>
+<td>
+(3.979)
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+lemploy
+</td>
+<td>
+-4.629<sup>***</sup>
+</td>
+<td>
+-3.892<sup>***</sup>
+</td>
+<td>
+0.089
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(1.081)
+</td>
+<td>
+(1.108)
+</td>
+<td>
+(0.134)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+union
+</td>
+<td>
+</td>
+<td>
+-7.734<sup>***</sup>
+</td>
+<td>
+0.213
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+(2.925)
+</td>
+<td>
+(0.332)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Constant
+</td>
+<td>
+26.353<sup>***</sup>
+</td>
+<td>
+25.181<sup>***</sup>
+</td>
+<td>
+-2.155<sup>***</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(4.039)
+</td>
+<td>
+(4.033)
+</td>
+<td>
+(0.494)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+<em>N</em>
+</td>
+<td>
+390
+</td>
+<td>
+390
+</td>
+<td>
+440
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+R<sup>2</sup>
+</td>
+<td>
+0.247
+</td>
+<td>
+0.261
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Adjusted R<sup>2</sup>
+</td>
+<td>
+0.241
+</td>
+<td>
+0.253
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Log Likelihood
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+-180.165
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Akaike Inf. Crit.
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+366.331
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Residual Std. Error
+</td>
+<td>
+22.392 (df = 386)
+</td>
+<td>
+22.220 (df = 385)
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+F Statistic
+</td>
+<td>
+42.280<sup>***</sup> (df = 3; 386)
+</td>
+<td>
+33.949<sup>***</sup> (df = 4; 385)
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td colspan="4" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+<em>Notes:</em>
+</td>
+<td colspan="3" style="text-align:right">
+<sup>***</sup>Significant at the 1 percent level.
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td colspan="3" style="text-align:right">
+<sup>**</sup>Significant at the 5 percent level.
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td colspan="3" style="text-align:right">
+<sup>*</sup>Significant at the 10 percent level.
+</td>
+</tr>
+</table>
+<p>可以使用out参数将表格输出到文件</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="reg.html#cb8-1"></a><span class="co"># 在数据分析结束后，使用stargazer输出回归结果</span></span>
+<span id="cb8-2"><a href="reg.html#cb8-2"></a><span class="kw">stargazer</span>(mod1, mod2, mod5, <span class="dt">type =</span> <span class="st">&quot;html&quot;</span>,<span class="dt">style =</span> <span class="st">&quot;qje&quot;</span>,<span class="dt">out=</span><span class="st">&quot;reg_results.html&quot;</span>)</span></code></pre></div>
+</div>
+<div id="表格表头" class="section level3" number="3.2.3">
+<h3><span class="header-section-number">3.2.3</span> 表格表头</h3>
+<p>通过title参数添加表格标题，通过dep.var.labels添加因变量标签，dep.var.caption设置因变量标题，默认情况也会输出模型名称。</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="reg.html#cb9-1"></a><span class="kw">stargazer</span>(mod1, mod2, mod5, <span class="dt">type =</span> <span class="st">&quot;html&quot;</span>,</span>
+<span id="cb9-2"><a href="reg.html#cb9-2"></a>          <span class="dt">title =</span> <span class="st">&quot;Table1: The empirical results&quot;</span>,</span>
+<span id="cb9-3"><a href="reg.html#cb9-3"></a>          <span class="dt">dep.var.labels =</span> <span class="kw">c</span>(<span class="st">&quot;Training hours&quot;</span>,<span class="st">&quot;Training grants&quot;</span>))</span></code></pre></div>
+<table style="text-align:center">
+<caption>
+<strong>Table1: The empirical results</strong>
+</caption>
+<tr>
+<td colspan="4" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td colspan="3">
+<em>Dependent variable:</em>
+</td>
+</tr>
+<tr>
+<td>
+</td>
+<td colspan="3" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td colspan="2">
+Training hours
+</td>
+<td>
+Training grants
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td colspan="2">
+<em>OLS</em>
+</td>
+<td>
+<em>logistic</em>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(1)
+</td>
+<td>
+(2)
+</td>
+<td>
+(3)
+</td>
+</tr>
+<tr>
+<td colspan="4" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+grant
+</td>
+<td>
+33.337<sup>***</sup>
+</td>
+<td>
+33.545<sup>***</sup>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(3.194)
+</td>
+<td>
+(3.170)
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+grant_1
+</td>
+<td>
+0.790
+</td>
+<td>
+1.229
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(4.006)
+</td>
+<td>
+(3.979)
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+lemploy
+</td>
+<td>
+-4.629<sup>***</sup>
+</td>
+<td>
+-3.892<sup>***</sup>
+</td>
+<td>
+0.089
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(1.081)
+</td>
+<td>
+(1.108)
+</td>
+<td>
+(0.134)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+union
+</td>
+<td>
+</td>
+<td>
+-7.734<sup>***</sup>
+</td>
+<td>
+0.213
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+(2.925)
+</td>
+<td>
+(0.332)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Constant
+</td>
+<td>
+26.353<sup>***</sup>
+</td>
+<td>
+25.181<sup>***</sup>
+</td>
+<td>
+-2.155<sup>***</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(4.039)
+</td>
+<td>
+(4.033)
+</td>
+<td>
+(0.494)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td colspan="4" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Observations
+</td>
+<td>
+390
+</td>
+<td>
+390
+</td>
+<td>
+440
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+R<sup>2</sup>
+</td>
+<td>
+0.247
+</td>
+<td>
+0.261
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Adjusted R<sup>2</sup>
+</td>
+<td>
+0.241
+</td>
+<td>
+0.253
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Log Likelihood
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+-180.165
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Akaike Inf. Crit.
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+366.331
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Residual Std. Error
+</td>
+<td>
+22.392 (df = 386)
+</td>
+<td>
+22.220 (df = 385)
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+F Statistic
+</td>
+<td>
+42.280<sup>***</sup> (df = 3; 386)
+</td>
+<td>
+33.949<sup>***</sup> (df = 4; 385)
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td colspan="4" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+<em>Note:</em>
+</td>
+<td colspan="3" style="text-align:right">
+<sup><em></sup>p&lt;0.1; <sup><strong></sup>p&lt;0.05; <sup></strong></em></sup>p&lt;0.01
+</td>
+</tr>
+</table>
+<p>使用column.labels为回归结果添加列标签</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="reg.html#cb10-1"></a><span class="kw">stargazer</span>(mod1, mod2, mod5, <span class="dt">type =</span> <span class="st">&quot;html&quot;</span>,</span>
+<span id="cb10-2"><a href="reg.html#cb10-2"></a>          <span class="dt">title =</span> <span class="st">&quot;Table1: The empirical results&quot;</span>,</span>
+<span id="cb10-3"><a href="reg.html#cb10-3"></a>          <span class="dt">dep.var.labels =</span> <span class="kw">c</span>(<span class="st">&quot;Training hours&quot;</span>,<span class="st">&quot;Training grant&quot;</span>),</span>
+<span id="cb10-4"><a href="reg.html#cb10-4"></a>          <span class="dt">column.labels =</span> <span class="kw">c</span>(<span class="st">&quot;Basic&quot;</span>, <span class="st">&quot;With union&quot;</span>, <span class="st">&quot;Selection&quot;</span>))</span></code></pre></div>
+<table style="text-align:center">
+<caption>
+<strong>Table1: The empirical results</strong>
+</caption>
+<tr>
+<td colspan="4" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td colspan="3">
+<em>Dependent variable:</em>
+</td>
+</tr>
+<tr>
+<td>
+</td>
+<td colspan="3" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td colspan="2">
+Training hours
+</td>
+<td>
+Training grant
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td colspan="2">
+<em>OLS</em>
+</td>
+<td>
+<em>logistic</em>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+Basic
+</td>
+<td>
+With union
+</td>
+<td>
+Selection
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(1)
+</td>
+<td>
+(2)
+</td>
+<td>
+(3)
+</td>
+</tr>
+<tr>
+<td colspan="4" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+grant
+</td>
+<td>
+33.337<sup>***</sup>
+</td>
+<td>
+33.545<sup>***</sup>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(3.194)
+</td>
+<td>
+(3.170)
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+grant_1
+</td>
+<td>
+0.790
+</td>
+<td>
+1.229
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(4.006)
+</td>
+<td>
+(3.979)
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+lemploy
+</td>
+<td>
+-4.629<sup>***</sup>
+</td>
+<td>
+-3.892<sup>***</sup>
+</td>
+<td>
+0.089
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(1.081)
+</td>
+<td>
+(1.108)
+</td>
+<td>
+(0.134)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+union
+</td>
+<td>
+</td>
+<td>
+-7.734<sup>***</sup>
+</td>
+<td>
+0.213
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+(2.925)
+</td>
+<td>
+(0.332)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Constant
+</td>
+<td>
+26.353<sup>***</sup>
+</td>
+<td>
+25.181<sup>***</sup>
+</td>
+<td>
+-2.155<sup>***</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(4.039)
+</td>
+<td>
+(4.033)
+</td>
+<td>
+(0.494)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td colspan="4" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Observations
+</td>
+<td>
+390
+</td>
+<td>
+390
+</td>
+<td>
+440
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+R<sup>2</sup>
+</td>
+<td>
+0.247
+</td>
+<td>
+0.261
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Adjusted R<sup>2</sup>
+</td>
+<td>
+0.241
+</td>
+<td>
+0.253
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Log Likelihood
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+-180.165
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Akaike Inf. Crit.
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+366.331
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Residual Std. Error
+</td>
+<td>
+22.392 (df = 386)
+</td>
+<td>
+22.220 (df = 385)
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+F Statistic
+</td>
+<td>
+42.280<sup>***</sup> (df = 3; 386)
+</td>
+<td>
+33.949<sup>***</sup> (df = 4; 385)
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td colspan="4" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+<em>Note:</em>
+</td>
+<td colspan="3" style="text-align:right">
+<sup><em></sup>p&lt;0.1; <sup><strong></sup>p&lt;0.05; <sup></strong></em></sup>p&lt;0.01
+</td>
+</tr>
+</table>
+<p>多列结果共同使用同一个列标签，此时需要使用column.separate参数指定分割方法。</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="reg.html#cb11-1"></a><span class="kw">stargazer</span>(mod1, mod2, mod5, <span class="dt">type =</span> <span class="st">&quot;html&quot;</span>,</span>
+<span id="cb11-2"><a href="reg.html#cb11-2"></a>          <span class="dt">title =</span> <span class="st">&quot;Table1: The empirical results&quot;</span>,</span>
+<span id="cb11-3"><a href="reg.html#cb11-3"></a>          <span class="dt">dep.var.labels =</span> <span class="kw">c</span>(<span class="st">&quot;Training hours&quot;</span>,<span class="st">&quot;Training grant&quot;</span>),</span>
+<span id="cb11-4"><a href="reg.html#cb11-4"></a>          <span class="dt">column.labels =</span> <span class="kw">c</span>(<span class="st">&quot;Basic&quot;</span>, <span class="st">&quot;Selection&quot;</span>),</span>
+<span id="cb11-5"><a href="reg.html#cb11-5"></a>          <span class="dt">column.separate =</span> <span class="kw">c</span>(<span class="dv">2</span>, <span class="dv">1</span>))</span></code></pre></div>
+<table style="text-align:center">
+<caption>
+<strong>Table1: The empirical results</strong>
+</caption>
+<tr>
+<td colspan="4" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td colspan="3">
+<em>Dependent variable:</em>
+</td>
+</tr>
+<tr>
+<td>
+</td>
+<td colspan="3" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td colspan="2">
+Training hours
+</td>
+<td>
+Training grant
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td colspan="2">
+<em>OLS</em>
+</td>
+<td>
+<em>logistic</em>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td colspan="2">
+Basic
+</td>
+<td>
+Selection
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(1)
+</td>
+<td>
+(2)
+</td>
+<td>
+(3)
+</td>
+</tr>
+<tr>
+<td colspan="4" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+grant
+</td>
+<td>
+33.337<sup>***</sup>
+</td>
+<td>
+33.545<sup>***</sup>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(3.194)
+</td>
+<td>
+(3.170)
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+grant_1
+</td>
+<td>
+0.790
+</td>
+<td>
+1.229
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(4.006)
+</td>
+<td>
+(3.979)
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+lemploy
+</td>
+<td>
+-4.629<sup>***</sup>
+</td>
+<td>
+-3.892<sup>***</sup>
+</td>
+<td>
+0.089
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(1.081)
+</td>
+<td>
+(1.108)
+</td>
+<td>
+(0.134)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+union
+</td>
+<td>
+</td>
+<td>
+-7.734<sup>***</sup>
+</td>
+<td>
+0.213
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+(2.925)
+</td>
+<td>
+(0.332)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Constant
+</td>
+<td>
+26.353<sup>***</sup>
+</td>
+<td>
+25.181<sup>***</sup>
+</td>
+<td>
+-2.155<sup>***</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(4.039)
+</td>
+<td>
+(4.033)
+</td>
+<td>
+(0.494)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td colspan="4" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Observations
+</td>
+<td>
+390
+</td>
+<td>
+390
+</td>
+<td>
+440
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+R<sup>2</sup>
+</td>
+<td>
+0.247
+</td>
+<td>
+0.261
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Adjusted R<sup>2</sup>
+</td>
+<td>
+0.241
+</td>
+<td>
+0.253
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Log Likelihood
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+-180.165
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Akaike Inf. Crit.
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+366.331
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Residual Std. Error
+</td>
+<td>
+22.392 (df = 386)
+</td>
+<td>
+22.220 (df = 385)
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+F Statistic
+</td>
+<td>
+42.280<sup>***</sup> (df = 3; 386)
+</td>
+<td>
+33.949<sup>***</sup> (df = 4; 385)
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td colspan="4" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+<em>Note:</em>
+</td>
+<td colspan="3" style="text-align:right">
+<sup><em></sup>p&lt;0.1; <sup><strong></sup>p&lt;0.05; <sup></strong></em></sup>p&lt;0.01
+</td>
+</tr>
+</table>
+<p>去除因变量标签、因变量标题、模型编码以及模型名称，当然实际应用中，不可能全部去除。</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="reg.html#cb12-1"></a><span class="kw">stargazer</span>(mod1, mod2, mod5, <span class="dt">type =</span> <span class="st">&quot;html&quot;</span>,</span>
+<span id="cb12-2"><a href="reg.html#cb12-2"></a>          <span class="dt">dep.var.caption =</span> <span class="st">&quot;&quot;</span>,</span>
+<span id="cb12-3"><a href="reg.html#cb12-3"></a>          <span class="dt">dep.var.labels.include =</span> <span class="ot">FALSE</span>,</span>
+<span id="cb12-4"><a href="reg.html#cb12-4"></a>          <span class="dt">model.numbers =</span> <span class="ot">FALSE</span>,</span>
+<span id="cb12-5"><a href="reg.html#cb12-5"></a>          <span class="dt">model.names =</span> <span class="ot">FALSE</span>)</span></code></pre></div>
+<table style="text-align:center">
+<tr>
+<td colspan="4" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+grant
+</td>
+<td>
+33.337<sup>***</sup>
+</td>
+<td>
+33.545<sup>***</sup>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(3.194)
+</td>
+<td>
+(3.170)
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+grant_1
+</td>
+<td>
+0.790
+</td>
+<td>
+1.229
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(4.006)
+</td>
+<td>
+(3.979)
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+lemploy
+</td>
+<td>
+-4.629<sup>***</sup>
+</td>
+<td>
+-3.892<sup>***</sup>
+</td>
+<td>
+0.089
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(1.081)
+</td>
+<td>
+(1.108)
+</td>
+<td>
+(0.134)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+union
+</td>
+<td>
+</td>
+<td>
+-7.734<sup>***</sup>
+</td>
+<td>
+0.213
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+(2.925)
+</td>
+<td>
+(0.332)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Constant
+</td>
+<td>
+26.353<sup>***</sup>
+</td>
+<td>
+25.181<sup>***</sup>
+</td>
+<td>
+-2.155<sup>***</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(4.039)
+</td>
+<td>
+(4.033)
+</td>
+<td>
+(0.494)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td colspan="4" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Observations
+</td>
+<td>
+390
+</td>
+<td>
+390
+</td>
+<td>
+440
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+R<sup>2</sup>
+</td>
+<td>
+0.247
+</td>
+<td>
+0.261
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Adjusted R<sup>2</sup>
+</td>
+<td>
+0.241
+</td>
+<td>
+0.253
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Log Likelihood
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+-180.165
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Akaike Inf. Crit.
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+366.331
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Residual Std. Error
+</td>
+<td>
+22.392 (df = 386)
+</td>
+<td>
+22.220 (df = 385)
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+F Statistic
+</td>
+<td>
+42.280<sup>***</sup> (df = 3; 386)
+</td>
+<td>
+33.949<sup>***</sup> (df = 4; 385)
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td colspan="4" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+<em>Note:</em>
+</td>
+<td colspan="3" style="text-align:right">
+<sup><em></sup>p&lt;0.1; <sup><strong></sup>p&lt;0.05; <sup></strong></em></sup>p&lt;0.01
+</td>
+</tr>
+</table>
+</div>
+<div id="表格正文" class="section level3" number="3.2.4">
+<h3><span class="header-section-number">3.2.4</span> 表格正文</h3>
+<p>在mod3和mod4中我们逐步加入了所在企业与年份的固定效应，其中企业的固定效应包含了156个哑变量，我们不可能也不需要全部输出这些变量的回归系数。我们使用omit参数来确定不需要输出回归结果的变量。</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="reg.html#cb13-1"></a><span class="kw">stargazer</span>(mod1, mod2, mod3,mod4,mod5, </span>
+<span id="cb13-2"><a href="reg.html#cb13-2"></a>          <span class="dt">type =</span> <span class="st">&quot;html&quot;</span>,</span>
+<span id="cb13-3"><a href="reg.html#cb13-3"></a>          <span class="dt">dep.var.caption =</span> <span class="st">&quot;&quot;</span>,</span>
+<span id="cb13-4"><a href="reg.html#cb13-4"></a>          <span class="dt">column.labels =</span> <span class="kw">c</span>(<span class="st">&quot;Basic&quot;</span>,<span class="st">&quot;With Union&quot;</span>,<span class="st">&quot;Factory&quot;</span>,<span class="st">&quot;F&amp;Y&quot;</span>,<span class="st">&quot;Selection&quot;</span>),</span>
+<span id="cb13-5"><a href="reg.html#cb13-5"></a>          <span class="dt">dep.var.labels =</span> <span class="kw">c</span>(<span class="st">&quot;Training hours&quot;</span>,<span class="st">&quot;Training grant&quot;</span>),</span>
+<span id="cb13-6"><a href="reg.html#cb13-6"></a>          <span class="dt">model.names =</span> <span class="ot">FALSE</span>,</span>
+<span id="cb13-7"><a href="reg.html#cb13-7"></a>          <span class="dt">omit =</span> <span class="kw">c</span>(<span class="st">&quot;fcode&quot;</span>,<span class="st">&quot;year&quot;</span>))</span></code></pre></div>
+<table style="text-align:center">
+<tr>
+<td colspan="6" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td colspan="4">
+Training hours
+</td>
+<td>
+Training grant
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+Basic
+</td>
+<td>
+With Union
+</td>
+<td>
+Factory
+</td>
+<td>
+F&amp;Y
+</td>
+<td>
+Selection
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(1)
+</td>
+<td>
+(2)
+</td>
+<td>
+(3)
+</td>
+<td>
+(4)
+</td>
+<td>
+(5)
+</td>
+</tr>
+<tr>
+<td colspan="6" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+grant
+</td>
+<td>
+33.337<sup>***</sup>
+</td>
+<td>
+33.545<sup>***</sup>
+</td>
+<td>
+35.962<sup>***</sup>
+</td>
+<td>
+34.228<sup>***</sup>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(3.194)
+</td>
+<td>
+(3.170)
+</td>
+<td>
+(2.509)
+</td>
+<td>
+(2.858)
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+grant_1
+</td>
+<td>
+0.790
+</td>
+<td>
+1.229
+</td>
+<td>
+5.664<sup>*</sup>
+</td>
+<td>
+0.504
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(4.006)
+</td>
+<td>
+(3.979)
+</td>
+<td>
+(3.304)
+</td>
+<td>
+(4.127)
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+lemploy
+</td>
+<td>
+-4.629<sup>***</sup>
+</td>
+<td>
+-3.892<sup>***</sup>
+</td>
+<td>
+1.755
+</td>
+<td>
+-0.176
+</td>
+<td>
+0.089
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(1.081)
+</td>
+<td>
+(1.108)
+</td>
+<td>
+(4.102)
+</td>
+<td>
+(4.288)
+</td>
+<td>
+(0.134)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+union
+</td>
+<td>
+</td>
+<td>
+-7.734<sup>***</sup>
+</td>
+<td>
+-5.150
+</td>
+<td>
+-5.060
+</td>
+<td>
+0.213
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+(2.925)
+</td>
+<td>
+(11.759)
+</td>
+<td>
+(11.664)
+</td>
+<td>
+(0.332)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Constant
+</td>
+<td>
+26.353<sup>***</sup>
+</td>
+<td>
+25.181<sup>***</sup>
+</td>
+<td>
+-2.261
+</td>
+<td>
+5.944
+</td>
+<td>
+-2.155<sup>***</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(4.039)
+</td>
+<td>
+(4.033)
+</td>
+<td>
+(21.238)
+</td>
+<td>
+(21.698)
+</td>
+<td>
+(0.494)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td colspan="6" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Observations
+</td>
+<td>
+390
+</td>
+<td>
+390
+</td>
+<td>
+390
+</td>
+<td>
+390
+</td>
+<td>
+440
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+R<sup>2</sup>
+</td>
+<td>
+0.247
+</td>
+<td>
+0.261
+</td>
+<td>
+0.797
+</td>
+<td>
+0.802
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Adjusted R<sup>2</sup>
+</td>
+<td>
+0.241
+</td>
+<td>
+0.253
+</td>
+<td>
+0.686
+</td>
+<td>
+0.691
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Log Likelihood
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+-180.165
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Akaike Inf. Crit.
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+366.331
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Residual Std. Error
+</td>
+<td>
+22.392 (df = 386)
+</td>
+<td>
+22.220 (df = 385)
+</td>
+<td>
+14.400 (df = 252)
+</td>
+<td>
+14.283 (df = 250)
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+F Statistic
+</td>
+<td>
+42.280<sup>***</sup> (df = 3; 386)
+</td>
+<td>
+33.949<sup>***</sup> (df = 4; 385)
+</td>
+<td>
+7.212<sup>***</sup> (df = 137; 252)
+</td>
+<td>
+7.269<sup>***</sup> (df = 139; 250)
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td colspan="6" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+<em>Note:</em>
+</td>
+<td colspan="5" style="text-align:right">
+<sup><em></sup>p&lt;0.1; <sup><strong></sup>p&lt;0.05; <sup></strong></em></sup>p&lt;0.01
+</td>
+</tr>
+</table>
+<p>进一步，我们可以通过covariate.labels参数来为自变量设定标签。</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="reg.html#cb14-1"></a><span class="kw">stargazer</span>(mod1, mod2, mod3,mod4,mod5, </span>
+<span id="cb14-2"><a href="reg.html#cb14-2"></a>          <span class="dt">type =</span> <span class="st">&quot;html&quot;</span>,</span>
+<span id="cb14-3"><a href="reg.html#cb14-3"></a>          <span class="dt">dep.var.caption =</span> <span class="st">&quot;&quot;</span>,</span>
+<span id="cb14-4"><a href="reg.html#cb14-4"></a>          <span class="dt">column.labels =</span> <span class="kw">c</span>(<span class="st">&quot;Basic&quot;</span>,<span class="st">&quot;With Union&quot;</span>,<span class="st">&quot;Factory&quot;</span>,<span class="st">&quot;F&amp;Y&quot;</span>,<span class="st">&quot;Selection&quot;</span>),</span>
+<span id="cb14-5"><a href="reg.html#cb14-5"></a>          <span class="dt">dep.var.labels =</span> <span class="kw">c</span>(<span class="st">&quot;Training hours&quot;</span>,<span class="st">&quot;Training grant&quot;</span>),</span>
+<span id="cb14-6"><a href="reg.html#cb14-6"></a>          <span class="dt">model.names =</span> <span class="ot">FALSE</span>,</span>
+<span id="cb14-7"><a href="reg.html#cb14-7"></a>          <span class="dt">omit =</span> <span class="kw">c</span>(<span class="st">&quot;fcode&quot;</span>,<span class="st">&quot;year&quot;</span>),</span>
+<span id="cb14-8"><a href="reg.html#cb14-8"></a>          <span class="dt">covariate.labels =</span> <span class="kw">c</span>(<span class="st">&quot;Traning Grant&quot;</span>, <span class="st">&quot;Traning Grant 1 Year Before&quot;</span>,<span class="st">&quot;log(Employment)&quot;</span>,<span class="st">&quot;Labor Union&quot;</span>))</span></code></pre></div>
+<table style="text-align:center">
+<tr>
+<td colspan="6" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td colspan="4">
+Training hours
+</td>
+<td>
+Training grant
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+Basic
+</td>
+<td>
+With Union
+</td>
+<td>
+Factory
+</td>
+<td>
+F&amp;Y
+</td>
+<td>
+Selection
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(1)
+</td>
+<td>
+(2)
+</td>
+<td>
+(3)
+</td>
+<td>
+(4)
+</td>
+<td>
+(5)
+</td>
+</tr>
+<tr>
+<td colspan="6" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Traning Grant
+</td>
+<td>
+33.337<sup>***</sup>
+</td>
+<td>
+33.545<sup>***</sup>
+</td>
+<td>
+35.962<sup>***</sup>
+</td>
+<td>
+34.228<sup>***</sup>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(3.194)
+</td>
+<td>
+(3.170)
+</td>
+<td>
+(2.509)
+</td>
+<td>
+(2.858)
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Traning Grant 1 Year Before
+</td>
+<td>
+0.790
+</td>
+<td>
+1.229
+</td>
+<td>
+5.664<sup>*</sup>
+</td>
+<td>
+0.504
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(4.006)
+</td>
+<td>
+(3.979)
+</td>
+<td>
+(3.304)
+</td>
+<td>
+(4.127)
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+log(Employment)
+</td>
+<td>
+-4.629<sup>***</sup>
+</td>
+<td>
+-3.892<sup>***</sup>
+</td>
+<td>
+1.755
+</td>
+<td>
+-0.176
+</td>
+<td>
+0.089
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(1.081)
+</td>
+<td>
+(1.108)
+</td>
+<td>
+(4.102)
+</td>
+<td>
+(4.288)
+</td>
+<td>
+(0.134)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Labor Union
+</td>
+<td>
+</td>
+<td>
+-7.734<sup>***</sup>
+</td>
+<td>
+-5.150
+</td>
+<td>
+-5.060
+</td>
+<td>
+0.213
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+(2.925)
+</td>
+<td>
+(11.759)
+</td>
+<td>
+(11.664)
+</td>
+<td>
+(0.332)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Constant
+</td>
+<td>
+26.353<sup>***</sup>
+</td>
+<td>
+25.181<sup>***</sup>
+</td>
+<td>
+-2.261
+</td>
+<td>
+5.944
+</td>
+<td>
+-2.155<sup>***</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(4.039)
+</td>
+<td>
+(4.033)
+</td>
+<td>
+(21.238)
+</td>
+<td>
+(21.698)
+</td>
+<td>
+(0.494)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td colspan="6" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Observations
+</td>
+<td>
+390
+</td>
+<td>
+390
+</td>
+<td>
+390
+</td>
+<td>
+390
+</td>
+<td>
+440
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+R<sup>2</sup>
+</td>
+<td>
+0.247
+</td>
+<td>
+0.261
+</td>
+<td>
+0.797
+</td>
+<td>
+0.802
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Adjusted R<sup>2</sup>
+</td>
+<td>
+0.241
+</td>
+<td>
+0.253
+</td>
+<td>
+0.686
+</td>
+<td>
+0.691
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Log Likelihood
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+-180.165
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Akaike Inf. Crit.
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+366.331
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Residual Std. Error
+</td>
+<td>
+22.392 (df = 386)
+</td>
+<td>
+22.220 (df = 385)
+</td>
+<td>
+14.400 (df = 252)
+</td>
+<td>
+14.283 (df = 250)
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+F Statistic
+</td>
+<td>
+42.280<sup>***</sup> (df = 3; 386)
+</td>
+<td>
+33.949<sup>***</sup> (df = 4; 385)
+</td>
+<td>
+7.212<sup>***</sup> (df = 137; 252)
+</td>
+<td>
+7.269<sup>***</sup> (df = 139; 250)
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td colspan="6" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+<em>Note:</em>
+</td>
+<td colspan="5" style="text-align:right">
+<sup><em></sup>p&lt;0.1; <sup><strong></sup>p&lt;0.05; <sup></strong></em></sup>p&lt;0.01
+</td>
+</tr>
+</table>
+<p>为了突出我们关心的回归系数（coefficients of interest），我们可以使用order参数来调整自变量的排列顺序,注意此时变量标签也要做相应的调整，否则会导致结果出错。</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="reg.html#cb15-1"></a><span class="kw">stargazer</span>(mod1, mod2, mod3,mod4,mod5, </span>
+<span id="cb15-2"><a href="reg.html#cb15-2"></a>          <span class="dt">type =</span> <span class="st">&quot;html&quot;</span>,</span>
+<span id="cb15-3"><a href="reg.html#cb15-3"></a>          <span class="dt">dep.var.caption =</span> <span class="st">&quot;&quot;</span>,</span>
+<span id="cb15-4"><a href="reg.html#cb15-4"></a>          <span class="dt">column.labels =</span> <span class="kw">c</span>(<span class="st">&quot;Basic&quot;</span>,<span class="st">&quot;With Union&quot;</span>,<span class="st">&quot;Factory&quot;</span>,<span class="st">&quot;F&amp;Y&quot;</span>,<span class="st">&quot;Selection&quot;</span>),</span>
+<span id="cb15-5"><a href="reg.html#cb15-5"></a>          <span class="dt">dep.var.labels =</span> <span class="kw">c</span>(<span class="st">&quot;Training hours&quot;</span>,<span class="st">&quot;Training grant&quot;</span>),</span>
+<span id="cb15-6"><a href="reg.html#cb15-6"></a>          <span class="dt">model.names =</span> <span class="ot">FALSE</span>,</span>
+<span id="cb15-7"><a href="reg.html#cb15-7"></a>          <span class="dt">omit =</span> <span class="kw">c</span>(<span class="st">&quot;fcode&quot;</span>,<span class="st">&quot;year&quot;</span>),</span>
+<span id="cb15-8"><a href="reg.html#cb15-8"></a>          <span class="dt">covariate.labels =</span> <span class="kw">c</span>(<span class="st">&quot;log(Employment)&quot;</span>,<span class="st">&quot;Labor Union&quot;</span>,<span class="st">&quot;Traning Grant&quot;</span>, <span class="st">&quot;Traning Grant 1 Year Before&quot;</span>),</span>
+<span id="cb15-9"><a href="reg.html#cb15-9"></a>          <span class="dt">order =</span> <span class="kw">c</span>(<span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">1</span>, <span class="dv">2</span>))</span></code></pre></div>
+<table style="text-align:center">
+<tr>
+<td colspan="6" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td colspan="4">
+Training hours
+</td>
+<td>
+Training grant
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+Basic
+</td>
+<td>
+With Union
+</td>
+<td>
+Factory
+</td>
+<td>
+F&amp;Y
+</td>
+<td>
+Selection
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(1)
+</td>
+<td>
+(2)
+</td>
+<td>
+(3)
+</td>
+<td>
+(4)
+</td>
+<td>
+(5)
+</td>
+</tr>
+<tr>
+<td colspan="6" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+log(Employment)
+</td>
+<td>
+-4.629<sup>***</sup>
+</td>
+<td>
+-3.892<sup>***</sup>
+</td>
+<td>
+1.755
+</td>
+<td>
+-0.176
+</td>
+<td>
+0.089
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(1.081)
+</td>
+<td>
+(1.108)
+</td>
+<td>
+(4.102)
+</td>
+<td>
+(4.288)
+</td>
+<td>
+(0.134)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Labor Union
+</td>
+<td>
+</td>
+<td>
+-7.734<sup>***</sup>
+</td>
+<td>
+-5.150
+</td>
+<td>
+-5.060
+</td>
+<td>
+0.213
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+(2.925)
+</td>
+<td>
+(11.759)
+</td>
+<td>
+(11.664)
+</td>
+<td>
+(0.332)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Traning Grant
+</td>
+<td>
+33.337<sup>***</sup>
+</td>
+<td>
+33.545<sup>***</sup>
+</td>
+<td>
+35.962<sup>***</sup>
+</td>
+<td>
+34.228<sup>***</sup>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(3.194)
+</td>
+<td>
+(3.170)
+</td>
+<td>
+(2.509)
+</td>
+<td>
+(2.858)
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Traning Grant 1 Year Before
+</td>
+<td>
+0.790
+</td>
+<td>
+1.229
+</td>
+<td>
+5.664<sup>*</sup>
+</td>
+<td>
+0.504
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(4.006)
+</td>
+<td>
+(3.979)
+</td>
+<td>
+(3.304)
+</td>
+<td>
+(4.127)
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Constant
+</td>
+<td>
+26.353<sup>***</sup>
+</td>
+<td>
+25.181<sup>***</sup>
+</td>
+<td>
+-2.261
+</td>
+<td>
+5.944
+</td>
+<td>
+-2.155<sup>***</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(4.039)
+</td>
+<td>
+(4.033)
+</td>
+<td>
+(21.238)
+</td>
+<td>
+(21.698)
+</td>
+<td>
+(0.494)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td colspan="6" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Observations
+</td>
+<td>
+390
+</td>
+<td>
+390
+</td>
+<td>
+390
+</td>
+<td>
+390
+</td>
+<td>
+440
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+R<sup>2</sup>
+</td>
+<td>
+0.247
+</td>
+<td>
+0.261
+</td>
+<td>
+0.797
+</td>
+<td>
+0.802
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Adjusted R<sup>2</sup>
+</td>
+<td>
+0.241
+</td>
+<td>
+0.253
+</td>
+<td>
+0.686
+</td>
+<td>
+0.691
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Log Likelihood
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+-180.165
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Akaike Inf. Crit.
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+366.331
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Residual Std. Error
+</td>
+<td>
+22.392 (df = 386)
+</td>
+<td>
+22.220 (df = 385)
+</td>
+<td>
+14.400 (df = 252)
+</td>
+<td>
+14.283 (df = 250)
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+F Statistic
+</td>
+<td>
+42.280<sup>***</sup> (df = 3; 386)
+</td>
+<td>
+33.949<sup>***</sup> (df = 4; 385)
+</td>
+<td>
+7.212<sup>***</sup> (df = 137; 252)
+</td>
+<td>
+7.269<sup>***</sup> (df = 139; 250)
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td colspan="6" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+<em>Note:</em>
+</td>
+<td colspan="5" style="text-align:right">
+<sup><em></sup>p&lt;0.1; <sup><strong></sup>p&lt;0.05; <sup></strong></em></sup>p&lt;0.01
+</td>
+</tr>
+</table>
+<p>使用digits可以指定小数点后保留的有效数位，使用initial.zero=FALSE可以去掉小数点前的无效数字0</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="reg.html#cb16-1"></a><span class="kw">stargazer</span>(mod1, mod2, mod3,mod4,mod5, </span>
+<span id="cb16-2"><a href="reg.html#cb16-2"></a>          <span class="dt">type =</span> <span class="st">&quot;html&quot;</span>,</span>
+<span id="cb16-3"><a href="reg.html#cb16-3"></a>          <span class="dt">dep.var.caption =</span> <span class="st">&quot;&quot;</span>,</span>
+<span id="cb16-4"><a href="reg.html#cb16-4"></a>          <span class="dt">column.labels =</span> <span class="kw">c</span>(<span class="st">&quot;Basic&quot;</span>,<span class="st">&quot;With Union&quot;</span>,<span class="st">&quot;Factory&quot;</span>,<span class="st">&quot;F&amp;Y&quot;</span>,<span class="st">&quot;Selection&quot;</span>),</span>
+<span id="cb16-5"><a href="reg.html#cb16-5"></a>          <span class="dt">dep.var.labels =</span> <span class="kw">c</span>(<span class="st">&quot;Training hours&quot;</span>,<span class="st">&quot;Training grant&quot;</span>),</span>
+<span id="cb16-6"><a href="reg.html#cb16-6"></a>          <span class="dt">model.names =</span> <span class="ot">FALSE</span>,</span>
+<span id="cb16-7"><a href="reg.html#cb16-7"></a>          <span class="dt">omit =</span> <span class="kw">c</span>(<span class="st">&quot;fcode&quot;</span>,<span class="st">&quot;year&quot;</span>),</span>
+<span id="cb16-8"><a href="reg.html#cb16-8"></a>          <span class="dt">covariate.labels =</span> <span class="kw">c</span>(<span class="st">&quot;log(Employment)&quot;</span>,<span class="st">&quot;Labor Union&quot;</span>,<span class="st">&quot;Traning Grant&quot;</span>, <span class="st">&quot;Traning Grant 1 Year Before&quot;</span>),</span>
+<span id="cb16-9"><a href="reg.html#cb16-9"></a>          <span class="dt">order =</span> <span class="kw">c</span>(<span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">1</span>, <span class="dv">2</span>),</span>
+<span id="cb16-10"><a href="reg.html#cb16-10"></a>          <span class="dt">digits =</span> <span class="dv">2</span>,</span>
+<span id="cb16-11"><a href="reg.html#cb16-11"></a>          <span class="dt">initial.zero=</span><span class="ot">FALSE</span>)</span></code></pre></div>
+<table style="text-align:center">
+<tr>
+<td colspan="6" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td colspan="4">
+Training hours
+</td>
+<td>
+Training grant
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+Basic
+</td>
+<td>
+With Union
+</td>
+<td>
+Factory
+</td>
+<td>
+F&amp;Y
+</td>
+<td>
+Selection
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(1)
+</td>
+<td>
+(2)
+</td>
+<td>
+(3)
+</td>
+<td>
+(4)
+</td>
+<td>
+(5)
+</td>
+</tr>
+<tr>
+<td colspan="6" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+log(Employment)
+</td>
+<td>
+-4.63<sup>***</sup>
+</td>
+<td>
+-3.89<sup>***</sup>
+</td>
+<td>
+1.76
+</td>
+<td>
+-.18
+</td>
+<td>
+.09
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(1.08)
+</td>
+<td>
+(1.11)
+</td>
+<td>
+(4.10)
+</td>
+<td>
+(4.29)
+</td>
+<td>
+(.13)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Labor Union
+</td>
+<td>
+</td>
+<td>
+-7.73<sup>***</sup>
+</td>
+<td>
+-5.15
+</td>
+<td>
+-5.06
+</td>
+<td>
+.21
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+(2.93)
+</td>
+<td>
+(11.76)
+</td>
+<td>
+(11.66)
+</td>
+<td>
+(.33)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Traning Grant
+</td>
+<td>
+33.34<sup>***</sup>
+</td>
+<td>
+33.55<sup>***</sup>
+</td>
+<td>
+35.96<sup>***</sup>
+</td>
+<td>
+34.23<sup>***</sup>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(3.19)
+</td>
+<td>
+(3.17)
+</td>
+<td>
+(2.51)
+</td>
+<td>
+(2.86)
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Traning Grant 1 Year Before
+</td>
+<td>
+.79
+</td>
+<td>
+1.23
+</td>
+<td>
+5.66<sup>*</sup>
+</td>
+<td>
+.50
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(4.01)
+</td>
+<td>
+(3.98)
+</td>
+<td>
+(3.30)
+</td>
+<td>
+(4.13)
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Constant
+</td>
+<td>
+26.35<sup>***</sup>
+</td>
+<td>
+25.18<sup>***</sup>
+</td>
+<td>
+-2.26
+</td>
+<td>
+5.94
+</td>
+<td>
+-2.15<sup>***</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(4.04)
+</td>
+<td>
+(4.03)
+</td>
+<td>
+(21.24)
+</td>
+<td>
+(21.70)
+</td>
+<td>
+(.49)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td colspan="6" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Observations
+</td>
+<td>
+390
+</td>
+<td>
+390
+</td>
+<td>
+390
+</td>
+<td>
+390
+</td>
+<td>
+440
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+R<sup>2</sup>
+</td>
+<td>
+.25
+</td>
+<td>
+.26
+</td>
+<td>
+.80
+</td>
+<td>
+.80
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Adjusted R<sup>2</sup>
+</td>
+<td>
+.24
+</td>
+<td>
+.25
+</td>
+<td>
+.69
+</td>
+<td>
+.69
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Log Likelihood
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+-180.17
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Akaike Inf. Crit.
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+366.33
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Residual Std. Error
+</td>
+<td>
+22.39 (df = 386)
+</td>
+<td>
+22.22 (df = 385)
+</td>
+<td>
+14.40 (df = 252)
+</td>
+<td>
+14.28 (df = 250)
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+F Statistic
+</td>
+<td>
+42.28<sup>***</sup> (df = 3; 386)
+</td>
+<td>
+33.95<sup>***</sup> (df = 4; 385)
+</td>
+<td>
+7.21<sup>***</sup> (df = 137; 252)
+</td>
+<td>
+7.27<sup>***</sup> (df = 139; 250)
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td colspan="6" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+<em>Note:</em>
+</td>
+<td colspan="5" style="text-align:right">
+<sup><em></sup>p&lt;0.1; <sup><strong></sup>p&lt;0.05; <sup></strong></em></sup>p&lt;0.01
+</td>
+</tr>
+</table>
+<p>stargazer默认的显著性水平标记为p&lt;0.1; p&lt;0.05; p&lt;0.01。有些时候我们需要调整显著性水平的标注标准，star.cutoffs参数可以实现这一调整。此外，star.char 参数可以修改显著性水平的标记。</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="reg.html#cb17-1"></a><span class="kw">stargazer</span>(mod1, mod2, mod3,mod4,mod5, </span>
+<span id="cb17-2"><a href="reg.html#cb17-2"></a>          <span class="dt">type =</span> <span class="st">&quot;html&quot;</span>,</span>
+<span id="cb17-3"><a href="reg.html#cb17-3"></a>          <span class="dt">dep.var.caption =</span> <span class="st">&quot;&quot;</span>,</span>
+<span id="cb17-4"><a href="reg.html#cb17-4"></a>          <span class="dt">column.labels =</span> <span class="kw">c</span>(<span class="st">&quot;Basic&quot;</span>,<span class="st">&quot;With Union&quot;</span>,<span class="st">&quot;Factory&quot;</span>,<span class="st">&quot;F&amp;Y&quot;</span>,<span class="st">&quot;Selection&quot;</span>),</span>
+<span id="cb17-5"><a href="reg.html#cb17-5"></a>          <span class="dt">dep.var.labels =</span> <span class="kw">c</span>(<span class="st">&quot;Training hours&quot;</span>,<span class="st">&quot;Training grant&quot;</span>),</span>
+<span id="cb17-6"><a href="reg.html#cb17-6"></a>          <span class="dt">model.names =</span> <span class="ot">FALSE</span>,</span>
+<span id="cb17-7"><a href="reg.html#cb17-7"></a>          <span class="dt">omit =</span> <span class="kw">c</span>(<span class="st">&quot;fcode&quot;</span>,<span class="st">&quot;year&quot;</span>),</span>
+<span id="cb17-8"><a href="reg.html#cb17-8"></a>          <span class="dt">covariate.labels =</span> <span class="kw">c</span>(<span class="st">&quot;log(Employment)&quot;</span>,<span class="st">&quot;Labor Union&quot;</span>,<span class="st">&quot;Traning Grant&quot;</span>, <span class="st">&quot;Traning Grant 1 Year Before&quot;</span>),</span>
+<span id="cb17-9"><a href="reg.html#cb17-9"></a>          <span class="dt">order =</span> <span class="kw">c</span>(<span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">1</span>, <span class="dv">2</span>),</span>
+<span id="cb17-10"><a href="reg.html#cb17-10"></a>          <span class="dt">star.cutoffs =</span> <span class="kw">c</span>(<span class="fl">0.05</span>,<span class="fl">0.01</span>,<span class="fl">0.001</span>),</span>
+<span id="cb17-11"><a href="reg.html#cb17-11"></a>          <span class="dt">star.char =</span> <span class="kw">c</span>(<span class="st">&quot;†&quot;</span>,<span class="st">&quot;*&quot;</span>, <span class="st">&quot;**&quot;</span>))</span></code></pre></div>
+<table style="text-align:center">
+<tr>
+<td colspan="6" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td colspan="4">
+Training hours
+</td>
+<td>
+Training grant
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+Basic
+</td>
+<td>
+With Union
+</td>
+<td>
+Factory
+</td>
+<td>
+F&amp;Y
+</td>
+<td>
+Selection
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(1)
+</td>
+<td>
+(2)
+</td>
+<td>
+(3)
+</td>
+<td>
+(4)
+</td>
+<td>
+(5)
+</td>
+</tr>
+<tr>
+<td colspan="6" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+log(Employment)
+</td>
+<td>
+-4.629<sup>**</sup>
+</td>
+<td>
+-3.892<sup>**</sup>
+</td>
+<td>
+1.755
+</td>
+<td>
+-0.176
+</td>
+<td>
+0.089
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(1.081)
+</td>
+<td>
+(1.108)
+</td>
+<td>
+(4.102)
+</td>
+<td>
+(4.288)
+</td>
+<td>
+(0.134)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Labor Union
+</td>
+<td>
+</td>
+<td>
+-7.734<sup>*</sup>
+</td>
+<td>
+-5.150
+</td>
+<td>
+-5.060
+</td>
+<td>
+0.213
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+(2.925)
+</td>
+<td>
+(11.759)
+</td>
+<td>
+(11.664)
+</td>
+<td>
+(0.332)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Traning Grant
+</td>
+<td>
+33.337<sup>**</sup>
+</td>
+<td>
+33.545<sup>**</sup>
+</td>
+<td>
+35.962<sup>**</sup>
+</td>
+<td>
+34.228<sup>**</sup>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(3.194)
+</td>
+<td>
+(3.170)
+</td>
+<td>
+(2.509)
+</td>
+<td>
+(2.858)
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Traning Grant 1 Year Before
+</td>
+<td>
+0.790
+</td>
+<td>
+1.229
+</td>
+<td>
+5.664
+</td>
+<td>
+0.504
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(4.006)
+</td>
+<td>
+(3.979)
+</td>
+<td>
+(3.304)
+</td>
+<td>
+(4.127)
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Constant
+</td>
+<td>
+26.353<sup>**</sup>
+</td>
+<td>
+25.181<sup>**</sup>
+</td>
+<td>
+-2.261
+</td>
+<td>
+5.944
+</td>
+<td>
+-2.155<sup>**</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(4.039)
+</td>
+<td>
+(4.033)
+</td>
+<td>
+(21.238)
+</td>
+<td>
+(21.698)
+</td>
+<td>
+(0.494)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td colspan="6" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Observations
+</td>
+<td>
+390
+</td>
+<td>
+390
+</td>
+<td>
+390
+</td>
+<td>
+390
+</td>
+<td>
+440
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+R<sup>2</sup>
+</td>
+<td>
+0.247
+</td>
+<td>
+0.261
+</td>
+<td>
+0.797
+</td>
+<td>
+0.802
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Adjusted R<sup>2</sup>
+</td>
+<td>
+0.241
+</td>
+<td>
+0.253
+</td>
+<td>
+0.686
+</td>
+<td>
+0.691
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Log Likelihood
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+-180.165
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Akaike Inf. Crit.
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+366.331
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Residual Std. Error
+</td>
+<td>
+22.392 (df = 386)
+</td>
+<td>
+22.220 (df = 385)
+</td>
+<td>
+14.400 (df = 252)
+</td>
+<td>
+14.283 (df = 250)
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+F Statistic
+</td>
+<td>
+42.280<sup>**</sup> (df = 3; 386)
+</td>
+<td>
+33.949<sup>**</sup> (df = 4; 385)
+</td>
+<td>
+7.212<sup>**</sup> (df = 137; 252)
+</td>
+<td>
+7.269<sup>**</sup> (df = 139; 250)
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td colspan="6" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+<em>Note:</em>
+</td>
+<td colspan="5" style="text-align:right">
+<sup><em></sup>p&lt;0.05; <sup><strong></sup>p&lt;0.01; <sup></strong></em></sup>p&lt;0.001
+</td>
+</tr>
+</table>
+</div>
+<div id="添加变量信息" class="section level3" number="3.2.5">
+<h3><span class="header-section-number">3.2.5</span> 添加变量信息</h3>
+<p>对于没有汇报的固定效应，我们需要手动添加响应信息，对于其他控制变量，我们可以选择在note中加以说明。</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="reg.html#cb18-1"></a><span class="kw">stargazer</span>(mod1, mod2, mod3,mod4,mod5, </span>
+<span id="cb18-2"><a href="reg.html#cb18-2"></a>          <span class="dt">type =</span> <span class="st">&quot;html&quot;</span>,</span>
+<span id="cb18-3"><a href="reg.html#cb18-3"></a>          <span class="dt">dep.var.caption =</span> <span class="st">&quot;&quot;</span>,</span>
+<span id="cb18-4"><a href="reg.html#cb18-4"></a>          <span class="dt">column.labels =</span> <span class="kw">c</span>(<span class="st">&quot;Basic&quot;</span>,<span class="st">&quot;With Union&quot;</span>,<span class="st">&quot;Factory&quot;</span>,<span class="st">&quot;F&amp;Y&quot;</span>,<span class="st">&quot;Selection&quot;</span>),</span>
+<span id="cb18-5"><a href="reg.html#cb18-5"></a>          <span class="dt">dep.var.labels =</span> <span class="kw">c</span>(<span class="st">&quot;Training hours&quot;</span>,<span class="st">&quot;Training grant&quot;</span>),</span>
+<span id="cb18-6"><a href="reg.html#cb18-6"></a>          <span class="dt">model.names =</span> <span class="ot">FALSE</span>,</span>
+<span id="cb18-7"><a href="reg.html#cb18-7"></a>          <span class="dt">omit =</span> <span class="kw">c</span>(<span class="st">&quot;fcode&quot;</span>,<span class="st">&quot;year&quot;</span>),</span>
+<span id="cb18-8"><a href="reg.html#cb18-8"></a>          <span class="dt">covariate.labels =</span> <span class="kw">c</span>(<span class="st">&quot;log(Employment)&quot;</span>,<span class="st">&quot;Labor Union&quot;</span>,<span class="st">&quot;Traning Grant&quot;</span>, <span class="st">&quot;Traning Grant 1 Year Before&quot;</span>),</span>
+<span id="cb18-9"><a href="reg.html#cb18-9"></a>          <span class="dt">order =</span> <span class="kw">c</span>(<span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">1</span>, <span class="dv">2</span>),</span>
+<span id="cb18-10"><a href="reg.html#cb18-10"></a>          <span class="dt">add.lines =</span> <span class="kw">list</span>(<span class="kw">c</span>(<span class="st">&quot;Factory FE&quot;</span>, <span class="st">&quot;No&quot;</span>, <span class="st">&quot;No&quot;</span>,<span class="st">&quot;Yes&quot;</span>,<span class="st">&quot;Yes&quot;</span>,<span class="st">&quot;Yes&quot;</span>),</span>
+<span id="cb18-11"><a href="reg.html#cb18-11"></a>                           <span class="kw">c</span>(<span class="st">&quot;Year FE&quot;</span>, <span class="st">&quot;No&quot;</span>, <span class="st">&quot;No&quot;</span>,<span class="st">&quot;No&quot;</span>,<span class="st">&quot;Yes&quot;</span>,<span class="st">&quot;Yes&quot;</span>)))</span></code></pre></div>
+<table style="text-align:center">
+<tr>
+<td colspan="6" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td colspan="4">
+Training hours
+</td>
+<td>
+Training grant
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+Basic
+</td>
+<td>
+With Union
+</td>
+<td>
+Factory
+</td>
+<td>
+F&amp;Y
+</td>
+<td>
+Selection
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(1)
+</td>
+<td>
+(2)
+</td>
+<td>
+(3)
+</td>
+<td>
+(4)
+</td>
+<td>
+(5)
+</td>
+</tr>
+<tr>
+<td colspan="6" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+log(Employment)
+</td>
+<td>
+-4.629<sup>***</sup>
+</td>
+<td>
+-3.892<sup>***</sup>
+</td>
+<td>
+1.755
+</td>
+<td>
+-0.176
+</td>
+<td>
+0.089
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(1.081)
+</td>
+<td>
+(1.108)
+</td>
+<td>
+(4.102)
+</td>
+<td>
+(4.288)
+</td>
+<td>
+(0.134)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Labor Union
+</td>
+<td>
+</td>
+<td>
+-7.734<sup>***</sup>
+</td>
+<td>
+-5.150
+</td>
+<td>
+-5.060
+</td>
+<td>
+0.213
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+(2.925)
+</td>
+<td>
+(11.759)
+</td>
+<td>
+(11.664)
+</td>
+<td>
+(0.332)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Traning Grant
+</td>
+<td>
+33.337<sup>***</sup>
+</td>
+<td>
+33.545<sup>***</sup>
+</td>
+<td>
+35.962<sup>***</sup>
+</td>
+<td>
+34.228<sup>***</sup>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(3.194)
+</td>
+<td>
+(3.170)
+</td>
+<td>
+(2.509)
+</td>
+<td>
+(2.858)
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Traning Grant 1 Year Before
+</td>
+<td>
+0.790
+</td>
+<td>
+1.229
+</td>
+<td>
+5.664<sup>*</sup>
+</td>
+<td>
+0.504
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(4.006)
+</td>
+<td>
+(3.979)
+</td>
+<td>
+(3.304)
+</td>
+<td>
+(4.127)
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Constant
+</td>
+<td>
+26.353<sup>***</sup>
+</td>
+<td>
+25.181<sup>***</sup>
+</td>
+<td>
+-2.261
+</td>
+<td>
+5.944
+</td>
+<td>
+-2.155<sup>***</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(4.039)
+</td>
+<td>
+(4.033)
+</td>
+<td>
+(21.238)
+</td>
+<td>
+(21.698)
+</td>
+<td>
+(0.494)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td colspan="6" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Factory FE
+</td>
+<td>
+No
+</td>
+<td>
+No
+</td>
+<td>
+Yes
+</td>
+<td>
+Yes
+</td>
+<td>
+Yes
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Year FE
+</td>
+<td>
+No
+</td>
+<td>
+No
+</td>
+<td>
+No
+</td>
+<td>
+Yes
+</td>
+<td>
+Yes
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Observations
+</td>
+<td>
+390
+</td>
+<td>
+390
+</td>
+<td>
+390
+</td>
+<td>
+390
+</td>
+<td>
+440
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+R<sup>2</sup>
+</td>
+<td>
+0.247
+</td>
+<td>
+0.261
+</td>
+<td>
+0.797
+</td>
+<td>
+0.802
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Adjusted R<sup>2</sup>
+</td>
+<td>
+0.241
+</td>
+<td>
+0.253
+</td>
+<td>
+0.686
+</td>
+<td>
+0.691
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Log Likelihood
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+-180.165
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Akaike Inf. Crit.
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+366.331
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Residual Std. Error
+</td>
+<td>
+22.392 (df = 386)
+</td>
+<td>
+22.220 (df = 385)
+</td>
+<td>
+14.400 (df = 252)
+</td>
+<td>
+14.283 (df = 250)
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+F Statistic
+</td>
+<td>
+42.280<sup>***</sup> (df = 3; 386)
+</td>
+<td>
+33.949<sup>***</sup> (df = 4; 385)
+</td>
+<td>
+7.212<sup>***</sup> (df = 137; 252)
+</td>
+<td>
+7.269<sup>***</sup> (df = 139; 250)
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td colspan="6" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+<em>Note:</em>
+</td>
+<td colspan="5" style="text-align:right">
+<sup><em></sup>p&lt;0.1; <sup><strong></sup>p&lt;0.05; <sup></strong></em></sup>p&lt;0.01
+</td>
+</tr>
+</table>
+</div>
+<div id="选择统计量" class="section level3" number="3.2.6">
+<h3><span class="header-section-number">3.2.6</span> 选择统计量</h3>
+<p>在输出结果时，我们需要根据模型来选择汇报哪些统计量。stargazer使用omit.stat或者keep.stat来指定忽略或者保留的统计量。具体统计量的对应关系如下：</p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">代码</th>
+<th align="left">统计量</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">“all”</td>
+<td align="left">all statistics</td>
+</tr>
+<tr class="even">
+<td align="left">“adj.rsq”</td>
+<td align="left">adjusted R-squared</td>
+</tr>
+<tr class="odd">
+<td align="left">“aic”</td>
+<td align="left">Akaike Information Criterion</td>
+</tr>
+<tr class="even">
+<td align="left">“bic”</td>
+<td align="left">Bayesian Information Criterion</td>
+</tr>
+<tr class="odd">
+<td align="left">“chi2”</td>
+<td align="left">chi-squared</td>
+</tr>
+<tr class="even">
+<td align="left">“f”</td>
+<td align="left">F statistic</td>
+</tr>
+<tr class="odd">
+<td align="left">“ll”</td>
+<td align="left">log-likelihood</td>
+</tr>
+<tr class="even">
+<td align="left">“logrank”</td>
+<td align="left">score (logrank) test</td>
+</tr>
+<tr class="odd">
+<td align="left">“lr”</td>
+<td align="left">likelihood ratio (LR) test</td>
+</tr>
+<tr class="even">
+<td align="left">“max.rsq”</td>
+<td align="left">maximum R-squared</td>
+</tr>
+<tr class="odd">
+<td align="left">“n”</td>
+<td align="left">number of observations</td>
+</tr>
+<tr class="even">
+<td align="left">“null.dev”</td>
+<td align="left">null deviance</td>
+</tr>
+<tr class="odd">
+<td align="left">“Mills”</td>
+<td align="left">Inverse Mills Ratio</td>
+</tr>
+<tr class="even">
+<td align="left">“res.dev”</td>
+<td align="left">residual deviance</td>
+</tr>
+<tr class="odd">
+<td align="left">“rho”</td>
+<td align="left">rho</td>
+</tr>
+<tr class="even">
+<td align="left">“rsq”</td>
+<td align="left">R-squared</td>
+</tr>
+<tr class="odd">
+<td align="left">“scale”</td>
+<td align="left">scale</td>
+</tr>
+<tr class="even">
+<td align="left">“theta”</td>
+<td align="left">theta</td>
+</tr>
+<tr class="odd">
+<td align="left">“ser”</td>
+<td align="left">standard error of the regression (i.e., residual standard error)</td>
+</tr>
+<tr class="even">
+<td align="left">“sigma2”</td>
+<td align="left">sigma squared</td>
+</tr>
+<tr class="odd">
+<td align="left">“ubre”</td>
+<td align="left">Un-Biased Risk Estimator</td>
+</tr>
+<tr class="even">
+<td align="left">“wald”</td>
+<td align="left">Wald test</td>
+</tr>
+</tbody>
+</table>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="reg.html#cb19-1"></a><span class="kw">stargazer</span>(mod1, mod2, mod3,mod4,mod5, </span>
+<span id="cb19-2"><a href="reg.html#cb19-2"></a>          <span class="dt">type =</span> <span class="st">&quot;html&quot;</span>,</span>
+<span id="cb19-3"><a href="reg.html#cb19-3"></a>          <span class="dt">dep.var.caption =</span> <span class="st">&quot;&quot;</span>,</span>
+<span id="cb19-4"><a href="reg.html#cb19-4"></a>          <span class="dt">column.labels =</span> <span class="kw">c</span>(<span class="st">&quot;Basic&quot;</span>,<span class="st">&quot;With Union&quot;</span>,<span class="st">&quot;Factory&quot;</span>,<span class="st">&quot;F&amp;Y&quot;</span>,<span class="st">&quot;Selection&quot;</span>),</span>
+<span id="cb19-5"><a href="reg.html#cb19-5"></a>          <span class="dt">dep.var.labels =</span> <span class="kw">c</span>(<span class="st">&quot;Training hours&quot;</span>,<span class="st">&quot;Training grant&quot;</span>),</span>
+<span id="cb19-6"><a href="reg.html#cb19-6"></a>          <span class="dt">model.names =</span> <span class="ot">FALSE</span>,</span>
+<span id="cb19-7"><a href="reg.html#cb19-7"></a>          <span class="dt">omit =</span> <span class="kw">c</span>(<span class="st">&quot;fcode&quot;</span>,<span class="st">&quot;year&quot;</span>),</span>
+<span id="cb19-8"><a href="reg.html#cb19-8"></a>          <span class="dt">covariate.labels =</span> <span class="kw">c</span>(<span class="st">&quot;log(Employment)&quot;</span>,<span class="st">&quot;Labor Union&quot;</span>,<span class="st">&quot;Traning Grant&quot;</span>, <span class="st">&quot;Traning Grant 1 Year Before&quot;</span>),</span>
+<span id="cb19-9"><a href="reg.html#cb19-9"></a>          <span class="dt">order =</span> <span class="kw">c</span>(<span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">1</span>, <span class="dv">2</span>),</span>
+<span id="cb19-10"><a href="reg.html#cb19-10"></a>          <span class="dt">add.lines =</span> <span class="kw">list</span>(<span class="kw">c</span>(<span class="st">&quot;Factory FE&quot;</span>, <span class="st">&quot;No&quot;</span>, <span class="st">&quot;No&quot;</span>,<span class="st">&quot;Yes&quot;</span>,<span class="st">&quot;Yes&quot;</span>,<span class="st">&quot;Yes&quot;</span>),</span>
+<span id="cb19-11"><a href="reg.html#cb19-11"></a>                           <span class="kw">c</span>(<span class="st">&quot;Year FE&quot;</span>, <span class="st">&quot;No&quot;</span>, <span class="st">&quot;No&quot;</span>,<span class="st">&quot;No&quot;</span>,<span class="st">&quot;Yes&quot;</span>,<span class="st">&quot;Yes&quot;</span>)),</span>
+<span id="cb19-12"><a href="reg.html#cb19-12"></a>          <span class="dt">keep.stat =</span> <span class="kw">c</span>(<span class="st">&quot;n&quot;</span>,<span class="st">&quot;ll&quot;</span>,<span class="st">&quot;rsq&quot;</span>,<span class="st">&quot;f&quot;</span>))</span></code></pre></div>
+<table style="text-align:center">
+<tr>
+<td colspan="6" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td colspan="4">
+Training hours
+</td>
+<td>
+Training grant
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+Basic
+</td>
+<td>
+With Union
+</td>
+<td>
+Factory
+</td>
+<td>
+F&amp;Y
+</td>
+<td>
+Selection
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(1)
+</td>
+<td>
+(2)
+</td>
+<td>
+(3)
+</td>
+<td>
+(4)
+</td>
+<td>
+(5)
+</td>
+</tr>
+<tr>
+<td colspan="6" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+log(Employment)
+</td>
+<td>
+-4.629<sup>***</sup>
+</td>
+<td>
+-3.892<sup>***</sup>
+</td>
+<td>
+1.755
+</td>
+<td>
+-0.176
+</td>
+<td>
+0.089
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(1.081)
+</td>
+<td>
+(1.108)
+</td>
+<td>
+(4.102)
+</td>
+<td>
+(4.288)
+</td>
+<td>
+(0.134)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Labor Union
+</td>
+<td>
+</td>
+<td>
+-7.734<sup>***</sup>
+</td>
+<td>
+-5.150
+</td>
+<td>
+-5.060
+</td>
+<td>
+0.213
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+(2.925)
+</td>
+<td>
+(11.759)
+</td>
+<td>
+(11.664)
+</td>
+<td>
+(0.332)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Traning Grant
+</td>
+<td>
+33.337<sup>***</sup>
+</td>
+<td>
+33.545<sup>***</sup>
+</td>
+<td>
+35.962<sup>***</sup>
+</td>
+<td>
+34.228<sup>***</sup>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(3.194)
+</td>
+<td>
+(3.170)
+</td>
+<td>
+(2.509)
+</td>
+<td>
+(2.858)
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Traning Grant 1 Year Before
+</td>
+<td>
+0.790
+</td>
+<td>
+1.229
+</td>
+<td>
+5.664<sup>*</sup>
+</td>
+<td>
+0.504
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(4.006)
+</td>
+<td>
+(3.979)
+</td>
+<td>
+(3.304)
+</td>
+<td>
+(4.127)
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Constant
+</td>
+<td>
+26.353<sup>***</sup>
+</td>
+<td>
+25.181<sup>***</sup>
+</td>
+<td>
+-2.261
+</td>
+<td>
+5.944
+</td>
+<td>
+-2.155<sup>***</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(4.039)
+</td>
+<td>
+(4.033)
+</td>
+<td>
+(21.238)
+</td>
+<td>
+(21.698)
+</td>
+<td>
+(0.494)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td colspan="6" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Factory FE
+</td>
+<td>
+No
+</td>
+<td>
+No
+</td>
+<td>
+Yes
+</td>
+<td>
+Yes
+</td>
+<td>
+Yes
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Year FE
+</td>
+<td>
+No
+</td>
+<td>
+No
+</td>
+<td>
+No
+</td>
+<td>
+Yes
+</td>
+<td>
+Yes
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Observations
+</td>
+<td>
+390
+</td>
+<td>
+390
+</td>
+<td>
+390
+</td>
+<td>
+390
+</td>
+<td>
+440
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+R<sup>2</sup>
+</td>
+<td>
+0.247
+</td>
+<td>
+0.261
+</td>
+<td>
+0.797
+</td>
+<td>
+0.802
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Log Likelihood
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+-180.165
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+F Statistic
+</td>
+<td>
+42.280<sup>***</sup> (df = 3; 386)
+</td>
+<td>
+33.949<sup>***</sup> (df = 4; 385)
+</td>
+<td>
+7.212<sup>***</sup> (df = 137; 252)
+</td>
+<td>
+7.269<sup>***</sup> (df = 139; 250)
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td colspan="6" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+<em>Note:</em>
+</td>
+<td colspan="5" style="text-align:right">
+<sup><em></sup>p&lt;0.1; <sup><strong></sup>p&lt;0.05; <sup></strong></em></sup>p&lt;0.01
+</td>
+</tr>
+</table>
+<p>进一步，我们使用df = FALSE去掉自由度，这样的表格看上去就清爽多了。</p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="reg.html#cb20-1"></a><span class="kw">stargazer</span>(mod1, mod2, mod3,mod4,mod5, </span>
+<span id="cb20-2"><a href="reg.html#cb20-2"></a>          <span class="dt">type =</span> <span class="st">&quot;html&quot;</span>,</span>
+<span id="cb20-3"><a href="reg.html#cb20-3"></a>          <span class="dt">dep.var.caption =</span> <span class="st">&quot;&quot;</span>,</span>
+<span id="cb20-4"><a href="reg.html#cb20-4"></a>          <span class="dt">column.labels =</span> <span class="kw">c</span>(<span class="st">&quot;Basic&quot;</span>,<span class="st">&quot;With Union&quot;</span>,<span class="st">&quot;Factory&quot;</span>,<span class="st">&quot;F&amp;Y&quot;</span>,<span class="st">&quot;Selection&quot;</span>),</span>
+<span id="cb20-5"><a href="reg.html#cb20-5"></a>          <span class="dt">dep.var.labels =</span> <span class="kw">c</span>(<span class="st">&quot;Training hours&quot;</span>,<span class="st">&quot;Training grant&quot;</span>),</span>
+<span id="cb20-6"><a href="reg.html#cb20-6"></a>          <span class="dt">model.names =</span> <span class="ot">FALSE</span>,</span>
+<span id="cb20-7"><a href="reg.html#cb20-7"></a>          <span class="dt">omit =</span> <span class="kw">c</span>(<span class="st">&quot;fcode&quot;</span>,<span class="st">&quot;year&quot;</span>),</span>
+<span id="cb20-8"><a href="reg.html#cb20-8"></a>          <span class="dt">covariate.labels =</span> <span class="kw">c</span>(<span class="st">&quot;log(Employment)&quot;</span>,<span class="st">&quot;Labor Union&quot;</span>,<span class="st">&quot;Traning Grant&quot;</span>, <span class="st">&quot;Traning Grant 1 Year Before&quot;</span>),</span>
+<span id="cb20-9"><a href="reg.html#cb20-9"></a>          <span class="dt">order =</span> <span class="kw">c</span>(<span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">1</span>, <span class="dv">2</span>),</span>
+<span id="cb20-10"><a href="reg.html#cb20-10"></a>          <span class="dt">add.lines =</span> <span class="kw">list</span>(<span class="kw">c</span>(<span class="st">&quot;Factory FE&quot;</span>, <span class="st">&quot;No&quot;</span>, <span class="st">&quot;No&quot;</span>,<span class="st">&quot;Yes&quot;</span>,<span class="st">&quot;Yes&quot;</span>,<span class="st">&quot;Yes&quot;</span>),</span>
+<span id="cb20-11"><a href="reg.html#cb20-11"></a>                           <span class="kw">c</span>(<span class="st">&quot;Year FE&quot;</span>, <span class="st">&quot;No&quot;</span>, <span class="st">&quot;No&quot;</span>,<span class="st">&quot;No&quot;</span>,<span class="st">&quot;Yes&quot;</span>,<span class="st">&quot;Yes&quot;</span>)),</span>
+<span id="cb20-12"><a href="reg.html#cb20-12"></a>          <span class="dt">keep.stat =</span> <span class="kw">c</span>(<span class="st">&quot;n&quot;</span>,<span class="st">&quot;ll&quot;</span>,<span class="st">&quot;rsq&quot;</span>,<span class="st">&quot;f&quot;</span>),</span>
+<span id="cb20-13"><a href="reg.html#cb20-13"></a>          <span class="dt">df =</span> <span class="ot">FALSE</span>)</span></code></pre></div>
+<table style="text-align:center">
+<tr>
+<td colspan="6" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td colspan="4">
+Training hours
+</td>
+<td>
+Training grant
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+Basic
+</td>
+<td>
+With Union
+</td>
+<td>
+Factory
+</td>
+<td>
+F&amp;Y
+</td>
+<td>
+Selection
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(1)
+</td>
+<td>
+(2)
+</td>
+<td>
+(3)
+</td>
+<td>
+(4)
+</td>
+<td>
+(5)
+</td>
+</tr>
+<tr>
+<td colspan="6" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+log(Employment)
+</td>
+<td>
+-4.629<sup>***</sup>
+</td>
+<td>
+-3.892<sup>***</sup>
+</td>
+<td>
+1.755
+</td>
+<td>
+-0.176
+</td>
+<td>
+0.089
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(1.081)
+</td>
+<td>
+(1.108)
+</td>
+<td>
+(4.102)
+</td>
+<td>
+(4.288)
+</td>
+<td>
+(0.134)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Labor Union
+</td>
+<td>
+</td>
+<td>
+-7.734<sup>***</sup>
+</td>
+<td>
+-5.150
+</td>
+<td>
+-5.060
+</td>
+<td>
+0.213
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+(2.925)
+</td>
+<td>
+(11.759)
+</td>
+<td>
+(11.664)
+</td>
+<td>
+(0.332)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Traning Grant
+</td>
+<td>
+33.337<sup>***</sup>
+</td>
+<td>
+33.545<sup>***</sup>
+</td>
+<td>
+35.962<sup>***</sup>
+</td>
+<td>
+34.228<sup>***</sup>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(3.194)
+</td>
+<td>
+(3.170)
+</td>
+<td>
+(2.509)
+</td>
+<td>
+(2.858)
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Traning Grant 1 Year Before
+</td>
+<td>
+0.790
+</td>
+<td>
+1.229
+</td>
+<td>
+5.664<sup>*</sup>
+</td>
+<td>
+0.504
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(4.006)
+</td>
+<td>
+(3.979)
+</td>
+<td>
+(3.304)
+</td>
+<td>
+(4.127)
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Constant
+</td>
+<td>
+26.353<sup>***</sup>
+</td>
+<td>
+25.181<sup>***</sup>
+</td>
+<td>
+-2.261
+</td>
+<td>
+5.944
+</td>
+<td>
+-2.155<sup>***</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(4.039)
+</td>
+<td>
+(4.033)
+</td>
+<td>
+(21.238)
+</td>
+<td>
+(21.698)
+</td>
+<td>
+(0.494)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td colspan="6" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Factory FE
+</td>
+<td>
+No
+</td>
+<td>
+No
+</td>
+<td>
+Yes
+</td>
+<td>
+Yes
+</td>
+<td>
+Yes
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Year FE
+</td>
+<td>
+No
+</td>
+<td>
+No
+</td>
+<td>
+No
+</td>
+<td>
+Yes
+</td>
+<td>
+Yes
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Observations
+</td>
+<td>
+390
+</td>
+<td>
+390
+</td>
+<td>
+390
+</td>
+<td>
+390
+</td>
+<td>
+440
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+R<sup>2</sup>
+</td>
+<td>
+0.247
+</td>
+<td>
+0.261
+</td>
+<td>
+0.797
+</td>
+<td>
+0.802
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Log Likelihood
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+-180.165
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+F Statistic
+</td>
+<td>
+42.280<sup>***</sup>
+</td>
+<td>
+33.949<sup>***</sup>
+</td>
+<td>
+7.212<sup>***</sup>
+</td>
+<td>
+7.269<sup>***</sup>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td colspan="6" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+<em>Note:</em>
+</td>
+<td colspan="5" style="text-align:right">
+<sup><em></sup>p&lt;0.1; <sup><strong></sup>p&lt;0.05; <sup></strong></em></sup>p&lt;0.01
+</td>
+</tr>
+</table>
+</div>
+<div id="表格注释" class="section level3" number="3.2.7">
+<h3><span class="header-section-number">3.2.7</span> 表格注释</h3>
+<p>回归表格的注释在经济学论文中是非常重要的。经济学中往往要求表格本身是可以被独立阅读和理解的，因此经济学家往往会在表格的注释中添加大量的补充信息，例如模型的细节，表格正文中未汇报的变量，甚至一些变量的测度方式等。stargaze的notes参数可以用来添加注释，同时通过notes.append = FALSE/TRUE来设定是否覆盖模型默认的note，notes.align用来设置note的对齐方式，notes.label则用于设置note的标签名。</p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="reg.html#cb21-1"></a><span class="kw">stargazer</span>(mod1, mod2, mod3,mod4,mod5, </span>
+<span id="cb21-2"><a href="reg.html#cb21-2"></a>          <span class="dt">type =</span> <span class="st">&quot;html&quot;</span>,</span>
+<span id="cb21-3"><a href="reg.html#cb21-3"></a>          <span class="dt">dep.var.caption =</span> <span class="st">&quot;&quot;</span>,</span>
+<span id="cb21-4"><a href="reg.html#cb21-4"></a>          <span class="dt">column.labels =</span> <span class="kw">c</span>(<span class="st">&quot;Basic&quot;</span>,<span class="st">&quot;With Union&quot;</span>,<span class="st">&quot;Factory&quot;</span>,<span class="st">&quot;F&amp;Y&quot;</span>,<span class="st">&quot;Selection&quot;</span>),</span>
+<span id="cb21-5"><a href="reg.html#cb21-5"></a>          <span class="dt">dep.var.labels =</span> <span class="kw">c</span>(<span class="st">&quot;Training hours&quot;</span>,<span class="st">&quot;Training grant&quot;</span>),</span>
+<span id="cb21-6"><a href="reg.html#cb21-6"></a>          <span class="dt">model.names =</span> <span class="ot">FALSE</span>,</span>
+<span id="cb21-7"><a href="reg.html#cb21-7"></a>          <span class="dt">omit =</span> <span class="kw">c</span>(<span class="st">&quot;fcode&quot;</span>,<span class="st">&quot;year&quot;</span>),</span>
+<span id="cb21-8"><a href="reg.html#cb21-8"></a>          <span class="dt">covariate.labels =</span> <span class="kw">c</span>(<span class="st">&quot;log(Employment)&quot;</span>,<span class="st">&quot;Labor Union&quot;</span>,<span class="st">&quot;Traning Grant&quot;</span>, <span class="st">&quot;Traning Grant 1 Year Before&quot;</span>),</span>
+<span id="cb21-9"><a href="reg.html#cb21-9"></a>          <span class="dt">order =</span> <span class="kw">c</span>(<span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">1</span>, <span class="dv">2</span>),</span>
+<span id="cb21-10"><a href="reg.html#cb21-10"></a>          <span class="dt">add.lines =</span> <span class="kw">list</span>(<span class="kw">c</span>(<span class="st">&quot;Factory FE&quot;</span>, <span class="st">&quot;No&quot;</span>, <span class="st">&quot;No&quot;</span>,<span class="st">&quot;Yes&quot;</span>,<span class="st">&quot;Yes&quot;</span>,<span class="st">&quot;Yes&quot;</span>),</span>
+<span id="cb21-11"><a href="reg.html#cb21-11"></a>                           <span class="kw">c</span>(<span class="st">&quot;Year FE&quot;</span>, <span class="st">&quot;No&quot;</span>, <span class="st">&quot;No&quot;</span>,<span class="st">&quot;No&quot;</span>,<span class="st">&quot;Yes&quot;</span>,<span class="st">&quot;Yes&quot;</span>)),</span>
+<span id="cb21-12"><a href="reg.html#cb21-12"></a>          <span class="dt">keep.stat =</span> <span class="kw">c</span>(<span class="st">&quot;n&quot;</span>,<span class="st">&quot;ll&quot;</span>,<span class="st">&quot;rsq&quot;</span>,<span class="st">&quot;f&quot;</span>),</span>
+<span id="cb21-13"><a href="reg.html#cb21-13"></a>          <span class="dt">df =</span> <span class="ot">FALSE</span>,</span>
+<span id="cb21-14"><a href="reg.html#cb21-14"></a>          <span class="dt">notes =</span> <span class="st">&quot;* p&lt;0.1; ** p&lt;0.05; ***p&lt;0.01&quot;</span>,</span>
+<span id="cb21-15"><a href="reg.html#cb21-15"></a>          <span class="dt">notes.append =</span> <span class="ot">FALSE</span>,</span>
+<span id="cb21-16"><a href="reg.html#cb21-16"></a>          <span class="dt">notes.align =</span> <span class="st">&quot;l&quot;</span>,</span>
+<span id="cb21-17"><a href="reg.html#cb21-17"></a>          <span class="dt">notes.label =</span> <span class="st">&quot;New note label&quot;</span>)</span></code></pre></div>
+<table style="text-align:center">
+<tr>
+<td colspan="6" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td colspan="4">
+Training hours
+</td>
+<td>
+Training grant
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+Basic
+</td>
+<td>
+With Union
+</td>
+<td>
+Factory
+</td>
+<td>
+F&amp;Y
+</td>
+<td>
+Selection
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(1)
+</td>
+<td>
+(2)
+</td>
+<td>
+(3)
+</td>
+<td>
+(4)
+</td>
+<td>
+(5)
+</td>
+</tr>
+<tr>
+<td colspan="6" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+log(Employment)
+</td>
+<td>
+-4.629<sup>***</sup>
+</td>
+<td>
+-3.892<sup>***</sup>
+</td>
+<td>
+1.755
+</td>
+<td>
+-0.176
+</td>
+<td>
+0.089
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(1.081)
+</td>
+<td>
+(1.108)
+</td>
+<td>
+(4.102)
+</td>
+<td>
+(4.288)
+</td>
+<td>
+(0.134)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Labor Union
+</td>
+<td>
+</td>
+<td>
+-7.734<sup>***</sup>
+</td>
+<td>
+-5.150
+</td>
+<td>
+-5.060
+</td>
+<td>
+0.213
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+(2.925)
+</td>
+<td>
+(11.759)
+</td>
+<td>
+(11.664)
+</td>
+<td>
+(0.332)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Traning Grant
+</td>
+<td>
+33.337<sup>***</sup>
+</td>
+<td>
+33.545<sup>***</sup>
+</td>
+<td>
+35.962<sup>***</sup>
+</td>
+<td>
+34.228<sup>***</sup>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(3.194)
+</td>
+<td>
+(3.170)
+</td>
+<td>
+(2.509)
+</td>
+<td>
+(2.858)
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Traning Grant 1 Year Before
+</td>
+<td>
+0.790
+</td>
+<td>
+1.229
+</td>
+<td>
+5.664<sup>*</sup>
+</td>
+<td>
+0.504
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(4.006)
+</td>
+<td>
+(3.979)
+</td>
+<td>
+(3.304)
+</td>
+<td>
+(4.127)
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Constant
+</td>
+<td>
+26.353<sup>***</sup>
+</td>
+<td>
+25.181<sup>***</sup>
+</td>
+<td>
+-2.261
+</td>
+<td>
+5.944
+</td>
+<td>
+-2.155<sup>***</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(4.039)
+</td>
+<td>
+(4.033)
+</td>
+<td>
+(21.238)
+</td>
+<td>
+(21.698)
+</td>
+<td>
+(0.494)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td colspan="6" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Factory FE
+</td>
+<td>
+No
+</td>
+<td>
+No
+</td>
+<td>
+Yes
+</td>
+<td>
+Yes
+</td>
+<td>
+Yes
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Year FE
+</td>
+<td>
+No
+</td>
+<td>
+No
+</td>
+<td>
+No
+</td>
+<td>
+Yes
+</td>
+<td>
+Yes
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Observations
+</td>
+<td>
+390
+</td>
+<td>
+390
+</td>
+<td>
+390
+</td>
+<td>
+390
+</td>
+<td>
+440
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+R<sup>2</sup>
+</td>
+<td>
+0.247
+</td>
+<td>
+0.261
+</td>
+<td>
+0.797
+</td>
+<td>
+0.802
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Log Likelihood
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+-180.165
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+F Statistic
+</td>
+<td>
+42.280<sup>***</sup>
+</td>
+<td>
+33.949<sup>***</sup>
+</td>
+<td>
+7.212<sup>***</sup>
+</td>
+<td>
+7.269<sup>***</sup>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td colspan="6" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+New note label
+</td>
+<td colspan="5" style="text-align:left">
+<ul>
+<li>p&lt;0.1; ** p&lt;0.05; ***p&lt;0.01
+</td>
+</tr>
+</table></li>
+</ul>
+</div>
+<div id="整体布局" class="section level3" number="3.2.8">
+<h3><span class="header-section-number">3.2.8</span> 整体布局</h3>
+<p>stargazer还允许我们对表格的整体布局进行调整，例如我们前面的回归表中有许多空行，我们可以用no.space=TRUE来将空行去掉。</p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="reg.html#cb22-1"></a><span class="kw">stargazer</span>(mod1, mod2, mod3,mod4,mod5, </span>
+<span id="cb22-2"><a href="reg.html#cb22-2"></a>          <span class="dt">type =</span> <span class="st">&quot;html&quot;</span>,</span>
+<span id="cb22-3"><a href="reg.html#cb22-3"></a>          <span class="dt">dep.var.caption =</span> <span class="st">&quot;&quot;</span>,</span>
+<span id="cb22-4"><a href="reg.html#cb22-4"></a>          <span class="dt">column.labels =</span> <span class="kw">c</span>(<span class="st">&quot;Basic&quot;</span>,<span class="st">&quot;With Union&quot;</span>,<span class="st">&quot;Factory&quot;</span>,<span class="st">&quot;F&amp;Y&quot;</span>,<span class="st">&quot;Selection&quot;</span>),</span>
+<span id="cb22-5"><a href="reg.html#cb22-5"></a>          <span class="dt">dep.var.labels =</span> <span class="kw">c</span>(<span class="st">&quot;Training hours&quot;</span>,<span class="st">&quot;Training grant&quot;</span>),</span>
+<span id="cb22-6"><a href="reg.html#cb22-6"></a>          <span class="dt">model.names =</span> <span class="ot">FALSE</span>,</span>
+<span id="cb22-7"><a href="reg.html#cb22-7"></a>          <span class="dt">omit =</span> <span class="kw">c</span>(<span class="st">&quot;fcode&quot;</span>,<span class="st">&quot;year&quot;</span>),</span>
+<span id="cb22-8"><a href="reg.html#cb22-8"></a>          <span class="dt">covariate.labels =</span> <span class="kw">c</span>(<span class="st">&quot;log(Employment)&quot;</span>,<span class="st">&quot;Labor Union&quot;</span>,<span class="st">&quot;Traning Grant&quot;</span>, <span class="st">&quot;Traning Grant 1 Year Before&quot;</span>),</span>
+<span id="cb22-9"><a href="reg.html#cb22-9"></a>          <span class="dt">order =</span> <span class="kw">c</span>(<span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">1</span>, <span class="dv">2</span>),</span>
+<span id="cb22-10"><a href="reg.html#cb22-10"></a>          <span class="dt">add.lines =</span> <span class="kw">list</span>(<span class="kw">c</span>(<span class="st">&quot;Factory FE&quot;</span>, <span class="st">&quot;No&quot;</span>, <span class="st">&quot;No&quot;</span>,<span class="st">&quot;Yes&quot;</span>,<span class="st">&quot;Yes&quot;</span>,<span class="st">&quot;Yes&quot;</span>),</span>
+<span id="cb22-11"><a href="reg.html#cb22-11"></a>                           <span class="kw">c</span>(<span class="st">&quot;Year FE&quot;</span>, <span class="st">&quot;No&quot;</span>, <span class="st">&quot;No&quot;</span>,<span class="st">&quot;No&quot;</span>,<span class="st">&quot;Yes&quot;</span>,<span class="st">&quot;Yes&quot;</span>)),</span>
+<span id="cb22-12"><a href="reg.html#cb22-12"></a>          <span class="dt">keep.stat =</span> <span class="kw">c</span>(<span class="st">&quot;n&quot;</span>,<span class="st">&quot;ll&quot;</span>,<span class="st">&quot;rsq&quot;</span>,<span class="st">&quot;f&quot;</span>),</span>
+<span id="cb22-13"><a href="reg.html#cb22-13"></a>          <span class="dt">df =</span> <span class="ot">FALSE</span>,</span>
+<span id="cb22-14"><a href="reg.html#cb22-14"></a>          <span class="dt">notes =</span> <span class="st">&quot;* p&lt;0.1; ** p&lt;0.05; ***p&lt;0.01&quot;</span>,</span>
+<span id="cb22-15"><a href="reg.html#cb22-15"></a>          <span class="dt">notes.append =</span> <span class="ot">FALSE</span>,</span>
+<span id="cb22-16"><a href="reg.html#cb22-16"></a>          <span class="dt">notes.align =</span> <span class="st">&quot;l&quot;</span>,</span>
+<span id="cb22-17"><a href="reg.html#cb22-17"></a>          <span class="dt">notes.label =</span> <span class="st">&quot;New note label&quot;</span>,</span>
+<span id="cb22-18"><a href="reg.html#cb22-18"></a>          <span class="dt">no.space =</span> <span class="ot">TRUE</span>)</span></code></pre></div>
+<table style="text-align:center">
+<tr>
+<td colspan="6" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td colspan="4">
+Training hours
+</td>
+<td>
+Training grant
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+Basic
+</td>
+<td>
+With Union
+</td>
+<td>
+Factory
+</td>
+<td>
+F&amp;Y
+</td>
+<td>
+Selection
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(1)
+</td>
+<td>
+(2)
+</td>
+<td>
+(3)
+</td>
+<td>
+(4)
+</td>
+<td>
+(5)
+</td>
+</tr>
+<tr>
+<td colspan="6" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+log(Employment)
+</td>
+<td>
+-4.629<sup>***</sup>
+</td>
+<td>
+-3.892<sup>***</sup>
+</td>
+<td>
+1.755
+</td>
+<td>
+-0.176
+</td>
+<td>
+0.089
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(1.081)
+</td>
+<td>
+(1.108)
+</td>
+<td>
+(4.102)
+</td>
+<td>
+(4.288)
+</td>
+<td>
+(0.134)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Labor Union
+</td>
+<td>
+</td>
+<td>
+-7.734<sup>***</sup>
+</td>
+<td>
+-5.150
+</td>
+<td>
+-5.060
+</td>
+<td>
+0.213
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+(2.925)
+</td>
+<td>
+(11.759)
+</td>
+<td>
+(11.664)
+</td>
+<td>
+(0.332)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Traning Grant
+</td>
+<td>
+33.337<sup>***</sup>
+</td>
+<td>
+33.545<sup>***</sup>
+</td>
+<td>
+35.962<sup>***</sup>
+</td>
+<td>
+34.228<sup>***</sup>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(3.194)
+</td>
+<td>
+(3.170)
+</td>
+<td>
+(2.509)
+</td>
+<td>
+(2.858)
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Traning Grant 1 Year Before
+</td>
+<td>
+0.790
+</td>
+<td>
+1.229
+</td>
+<td>
+5.664<sup>*</sup>
+</td>
+<td>
+0.504
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(4.006)
+</td>
+<td>
+(3.979)
+</td>
+<td>
+(3.304)
+</td>
+<td>
+(4.127)
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Constant
+</td>
+<td>
+26.353<sup>***</sup>
+</td>
+<td>
+25.181<sup>***</sup>
+</td>
+<td>
+-2.261
+</td>
+<td>
+5.944
+</td>
+<td>
+-2.155<sup>***</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(4.039)
+</td>
+<td>
+(4.033)
+</td>
+<td>
+(21.238)
+</td>
+<td>
+(21.698)
+</td>
+<td>
+(0.494)
+</td>
+</tr>
+<tr>
+<td colspan="6" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Factory FE
+</td>
+<td>
+No
+</td>
+<td>
+No
+</td>
+<td>
+Yes
+</td>
+<td>
+Yes
+</td>
+<td>
+Yes
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Year FE
+</td>
+<td>
+No
+</td>
+<td>
+No
+</td>
+<td>
+No
+</td>
+<td>
+Yes
+</td>
+<td>
+Yes
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Observations
+</td>
+<td>
+390
+</td>
+<td>
+390
+</td>
+<td>
+390
+</td>
+<td>
+390
+</td>
+<td>
+440
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+R<sup>2</sup>
+</td>
+<td>
+0.247
+</td>
+<td>
+0.261
+</td>
+<td>
+0.797
+</td>
+<td>
+0.802
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Log Likelihood
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+-180.165
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+F Statistic
+</td>
+<td>
+42.280<sup>***</sup>
+</td>
+<td>
+33.949<sup>***</sup>
+</td>
+<td>
+7.212<sup>***</sup>
+</td>
+<td>
+7.269<sup>***</sup>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td colspan="6" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+New note label
+</td>
+<td colspan="5" style="text-align:left">
+<ul>
+<li>p&lt;0.1; ** p&lt;0.05; ***p&lt;0.01
+</td>
+</tr>
+</table>
+更厉害的一个调整表格布局的方式是使用omit.table.layout与table.layout参数来设置表格呈现的模块与顺序。特别地，该参数是强于其他参数的，例如当我们设置了因变量标签与不汇报因变量标签，stargazer会选择不汇报因变量标签，因此因变量标签的命名也就失效了。不同模块的含义如下：</li>
+</ul>
+<table>
+<thead>
+<tr class="header">
+<th align="left">代码</th>
+<th align="left">模块</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">“-”</td>
+<td align="left">single horizontal line</td>
+</tr>
+<tr class="even">
+<td align="left">“=”</td>
+<td align="left">double horizontal line</td>
+</tr>
+<tr class="odd">
+<td align="left">“-!”</td>
+<td align="left">mandatory single horizontal line</td>
+</tr>
+<tr class="even">
+<td align="left">“=!”</td>
+<td align="left">mandatory double horizontal line</td>
+</tr>
+<tr class="odd">
+<td align="left">“l”</td>
+<td align="left">dependent variable caption</td>
+</tr>
+<tr class="even">
+<td align="left">“d”</td>
+<td align="left">dependent variable labels</td>
+</tr>
+<tr class="odd">
+<td align="left">“m”</td>
+<td align="left">model label</td>
+</tr>
+<tr class="even">
+<td align="left">“c”</td>
+<td align="left">column labels</td>
+</tr>
+<tr class="odd">
+<td align="left">“#”</td>
+<td align="left">model numbers</td>
+</tr>
+<tr class="even">
+<td align="left">“b”</td>
+<td align="left">object names</td>
+</tr>
+<tr class="odd">
+<td align="left">“t”</td>
+<td align="left">coefficient table</td>
+</tr>
+<tr class="even">
+<td align="left">“o”</td>
+<td align="left">omitted coefficient indicators</td>
+</tr>
+<tr class="odd">
+<td align="left">“a”</td>
+<td align="left">additional lines</td>
+</tr>
+<tr class="even">
+<td align="left">“n”</td>
+<td align="left">notes</td>
+</tr>
+<tr class="odd">
+<td align="left">“s”</td>
+<td align="left">model statistics</td>
+</tr>
+</tbody>
+</table>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="reg.html#cb23-1"></a><span class="kw">stargazer</span>(mod1, mod2, mod3,mod4,mod5, </span>
+<span id="cb23-2"><a href="reg.html#cb23-2"></a>          <span class="dt">type =</span> <span class="st">&quot;html&quot;</span>,</span>
+<span id="cb23-3"><a href="reg.html#cb23-3"></a>          <span class="dt">dep.var.caption =</span> <span class="st">&quot;&quot;</span>,</span>
+<span id="cb23-4"><a href="reg.html#cb23-4"></a>          <span class="dt">column.labels =</span> <span class="kw">c</span>(<span class="st">&quot;Basic&quot;</span>,<span class="st">&quot;With Union&quot;</span>,<span class="st">&quot;Factory&quot;</span>,<span class="st">&quot;F&amp;Y&quot;</span>,<span class="st">&quot;Selection&quot;</span>),</span>
+<span id="cb23-5"><a href="reg.html#cb23-5"></a>          <span class="dt">dep.var.labels =</span> <span class="kw">c</span>(<span class="st">&quot;Training hours&quot;</span>,<span class="st">&quot;Training grant&quot;</span>),</span>
+<span id="cb23-6"><a href="reg.html#cb23-6"></a>          <span class="dt">model.names =</span> <span class="ot">FALSE</span>,</span>
+<span id="cb23-7"><a href="reg.html#cb23-7"></a>          <span class="dt">omit =</span> <span class="kw">c</span>(<span class="st">&quot;fcode&quot;</span>,<span class="st">&quot;year&quot;</span>),</span>
+<span id="cb23-8"><a href="reg.html#cb23-8"></a>          <span class="dt">covariate.labels =</span> <span class="kw">c</span>(<span class="st">&quot;log(Employment)&quot;</span>,<span class="st">&quot;Labor Union&quot;</span>,<span class="st">&quot;Traning Grant&quot;</span>, <span class="st">&quot;Traning Grant 1 Year Before&quot;</span>),</span>
+<span id="cb23-9"><a href="reg.html#cb23-9"></a>          <span class="dt">order =</span> <span class="kw">c</span>(<span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">1</span>, <span class="dv">2</span>),</span>
+<span id="cb23-10"><a href="reg.html#cb23-10"></a>          <span class="dt">add.lines =</span> <span class="kw">list</span>(<span class="kw">c</span>(<span class="st">&quot;Factory FE&quot;</span>, <span class="st">&quot;No&quot;</span>, <span class="st">&quot;No&quot;</span>,<span class="st">&quot;Yes&quot;</span>,<span class="st">&quot;Yes&quot;</span>,<span class="st">&quot;Yes&quot;</span>),</span>
+<span id="cb23-11"><a href="reg.html#cb23-11"></a>                           <span class="kw">c</span>(<span class="st">&quot;Year FE&quot;</span>, <span class="st">&quot;No&quot;</span>, <span class="st">&quot;No&quot;</span>,<span class="st">&quot;No&quot;</span>,<span class="st">&quot;Yes&quot;</span>,<span class="st">&quot;Yes&quot;</span>)),</span>
+<span id="cb23-12"><a href="reg.html#cb23-12"></a>          <span class="dt">keep.stat =</span> <span class="kw">c</span>(<span class="st">&quot;n&quot;</span>,<span class="st">&quot;ll&quot;</span>,<span class="st">&quot;rsq&quot;</span>,<span class="st">&quot;f&quot;</span>),</span>
+<span id="cb23-13"><a href="reg.html#cb23-13"></a>          <span class="dt">df =</span> <span class="ot">FALSE</span>,</span>
+<span id="cb23-14"><a href="reg.html#cb23-14"></a>          <span class="dt">notes =</span> <span class="st">&quot;* p&lt;0.1; ** p&lt;0.05; ***p&lt;0.01&quot;</span>,</span>
+<span id="cb23-15"><a href="reg.html#cb23-15"></a>          <span class="dt">notes.append =</span> <span class="ot">FALSE</span>,</span>
+<span id="cb23-16"><a href="reg.html#cb23-16"></a>          <span class="dt">notes.align =</span> <span class="st">&quot;l&quot;</span>,</span>
+<span id="cb23-17"><a href="reg.html#cb23-17"></a>          <span class="dt">notes.label =</span> <span class="st">&quot;New note label&quot;</span>,</span>
+<span id="cb23-18"><a href="reg.html#cb23-18"></a>          <span class="dt">no.space =</span> <span class="ot">TRUE</span>,</span>
+<span id="cb23-19"><a href="reg.html#cb23-19"></a>          <span class="dt">table.layout =</span> <span class="st">&quot;=d#c-ta-s-n&quot;</span>)</span></code></pre></div>
+<table style="text-align:center">
+<tr>
+<td colspan="6" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td colspan="4">
+Training hours
+</td>
+<td>
+Training grant
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(1)
+</td>
+<td>
+(2)
+</td>
+<td>
+(3)
+</td>
+<td>
+(4)
+</td>
+<td>
+(5)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+Basic
+</td>
+<td>
+With Union
+</td>
+<td>
+Factory
+</td>
+<td>
+F&amp;Y
+</td>
+<td>
+Selection
+</td>
+</tr>
+<tr>
+<td colspan="6" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+log(Employment)
+</td>
+<td>
+-4.629<sup>***</sup>
+</td>
+<td>
+-3.892<sup>***</sup>
+</td>
+<td>
+1.755
+</td>
+<td>
+-0.176
+</td>
+<td>
+0.089
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(1.081)
+</td>
+<td>
+(1.108)
+</td>
+<td>
+(4.102)
+</td>
+<td>
+(4.288)
+</td>
+<td>
+(0.134)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Labor Union
+</td>
+<td>
+</td>
+<td>
+-7.734<sup>***</sup>
+</td>
+<td>
+-5.150
+</td>
+<td>
+-5.060
+</td>
+<td>
+0.213
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+(2.925)
+</td>
+<td>
+(11.759)
+</td>
+<td>
+(11.664)
+</td>
+<td>
+(0.332)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Traning Grant
+</td>
+<td>
+33.337<sup>***</sup>
+</td>
+<td>
+33.545<sup>***</sup>
+</td>
+<td>
+35.962<sup>***</sup>
+</td>
+<td>
+34.228<sup>***</sup>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(3.194)
+</td>
+<td>
+(3.170)
+</td>
+<td>
+(2.509)
+</td>
+<td>
+(2.858)
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Traning Grant 1 Year Before
+</td>
+<td>
+0.790
+</td>
+<td>
+1.229
+</td>
+<td>
+5.664<sup>*</sup>
+</td>
+<td>
+0.504
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(4.006)
+</td>
+<td>
+(3.979)
+</td>
+<td>
+(3.304)
+</td>
+<td>
+(4.127)
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Constant
+</td>
+<td>
+26.353<sup>***</sup>
+</td>
+<td>
+25.181<sup>***</sup>
+</td>
+<td>
+-2.261
+</td>
+<td>
+5.944
+</td>
+<td>
+-2.155<sup>***</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(4.039)
+</td>
+<td>
+(4.033)
+</td>
+<td>
+(21.238)
+</td>
+<td>
+(21.698)
+</td>
+<td>
+(0.494)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Factory FE
+</td>
+<td>
+No
+</td>
+<td>
+No
+</td>
+<td>
+Yes
+</td>
+<td>
+Yes
+</td>
+<td>
+Yes
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Year FE
+</td>
+<td>
+No
+</td>
+<td>
+No
+</td>
+<td>
+No
+</td>
+<td>
+Yes
+</td>
+<td>
+Yes
+</td>
+</tr>
+<tr>
+<td colspan="6" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Observations
+</td>
+<td>
+390
+</td>
+<td>
+390
+</td>
+<td>
+390
+</td>
+<td>
+390
+</td>
+<td>
+440
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+R<sup>2</sup>
+</td>
+<td>
+0.247
+</td>
+<td>
+0.261
+</td>
+<td>
+0.797
+</td>
+<td>
+0.802
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Log Likelihood
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+-180.165
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+F Statistic
+</td>
+<td>
+42.280<sup>***</sup>
+</td>
+<td>
+33.949<sup>***</sup>
+</td>
+<td>
+7.212<sup>***</sup>
+</td>
+<td>
+7.269<sup>***</sup>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td colspan="6" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+New note label
+</td>
+<td colspan="5" style="text-align:left">
+<ul>
+<li>p&lt;0.1; ** p&lt;0.05; ***p&lt;0.01
+</td>
+</tr>
+</table></li>
+</ul>
+<p>stargazer同样支持LaTex和HTML语法，下表中我们使用HTML语法将回归表的log(Employment)加粗，同时让note label使用斜体。</p>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="reg.html#cb24-1"></a><span class="kw">stargazer</span>(mod1, mod2, mod3,mod4,mod5, </span>
+<span id="cb24-2"><a href="reg.html#cb24-2"></a>          <span class="dt">type =</span> <span class="st">&quot;html&quot;</span>,</span>
+<span id="cb24-3"><a href="reg.html#cb24-3"></a>          <span class="dt">dep.var.caption =</span> <span class="st">&quot;&quot;</span>,</span>
+<span id="cb24-4"><a href="reg.html#cb24-4"></a>          <span class="dt">column.labels =</span> <span class="kw">c</span>(<span class="st">&quot;Basic&quot;</span>,<span class="st">&quot;With Union&quot;</span>,<span class="st">&quot;Factory&quot;</span>,<span class="st">&quot;F&amp;Y&quot;</span>,<span class="st">&quot;Selection&quot;</span>),</span>
+<span id="cb24-5"><a href="reg.html#cb24-5"></a>          <span class="dt">dep.var.labels =</span> <span class="kw">c</span>(<span class="st">&quot;Training hours&quot;</span>,<span class="st">&quot;Training grant&quot;</span>),</span>
+<span id="cb24-6"><a href="reg.html#cb24-6"></a>          <span class="dt">model.names =</span> <span class="ot">FALSE</span>,</span>
+<span id="cb24-7"><a href="reg.html#cb24-7"></a>          <span class="dt">omit =</span> <span class="kw">c</span>(<span class="st">&quot;fcode&quot;</span>,<span class="st">&quot;year&quot;</span>),</span>
+<span id="cb24-8"><a href="reg.html#cb24-8"></a>          <span class="dt">covariate.labels =</span> <span class="kw">c</span>(<span class="st">&quot;&lt;b&gt; log(Employment) &lt;/b&gt; &quot;</span>,<span class="st">&quot;Labor Union&quot;</span>,<span class="st">&quot;Traning Grant&quot;</span>, <span class="st">&quot;Traning Grant 1 Year Before&quot;</span>),</span>
+<span id="cb24-9"><a href="reg.html#cb24-9"></a>          <span class="dt">order =</span> <span class="kw">c</span>(<span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">1</span>, <span class="dv">2</span>),</span>
+<span id="cb24-10"><a href="reg.html#cb24-10"></a>          <span class="dt">add.lines =</span> <span class="kw">list</span>(<span class="kw">c</span>(<span class="st">&quot;Factory FE&quot;</span>, <span class="st">&quot;No&quot;</span>, <span class="st">&quot;No&quot;</span>,<span class="st">&quot;Yes&quot;</span>,<span class="st">&quot;Yes&quot;</span>,<span class="st">&quot;Yes&quot;</span>),</span>
+<span id="cb24-11"><a href="reg.html#cb24-11"></a>                           <span class="kw">c</span>(<span class="st">&quot;Year FE&quot;</span>, <span class="st">&quot;No&quot;</span>, <span class="st">&quot;No&quot;</span>,<span class="st">&quot;No&quot;</span>,<span class="st">&quot;Yes&quot;</span>,<span class="st">&quot;Yes&quot;</span>)),</span>
+<span id="cb24-12"><a href="reg.html#cb24-12"></a>          <span class="dt">keep.stat =</span> <span class="kw">c</span>(<span class="st">&quot;n&quot;</span>,<span class="st">&quot;ll&quot;</span>,<span class="st">&quot;rsq&quot;</span>,<span class="st">&quot;f&quot;</span>),</span>
+<span id="cb24-13"><a href="reg.html#cb24-13"></a>          <span class="dt">df =</span> <span class="ot">FALSE</span>,</span>
+<span id="cb24-14"><a href="reg.html#cb24-14"></a>          <span class="dt">notes =</span> <span class="st">&quot;* p&lt;0.1; ** p&lt;0.05; ***p&lt;0.01&quot;</span>,</span>
+<span id="cb24-15"><a href="reg.html#cb24-15"></a>          <span class="dt">notes.append =</span> <span class="ot">FALSE</span>,</span>
+<span id="cb24-16"><a href="reg.html#cb24-16"></a>          <span class="dt">notes.align =</span> <span class="st">&quot;l&quot;</span>,</span>
+<span id="cb24-17"><a href="reg.html#cb24-17"></a>          <span class="dt">notes.label =</span> <span class="st">&quot;&lt;em&gt; New note label &lt;/em&gt;&quot;</span>,</span>
+<span id="cb24-18"><a href="reg.html#cb24-18"></a>          <span class="dt">no.space =</span> <span class="ot">TRUE</span>,</span>
+<span id="cb24-19"><a href="reg.html#cb24-19"></a>          <span class="dt">table.layout =</span> <span class="st">&quot;=d#c-ta-s-n&quot;</span>)</span></code></pre></div>
+<table style="text-align:center">
+<tr>
+<td colspan="6" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td colspan="4">
+Training hours
+</td>
+<td>
+Training grant
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(1)
+</td>
+<td>
+(2)
+</td>
+<td>
+(3)
+</td>
+<td>
+(4)
+</td>
+<td>
+(5)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+Basic
+</td>
+<td>
+With Union
+</td>
+<td>
+Factory
+</td>
+<td>
+F&amp;Y
+</td>
+<td>
+Selection
+</td>
+</tr>
+<tr>
+<td colspan="6" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+<b> log(Employment) </b>
+</td>
+<td>
+-4.629<sup>***</sup>
+</td>
+<td>
+-3.892<sup>***</sup>
+</td>
+<td>
+1.755
+</td>
+<td>
+-0.176
+</td>
+<td>
+0.089
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(1.081)
+</td>
+<td>
+(1.108)
+</td>
+<td>
+(4.102)
+</td>
+<td>
+(4.288)
+</td>
+<td>
+(0.134)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Labor Union
+</td>
+<td>
+</td>
+<td>
+-7.734<sup>***</sup>
+</td>
+<td>
+-5.150
+</td>
+<td>
+-5.060
+</td>
+<td>
+0.213
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+(2.925)
+</td>
+<td>
+(11.759)
+</td>
+<td>
+(11.664)
+</td>
+<td>
+(0.332)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Traning Grant
+</td>
+<td>
+33.337<sup>***</sup>
+</td>
+<td>
+33.545<sup>***</sup>
+</td>
+<td>
+35.962<sup>***</sup>
+</td>
+<td>
+34.228<sup>***</sup>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(3.194)
+</td>
+<td>
+(3.170)
+</td>
+<td>
+(2.509)
+</td>
+<td>
+(2.858)
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Traning Grant 1 Year Before
+</td>
+<td>
+0.790
+</td>
+<td>
+1.229
+</td>
+<td>
+5.664<sup>*</sup>
+</td>
+<td>
+0.504
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(4.006)
+</td>
+<td>
+(3.979)
+</td>
+<td>
+(3.304)
+</td>
+<td>
+(4.127)
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Constant
+</td>
+<td>
+26.353<sup>***</sup>
+</td>
+<td>
+25.181<sup>***</sup>
+</td>
+<td>
+-2.261
+</td>
+<td>
+5.944
+</td>
+<td>
+-2.155<sup>***</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(4.039)
+</td>
+<td>
+(4.033)
+</td>
+<td>
+(21.238)
+</td>
+<td>
+(21.698)
+</td>
+<td>
+(0.494)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Factory FE
+</td>
+<td>
+No
+</td>
+<td>
+No
+</td>
+<td>
+Yes
+</td>
+<td>
+Yes
+</td>
+<td>
+Yes
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Year FE
+</td>
+<td>
+No
+</td>
+<td>
+No
+</td>
+<td>
+No
+</td>
+<td>
+Yes
+</td>
+<td>
+Yes
+</td>
+</tr>
+<tr>
+<td colspan="6" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Observations
+</td>
+<td>
+390
+</td>
+<td>
+390
+</td>
+<td>
+390
+</td>
+<td>
+390
+</td>
+<td>
+440
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+R<sup>2</sup>
+</td>
+<td>
+0.247
+</td>
+<td>
+0.261
+</td>
+<td>
+0.797
+</td>
+<td>
+0.802
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Log Likelihood
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+-180.165
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+F Statistic
+</td>
+<td>
+42.280<sup>***</sup>
+</td>
+<td>
+33.949<sup>***</sup>
+</td>
+<td>
+7.212<sup>***</sup>
+</td>
+<td>
+7.269<sup>***</sup>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td colspan="6" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+<em> New note label </em>
+</td>
+<td colspan="5" style="text-align:left">
+<ul>
+<li>p&lt;0.1; ** p&lt;0.05; ***p&lt;0.01
+</td>
+</tr>
+</table></li>
+</ul>
+</div>
+<div id="其他" class="section level3" number="3.2.9">
+<h3><span class="header-section-number">3.2.9</span> 其他</h3>
+<p>在绝大多数正经的经济学论文最终都会使用聚类标准误差来替代标注误差<a href="#fn5" class="footnote-ref" id="fnref5"><sup>5</sup></a>。R中的sandwich包可以计算聚类标准误，将其结果直接赋值给stargazer的se参数并可替换标准误差。</p>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="reg.html#cb25-1"></a><span class="kw">library</span>(sandwich)</span>
+<span id="cb25-2"><a href="reg.html#cb25-2"></a><span class="co"># Adjust standard errors</span></span>
+<span id="cb25-3"><a href="reg.html#cb25-3"></a>cov1 &lt;-<span class="st"> </span><span class="kw">vcovHC</span>(mod1, <span class="dt">type =</span> <span class="st">&quot;HC1&quot;</span>) <span class="co"># HC1保证与stata结果一致</span></span>
+<span id="cb25-4"><a href="reg.html#cb25-4"></a>rbs1 &lt;-<span class="st"> </span><span class="kw">sqrt</span>(<span class="kw">diag</span>(cov1))</span>
+<span id="cb25-5"><a href="reg.html#cb25-5"></a>cov2 &lt;-<span class="st"> </span><span class="kw">vcovHC</span>(mod2, <span class="dt">type =</span> <span class="st">&quot;HC1&quot;</span>)</span>
+<span id="cb25-6"><a href="reg.html#cb25-6"></a>rbs2 &lt;-<span class="st"> </span><span class="kw">sqrt</span>(<span class="kw">diag</span>(cov2))</span>
+<span id="cb25-7"><a href="reg.html#cb25-7"></a>cov3 &lt;-<span class="st"> </span><span class="kw">vcovHC</span>(mod3, <span class="dt">type =</span> <span class="st">&quot;HC1&quot;</span>)</span>
+<span id="cb25-8"><a href="reg.html#cb25-8"></a>rbs3 &lt;-<span class="st"> </span><span class="kw">sqrt</span>(<span class="kw">diag</span>(cov3))</span>
+<span id="cb25-9"><a href="reg.html#cb25-9"></a>cov4 &lt;-<span class="st"> </span><span class="kw">vcovHC</span>(mod4, <span class="dt">type =</span> <span class="st">&quot;HC1&quot;</span>)</span>
+<span id="cb25-10"><a href="reg.html#cb25-10"></a>rbs4 &lt;-<span class="st"> </span><span class="kw">sqrt</span>(<span class="kw">diag</span>(cov4))</span>
+<span id="cb25-11"><a href="reg.html#cb25-11"></a>cov5 &lt;-<span class="st"> </span><span class="kw">vcovHC</span>(mod5, <span class="dt">type =</span> <span class="st">&quot;HC1&quot;</span>)</span>
+<span id="cb25-12"><a href="reg.html#cb25-12"></a>rbs5 &lt;-<span class="st"> </span><span class="kw">sqrt</span>(<span class="kw">diag</span>(cov5))</span>
+<span id="cb25-13"><a href="reg.html#cb25-13"></a></span>
+<span id="cb25-14"><a href="reg.html#cb25-14"></a><span class="kw">stargazer</span>(mod1, mod2, mod3,mod4,mod5, </span>
+<span id="cb25-15"><a href="reg.html#cb25-15"></a>          <span class="dt">type =</span> <span class="st">&quot;html&quot;</span>,</span>
+<span id="cb25-16"><a href="reg.html#cb25-16"></a>          <span class="dt">dep.var.caption =</span> <span class="st">&quot;&quot;</span>,</span>
+<span id="cb25-17"><a href="reg.html#cb25-17"></a>          <span class="dt">column.labels =</span> <span class="kw">c</span>(<span class="st">&quot;Basic&quot;</span>,<span class="st">&quot;With Union&quot;</span>,<span class="st">&quot;Factory&quot;</span>,<span class="st">&quot;F&amp;Y&quot;</span>,<span class="st">&quot;Selection&quot;</span>),</span>
+<span id="cb25-18"><a href="reg.html#cb25-18"></a>          <span class="dt">dep.var.labels =</span> <span class="kw">c</span>(<span class="st">&quot;Training hours&quot;</span>,<span class="st">&quot;Training grant&quot;</span>),</span>
+<span id="cb25-19"><a href="reg.html#cb25-19"></a>          <span class="dt">model.names =</span> <span class="ot">FALSE</span>,</span>
+<span id="cb25-20"><a href="reg.html#cb25-20"></a>          <span class="dt">omit =</span> <span class="kw">c</span>(<span class="st">&quot;fcode&quot;</span>,<span class="st">&quot;year&quot;</span>),</span>
+<span id="cb25-21"><a href="reg.html#cb25-21"></a>          <span class="dt">covariate.labels =</span> <span class="kw">c</span>(<span class="st">&quot;log(Employment)&quot;</span>,<span class="st">&quot;Labor Union&quot;</span>,<span class="st">&quot;Traning Grant&quot;</span>, <span class="st">&quot;Traning Grant 1 Year Before&quot;</span>),</span>
+<span id="cb25-22"><a href="reg.html#cb25-22"></a>          <span class="dt">order =</span> <span class="kw">c</span>(<span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">1</span>, <span class="dv">2</span>),</span>
+<span id="cb25-23"><a href="reg.html#cb25-23"></a>          <span class="dt">add.lines =</span> <span class="kw">list</span>(<span class="kw">c</span>(<span class="st">&quot;Factory FE&quot;</span>, <span class="st">&quot;No&quot;</span>, <span class="st">&quot;No&quot;</span>,<span class="st">&quot;Yes&quot;</span>,<span class="st">&quot;Yes&quot;</span>,<span class="st">&quot;Yes&quot;</span>),</span>
+<span id="cb25-24"><a href="reg.html#cb25-24"></a>                           <span class="kw">c</span>(<span class="st">&quot;Year FE&quot;</span>, <span class="st">&quot;No&quot;</span>, <span class="st">&quot;No&quot;</span>,<span class="st">&quot;No&quot;</span>,<span class="st">&quot;Yes&quot;</span>,<span class="st">&quot;Yes&quot;</span>)),</span>
+<span id="cb25-25"><a href="reg.html#cb25-25"></a>          <span class="dt">keep.stat =</span> <span class="kw">c</span>(<span class="st">&quot;n&quot;</span>,<span class="st">&quot;ll&quot;</span>,<span class="st">&quot;rsq&quot;</span>,<span class="st">&quot;f&quot;</span>),</span>
+<span id="cb25-26"><a href="reg.html#cb25-26"></a>          <span class="dt">df =</span> <span class="ot">FALSE</span>,</span>
+<span id="cb25-27"><a href="reg.html#cb25-27"></a>          <span class="dt">notes =</span> <span class="st">&quot;* p&lt;0.1; ** p&lt;0.05; ***p&lt;0.01&quot;</span>,</span>
+<span id="cb25-28"><a href="reg.html#cb25-28"></a>          <span class="dt">notes.append =</span> <span class="ot">FALSE</span>,</span>
+<span id="cb25-29"><a href="reg.html#cb25-29"></a>          <span class="dt">notes.align =</span> <span class="st">&quot;l&quot;</span>,</span>
+<span id="cb25-30"><a href="reg.html#cb25-30"></a>          <span class="dt">notes.label =</span> <span class="st">&quot;New note label&quot;</span>,</span>
+<span id="cb25-31"><a href="reg.html#cb25-31"></a>          <span class="dt">no.space =</span> <span class="ot">TRUE</span>,</span>
+<span id="cb25-32"><a href="reg.html#cb25-32"></a>          <span class="dt">table.layout =</span> <span class="st">&quot;=d#c-ta-s-n&quot;</span>,</span>
+<span id="cb25-33"><a href="reg.html#cb25-33"></a>          <span class="dt">se =</span> <span class="kw">list</span>(rbs1, rbs2, rbs3, rbs4, rbs5))</span></code></pre></div>
+<table style="text-align:center">
+<tr>
+<td colspan="6" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td colspan="4">
+Training hours
+</td>
+<td>
+Training grant
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(1)
+</td>
+<td>
+(2)
+</td>
+<td>
+(3)
+</td>
+<td>
+(4)
+</td>
+<td>
+(5)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+Basic
+</td>
+<td>
+With Union
+</td>
+<td>
+Factory
+</td>
+<td>
+F&amp;Y
+</td>
+<td>
+Selection
+</td>
+</tr>
+<tr>
+<td colspan="6" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+log(Employment)
+</td>
+<td>
+-4.629<sup>***</sup>
+</td>
+<td>
+-3.892<sup>***</sup>
+</td>
+<td>
+1.755
+</td>
+<td>
+-0.176
+</td>
+<td>
+0.089
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(1.147)
+</td>
+<td>
+(1.154)
+</td>
+<td>
+(4.060)
+</td>
+<td>
+(4.539)
+</td>
+<td>
+(0.140)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Labor Union
+</td>
+<td>
+</td>
+<td>
+-7.734<sup>***</sup>
+</td>
+<td>
+-5.150
+</td>
+<td>
+-5.060
+</td>
+<td>
+0.213
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+(1.874)
+</td>
+<td>
+(3.300)
+</td>
+<td>
+(3.850)
+</td>
+<td>
+(0.339)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Traning Grant
+</td>
+<td>
+33.337<sup>***</sup>
+</td>
+<td>
+33.545<sup>***</sup>
+</td>
+<td>
+35.962<sup>***</sup>
+</td>
+<td>
+34.228<sup>***</sup>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(4.801)
+</td>
+<td>
+(4.731)
+</td>
+<td>
+(3.193)
+</td>
+<td>
+(3.452)
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Traning Grant 1 Year Before
+</td>
+<td>
+0.790
+</td>
+<td>
+1.229
+</td>
+<td>
+5.664<sup>**</sup>
+</td>
+<td>
+0.504
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(3.391)
+</td>
+<td>
+(3.420)
+</td>
+<td>
+(2.756)
+</td>
+<td>
+(3.633)
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Constant
+</td>
+<td>
+26.353<sup>***</sup>
+</td>
+<td>
+25.181<sup>***</sup>
+</td>
+<td>
+-2.261
+</td>
+<td>
+5.944
+</td>
+<td>
+-2.155<sup>***</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(4.727)
+</td>
+<td>
+(4.699)
+</td>
+<td>
+(19.643)
+</td>
+<td>
+(21.530)
+</td>
+<td>
+(0.510)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Factory FE
+</td>
+<td>
+No
+</td>
+<td>
+No
+</td>
+<td>
+Yes
+</td>
+<td>
+Yes
+</td>
+<td>
+Yes
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Year FE
+</td>
+<td>
+No
+</td>
+<td>
+No
+</td>
+<td>
+No
+</td>
+<td>
+Yes
+</td>
+<td>
+Yes
+</td>
+</tr>
+<tr>
+<td colspan="6" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Observations
+</td>
+<td>
+390
+</td>
+<td>
+390
+</td>
+<td>
+390
+</td>
+<td>
+390
+</td>
+<td>
+440
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+R<sup>2</sup>
+</td>
+<td>
+0.247
+</td>
+<td>
+0.261
+</td>
+<td>
+0.797
+</td>
+<td>
+0.802
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Log Likelihood
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+-180.165
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+F Statistic
+</td>
+<td>
+42.280<sup>***</sup>
+</td>
+<td>
+33.949<sup>***</sup>
+</td>
+<td>
+7.212<sup>***</sup>
+</td>
+<td>
+7.269<sup>***</sup>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td colspan="6" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+New note label
+</td>
+<td colspan="5" style="text-align:left">
+<ul>
+<li>p&lt;0.1; ** p&lt;0.05; ***p&lt;0.01
+</td>
+</tr>
+</table></li>
+</ul>
+</div>
+<div id="描述性统计表" class="section level3" number="3.2.10">
+<h3><span class="header-section-number">3.2.10</span> 描述性统计表</h3>
+<p>stargazer还可以直接输出描述性统计表以及数据表本文，这一功能极大地增强了stargazer的可用性。</p>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="reg.html#cb26-1"></a><span class="kw">library</span>(dplyr)</span></code></pre></div>
+<pre><code>## 
+## Attaching package: &#39;dplyr&#39;</code></pre>
+<pre><code>## The following objects are masked from &#39;package:stats&#39;:
+## 
+##     filter, lag</code></pre>
+<pre><code>## The following objects are masked from &#39;package:base&#39;:
+## 
+##     intersect, setdiff, setequal, union</code></pre>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="reg.html#cb30-1"></a>data &lt;-<span class="st">  </span>jtrain <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(hrsemp,grant,grant_<span class="dv">1</span>,lemploy,union,fcode ,year)</span>
+<span id="cb30-2"><a href="reg.html#cb30-2"></a><span class="kw">stargazer</span>(data, <span class="dt">type =</span> <span class="st">&quot;html&quot;</span>)</span></code></pre></div>
+<table style="text-align:center">
+<tr>
+<td colspan="8" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Statistic
+</td>
+<td>
+N
+</td>
+<td>
+Mean
+</td>
+<td>
+St. Dev.
+</td>
+<td>
+Min
+</td>
+<td>
+Pctl(25)
+</td>
+<td>
+Pctl(75)
+</td>
+<td>
+Max
+</td>
+</tr>
+<tr>
+<td colspan="8" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+hrsemp
+</td>
+<td>
+390
+</td>
+<td>
+14.968
+</td>
+<td>
+25.711
+</td>
+<td>
+0.000
+</td>
+<td>
+0.000
+</td>
+<td>
+18.662
+</td>
+<td>
+163.917
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+grant
+</td>
+<td>
+471
+</td>
+<td>
+0.140
+</td>
+<td>
+0.347
+</td>
+<td>
+0
+</td>
+<td>
+0
+</td>
+<td>
+0
+</td>
+<td>
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+grant_1
+</td>
+<td>
+471
+</td>
+<td>
+0.076
+</td>
+<td>
+0.266
+</td>
+<td>
+0
+</td>
+<td>
+0
+</td>
+<td>
+0
+</td>
+<td>
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+lemploy
+</td>
+<td>
+440
+</td>
+<td>
+3.531
+</td>
+<td>
+1.033
+</td>
+<td>
+1.386
+</td>
+<td>
+2.708
+</td>
+<td>
+4.277
+</td>
+<td>
+6.263
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+union
+</td>
+<td>
+471
+</td>
+<td>
+0.197
+</td>
+<td>
+0.398
+</td>
+<td>
+0
+</td>
+<td>
+0
+</td>
+<td>
+0
+</td>
+<td>
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+fcode
+</td>
+<td>
+471
+</td>
+<td>
+415,708.900
+</td>
+<td>
+4,022.922
+</td>
+<td>
+410,032
+</td>
+<td>
+410,604
+</td>
+<td>
+419,309
+</td>
+<td>
+419,486
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+year
+</td>
+<td>
+471
+</td>
+<td>
+1,988.000
+</td>
+<td>
+0.817
+</td>
+<td>
+1,987
+</td>
+<td>
+1,987
+</td>
+<td>
+1,989
+</td>
+<td>
+1,989
+</td>
+</tr>
+<tr>
+<td colspan="8" style="border-bottom: 1px solid black">
+</td>
+</tr>
+</table>
+<p>我们可以通过rownames与colnames参数来设定是否输出行列名称，一般情况不会去掉。summary.stat可以设定输出那些描述性统计变量</p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">代码</th>
+<th align="left">统计量</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">“max”</td>
+<td align="left">maximum</td>
+</tr>
+<tr class="even">
+<td align="left">“mean”</td>
+<td align="left">mean</td>
+</tr>
+<tr class="odd">
+<td align="left">“median”</td>
+<td align="left">median</td>
+</tr>
+<tr class="even">
+<td align="left">“min”</td>
+<td align="left">minimum</td>
+</tr>
+<tr class="odd">
+<td align="left">“n”</td>
+<td align="left">number of observations</td>
+</tr>
+<tr class="even">
+<td align="left">“p25”</td>
+<td align="left">25th percentile</td>
+</tr>
+<tr class="odd">
+<td align="left">“p75”</td>
+<td align="left">75th percentile</td>
+</tr>
+<tr class="even">
+<td align="left">“sd”</td>
+<td align="left">standard deviation</td>
+</tr>
+</tbody>
+</table>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="reg.html#cb31-1"></a><span class="kw">stargazer</span>(data, <span class="dt">type =</span> <span class="st">&quot;html&quot;</span>,</span>
+<span id="cb31-2"><a href="reg.html#cb31-2"></a>          <span class="dt">summary.stat =</span> <span class="kw">c</span>(<span class="st">&quot;n&quot;</span>,<span class="st">&quot;mean&quot;</span>,<span class="st">&quot;sd&quot;</span>,<span class="st">&quot;min&quot;</span>,<span class="st">&quot;max&quot;</span>),</span>
+<span id="cb31-3"><a href="reg.html#cb31-3"></a>          <span class="dt">digits =</span> <span class="dv">2</span>)</span></code></pre></div>
+<table style="text-align:center">
+<tr>
+<td colspan="6" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Statistic
+</td>
+<td>
+N
+</td>
+<td>
+Mean
+</td>
+<td>
+St. Dev.
+</td>
+<td>
+Min
+</td>
+<td>
+Max
+</td>
+</tr>
+<tr>
+<td colspan="6" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+hrsemp
+</td>
+<td>
+390
+</td>
+<td>
+14.97
+</td>
+<td>
+25.71
+</td>
+<td>
+0.00
+</td>
+<td>
+163.92
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+grant
+</td>
+<td>
+471
+</td>
+<td>
+0.14
+</td>
+<td>
+0.35
+</td>
+<td>
+0
+</td>
+<td>
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+grant_1
+</td>
+<td>
+471
+</td>
+<td>
+0.08
+</td>
+<td>
+0.27
+</td>
+<td>
+0
+</td>
+<td>
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+lemploy
+</td>
+<td>
+440
+</td>
+<td>
+3.53
+</td>
+<td>
+1.03
+</td>
+<td>
+1.39
+</td>
+<td>
+6.26
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+union
+</td>
+<td>
+471
+</td>
+<td>
+0.20
+</td>
+<td>
+0.40
+</td>
+<td>
+0
+</td>
+<td>
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+fcode
+</td>
+<td>
+471
+</td>
+<td>
+415,708.90
+</td>
+<td>
+4,022.92
+</td>
+<td>
+410,032
+</td>
+<td>
+419,486
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+year
+</td>
+<td>
+471
+</td>
+<td>
+1,988.00
+</td>
+<td>
+0.82
+</td>
+<td>
+1,987
+</td>
+<td>
+1,989
+</td>
+</tr>
+<tr>
+<td colspan="6" style="border-bottom: 1px solid black">
+</td>
+</tr>
+</table>
+<p>当设定flip = TRUE是，可以转置描述性统计表的横轴与纵轴</p>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="reg.html#cb32-1"></a><span class="kw">stargazer</span>(data, <span class="dt">type =</span> <span class="st">&quot;html&quot;</span>,</span>
+<span id="cb32-2"><a href="reg.html#cb32-2"></a>          <span class="dt">summary.stat =</span> <span class="kw">c</span>(<span class="st">&quot;n&quot;</span>,<span class="st">&quot;mean&quot;</span>,<span class="st">&quot;sd&quot;</span>,<span class="st">&quot;min&quot;</span>,<span class="st">&quot;max&quot;</span>),</span>
+<span id="cb32-3"><a href="reg.html#cb32-3"></a>          <span class="dt">digits =</span> <span class="dv">2</span>,</span>
+<span id="cb32-4"><a href="reg.html#cb32-4"></a>          <span class="dt">flip =</span> <span class="ot">TRUE</span>)</span></code></pre></div>
+<table style="text-align:center">
+<tr>
+<td colspan="8" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Statistic
+</td>
+<td>
+hrsemp
+</td>
+<td>
+grant
+</td>
+<td>
+grant_1
+</td>
+<td>
+lemploy
+</td>
+<td>
+union
+</td>
+<td>
+fcode
+</td>
+<td>
+year
+</td>
+</tr>
+<tr>
+<td colspan="8" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+N
+</td>
+<td>
+390
+</td>
+<td>
+471
+</td>
+<td>
+471
+</td>
+<td>
+440
+</td>
+<td>
+471
+</td>
+<td>
+471
+</td>
+<td>
+471
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Mean
+</td>
+<td>
+14.97
+</td>
+<td>
+0.14
+</td>
+<td>
+0.08
+</td>
+<td>
+3.53
+</td>
+<td>
+0.20
+</td>
+<td>
+415,708.90
+</td>
+<td>
+1,988.00
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+St. Dev.
+</td>
+<td>
+25.71
+</td>
+<td>
+0.35
+</td>
+<td>
+0.27
+</td>
+<td>
+1.03
+</td>
+<td>
+0.40
+</td>
+<td>
+4,022.92
+</td>
+<td>
+0.82
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Min
+</td>
+<td>
+0.00
+</td>
+<td>
+0
+</td>
+<td>
+0
+</td>
+<td>
+1.39
+</td>
+<td>
+0
+</td>
+<td>
+410,032
+</td>
+<td>
+1,987
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Max
+</td>
+<td>
+163.92
+</td>
+<td>
+1
+</td>
+<td>
+1
+</td>
+<td>
+6.26
+</td>
+<td>
+1
+</td>
+<td>
+419,486
+</td>
+<td>
+1,989
+</td>
+</tr>
+<tr>
+<td colspan="8" style="border-bottom: 1px solid black">
+</td>
+</tr>
+</table>
+<p>当设定summary = FALSE时，stargaze可以直接输出表格</p>
+<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="reg.html#cb33-1"></a><span class="kw">stargazer</span>(<span class="kw">head</span>(data), <span class="dt">type =</span> <span class="st">&quot;html&quot;</span>,</span>
+<span id="cb33-2"><a href="reg.html#cb33-2"></a>          <span class="dt">summary =</span> <span class="ot">FALSE</span>)</span></code></pre></div>
+<table style="text-align:center">
+<tr>
+<td colspan="8" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+hrsemp
+</td>
+<td>
+grant
+</td>
+<td>
+grant_1
+</td>
+<td>
+lemploy
+</td>
+<td>
+union
+</td>
+<td>
+fcode
+</td>
+<td>
+year
+</td>
+</tr>
+<tr>
+<td colspan="8" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+1
+</td>
+<td>
+12
+</td>
+<td>
+0
+</td>
+<td>
+0
+</td>
+<td>
+4.605
+</td>
+<td>
+0
+</td>
+<td>
+410,032
+</td>
+<td>
+1,987
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+2
+</td>
+<td>
+3.053
+</td>
+<td>
+0
+</td>
+<td>
+0
+</td>
+<td>
+4.875
+</td>
+<td>
+0
+</td>
+<td>
+410,032
+</td>
+<td>
+1,988
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+3
+</td>
+<td>
+3.252
+</td>
+<td>
+0
+</td>
+<td>
+0
+</td>
+<td>
+4.812
+</td>
+<td>
+0
+</td>
+<td>
+410,032
+</td>
+<td>
+1,989
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+4
+</td>
+<td>
+12
+</td>
+<td>
+0
+</td>
+<td>
+0
+</td>
+<td>
+2.485
+</td>
+<td>
+0
+</td>
+<td>
+410,440
+</td>
+<td>
+1,987
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+5
+</td>
+<td>
+12
+</td>
+<td>
+0
+</td>
+<td>
+0
+</td>
+<td>
+2.565
+</td>
+<td>
+0
+</td>
+<td>
+410,440
+</td>
+<td>
+1,988
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+6
+</td>
+<td>
+10
+</td>
+<td>
+0
+</td>
+<td>
+0
+</td>
+<td>
+2.639
+</td>
+<td>
+0
+</td>
+<td>
+410,440
+</td>
+<td>
+1,989
+</td>
+</tr>
+<tr>
+<td colspan="8" style="border-bottom: 1px solid black">
+</td>
+</tr>
+</table>
+
+</div>
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="1">
+<li id="fn1"><p>Hlavac,Marek (2018).stargazer: Well-Formatted Regression and Summary Statistics Tables. R package version 5.2.2. <a href="https://CRAN.R-project.org/package=stargazer" class="uri">https://CRAN.R-project.org/package=stargazer</a><a href="reg.html#fnref1" class="footnote-back">↩︎</a></p></li>
+<li id="fn2"><p>Xavier Giroud, Proximity and Investment: Evidence from Plant-Level Data , The Quarterly Journal of Economics, Volume 128, Issue 2, May 2013, Pages 861–915, <a href="https://doi.org/10.1093/qje/qjs073" class="uri">https://doi.org/10.1093/qje/qjs073</a> <a href="reg.html#fnref2" class="footnote-back">↩︎</a></p></li>
+<li id="fn3"><p>Introductory Econometrics: A Modern Approach by Wooldridge, Jeffrey M. 5th Edition<a href="reg.html#fnref3" class="footnote-back">↩︎</a></p></li>
+<li id="fn4"><p>H. Holzer, R. Block, M. Cheatham, and J. Knott (1993), “Are Training Subsidies Effective? The Michigan Experience,” Industrial and Labor Relations Review 46, 625-636.<a href="reg.html#fnref4" class="footnote-back">↩︎</a></p></li>
+<li id="fn5"><p>Abadie, A., Athey, S., Imbens, G. W., &amp; Wooldridge, J. (2017). When Should You Adjust Standard Errors for Clustering. National Bureau of Economic Research.<a href="reg.html#fnref5" class="footnote-back">↩︎</a></p></li>
+</ol>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="flow.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="make.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": true,
+"facebook": false,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/yihui/bookdown-chinese/edit/master/04-regression.Rmd",
+"text": "编辑"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["bookdown.pdf", "bookdown.epub"],
+"toc": {
+"collapse": "none"
+}
+});
+});
+</script>
+
+</body>
+
+</html>
