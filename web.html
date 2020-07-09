@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>第 3 章 网络数据采集 | 数据工程讲义：经济学分册</title>
+  <meta name="description" content="一个简单的中文书示例。" />
+  <meta name="generator" content="bookdown 0.17 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="第 3 章 网络数据采集 | 数据工程讲义：经济学分册" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="一个简单的中文书示例。" />
+  <meta name="github-repo" content="yihui/bookdown-chinese" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="第 3 章 网络数据采集 | 数据工程讲义：经济学分册" />
+  
+  <meta name="twitter:description" content="一个简单的中文书示例。" />
+  
+
+<meta name="author" content="史冬波 续本达" />
+
+
+<meta name="date" content="2020-07-09" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="flow.html"/>
+<link rel="next" href="reg.html"/>
+<script src="libs/header-attrs-2.1/header-attrs.js"></script>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="css/style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">数据工程讲义</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>前言</a>
+<ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#致谢"><i class="fa fa-check"></i>致谢</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="author.html"><a href="author.html"><i class="fa fa-check"></i>作者简介</a></li>
+<li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> 写在前面</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="intro.html"><a href="intro.html#为什么写本书"><i class="fa fa-check"></i><b>1.1</b> 为什么写本书</a></li>
+<li class="chapter" data-level="1.2" data-path="intro.html"><a href="intro.html#如何使用本书"><i class="fa fa-check"></i><b>1.2</b> 如何使用本书</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="flow.html"><a href="flow.html"><i class="fa fa-check"></i><b>2</b> 重塑经济学研究的流程</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="flow.html"><a href="flow.html#人工智能时代的社会科学研究机遇与挑战"><i class="fa fa-check"></i><b>2.1</b> 人工智能时代的社会科学研究：机遇与挑战</a></li>
+<li class="chapter" data-level="2.2" data-path="flow.html"><a href="flow.html#数据工程与数据科学"><i class="fa fa-check"></i><b>2.2</b> 数据工程与数据科学</a></li>
+<li class="chapter" data-level="2.3" data-path="flow.html"><a href="flow.html#数据工程的四大原则"><i class="fa fa-check"></i><b>2.3</b> 数据工程的四大原则</a></li>
+<li class="chapter" data-level="2.4" data-path="flow.html"><a href="flow.html#数据处理的灵魂数据流"><i class="fa fa-check"></i><b>2.4</b> 数据处理的灵魂：数据流</a></li>
+<li class="chapter" data-level="2.5" data-path="flow.html"><a href="flow.html#数据处理的钥匙数据结构"><i class="fa fa-check"></i><b>2.5</b> 数据处理的钥匙：数据结构</a></li>
+<li class="chapter" data-level="2.6" data-path="flow.html"><a href="flow.html#数据工程师的工具箱"><i class="fa fa-check"></i><b>2.6</b> 数据工程师的工具箱</a></li>
+<li class="chapter" data-level="2.7" data-path="flow.html"><a href="flow.html#数据工程师的一天"><i class="fa fa-check"></i><b>2.7</b> 数据工程师的一天</a></li>
+<li class="chapter" data-level="2.8" data-path="flow.html"><a href="flow.html#数据工程data-engineering"><i class="fa fa-check"></i><b>2.8</b> 数据工程(Data Engineering)</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="web.html"><a href="web.html"><i class="fa fa-check"></i><b>3</b> 网络数据采集</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="web.html"><a href="web.html#网络数据格式"><i class="fa fa-check"></i><b>3.1</b> 网络数据格式</a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="web.html"><a href="web.html#csv"><i class="fa fa-check"></i><b>3.1.1</b> CSV</a></li>
+<li class="chapter" data-level="3.1.2" data-path="web.html"><a href="web.html#xml"><i class="fa fa-check"></i><b>3.1.2</b> XML</a></li>
+<li class="chapter" data-level="3.1.3" data-path="web.html"><a href="web.html#json"><i class="fa fa-check"></i><b>3.1.3</b> JSON</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="web.html"><a href="web.html#html"><i class="fa fa-check"></i><b>3.2</b> HTML</a></li>
+<li class="chapter" data-level="3.3" data-path="web.html"><a href="web.html#xpath"><i class="fa fa-check"></i><b>3.3</b> Xpath</a></li>
+<li class="chapter" data-level="3.4" data-path="web.html"><a href="web.html#css"><i class="fa fa-check"></i><b>3.4</b> CSS</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="reg.html"><a href="reg.html"><i class="fa fa-check"></i><b>4</b> 回归分析</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="reg.html"><a href="reg.html#一般线性回归"><i class="fa fa-check"></i><b>4.1</b> 一般线性回归</a></li>
+<li class="chapter" data-level="4.2" data-path="reg.html"><a href="reg.html#使用stargazer输出表格"><i class="fa fa-check"></i><b>4.2</b> 使用stargazer输出表格</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="reg.html"><a href="reg.html#标准回归表"><i class="fa fa-check"></i><b>4.2.1</b> 标准回归表</a></li>
+<li class="chapter" data-level="4.2.2" data-path="reg.html"><a href="reg.html#默认格式"><i class="fa fa-check"></i><b>4.2.2</b> 默认格式</a></li>
+<li class="chapter" data-level="4.2.3" data-path="reg.html"><a href="reg.html#表格表头"><i class="fa fa-check"></i><b>4.2.3</b> 表格表头</a></li>
+<li class="chapter" data-level="4.2.4" data-path="reg.html"><a href="reg.html#表格正文"><i class="fa fa-check"></i><b>4.2.4</b> 表格正文</a></li>
+<li class="chapter" data-level="4.2.5" data-path="reg.html"><a href="reg.html#添加变量信息"><i class="fa fa-check"></i><b>4.2.5</b> 添加变量信息</a></li>
+<li class="chapter" data-level="4.2.6" data-path="reg.html"><a href="reg.html#选择统计量"><i class="fa fa-check"></i><b>4.2.6</b> 选择统计量</a></li>
+<li class="chapter" data-level="4.2.7" data-path="reg.html"><a href="reg.html#表格注释"><i class="fa fa-check"></i><b>4.2.7</b> 表格注释</a></li>
+<li class="chapter" data-level="4.2.8" data-path="reg.html"><a href="reg.html#整体布局"><i class="fa fa-check"></i><b>4.2.8</b> 整体布局</a></li>
+<li class="chapter" data-level="4.2.9" data-path="reg.html"><a href="reg.html#其他"><i class="fa fa-check"></i><b>4.2.9</b> 其他</a></li>
+<li class="chapter" data-level="4.2.10" data-path="reg.html"><a href="reg.html#描述性统计表"><i class="fa fa-check"></i><b>4.2.10</b> 描述性统计表</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="md.html"><a href="md.html"><i class="fa fa-check"></i><b>5</b> 文学式编程</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="md.html"><a href="md.html#什么是文学式编程"><i class="fa fa-check"></i><b>5.1</b> 什么是文学式编程</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="make.html"><a href="make.html"><i class="fa fa-check"></i><b>6</b> GUN Make</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="make.html"><a href="make.html#使用make的必要性"><i class="fa fa-check"></i><b>6.1</b> 使用Make的必要性</a></li>
+<li class="chapter" data-level="6.2" data-path="make.html"><a href="make.html#make安装"><i class="fa fa-check"></i><b>6.2</b> Make安装</a></li>
+<li class="chapter" data-level="6.3" data-path="make.html"><a href="make.html#快速上手make"><i class="fa fa-check"></i><b>6.3</b> 快速上手Make</a></li>
+<li class="chapter" data-level="6.4" data-path="make.html"><a href="make.html#make的高级语法"><i class="fa fa-check"></i><b>6.4</b> Make的高级语法</a></li>
+<li class="chapter" data-level="6.5" data-path="make.html"><a href="make.html#参考资料"><i class="fa fa-check"></i><b>6.5</b> 参考资料</a></li>
+<li class="chapter" data-level="6.6" data-path="make.html"><a href="make.html#including-plots"><i class="fa fa-check"></i><b>6.6</b> Including Plots</a></li>
+</ul></li>
+<li class="appendix"><span><b>附录</b></span></li>
+<li class="chapter" data-level="A" data-path="sound.html"><a href="sound.html"><i class="fa fa-check"></i><b>A</b> 余音绕梁</a></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>参考文献</a></li>
+<li class="divider"></li>
+<li><a href="https://bookdown.org" target="blank">本书由 bookdown 强力驱动</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">数据工程讲义：经济学分册</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="web" class="section level1" number="3">
+<h1><span class="header-section-number">第 3 章</span> 网络数据采集</h1>
+<p>这一章我们将介绍如何通过R采集网络数据。互联网每一秒都在产生数据，网络已经成为经济学研究以及很多数据公司的重要数据来源，因此学习网络数据采集就非常有必要。本章的第一节我们将介绍网络上数据传输的主要格式，这是采集网络数据的基础；第二节将介绍超文本链接语言的基本语法，这对于采集网页基础；第三节中，我们将介绍一种针对html的特定查询语言-Xpath，它将帮助我们从HTML中快速找到我们需要的信息；第四节我们将补充介绍CSS（层叠样式表）的基础知识，一方面CSS可以提到Xpath帮助我们解析网页信息，另一方面，CSS的基础知识将在文学式编程中起到四两拨千斤的作用；第五节我们将介绍HTTP通信的基本方式；第六节中我们介绍一个静态网页爬虫的案例；第七节中我们将介绍如何使用Selenuim框架完成动态网页爬虫；第八节（如果能完成的话）我们将使用HTTP基本通信方法实现动态网页爬虫</p>
+<div id="网络数据格式" class="section level2" number="3.1">
+<h2><span class="header-section-number">3.1</span> 网络数据格式</h2>
+<p>正如我们在最前面介绍的，数据不仅仅是数据工程分析的对象，更是数据工程不同部分之间衔接的接口，数据读写是数据分析的基础。而网络通信说到底也是数据的交流过程。</p>
+<p>按照数据的使用方式，我们可以将数据进一部分为通用数据与非通用数据，前者不限于特定的编程工具，在程序世界中扮演者“通用货币”的角色，是可以跨语言跨工具使用的标准数据，例如txt,csv,xml,json, hdf5等；后者则是特定语言使用的数据，在一定程度上也可以跨语言使用，但是跨语言使用时经常伴随有信息的错误与损失，常见的非通用数据有dta(Stata),xls(MS Excel),spv(SPSS), RData(R)等。RStudio在使用非通用数据时，可以从<code>Import Dataset</code>下来菜单中选择相应的选项。在网络通信中，通用数据是主角。</p>
+<div id="csv" class="section level3" number="3.1.1">
+<h3><span class="header-section-number">3.1.1</span> CSV</h3>
+<p>CSV(Comma-Separated Values)逗号分隔值文本数据，以纯文本形式存储表格数据（数字和文本）。纯文本意味着该文件是一个字符序列，不含必须像二进制数字那样被解读的数据。CSV文件由任意数目的记录组成，记录间以某种换行符分隔；每条记录由字段组成，字段间的分隔符是其它字符或字符串，最常见的是逗号或制表符(tsv)。
+CSV的优势在于可以用MS Excel直接编辑，读写简便，跨平台使用方便，其最大劣势为以表结构为基础，灵活性较差，尤其是数据结构比较复杂时，CSV的效率会变得很差。</p>
+</div>
+<div id="xml" class="section level3" number="3.1.2">
+<h3><span class="header-section-number">3.1.2</span> XML</h3>
+<p>XML(Extensible Markup Language),-可扩展标记语言-是专门设计用来传输数据的标记语言。R中我们使用<strong>XML</strong>包读入XML数据，</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="web.html#cb1-1"></a><span class="kw">library</span>(XML)</span>
+<span id="cb1-2"><a href="web.html#cb1-2"></a>math &lt;-<span class="st"> </span><span class="kw">xmlParse</span>(<span class="st">&quot;math_sample.xml&quot;</span>)</span>
+<span id="cb1-3"><a href="web.html#cb1-3"></a>math</span></code></pre></div>
+<pre><code>## &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+## &lt;publications dataset=&quot;scad-zbmath-01-limited-access&quot;&gt;
+##   &lt;publication id=&quot;zbmath:0790.73063&quot;&gt;
+##     &lt;title&gt;Torsional vibrations of nonhomogeneous magnetostrictive elastic circular cylinder&lt;/title&gt;
+##     &lt;venue&gt;Int. J. Math. Math. Sci. 17, No.1, 181-185 (1994).&lt;/venue&gt;
+##     &lt;year&gt;1994&lt;/year&gt;
+##     &lt;classification&gt;74F15 74H45&lt;/classification&gt;
+##     &lt;keywords&gt;circumferential magnetic field; axial current; longitudinal magnetic field; frequency equation; displacement; stress&lt;/keywords&gt;
+##     &lt;abstract&gt;This paper is concerned with the torsional vibrations of a nonhomogeneous magnetostrictive elastic cylinder. The cylinder is subjected to the action of a circumferential magnetic field produced by an axial current of constant density, and the deformation of a magnetostrictive cylinder is produced by a constant longitudinal magnetic field. The frequency equation is determined, and the displacement and stress components are numerically calculated with graphical presentations.&lt;/abstract&gt;
+##     &lt;authors&gt;
+##       &lt;author name=&quot;Debnath, Lokenath&quot; shortname=&quot;Debnath, L.&quot; id=&quot;debnath.lokenath&quot;/&gt;
+##     &lt;/authors&gt;
+##   &lt;/publication&gt;
+##   &lt;publication id=&quot;zbmath:0805.73022&quot;&gt;
+##     &lt;title&gt;Torsional wave propagation in an orthotropic magneto-elastic hollow circular cylinder&lt;/title&gt;
+##     &lt;venue&gt;Appl. Math. Comput. 63, No.2-3, 281-293 (1994).&lt;/venue&gt;
+##     &lt;year&gt;1994&lt;/year&gt;
+##     &lt;classification&gt;74J10 74F15&lt;/classification&gt;
+##     &lt;keywords&gt;extrema; characteristic numbers; phase velocities; first five modes&lt;/keywords&gt;
+##     &lt;authors&gt;
+##       &lt;author name=&quot;Abd-alla, Abo-el-nour N.&quot; shortname=&quot;Abd-alla, A.&quot; id=&quot;abd-alla.abo-el-nour-n&quot;/&gt;
+##     &lt;/authors&gt;
+##   &lt;/publication&gt;
+## &lt;/publications&gt;
+## </code></pre>
+<p>标准的XML可以分为标记（Markup）与内容（content）两类。标记通常以<code>&lt;</code>开头，以<code>/&gt;</code>结尾，在上面的例子中，<code>publications</code>以及<code>publication</code>都是标记。</p>
+<p>标记也称为标签Tag，是规定XML文件结构的部分,是数据的结构。</p>
+<p>内容又称为元素Element，是标签“标记”的部分,是数据的值。上面的例子中<code>Torsional vibrations of nonhomogeneous magnetostrictive elastic circular cylinder</code>便是标记<code>title</code>的值。</p>
+<p>每一个标签可以拥有若干属性Attribute,属性以name=value的形式出现。每个元素中,一个属性最多出现一次,一个属性只能有一个值。例如第一个<code>publication</code>标记拥有一个属性id,取值为zbmath:0790.73063。</p>
+<p>从数据结构上来说XML是树形结构，其优点在于跨平台表现优异，可以传输传输结构复杂的数据。因此，经常被用作通用数据标准。但是细心的读者很容易发现XML的劣势，大部分标签名都重复出现了两次。另外，仅仅从数据传输而不是数据可视化的角度来说，属性本质上也可以用标签+内容的方式来表达，而不需要单独设置。这都使得XML在传输数据方面，显得比较“笨重”，效率还有提升的空间。</p>
+</div>
+<div id="json" class="section level3" number="3.1.3">
+<h3><span class="header-section-number">3.1.3</span> JSON</h3>
+<p>JASON(JavaScript Object Notation,JavaScript)-Java对象表示法-是由道格拉斯·克罗克福特构想和设计、轻量级的数据交换语言，该语言以易于让人阅读的文字为基础，用来传输由属性值或者序列性的值组成的数据对象。尽管JSON起初是为JavaScript设计的，但如今早已发展成为独立于特定语言之外的通用数据格式。</p>
+<p>R中可以使用<strong>jsonlite</strong>读写JSON文件,读入数据成为一个list</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="web.html#cb3-1"></a><span class="kw">library</span>(jsonlite)</span>
+<span id="cb3-2"><a href="web.html#cb3-2"></a>leadboard &lt;-<span class="st"> </span><span class="kw">fromJSON</span>(<span class="st">&quot;leaderboards.json&quot;</span>,<span class="dt">flatten =</span> <span class="ot">TRUE</span>)</span></code></pre></div>
+<p><img src="leaderboards.png" width="80%" /></p>
+<p>JSON由对象object与数组组成。对象（object）是一个对象包含一系列非排序的名称／值对(pair)，一个对象以<code>{</code>开始，并以<code>}</code>结束。每个名称／值对之间使用<code>:</code>分割。上面的例子中<code>"version":3</code>就是一个对象，其名称是version，value是3。</p>
+<p>数组(array)：一个数组是一个值(value)的集合，一个数组以<code>[</code>开始，并以<code>]</code>结束。数组成员之间使用<code>,</code>分割。上面例子中<code>"ordinals"</code>对应的值便是一个数组。</p>
+<p>JSON与XML最大的不同在于XML是一个完整的标记语言，而JSON不是。XML利用标记语言的特性提供了绝佳的延展性（如XPath），在数据存储，扩展及高级检索方面具备对JSON的优势，而JSON则由于比XML更加小巧，以及浏览器的内建快速解析支持，使得其更适用于网络数据传输领域。</p>
+</div>
+</div>
+<div id="html" class="section level2" number="3.2">
+<h2><span class="header-section-number">3.2</span> HTML</h2>
+</div>
+<div id="xpath" class="section level2" number="3.3">
+<h2><span class="header-section-number">3.3</span> Xpath</h2>
+</div>
+<div id="css" class="section level2" number="3.4">
+<h2><span class="header-section-number">3.4</span> CSS</h2>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="flow.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="reg.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": true,
+"facebook": false,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/yihui/bookdown-chinese/edit/master/03-web.Rmd",
+"text": "编辑"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["bookdown.pdf", "bookdown.epub"],
+"toc": {
+"collapse": "none"
+}
+});
+});
+</script>
+
+</body>
+
+</html>
