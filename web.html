@@ -190,14 +190,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="3.6.1" data-path="web.html"><a href="web.html#基本查询"><i class="fa fa-check"></i><b>3.6.1</b> 基本查询</a></li>
 </ul></li>
-<li class="chapter" data-level="3.7" data-path="web.html"><a href="web.html#http"><i class="fa fa-check"></i><b>3.7</b> HTTP</a></li>
+<li class="chapter" data-level="3.7" data-path="web.html"><a href="web.html#http"><i class="fa fa-check"></i><b>3.7</b> HTTP</a>
+<ul>
+<li class="chapter" data-level="3.7.1" data-path="web.html"><a href="web.html#http常见方法"><i class="fa fa-check"></i><b>3.7.1</b> HTTP常见方法</a></li>
+</ul></li>
 <li class="chapter" data-level="3.8" data-path="web.html"><a href="web.html#静态爬虫"><i class="fa fa-check"></i><b>3.8</b> 静态爬虫</a></li>
 <li class="chapter" data-level="3.9" data-path="web.html"><a href="web.html#使用rselenium的动态爬虫"><i class="fa fa-check"></i><b>3.9</b> 使用RSelenium的动态爬虫</a>
 <ul>
 <li class="chapter" data-level="3.9.1" data-path="web.html"><a href="web.html#rselenium简介与安装"><i class="fa fa-check"></i><b>3.9.1</b> RSelenium简介与安装</a></li>
 <li class="chapter" data-level="3.9.2" data-path="web.html"><a href="web.html#安装docker"><i class="fa fa-check"></i><b>3.9.2</b> 安装Docker</a></li>
 <li class="chapter" data-level="3.9.3" data-path="web.html"><a href="web.html#rselenum语法"><i class="fa fa-check"></i><b>3.9.3</b> RSelenum语法</a></li>
-<li class="chapter" data-level="3.9.4" data-path="web.html"><a href="web.html#案例"><i class="fa fa-check"></i><b>3.9.4</b> 案例</a></li>
+<li class="chapter" data-level="3.9.4" data-path="web.html"><a href="web.html#案例1在链家搜索并获取相关信息"><i class="fa fa-check"></i><b>3.9.4</b> 案例1:在链家搜索并获取相关信息</a></li>
+<li class="chapter" data-level="3.9.5" data-path="web.html"><a href="web.html#案例2登录豆瓣"><i class="fa fa-check"></i><b>3.9.5</b> 案例2:登录豆瓣</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="reg.html"><a href="reg.html"><i class="fa fa-check"></i><b>4</b> 回归分析</a>
@@ -255,6 +259,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="web" class="section level1" number="3">
 <h1><span class="header-section-number">第 3 章</span> 网络数据采集</h1>
+<blockquote>
+<p>就是为了这点儿醋，我才包的这顿饺子。
+<em>—邪不压正</em></p>
+</blockquote>
 <p>这一章我们将介绍如何通过R采集网络数据。互联网每一秒都在产生数据，网络已经成为经济学研究以及很多数据公司的重要数据来源，因此学习网络数据采集就非常有必要。本章的第一节我们将介绍网络上数据传输的主要格式，这是采集网络数据的基础；第二节将介绍超文本链接语言的基本语法，这对于采集网页基础；第三节中，我们将介绍一种针对html的特定查询语言-Xpath，它将帮助我们从HTML中快速找到我们需要的信息；第四节我们将补充介绍CSS（层叠样式表）的基础知识，一方面CSS可以提到Xpath帮助我们解析网页信息，另一方面，CSS的基础知识将在文学式编程中起到四两拨千斤的作用；第五节我们将介绍HTTP通信的基本方式；第六节中我们介绍一个静态网页爬虫的案例；第七节中我们将介绍如何使用Selenuim框架完成动态网页爬虫；第八节（如果能完成的话）我们将使用HTTP基本通信方法实现动态网页爬虫</p>
 <div id="网络数据格式" class="section level2" number="3.1">
 <h2><span class="header-section-number">3.1</span> 网络数据格式</h2>
@@ -858,17 +866,105 @@ resetParas[i].textContent = &#39;&#39;;//执行代码;
 </div>
 <div id="http" class="section level2" number="3.7">
 <h2><span class="header-section-number">3.7</span> HTTP</h2>
+<p>HTTP(HyperText Transfer Protocal,超文本传输协议)是20世纪80年代，欧洲核子研究中心工作的科学家Tim Berners-Lee, Roy Fielding等人发明的(谁再说基础研究没有价值，就禁止他浏览网站)。HTTP是当前网络客户端和服务器之间进行通信的最常用协议。可以类比于写信的格式。如果把一份HTTP文件比作一封信，每一个标准的HTTP信件都有三个部分组成:</p>
+<ul>
+<li>起始行</li>
+<li>标头</li>
+<li>正文</li>
+</ul>
+<p>HTTP通信分为两步：</p>
+<ul>
+<li>第一步是客户端向服务器发出请求</li>
+<li>第二步是服务器向客户端返回响应</li>
+</ul>
+<div id="http常见方法" class="section level3" number="3.7.1">
+<h3><span class="header-section-number">3.7.1</span> HTTP常见方法</h3>
+<p>常见HTTP 请求方法包括：</p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">方法</th>
+<th align="left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">GET</td>
+<td align="left">从服务器检索资源</td>
+</tr>
+<tr class="even">
+<td align="left">POST</td>
+<td align="left">利用消息正文向服务器发送数据或文件，从服务器检索资源</td>
+</tr>
+<tr class="odd">
+<td align="left">HEAD</td>
+<td align="left">和get工作原理类似，但是服务器的响应只有起始行和标头，没有正文</td>
+</tr>
+<tr class="even">
+<td align="left">PUT</td>
+<td align="left">把请求消息的正文保存在服务器上</td>
+</tr>
+<tr class="odd">
+<td align="left">DELETE</td>
+<td align="left">从服务器删除一个资源</td>
+</tr>
+<tr class="even">
+<td align="left">TRACE</td>
+<td align="left">追踪消息到达服务器沿途的路径</td>
+</tr>
+<tr class="odd">
+<td align="left">OPTIONS</td>
+<td align="left">返回支持的HTTP方法清单</td>
+</tr>
+<tr class="even">
+<td align="left">CONNECT</td>
+<td align="left">建立一个网络连接</td>
+</tr>
+</tbody>
+</table>
+</div>
 </div>
 <div id="静态爬虫" class="section level2" number="3.8">
 <h2><span class="header-section-number">3.8</span> 静态爬虫</h2>
 <p>在掌握以上基础知识之后，我们可以</p>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="web.html#cb27-1"></a><span class="kw">library</span>(RCurl)</span>
+<span id="cb27-2"><a href="web.html#cb27-2"></a><span class="kw">library</span>(XML)</span>
+<span id="cb27-3"><a href="web.html#cb27-3"></a><span class="kw">library</span>(stringr)</span>
+<span id="cb27-4"><a href="web.html#cb27-4"></a><span class="co"># function</span></span>
+<span id="cb27-5"><a href="web.html#cb27-5"></a>gettp &lt;-<span class="st"> </span><span class="cf">function</span>(x,j){</span>
+<span id="cb27-6"><a href="web.html#cb27-6"></a>        <span class="kw">return</span>(<span class="kw">str_trim</span>(<span class="kw">unlist</span>(<span class="kw">str_split</span>(x,<span class="dt">pattern =</span> <span class="st">&quot;</span><span class="ch">\\</span><span class="st">|&quot;</span>))[j]))</span>
+<span id="cb27-7"><a href="web.html#cb27-7"></a>}</span>
+<span id="cb27-8"><a href="web.html#cb27-8"></a><span class="co"># install.packages(&#39;stringr&#39;)</span></span>
+<span id="cb27-9"><a href="web.html#cb27-9"></a>xujiahui &lt;-<span class="st"> </span><span class="kw">data.frame</span>()</span>
+<span id="cb27-10"><a href="web.html#cb27-10"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="dv">31</span>){</span>
+<span id="cb27-11"><a href="web.html#cb27-11"></a>        <span class="cf">if</span>(i <span class="op">==</span><span class="st"> </span><span class="dv">1</span>){</span>
+<span id="cb27-12"><a href="web.html#cb27-12"></a>                url &lt;-<span class="st"> &quot;https://sh.lianjia.com/ershoufang/rs%E5%BE%90%E5%AE%B6%E6%B1%87/&quot;</span></span>
+<span id="cb27-13"><a href="web.html#cb27-13"></a>        }<span class="cf">else</span>{</span>
+<span id="cb27-14"><a href="web.html#cb27-14"></a>                url &lt;-<span class="st"> </span><span class="kw">paste0</span>(<span class="st">&#39;https://sh.lianjia.com/ershoufang/pg&#39;</span>,i,<span class="st">&#39;rs%E5%BE%90%E5%AE%B6%E6%B1%87/&#39;</span>)</span>
+<span id="cb27-15"><a href="web.html#cb27-15"></a>        }</span>
+<span id="cb27-16"><a href="web.html#cb27-16"></a>        doc &lt;-<span class="st"> </span><span class="kw">getURL</span>(url)</span>
+<span id="cb27-17"><a href="web.html#cb27-17"></a>        parsed_doc &lt;-<span class="st"> </span><span class="kw">htmlParse</span>(doc)</span>
+<span id="cb27-18"><a href="web.html#cb27-18"></a>        community &lt;-<span class="st"> </span><span class="kw">xpathSApply</span>(parsed_doc, <span class="st">&#39;//a[@data-el=&quot;region&quot;]&#39;</span>,xmlValue)</span>
+<span id="cb27-19"><a href="web.html#cb27-19"></a>        totalprice &lt;-<span class="st"> </span><span class="kw">xpathSApply</span>(parsed_doc, <span class="st">&#39;//*[contains(concat( &quot; &quot;, @class, &quot; &quot; ), concat( &quot; &quot;, &quot;totalPrice&quot;, &quot; &quot; ))]//span&#39;</span>,xmlValue)</span>
+<span id="cb27-20"><a href="web.html#cb27-20"></a>        type_all &lt;-<span class="st"> </span><span class="kw">xpathSApply</span>(parsed_doc, <span class="st">&#39;//*[contains(concat( &quot; &quot;, @class, &quot; &quot; ), concat( &quot; &quot;, &quot;houseInfo&quot;, &quot; &quot; ))]&#39;</span>,xmlValue)</span>
+<span id="cb27-21"><a href="web.html#cb27-21"></a>        <span class="co"># for(i in 1:30){</span></span>
+<span id="cb27-22"><a href="web.html#cb27-22"></a>        <span class="co">#         print(str_trim(unlist(str_split(type_all[i],pattern = &quot;\\|&quot;))[1]))</span></span>
+<span id="cb27-23"><a href="web.html#cb27-23"></a>        <span class="co"># }</span></span>
+<span id="cb27-24"><a href="web.html#cb27-24"></a>        type &lt;-<span class="st"> </span><span class="kw">unlist</span>(<span class="kw">lapply</span>(type_all,<span class="cf">function</span>(x) <span class="kw">gettp</span>(x,<span class="dv">1</span>)))</span>
+<span id="cb27-25"><a href="web.html#cb27-25"></a>        size &lt;-<span class="st"> </span><span class="kw">unlist</span>(<span class="kw">lapply</span>(type_all,<span class="cf">function</span>(x) <span class="kw">gettp</span>(x,<span class="dv">2</span>)))</span>
+<span id="cb27-26"><a href="web.html#cb27-26"></a>        year &lt;-<span class="st"> </span><span class="kw">unlist</span>(<span class="kw">lapply</span>(type_all,<span class="cf">function</span>(x) <span class="kw">gettp</span>(x,<span class="dv">6</span>)))</span>
+<span id="cb27-27"><a href="web.html#cb27-27"></a>        avgprice &lt;-<span class="st">  </span><span class="kw">xpathSApply</span>(parsed_doc, <span class="st">&#39;//*[contains(concat( &quot; &quot;, @class, &quot; &quot; ), concat( &quot; &quot;, &quot;unitPrice&quot;, &quot; &quot; ))]//span&#39;</span>,xmlValue)</span>
+<span id="cb27-28"><a href="web.html#cb27-28"></a>        result &lt;-<span class="st"> </span><span class="kw">data.frame</span>(community,totalprice,type,size,year,avgprice)</span>
+<span id="cb27-29"><a href="web.html#cb27-29"></a>        xujiahui &lt;-<span class="st"> </span><span class="kw">rbind</span>(xujiahui,result)</span>
+<span id="cb27-30"><a href="web.html#cb27-30"></a>        <span class="kw">print</span>(i)</span>
+<span id="cb27-31"><a href="web.html#cb27-31"></a>}</span></code></pre></div>
 </div>
 <div id="使用rselenium的动态爬虫" class="section level2" number="3.9">
 <h2><span class="header-section-number">3.9</span> 使用RSelenium的动态爬虫</h2>
 <div id="rselenium简介与安装" class="section level3" number="3.9.1">
 <h3><span class="header-section-number">3.9.1</span> RSelenium简介与安装</h3>
 <p>Selenium是一个跨平台、多语言的浏览器测试工具，可以实现浏览器的自动化测试。RSelenium允许R语言通过Selenuim操纵浏览器，可以帮助我们实现动态爬虫。RSelenium 的目标是让R更容易的连接Selenium Server。RSelenium绑定了R与Selenium Webdriver API。RSelenium可以从CRAN直接安装：</p>
-<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="web.html#cb27-1"></a><span class="kw">install.packages</span>(<span class="st">&quot;RSelenium&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="web.html#cb28-1"></a><span class="kw">install.packages</span>(<span class="st">&quot;RSelenium&quot;</span>)</span></code></pre></div>
 </div>
 <div id="安装docker" class="section level3" number="3.9.2">
 <h3><span class="header-section-number">3.9.2</span> 安装Docker</h3>
@@ -1112,90 +1208,132 @@ resetParas[i].textContent = &#39;&#39;;//执行代码;
 </tbody>
 </table>
 </div>
-<div id="案例" class="section level3" number="3.9.4">
-<h3><span class="header-section-number">3.9.4</span> 案例</h3>
+<div id="案例1在链家搜索并获取相关信息" class="section level3" number="3.9.4">
+<h3><span class="header-section-number">3.9.4</span> 案例1:在链家搜索并获取相关信息</h3>
 <p>本节我们将前面的链家静态爬虫的基础上，使用RSelenium在链家官网检索“上海交通大学”，并爬取相关搜索结果。</p>
-<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="web.html#cb29-1"></a><span class="kw">library</span>(RSelenium)</span>
-<span id="cb29-2"><a href="web.html#cb29-2"></a><span class="kw">library</span>(XML)</span>
-<span id="cb29-3"><a href="web.html#cb29-3"></a><span class="kw">library</span>(RCurl)</span>
-<span id="cb29-4"><a href="web.html#cb29-4"></a><span class="kw">library</span>(stringr)</span>
-<span id="cb29-5"><a href="web.html#cb29-5"></a></span>
-<span id="cb29-6"><a href="web.html#cb29-6"></a><span class="co"># 使用前面静态爬虫的函数</span></span>
-<span id="cb29-7"><a href="web.html#cb29-7"></a>gettp &lt;-<span class="st"> </span><span class="cf">function</span>(x,j){</span>
-<span id="cb29-8"><a href="web.html#cb29-8"></a>        <span class="kw">return</span>(<span class="kw">str_trim</span>(<span class="kw">unlist</span>(<span class="kw">str_split</span>(x,<span class="dt">pattern =</span> <span class="st">&quot;</span><span class="ch">\\</span><span class="st">|&quot;</span>))[j]))</span>
-<span id="cb29-9"><a href="web.html#cb29-9"></a>}</span>
-<span id="cb29-10"><a href="web.html#cb29-10"></a><span class="co"># 设定(虚拟)浏览器</span></span>
-<span id="cb29-11"><a href="web.html#cb29-11"></a>remDr &lt;-<span class="st"> </span><span class="kw">remoteDriver</span>(</span>
-<span id="cb29-12"><a href="web.html#cb29-12"></a>        <span class="dt">remoteServerAddr =</span> <span class="st">&quot;localhost&quot;</span>,</span>
-<span id="cb29-13"><a href="web.html#cb29-13"></a>        <span class="dt">port =</span> 4445L,</span>
-<span id="cb29-14"><a href="web.html#cb29-14"></a>        <span class="dt">browserName =</span> <span class="st">&quot;firefox&quot;</span></span>
-<span id="cb29-15"><a href="web.html#cb29-15"></a>)</span>
-<span id="cb29-16"><a href="web.html#cb29-16"></a></span>
-<span id="cb29-17"><a href="web.html#cb29-17"></a><span class="co"># 打开浏览器</span></span>
-<span id="cb29-18"><a href="web.html#cb29-18"></a>remDr<span class="op">$</span><span class="kw">open</span>()</span>
-<span id="cb29-19"><a href="web.html#cb29-19"></a></span>
-<span id="cb29-20"><a href="web.html#cb29-20"></a><span class="co"># 打开网页</span></span>
-<span id="cb29-21"><a href="web.html#cb29-21"></a>url &lt;-<span class="st"> &quot;https://sh.lianjia.com/ershoufang/&quot;</span></span>
-<span id="cb29-22"><a href="web.html#cb29-22"></a>remDr<span class="op">$</span><span class="kw">navigate</span>(url)</span>
-<span id="cb29-23"><a href="web.html#cb29-23"></a></span>
-<span id="cb29-24"><a href="web.html#cb29-24"></a><span class="co"># 定位搜索栏目</span></span>
-<span id="cb29-25"><a href="web.html#cb29-25"></a>xpath &lt;-<span class="st"> &#39;//input[(@id = &quot;searchInput&quot;)]&#39;</span></span>
-<span id="cb29-26"><a href="web.html#cb29-26"></a>btn &lt;-<span class="st"> </span>remDr<span class="op">$</span><span class="kw">findElement</span>(<span class="dt">using =</span> <span class="st">&#39;xpath&#39;</span>, <span class="dt">value =</span> xpath)</span>
-<span id="cb29-27"><a href="web.html#cb29-27"></a></span>
-<span id="cb29-28"><a href="web.html#cb29-28"></a><span class="co"># 搜索交通大学</span></span>
-<span id="cb29-29"><a href="web.html#cb29-29"></a>text &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="st">&quot;交通大学&quot;</span>, <span class="dt">key =</span> <span class="st">&#39;enter&#39;</span>)</span>
-<span id="cb29-30"><a href="web.html#cb29-30"></a>btn<span class="op">$</span><span class="kw">sendKeysToElement</span>(text)</span>
-<span id="cb29-31"><a href="web.html#cb29-31"></a></span>
-<span id="cb29-32"><a href="web.html#cb29-32"></a><span class="co"># 查看搜索结果</span></span>
-<span id="cb29-33"><a href="web.html#cb29-33"></a>remDr<span class="op">$</span><span class="kw">maxWindowSize</span>()</span>
-<span id="cb29-34"><a href="web.html#cb29-34"></a>remDr<span class="op">$</span><span class="kw">screenshot</span>(<span class="dt">display =</span> <span class="ot">TRUE</span>)</span>
-<span id="cb29-35"><a href="web.html#cb29-35"></a><span class="co"># 得到网页源码并解析</span></span>
-<span id="cb29-36"><a href="web.html#cb29-36"></a>file &lt;-<span class="st"> </span>btn<span class="op">$</span><span class="kw">getPageSource</span>()[[<span class="dv">1</span>]]</span>
-<span id="cb29-37"><a href="web.html#cb29-37"></a>parsed_doc &lt;-<span class="st"> </span><span class="kw">htmlParse</span>(file)</span>
-<span id="cb29-38"><a href="web.html#cb29-38"></a><span class="co"># 得到相关房价信息</span></span>
-<span id="cb29-39"><a href="web.html#cb29-39"></a>community &lt;-<span class="st"> </span><span class="kw">xpathSApply</span>(parsed_doc, <span class="st">&#39;//a[@data-el=&quot;region&quot;]&#39;</span>,xmlValue)</span>
-<span id="cb29-40"><a href="web.html#cb29-40"></a>totalprice &lt;-<span class="st"> </span><span class="kw">xpathSApply</span>(parsed_doc, <span class="st">&#39;//*[contains(concat( &quot; &quot;, @class, &quot; &quot; ), concat( &quot; &quot;, &quot;totalPrice&quot;, &quot; &quot; ))]//span&#39;</span>,xmlValue)</span>
-<span id="cb29-41"><a href="web.html#cb29-41"></a>type_all &lt;-<span class="st"> </span><span class="kw">xpathSApply</span>(parsed_doc, <span class="st">&#39;//*[contains(concat( &quot; &quot;, @class, &quot; &quot; ), concat( &quot; &quot;, &quot;houseInfo&quot;, &quot; &quot; ))]&#39;</span>,xmlValue)</span>
-<span id="cb29-42"><a href="web.html#cb29-42"></a></span>
-<span id="cb29-43"><a href="web.html#cb29-43"></a>type &lt;-<span class="st"> </span><span class="kw">unlist</span>(<span class="kw">lapply</span>(type_all,<span class="cf">function</span>(x) <span class="kw">gettp</span>(x,<span class="dv">1</span>)))</span>
-<span id="cb29-44"><a href="web.html#cb29-44"></a>size &lt;-<span class="st"> </span><span class="kw">unlist</span>(<span class="kw">lapply</span>(type_all,<span class="cf">function</span>(x) <span class="kw">gettp</span>(x,<span class="dv">2</span>)))</span>
-<span id="cb29-45"><a href="web.html#cb29-45"></a>year &lt;-<span class="st"> </span><span class="kw">unlist</span>(<span class="kw">lapply</span>(type_all,<span class="cf">function</span>(x) <span class="kw">gettp</span>(x,<span class="dv">6</span>)))</span>
-<span id="cb29-46"><a href="web.html#cb29-46"></a>avgprice &lt;-<span class="st">  </span><span class="kw">xpathSApply</span>(parsed_doc, <span class="st">&#39;//*[contains(concat( &quot; &quot;, @class, &quot; &quot; ), concat( &quot; &quot;, &quot;unitPrice&quot;, &quot; &quot; ))]//span&#39;</span>,xmlValue)</span>
-<span id="cb29-47"><a href="web.html#cb29-47"></a>result &lt;-<span class="st"> </span><span class="kw">data.frame</span>(community,totalprice,type,size,year,avgprice)</span>
-<span id="cb29-48"><a href="web.html#cb29-48"></a></span>
-<span id="cb29-49"><a href="web.html#cb29-49"></a><span class="co"># 点击2页</span></span>
-<span id="cb29-50"><a href="web.html#cb29-50"></a>pg &lt;-<span class="st"> </span>remDr<span class="op">$</span><span class="kw">findElement</span>(<span class="dt">using =</span> <span class="st">&quot;xpath&quot;</span>,<span class="dt">value =</span> <span class="st">&quot;//a[@data-page=&#39;2&#39;]&quot;</span>)</span>
-<span id="cb29-51"><a href="web.html#cb29-51"></a><span class="co">#pg$highlightElement()</span></span>
-<span id="cb29-52"><a href="web.html#cb29-52"></a>pg<span class="op">$</span><span class="kw">clickElement</span>()</span>
-<span id="cb29-53"><a href="web.html#cb29-53"></a>remDr<span class="op">$</span><span class="kw">getCurrentUrl</span>()</span>
-<span id="cb29-54"><a href="web.html#cb29-54"></a></span>
-<span id="cb29-55"><a href="web.html#cb29-55"></a><span class="co"># 重复上述操作，但是在这之前我们需要知道总共有多少页需要爬</span></span>
-<span id="cb29-56"><a href="web.html#cb29-56"></a>page &lt;-<span class="st"> </span><span class="kw">as.numeric</span>(<span class="kw">str_extract</span>(<span class="kw">xpathSApply</span>(parsed_doc,</span>
-<span id="cb29-57"><a href="web.html#cb29-57"></a>                                <span class="st">&#39;/html/body/div[4]/div[1]/div[8]/div[2]/div&#39;</span>,</span>
-<span id="cb29-58"><a href="web.html#cb29-58"></a>                                xmlGetAttr,<span class="st">&quot;page-data&quot;</span>),</span>
-<span id="cb29-59"><a href="web.html#cb29-59"></a>                    <span class="dt">pattern =</span> <span class="st">&quot;[0-9]+&quot;</span>))</span>
-<span id="cb29-60"><a href="web.html#cb29-60"></a></span>
-<span id="cb29-61"><a href="web.html#cb29-61"></a><span class="co"># 在这个基础上跑循环</span></span>
-<span id="cb29-62"><a href="web.html#cb29-62"></a>house &lt;-<span class="st"> </span><span class="kw">data.frame</span>()</span>
-<span id="cb29-63"><a href="web.html#cb29-63"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span>page){</span>
-<span id="cb29-64"><a href="web.html#cb29-64"></a>        pg &lt;-<span class="st"> </span>remDr<span class="op">$</span><span class="kw">findElement</span>(<span class="dt">using =</span> <span class="st">&quot;xpath&quot;</span>,<span class="dt">value =</span> <span class="kw">paste0</span>(<span class="st">&quot;//a[@data-page=&quot;</span>,<span class="st">&quot;&#39;&quot;</span>,i,<span class="st">&quot;&#39;]&quot;</span>))</span>
-<span id="cb29-65"><a href="web.html#cb29-65"></a>        pg<span class="op">$</span><span class="kw">clickElement</span>()</span>
-<span id="cb29-66"><a href="web.html#cb29-66"></a>        <span class="co"># 得到网页源码并解析</span></span>
-<span id="cb29-67"><a href="web.html#cb29-67"></a>        file &lt;-<span class="st"> </span>btn<span class="op">$</span><span class="kw">getPageSource</span>()[[<span class="dv">1</span>]]</span>
-<span id="cb29-68"><a href="web.html#cb29-68"></a>        parsed_doc &lt;-<span class="st"> </span><span class="kw">htmlParse</span>(file)</span>
-<span id="cb29-69"><a href="web.html#cb29-69"></a>        <span class="co"># 得到相关房价信息</span></span>
-<span id="cb29-70"><a href="web.html#cb29-70"></a>        community &lt;-<span class="st"> </span><span class="kw">xpathSApply</span>(parsed_doc, <span class="st">&#39;//a[@data-el=&quot;region&quot;]&#39;</span>,xmlValue)</span>
-<span id="cb29-71"><a href="web.html#cb29-71"></a>        totalprice &lt;-<span class="st"> </span><span class="kw">xpathSApply</span>(parsed_doc, <span class="st">&#39;//*[contains(concat( &quot; &quot;, @class, &quot; &quot; ), concat( &quot; &quot;, &quot;totalPrice&quot;, &quot; &quot; ))]//span&#39;</span>,xmlValue)</span>
-<span id="cb29-72"><a href="web.html#cb29-72"></a>        type_all &lt;-<span class="st"> </span><span class="kw">xpathSApply</span>(parsed_doc, <span class="st">&#39;//*[contains(concat( &quot; &quot;, @class, &quot; &quot; ), concat( &quot; &quot;, &quot;houseInfo&quot;, &quot; &quot; ))]&#39;</span>,xmlValue)</span>
-<span id="cb29-73"><a href="web.html#cb29-73"></a>        type &lt;-<span class="st"> </span><span class="kw">unlist</span>(<span class="kw">lapply</span>(type_all,<span class="cf">function</span>(x) <span class="kw">gettp</span>(x,<span class="dv">1</span>)))</span>
-<span id="cb29-74"><a href="web.html#cb29-74"></a>        size &lt;-<span class="st"> </span><span class="kw">unlist</span>(<span class="kw">lapply</span>(type_all,<span class="cf">function</span>(x) <span class="kw">gettp</span>(x,<span class="dv">2</span>)))</span>
-<span id="cb29-75"><a href="web.html#cb29-75"></a>        year &lt;-<span class="st"> </span><span class="kw">unlist</span>(<span class="kw">lapply</span>(type_all,<span class="cf">function</span>(x) <span class="kw">gettp</span>(x,<span class="dv">6</span>)))</span>
-<span id="cb29-76"><a href="web.html#cb29-76"></a>        avgprice &lt;-<span class="st">  </span><span class="kw">xpathSApply</span>(parsed_doc, <span class="st">&#39;//*[contains(concat( &quot; &quot;, @class, &quot; &quot; ), concat( &quot; &quot;, &quot;unitPrice&quot;, &quot; &quot; ))]//span&#39;</span>,xmlValue)</span>
-<span id="cb29-77"><a href="web.html#cb29-77"></a>        result &lt;-<span class="st"> </span><span class="kw">data.frame</span>(community,totalprice,type,size,year,avgprice)</span>
-<span id="cb29-78"><a href="web.html#cb29-78"></a>        <span class="kw">Sys.sleep</span>(<span class="dv">2</span>)</span>
-<span id="cb29-79"><a href="web.html#cb29-79"></a>        house &lt;-<span class="st"> </span><span class="kw">rbind</span>(house,result)</span>
-<span id="cb29-80"><a href="web.html#cb29-80"></a>        <span class="kw">cat</span>(<span class="st">&quot;第&quot;</span>,i,<span class="st">&quot;页爬成功&quot;</span>,<span class="st">&quot;</span><span class="ch">\n</span><span class="st">&quot;</span>)</span>
-<span id="cb29-81"><a href="web.html#cb29-81"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="web.html#cb30-1"></a><span class="kw">library</span>(RSelenium)</span>
+<span id="cb30-2"><a href="web.html#cb30-2"></a><span class="kw">library</span>(XML)</span>
+<span id="cb30-3"><a href="web.html#cb30-3"></a><span class="kw">library</span>(RCurl)</span>
+<span id="cb30-4"><a href="web.html#cb30-4"></a><span class="kw">library</span>(stringr)</span>
+<span id="cb30-5"><a href="web.html#cb30-5"></a></span>
+<span id="cb30-6"><a href="web.html#cb30-6"></a><span class="co"># 使用前面静态爬虫的函数</span></span>
+<span id="cb30-7"><a href="web.html#cb30-7"></a>gettp &lt;-<span class="st"> </span><span class="cf">function</span>(x,j){</span>
+<span id="cb30-8"><a href="web.html#cb30-8"></a>        <span class="kw">return</span>(<span class="kw">str_trim</span>(<span class="kw">unlist</span>(<span class="kw">str_split</span>(x,<span class="dt">pattern =</span> <span class="st">&quot;</span><span class="ch">\\</span><span class="st">|&quot;</span>))[j]))</span>
+<span id="cb30-9"><a href="web.html#cb30-9"></a>}</span>
+<span id="cb30-10"><a href="web.html#cb30-10"></a><span class="co"># 设定(虚拟)浏览器</span></span>
+<span id="cb30-11"><a href="web.html#cb30-11"></a>remDr &lt;-<span class="st"> </span><span class="kw">remoteDriver</span>(</span>
+<span id="cb30-12"><a href="web.html#cb30-12"></a>        <span class="dt">remoteServerAddr =</span> <span class="st">&quot;localhost&quot;</span>,</span>
+<span id="cb30-13"><a href="web.html#cb30-13"></a>        <span class="dt">port =</span> 4445L,</span>
+<span id="cb30-14"><a href="web.html#cb30-14"></a>        <span class="dt">browserName =</span> <span class="st">&quot;firefox&quot;</span></span>
+<span id="cb30-15"><a href="web.html#cb30-15"></a>)</span>
+<span id="cb30-16"><a href="web.html#cb30-16"></a></span>
+<span id="cb30-17"><a href="web.html#cb30-17"></a><span class="co"># 打开浏览器</span></span>
+<span id="cb30-18"><a href="web.html#cb30-18"></a>remDr<span class="op">$</span><span class="kw">open</span>()</span>
+<span id="cb30-19"><a href="web.html#cb30-19"></a></span>
+<span id="cb30-20"><a href="web.html#cb30-20"></a><span class="co"># 打开网页</span></span>
+<span id="cb30-21"><a href="web.html#cb30-21"></a>url &lt;-<span class="st"> &quot;https://sh.lianjia.com/ershoufang/&quot;</span></span>
+<span id="cb30-22"><a href="web.html#cb30-22"></a>remDr<span class="op">$</span><span class="kw">navigate</span>(url)</span>
+<span id="cb30-23"><a href="web.html#cb30-23"></a></span>
+<span id="cb30-24"><a href="web.html#cb30-24"></a><span class="co"># 定位搜索栏目位置</span></span>
+<span id="cb30-25"><a href="web.html#cb30-25"></a>xpath &lt;-<span class="st"> &#39;//input[(@id = &quot;searchInput&quot;)]&#39;</span></span>
+<span id="cb30-26"><a href="web.html#cb30-26"></a>btn &lt;-<span class="st"> </span>remDr<span class="op">$</span><span class="kw">findElement</span>(<span class="dt">using =</span> <span class="st">&#39;xpath&#39;</span>, <span class="dt">value =</span> xpath)</span>
+<span id="cb30-27"><a href="web.html#cb30-27"></a></span>
+<span id="cb30-28"><a href="web.html#cb30-28"></a><span class="co"># 搜索交通大学</span></span>
+<span id="cb30-29"><a href="web.html#cb30-29"></a>text &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="st">&quot;交通大学&quot;</span>, <span class="dt">key =</span> <span class="st">&#39;enter&#39;</span>)</span>
+<span id="cb30-30"><a href="web.html#cb30-30"></a>btn<span class="op">$</span><span class="kw">sendKeysToElement</span>(text)</span>
+<span id="cb30-31"><a href="web.html#cb30-31"></a></span>
+<span id="cb30-32"><a href="web.html#cb30-32"></a><span class="co"># 查看搜索结果</span></span>
+<span id="cb30-33"><a href="web.html#cb30-33"></a>remDr<span class="op">$</span><span class="kw">maxWindowSize</span>()</span>
+<span id="cb30-34"><a href="web.html#cb30-34"></a>remDr<span class="op">$</span><span class="kw">screenshot</span>(<span class="dt">display =</span> <span class="ot">TRUE</span>)</span>
+<span id="cb30-35"><a href="web.html#cb30-35"></a></span>
+<span id="cb30-36"><a href="web.html#cb30-36"></a><span class="co"># 得到网页源码并解析</span></span>
+<span id="cb30-37"><a href="web.html#cb30-37"></a>file &lt;-<span class="st"> </span>btn<span class="op">$</span><span class="kw">getPageSource</span>()[[<span class="dv">1</span>]]</span>
+<span id="cb30-38"><a href="web.html#cb30-38"></a>parsed_doc &lt;-<span class="st"> </span><span class="kw">htmlParse</span>(file)</span>
+<span id="cb30-39"><a href="web.html#cb30-39"></a></span>
+<span id="cb30-40"><a href="web.html#cb30-40"></a><span class="co"># 得到相关房价信息</span></span>
+<span id="cb30-41"><a href="web.html#cb30-41"></a>community &lt;-<span class="st"> </span><span class="kw">xpathSApply</span>(parsed_doc, <span class="st">&#39;//a[@data-el=&quot;region&quot;]&#39;</span>,xmlValue)</span>
+<span id="cb30-42"><a href="web.html#cb30-42"></a>totalprice &lt;-<span class="st"> </span><span class="kw">xpathSApply</span>(parsed_doc, <span class="st">&#39;//*[contains(concat( &quot; &quot;, @class, &quot; &quot; ), concat( &quot; &quot;, &quot;totalPrice&quot;, &quot; &quot; ))]//span&#39;</span>,xmlValue)</span>
+<span id="cb30-43"><a href="web.html#cb30-43"></a>type_all &lt;-<span class="st"> </span><span class="kw">xpathSApply</span>(parsed_doc, <span class="st">&#39;//*[contains(concat( &quot; &quot;, @class, &quot; &quot; ), concat( &quot; &quot;, &quot;houseInfo&quot;, &quot; &quot; ))]&#39;</span>,xmlValue)</span>
+<span id="cb30-44"><a href="web.html#cb30-44"></a></span>
+<span id="cb30-45"><a href="web.html#cb30-45"></a>type &lt;-<span class="st"> </span><span class="kw">unlist</span>(<span class="kw">lapply</span>(type_all,<span class="cf">function</span>(x) <span class="kw">gettp</span>(x,<span class="dv">1</span>)))</span>
+<span id="cb30-46"><a href="web.html#cb30-46"></a>size &lt;-<span class="st"> </span><span class="kw">unlist</span>(<span class="kw">lapply</span>(type_all,<span class="cf">function</span>(x) <span class="kw">gettp</span>(x,<span class="dv">2</span>)))</span>
+<span id="cb30-47"><a href="web.html#cb30-47"></a>year &lt;-<span class="st"> </span><span class="kw">unlist</span>(<span class="kw">lapply</span>(type_all,<span class="cf">function</span>(x) <span class="kw">gettp</span>(x,<span class="dv">6</span>)))</span>
+<span id="cb30-48"><a href="web.html#cb30-48"></a>avgprice &lt;-<span class="st">  </span><span class="kw">xpathSApply</span>(parsed_doc, <span class="st">&#39;//*[contains(concat( &quot; &quot;, @class, &quot; &quot; ), concat( &quot; &quot;, &quot;unitPrice&quot;, &quot; &quot; ))]//span&#39;</span>,xmlValue)</span>
+<span id="cb30-49"><a href="web.html#cb30-49"></a>result &lt;-<span class="st"> </span><span class="kw">data.frame</span>(community,totalprice,type,size,year,avgprice)</span>
+<span id="cb30-50"><a href="web.html#cb30-50"></a></span>
+<span id="cb30-51"><a href="web.html#cb30-51"></a><span class="co"># 点击2页</span></span>
+<span id="cb30-52"><a href="web.html#cb30-52"></a>pg &lt;-<span class="st"> </span>remDr<span class="op">$</span><span class="kw">findElement</span>(<span class="dt">using =</span> <span class="st">&quot;xpath&quot;</span>,<span class="dt">value =</span> <span class="st">&quot;//a[@data-page=&#39;2&#39;]&quot;</span>)</span>
+<span id="cb30-53"><a href="web.html#cb30-53"></a>pg<span class="op">$</span><span class="kw">clickElement</span>()</span>
+<span id="cb30-54"><a href="web.html#cb30-54"></a>remDr<span class="op">$</span><span class="kw">getCurrentUrl</span>()</span>
+<span id="cb30-55"><a href="web.html#cb30-55"></a></span>
+<span id="cb30-56"><a href="web.html#cb30-56"></a><span class="co"># 重复上述操作，但是在这之前我们需要知道总共有多少页需要爬</span></span>
+<span id="cb30-57"><a href="web.html#cb30-57"></a>page &lt;-<span class="st"> </span><span class="kw">as.numeric</span>(<span class="kw">str_extract</span>(<span class="kw">xpathSApply</span>(parsed_doc,</span>
+<span id="cb30-58"><a href="web.html#cb30-58"></a>                                <span class="st">&#39;/html/body/div[4]/div[1]/div[8]/div[2]/div&#39;</span>,</span>
+<span id="cb30-59"><a href="web.html#cb30-59"></a>                                xmlGetAttr,<span class="st">&quot;page-data&quot;</span>),</span>
+<span id="cb30-60"><a href="web.html#cb30-60"></a>                    <span class="dt">pattern =</span> <span class="st">&quot;[0-9]+&quot;</span>))</span>
+<span id="cb30-61"><a href="web.html#cb30-61"></a></span>
+<span id="cb30-62"><a href="web.html#cb30-62"></a><span class="co"># 在这个基础上跑循环</span></span>
+<span id="cb30-63"><a href="web.html#cb30-63"></a>house &lt;-<span class="st"> </span><span class="kw">data.frame</span>()</span>
+<span id="cb30-64"><a href="web.html#cb30-64"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span>page){</span>
+<span id="cb30-65"><a href="web.html#cb30-65"></a>        pg &lt;-<span class="st"> </span>remDr<span class="op">$</span><span class="kw">findElement</span>(<span class="dt">using =</span> <span class="st">&quot;xpath&quot;</span>,<span class="dt">value =</span> <span class="kw">paste0</span>(<span class="st">&quot;//a[@data-page=&quot;</span>,<span class="st">&quot;&#39;&quot;</span>,i,<span class="st">&quot;&#39;]&quot;</span>))</span>
+<span id="cb30-66"><a href="web.html#cb30-66"></a>        pg<span class="op">$</span><span class="kw">clickElement</span>()</span>
+<span id="cb30-67"><a href="web.html#cb30-67"></a>        <span class="co"># 得到网页源码并解析</span></span>
+<span id="cb30-68"><a href="web.html#cb30-68"></a>        file &lt;-<span class="st"> </span>btn<span class="op">$</span><span class="kw">getPageSource</span>()[[<span class="dv">1</span>]]</span>
+<span id="cb30-69"><a href="web.html#cb30-69"></a>        parsed_doc &lt;-<span class="st"> </span><span class="kw">htmlParse</span>(file)</span>
+<span id="cb30-70"><a href="web.html#cb30-70"></a>        <span class="co"># 得到相关房价信息</span></span>
+<span id="cb30-71"><a href="web.html#cb30-71"></a>        community &lt;-<span class="st"> </span><span class="kw">xpathSApply</span>(parsed_doc, <span class="st">&#39;//a[@data-el=&quot;region&quot;]&#39;</span>,xmlValue)</span>
+<span id="cb30-72"><a href="web.html#cb30-72"></a>        totalprice &lt;-<span class="st"> </span><span class="kw">xpathSApply</span>(parsed_doc, <span class="st">&#39;//*[contains(concat( &quot; &quot;, @class, &quot; &quot; ), concat( &quot; &quot;, &quot;totalPrice&quot;, &quot; &quot; ))]//span&#39;</span>,xmlValue)</span>
+<span id="cb30-73"><a href="web.html#cb30-73"></a>        type_all &lt;-<span class="st"> </span><span class="kw">xpathSApply</span>(parsed_doc, <span class="st">&#39;//*[contains(concat( &quot; &quot;, @class, &quot; &quot; ), concat( &quot; &quot;, &quot;houseInfo&quot;, &quot; &quot; ))]&#39;</span>,xmlValue)</span>
+<span id="cb30-74"><a href="web.html#cb30-74"></a>        type &lt;-<span class="st"> </span><span class="kw">unlist</span>(<span class="kw">lapply</span>(type_all,<span class="cf">function</span>(x) <span class="kw">gettp</span>(x,<span class="dv">1</span>)))</span>
+<span id="cb30-75"><a href="web.html#cb30-75"></a>        size &lt;-<span class="st"> </span><span class="kw">unlist</span>(<span class="kw">lapply</span>(type_all,<span class="cf">function</span>(x) <span class="kw">gettp</span>(x,<span class="dv">2</span>)))</span>
+<span id="cb30-76"><a href="web.html#cb30-76"></a>        year &lt;-<span class="st"> </span><span class="kw">unlist</span>(<span class="kw">lapply</span>(type_all,<span class="cf">function</span>(x) <span class="kw">gettp</span>(x,<span class="dv">6</span>)))</span>
+<span id="cb30-77"><a href="web.html#cb30-77"></a>        avgprice &lt;-<span class="st">  </span><span class="kw">xpathSApply</span>(parsed_doc, <span class="st">&#39;//*[contains(concat( &quot; &quot;, @class, &quot; &quot; ), concat( &quot; &quot;, &quot;unitPrice&quot;, &quot; &quot; ))]//span&#39;</span>,xmlValue)</span>
+<span id="cb30-78"><a href="web.html#cb30-78"></a>        result &lt;-<span class="st"> </span><span class="kw">data.frame</span>(community,totalprice,type,size,year,avgprice)</span>
+<span id="cb30-79"><a href="web.html#cb30-79"></a>        <span class="kw">Sys.sleep</span>(<span class="dv">2</span>)</span>
+<span id="cb30-80"><a href="web.html#cb30-80"></a>        house &lt;-<span class="st"> </span><span class="kw">rbind</span>(house,result)</span>
+<span id="cb30-81"><a href="web.html#cb30-81"></a>        <span class="kw">cat</span>(<span class="st">&quot;第&quot;</span>,i,<span class="st">&quot;页爬成功&quot;</span>,<span class="st">&quot;</span><span class="ch">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb30-82"><a href="web.html#cb30-82"></a>}</span></code></pre></div>
+</div>
+<div id="案例2登录豆瓣" class="section level3" number="3.9.5">
+<h3><span class="header-section-number">3.9.5</span> 案例2:登录豆瓣</h3>
+<p>本节我们将使用RSelenium模拟登录豆瓣账号。</p>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="web.html#cb31-1"></a><span class="kw">library</span>(RSelenium)</span>
+<span id="cb31-2"><a href="web.html#cb31-2"></a><span class="kw">library</span>(XML)</span>
+<span id="cb31-3"><a href="web.html#cb31-3"></a><span class="kw">library</span>(RCurl)</span>
+<span id="cb31-4"><a href="web.html#cb31-4"></a></span>
+<span id="cb31-5"><a href="web.html#cb31-5"></a><span class="co"># 设定(虚拟)浏览器</span></span>
+<span id="cb31-6"><a href="web.html#cb31-6"></a>remDr &lt;-<span class="st"> </span><span class="kw">remoteDriver</span>(</span>
+<span id="cb31-7"><a href="web.html#cb31-7"></a>        <span class="dt">remoteServerAddr =</span> <span class="st">&quot;localhost&quot;</span>,</span>
+<span id="cb31-8"><a href="web.html#cb31-8"></a>        <span class="dt">port =</span> 4445L,</span>
+<span id="cb31-9"><a href="web.html#cb31-9"></a>        <span class="dt">browserName =</span> <span class="st">&quot;firefox&quot;</span></span>
+<span id="cb31-10"><a href="web.html#cb31-10"></a>)</span>
+<span id="cb31-11"><a href="web.html#cb31-11"></a><span class="co"># 打开浏览器</span></span>
+<span id="cb31-12"><a href="web.html#cb31-12"></a>remDr<span class="op">$</span><span class="kw">open</span>()</span>
+<span id="cb31-13"><a href="web.html#cb31-13"></a><span class="co"># 打开豆瓣登录页</span></span>
+<span id="cb31-14"><a href="web.html#cb31-14"></a>url &lt;-<span class="st"> &quot;https://accounts.douban.com/passport/login?&quot;</span></span>
+<span id="cb31-15"><a href="web.html#cb31-15"></a>remDr<span class="op">$</span><span class="kw">navigate</span>(url)</span>
+<span id="cb31-16"><a href="web.html#cb31-16"></a>remDr<span class="op">$</span><span class="kw">screenshot</span>(<span class="dt">display =</span> <span class="ot">TRUE</span>) <span class="co">#由于浏览器是在Docker中虚拟的，因此需要使用截图来查看当前的显示页面</span></span>
+<span id="cb31-17"><a href="web.html#cb31-17"></a></span>
+<span id="cb31-18"><a href="web.html#cb31-18"></a><span class="co"># 定位登录选项的位置</span></span>
+<span id="cb31-19"><a href="web.html#cb31-19"></a>xpath &lt;-<span class="st"> &#39;/html/body/div[1]/div[2]/div[2]/div/div[1]/ul[1]/li[2]&#39;</span></span>
+<span id="cb31-20"><a href="web.html#cb31-20"></a>btn &lt;-<span class="st"> </span>remDr<span class="op">$</span><span class="kw">findElement</span>(<span class="dt">using =</span> <span class="st">&#39;xpath&#39;</span>, <span class="dt">value =</span> xpath)</span>
+<span id="cb31-21"><a href="web.html#cb31-21"></a></span>
+<span id="cb31-22"><a href="web.html#cb31-22"></a><span class="co"># 点击切换成邮箱密码登录</span></span>
+<span id="cb31-23"><a href="web.html#cb31-23"></a>btn<span class="op">$</span><span class="kw">clickElement</span>()</span>
+<span id="cb31-24"><a href="web.html#cb31-24"></a>remDr<span class="op">$</span><span class="kw">screenshot</span>(<span class="dt">display =</span> <span class="ot">TRUE</span>) <span class="co"># 此时已经切换成为邮箱密码登录</span></span>
+<span id="cb31-25"><a href="web.html#cb31-25"></a></span>
+<span id="cb31-26"><a href="web.html#cb31-26"></a><span class="co"># 找到用户名和密码栏，分别输入</span></span>
+<span id="cb31-27"><a href="web.html#cb31-27"></a>un &lt;-<span class="st"> </span>remDr<span class="op">$</span><span class="kw">findElement</span>(<span class="dt">using =</span> <span class="st">&#39;xpath&#39;</span>,<span class="dt">value =</span><span class="st">&#39;//*[@id=&quot;username&quot;]&#39;</span>)</span>
+<span id="cb31-28"><a href="web.html#cb31-28"></a>un<span class="op">$</span><span class="kw">sendKeysToElement</span>(<span class="kw">list</span>(<span class="st">&quot;dataengineering@sjtu.edu.cn&quot;</span>))</span>
+<span id="cb31-29"><a href="web.html#cb31-29"></a></span>
+<span id="cb31-30"><a href="web.html#cb31-30"></a>pw &lt;-<span class="st"> </span>remDr<span class="op">$</span><span class="kw">findElement</span>(<span class="dt">using =</span> <span class="st">&#39;xpath&#39;</span>,<span class="dt">value =</span><span class="st">&#39;//*[@id=&quot;password&quot;]&#39;</span>)</span>
+<span id="cb31-31"><a href="web.html#cb31-31"></a>pw<span class="op">$</span><span class="kw">sendKeysToElement</span>(<span class="kw">list</span>(<span class="st">&quot;ec@nomistno1&quot;</span>))</span>
+<span id="cb31-32"><a href="web.html#cb31-32"></a>remDr<span class="op">$</span><span class="kw">screenshot</span>(<span class="dt">display =</span> <span class="ot">TRUE</span>) <span class="co"># 可以看到已经输入相关信息</span></span>
+<span id="cb31-33"><a href="web.html#cb31-33"></a></span>
+<span id="cb31-34"><a href="web.html#cb31-34"></a><span class="co"># 找到登录键，并点击登录</span></span>
+<span id="cb31-35"><a href="web.html#cb31-35"></a>loginbtn &lt;-<span class="st"> </span>remDr<span class="op">$</span><span class="kw">findElement</span>(<span class="dt">using =</span> <span class="st">&#39;xpath&#39;</span>,<span class="dt">value =</span><span class="st">&#39;/html/body/div[1]/div[2]/div[2]/div/div[2]/div[1]/div[4]/a&#39;</span>)</span>
+<span id="cb31-36"><a href="web.html#cb31-36"></a>loginbtn<span class="op">$</span><span class="kw">clickElement</span>()</span>
+<span id="cb31-37"><a href="web.html#cb31-37"></a>remDr<span class="op">$</span><span class="kw">screenshot</span>(<span class="dt">display =</span> <span class="ot">TRUE</span>)</span></code></pre></div>
 <p>写一个教材，实在是太难了</p>
 
 </div>
