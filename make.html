@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>第 3 章 GUN Make | 数据工程讲义：经济学分册</title>
+  <title>第 7 章 GUN Make的数据生产线 | 数据工程讲义：经济学分册</title>
   <meta name="description" content="一个简单的中文书示例。" />
-  <meta name="generator" content="bookdown 0.17 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="第 3 章 GUN Make | 数据工程讲义：经济学分册" />
+  <meta property="og:title" content="第 7 章 GUN Make的数据生产线 | 数据工程讲义：经济学分册" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="yihui/bookdown-chinese" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="第 3 章 GUN Make | 数据工程讲义：经济学分册" />
+  <meta name="twitter:title" content="第 7 章 GUN Make的数据生产线 | 数据工程讲义：经济学分册" />
   
   <meta name="twitter:description" content="一个简单的中文书示例。" />
   
@@ -24,16 +24,16 @@
 <meta name="author" content="史冬波 续本达" />
 
 
-<meta name="date" content="2020-02-21" />
+<meta name="date" content="2020-11-03" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="flow.html"/>
-<link rel="next" href="sound.html"/>
-<script src="libs/header-attrs-2.1/header-attrs.js"></script>
+<link rel="prev" href="md.html"/>
+<link rel="next" href="reg.html"/>
+<script src="libs/header-attrs-2.3/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -51,6 +51,11 @@
 
 
 
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+<script src="libs/htmlwidgets-1.5.1/htmlwidgets.js"></script>
+<script src="libs/viz-1.8.2/viz.js"></script>
+<link href="libs/DiagrammeR-styles-0.2/styles.css" rel="stylesheet" />
+<script src="libs/grViz-binding-1.0.6.1/grViz.js"></script>
 
 
 <style type="text/css">
@@ -140,27 +145,174 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="author.html"><a href="author.html"><i class="fa fa-check"></i>作者简介</a></li>
 <li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> 写在前面</a>
 <ul>
-<li class="chapter" data-level="1.1" data-path="intro.html"><a href="intro.html#为什么要写这本书"><i class="fa fa-check"></i><b>1.1</b> 为什么要写这本书</a></li>
-<li class="chapter" data-level="1.2" data-path="intro.html"><a href="intro.html#数据工程data-engineering"><i class="fa fa-check"></i><b>1.2</b> 数据工程(Data Engineering)</a></li>
-<li class="chapter" data-level="1.3" data-path="intro.html"><a href="intro.html#如何阅读这本书"><i class="fa fa-check"></i><b>1.3</b> 如何阅读这本书</a></li>
+<li class="chapter" data-level="1.1" data-path="intro.html"><a href="intro.html#为什么写本书"><i class="fa fa-check"></i><b>1.1</b> 为什么写本书</a></li>
+<li class="chapter" data-level="1.2" data-path="intro.html"><a href="intro.html#如何使用本书"><i class="fa fa-check"></i><b>1.2</b> 如何使用本书</a></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="flow.html"><a href="flow.html"><i class="fa fa-check"></i><b>2</b> 重塑经济学研究的流程</a>
 <ul>
-<li class="chapter" data-level="2.1" data-path="flow.html"><a href="flow.html#人工智能时代的社会科学研究基于与挑战"><i class="fa fa-check"></i><b>2.1</b> 人工智能时代的社会科学研究：基于与挑战</a></li>
+<li class="chapter" data-level="2.1" data-path="flow.html"><a href="flow.html#人工智能时代的社会科学研究机遇与挑战"><i class="fa fa-check"></i><b>2.1</b> 人工智能时代的社会科学研究：机遇与挑战</a>
+<ul>
+<li class="chapter" data-level="2.1.1" data-path="flow.html"><a href="flow.html#ai智能发展的三要素"><i class="fa fa-check"></i><b>2.1.1</b> AI智能发展的三要素</a></li>
+<li class="chapter" data-level="2.1.2" data-path="flow.html"><a href="flow.html#ai对社会科学研究的冲击"><i class="fa fa-check"></i><b>2.1.2</b> AI对社会科学研究的冲击</a></li>
+</ul></li>
 <li class="chapter" data-level="2.2" data-path="flow.html"><a href="flow.html#数据工程与数据科学"><i class="fa fa-check"></i><b>2.2</b> 数据工程与数据科学</a></li>
 <li class="chapter" data-level="2.3" data-path="flow.html"><a href="flow.html#数据工程的四大原则"><i class="fa fa-check"></i><b>2.3</b> 数据工程的四大原则</a></li>
 <li class="chapter" data-level="2.4" data-path="flow.html"><a href="flow.html#数据处理的灵魂数据流"><i class="fa fa-check"></i><b>2.4</b> 数据处理的灵魂：数据流</a></li>
 <li class="chapter" data-level="2.5" data-path="flow.html"><a href="flow.html#数据处理的钥匙数据结构"><i class="fa fa-check"></i><b>2.5</b> 数据处理的钥匙：数据结构</a></li>
 <li class="chapter" data-level="2.6" data-path="flow.html"><a href="flow.html#数据工程师的工具箱"><i class="fa fa-check"></i><b>2.6</b> 数据工程师的工具箱</a></li>
 <li class="chapter" data-level="2.7" data-path="flow.html"><a href="flow.html#数据工程师的一天"><i class="fa fa-check"></i><b>2.7</b> 数据工程师的一天</a></li>
+<li class="chapter" data-level="2.8" data-path="flow.html"><a href="flow.html#数据工程data-engineering"><i class="fa fa-check"></i><b>2.8</b> 数据工程(Data Engineering)</a></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="make.html"><a href="make.html"><i class="fa fa-check"></i><b>3</b> GUN Make</a>
+<li class="chapter" data-level="3" data-path="flow.html"><a href="flow.html#flow"><i class="fa fa-check"></i><b>3</b> R编程基础</a>
 <ul>
-<li class="chapter" data-level="3.1" data-path="make.html"><a href="make.html#使用make的必要性"><i class="fa fa-check"></i><b>3.1</b> 使用Make的必要性</a></li>
-<li class="chapter" data-level="3.2" data-path="make.html"><a href="make.html#快速上手make"><i class="fa fa-check"></i><b>3.2</b> 快速上手Make</a></li>
-<li class="chapter" data-level="3.3" data-path="make.html"><a href="make.html#make的高级语法"><i class="fa fa-check"></i><b>3.3</b> Make的高级语法</a></li>
-<li class="chapter" data-level="3.4" data-path="make.html"><a href="make.html#参考资料"><i class="fa fa-check"></i><b>3.4</b> 参考资料</a></li>
-<li class="chapter" data-level="3.5" data-path="make.html"><a href="make.html#including-plots"><i class="fa fa-check"></i><b>3.5</b> Including Plots</a></li>
+<li class="chapter" data-level="3.1" data-path="flow.html"><a href="flow.html#变量"><i class="fa fa-check"></i><b>3.1</b> 变量</a></li>
+<li class="chapter" data-level="3.2" data-path="flow.html"><a href="flow.html#r对文件和路径的相关操作"><i class="fa fa-check"></i><b>3.2</b> R对文件和路径的相关操作</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="flow.html"><a href="flow.html#路径操作"><i class="fa fa-check"></i><b>3.2.1</b> 路径操作</a></li>
+<li class="chapter" data-level="3.2.2" data-path="flow.html"><a href="flow.html#文件操作"><i class="fa fa-check"></i><b>3.2.2</b> 文件操作</a></li>
+<li class="chapter" data-level="3.2.3" data-path="flow.html"><a href="flow.html#特殊路径"><i class="fa fa-check"></i><b>3.2.3</b> 特殊路径</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="flow.html"><a href="flow.html#代码风格"><i class="fa fa-check"></i><b>3.3</b> 代码风格</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="rw.html"><a href="rw.html"><i class="fa fa-check"></i><b>4</b> 数据读写</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="rw.html"><a href="rw.html#数据文件类型"><i class="fa fa-check"></i><b>4.1</b> 数据文件类型</a>
+<ul>
+<li class="chapter" data-level="4.1.1" data-path="rw.html"><a href="rw.html#hdf5"><i class="fa fa-check"></i><b>4.1.1</b> HDF5</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="web.html"><a href="web.html"><i class="fa fa-check"></i><b>5</b> 网络数据采集</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="web.html"><a href="web.html#网络数据格式"><i class="fa fa-check"></i><b>5.1</b> 网络数据格式</a>
+<ul>
+<li class="chapter" data-level="5.1.1" data-path="web.html"><a href="web.html#csv"><i class="fa fa-check"></i><b>5.1.1</b> CSV</a></li>
+<li class="chapter" data-level="5.1.2" data-path="web.html"><a href="web.html#xml"><i class="fa fa-check"></i><b>5.1.2</b> XML</a></li>
+<li class="chapter" data-level="5.1.3" data-path="web.html"><a href="web.html#json"><i class="fa fa-check"></i><b>5.1.3</b> JSON</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="web.html"><a href="web.html#html"><i class="fa fa-check"></i><b>5.2</b> HTML</a>
+<ul>
+<li class="chapter" data-level="5.2.1" data-path="web.html"><a href="web.html#html的基本语法"><i class="fa fa-check"></i><b>5.2.1</b> HTML的基本语法</a></li>
+<li class="chapter" data-level="5.2.2" data-path="web.html"><a href="web.html#常见html标签"><i class="fa fa-check"></i><b>5.2.2</b> 常见HTML标签</a></li>
+<li class="chapter" data-level="5.2.3" data-path="web.html"><a href="web.html#dom树形数据结构"><i class="fa fa-check"></i><b>5.2.3</b> DOM树形数据结构</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="web.html"><a href="web.html#css"><i class="fa fa-check"></i><b>5.3</b> CSS</a>
+<ul>
+<li class="chapter" data-level="5.3.1" data-path="web.html"><a href="web.html#css的基本语法"><i class="fa fa-check"></i><b>5.3.1</b> CSS的基本语法</a></li>
+<li class="chapter" data-level="5.3.2" data-path="web.html"><a href="web.html#id选择器"><i class="fa fa-check"></i><b>5.3.2</b> id选择器</a></li>
+<li class="chapter" data-level="5.3.3" data-path="web.html"><a href="web.html#类选择器"><i class="fa fa-check"></i><b>5.3.3</b> 类选择器</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="web.html"><a href="web.html#javascript"><i class="fa fa-check"></i><b>5.4</b> JavaScript</a>
+<ul>
+<li class="chapter" data-level="5.4.1" data-path="web.html"><a href="web.html#javascript案例"><i class="fa fa-check"></i><b>5.4.1</b> JavaScript案例</a></li>
+<li class="chapter" data-level="5.4.2" data-path="web.html"><a href="web.html#javascript的基本语法"><i class="fa fa-check"></i><b>5.4.2</b> JavaScript的基本语法</a></li>
+<li class="chapter" data-level="5.4.3" data-path="web.html"><a href="web.html#ajax"><i class="fa fa-check"></i><b>5.4.3</b> AJAX</a></li>
+</ul></li>
+<li class="chapter" data-level="5.5" data-path="web.html"><a href="web.html#开发者工具"><i class="fa fa-check"></i><b>5.5</b> 开发者工具</a>
+<ul>
+<li class="chapter" data-level="5.5.1" data-path="web.html"><a href="web.html#打开开发者工具"><i class="fa fa-check"></i><b>5.5.1</b> 打开开发者工具</a></li>
+<li class="chapter" data-level="5.5.2" data-path="web.html"><a href="web.html#查看器与样式"><i class="fa fa-check"></i><b>5.5.2</b> 查看器与样式</a></li>
+<li class="chapter" data-level="5.5.3" data-path="web.html"><a href="web.html#其他功能"><i class="fa fa-check"></i><b>5.5.3</b> 其他功能</a></li>
+</ul></li>
+<li class="chapter" data-level="5.6" data-path="web.html"><a href="web.html#xpath"><i class="fa fa-check"></i><b>5.6</b> Xpath</a>
+<ul>
+<li class="chapter" data-level="5.6.1" data-path="web.html"><a href="web.html#基本查询"><i class="fa fa-check"></i><b>5.6.1</b> 基本查询</a></li>
+</ul></li>
+<li class="chapter" data-level="5.7" data-path="web.html"><a href="web.html#http"><i class="fa fa-check"></i><b>5.7</b> HTTP</a>
+<ul>
+<li class="chapter" data-level="5.7.1" data-path="web.html"><a href="web.html#http常见方法"><i class="fa fa-check"></i><b>5.7.1</b> HTTP常见方法</a></li>
+</ul></li>
+<li class="chapter" data-level="5.8" data-path="web.html"><a href="web.html#静态爬虫"><i class="fa fa-check"></i><b>5.8</b> 静态爬虫</a></li>
+<li class="chapter" data-level="5.9" data-path="web.html"><a href="web.html#使用rselenium的动态爬虫"><i class="fa fa-check"></i><b>5.9</b> 使用RSelenium的动态爬虫</a>
+<ul>
+<li class="chapter" data-level="5.9.1" data-path="web.html"><a href="web.html#rselenium简介与安装"><i class="fa fa-check"></i><b>5.9.1</b> RSelenium简介与安装</a></li>
+<li class="chapter" data-level="5.9.2" data-path="web.html"><a href="web.html#安装docker"><i class="fa fa-check"></i><b>5.9.2</b> 安装Docker</a></li>
+<li class="chapter" data-level="5.9.3" data-path="web.html"><a href="web.html#rselenum语法"><i class="fa fa-check"></i><b>5.9.3</b> RSelenum语法</a></li>
+<li class="chapter" data-level="5.9.4" data-path="web.html"><a href="web.html#案例1在链家搜索并获取相关信息"><i class="fa fa-check"></i><b>5.9.4</b> 案例1:在链家搜索并获取相关信息</a></li>
+<li class="chapter" data-level="5.9.5" data-path="web.html"><a href="web.html#案例2登录豆瓣"><i class="fa fa-check"></i><b>5.9.5</b> 案例2:登录豆瓣</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="md.html"><a href="md.html"><i class="fa fa-check"></i><b>6</b> 文学式编程</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="md.html"><a href="md.html#什么是文学式编程"><i class="fa fa-check"></i><b>6.1</b> 什么是文学式编程</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="make.html"><a href="make.html"><i class="fa fa-check"></i><b>7</b> GUN Make的数据生产线</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="make.html"><a href="make.html#使用make的必要性"><i class="fa fa-check"></i><b>7.1</b> 使用Make的必要性</a></li>
+<li class="chapter" data-level="7.2" data-path="make.html"><a href="make.html#make安装"><i class="fa fa-check"></i><b>7.2</b> Make安装</a></li>
+<li class="chapter" data-level="7.3" data-path="make.html"><a href="make.html#快速上手make"><i class="fa fa-check"></i><b>7.3</b> 快速上手make</a></li>
+<li class="chapter" data-level="7.4" data-path="make.html"><a href="make.html#make的工作方式"><i class="fa fa-check"></i><b>7.4</b> make的工作方式</a></li>
+<li class="chapter" data-level="7.5" data-path="make.html"><a href="make.html#makefile-的高级写法"><i class="fa fa-check"></i><b>7.5</b> Makefile 的高级写法</a>
+<ul>
+<li class="chapter" data-level="7.5.1" data-path="make.html"><a href="make.html#特殊目标"><i class="fa fa-check"></i><b>7.5.1</b> 特殊目标</a></li>
+<li class="chapter" data-level="7.5.2" data-path="make.html"><a href="make.html#使用变量"><i class="fa fa-check"></i><b>7.5.2</b> 使用变量</a></li>
+<li class="chapter" data-level="7.5.3" data-path="make.html"><a href="make.html#分支与循环结构"><i class="fa fa-check"></i><b>7.5.3</b> 分支与循环结构</a></li>
+<li class="chapter" data-level="7.5.4" data-path="make.html"><a href="make.html#函数"><i class="fa fa-check"></i><b>7.5.4</b> 函数</a></li>
+</ul></li>
+<li class="chapter" data-level="7.6" data-path="make.html"><a href="make.html#make的高级语法"><i class="fa fa-check"></i><b>7.6</b> Make的高级语法</a>
+<ul>
+<li class="chapter" data-level="7.6.1" data-path="make.html"><a href="make.html#并行计算"><i class="fa fa-check"></i><b>7.6.1</b> 并行计算</a></li>
+</ul></li>
+<li class="chapter" data-level="7.7" data-path="make.html"><a href="make.html#r的命令行选项"><i class="fa fa-check"></i><b>7.7</b> R的命令行选项</a>
+<ul>
+<li class="chapter" data-level="7.7.1" data-path="make.html"><a href="make.html#linuxunix-shebang"><i class="fa fa-check"></i><b>7.7.1</b> Linux/Unix Shebang</a></li>
+<li class="chapter" data-level="7.7.2" data-path="make.html"><a href="make.html#argparse包实例"><i class="fa fa-check"></i><b>7.7.2</b> argparse包实例</a></li>
+</ul></li>
+<li class="chapter" data-level="7.8" data-path="make.html"><a href="make.html#参考资料"><i class="fa fa-check"></i><b>7.8</b> 参考资料</a></li>
+<li class="chapter" data-level="7.9" data-path="make.html"><a href="make.html#including-plots"><i class="fa fa-check"></i><b>7.9</b> Including Plots</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="reg.html"><a href="reg.html"><i class="fa fa-check"></i><b>8</b> 回归</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="reg.html"><a href="reg.html#一般线性回归"><i class="fa fa-check"></i><b>8.1</b> 一般线性回归</a>
+<ul>
+<li class="chapter" data-level="8.1.1" data-path="reg.html"><a href="reg.html#基础模型"><i class="fa fa-check"></i><b>8.1.1</b> 基础模型</a></li>
+<li class="chapter" data-level="8.1.2" data-path="reg.html"><a href="reg.html#稳健性标准误"><i class="fa fa-check"></i><b>8.1.2</b> 稳健性标准误</a></li>
+</ul></li>
+<li class="chapter" data-level="8.2" data-path="reg.html"><a href="reg.html#因果推断的反事实框架"><i class="fa fa-check"></i><b>8.2</b> 因果推断的反事实框架</a>
+<ul>
+<li class="chapter" data-level="8.2.1" data-path="reg.html"><a href="reg.html#定义因果关系"><i class="fa fa-check"></i><b>8.2.1</b> 定义因果关系</a></li>
+<li class="chapter" data-level="8.2.2" data-path="reg.html"><a href="reg.html#cef三定理"><i class="fa fa-check"></i><b>8.2.2</b> CEF三定理</a></li>
+<li class="chapter" data-level="8.2.3" data-path="reg.html"><a href="reg.html#交互项还是分组回归"><i class="fa fa-check"></i><b>8.2.3</b> 交互项还是分组回归</a></li>
+</ul></li>
+<li class="chapter" data-level="8.3" data-path="reg.html"><a href="reg.html#匹配"><i class="fa fa-check"></i><b>8.3</b> 匹配</a>
+<ul>
+<li class="chapter" data-level="8.3.1" data-path="reg.html"><a href="reg.html#原理"><i class="fa fa-check"></i><b>8.3.1</b> 原理</a></li>
+<li class="chapter" data-level="8.3.2" data-path="reg.html"><a href="reg.html#案例"><i class="fa fa-check"></i><b>8.3.2</b> 案例</a></li>
+</ul></li>
+<li class="chapter" data-level="8.4" data-path="reg.html"><a href="reg.html#工具变量"><i class="fa fa-check"></i><b>8.4</b> 工具变量</a>
+<ul>
+<li class="chapter" data-level="8.4.1" data-path="reg.html"><a href="reg.html#原理-1"><i class="fa fa-check"></i><b>8.4.1</b> 原理</a></li>
+<li class="chapter" data-level="8.4.2" data-path="reg.html"><a href="reg.html#案例-1"><i class="fa fa-check"></i><b>8.4.2</b> 案例</a></li>
+</ul></li>
+<li class="chapter" data-level="8.5" data-path="reg.html"><a href="reg.html#双重差分"><i class="fa fa-check"></i><b>8.5</b> 双重差分</a>
+<ul>
+<li class="chapter" data-level="8.5.1" data-path="reg.html"><a href="reg.html#原理-2"><i class="fa fa-check"></i><b>8.5.1</b> 原理</a></li>
+<li class="chapter" data-level="8.5.2" data-path="reg.html"><a href="reg.html#案例-2"><i class="fa fa-check"></i><b>8.5.2</b> 案例</a></li>
+</ul></li>
+<li class="chapter" data-level="8.6" data-path="reg.html"><a href="reg.html#断点回归"><i class="fa fa-check"></i><b>8.6</b> 断点回归</a>
+<ul>
+<li class="chapter" data-level="8.6.1" data-path="reg.html"><a href="reg.html#原理-3"><i class="fa fa-check"></i><b>8.6.1</b> 原理</a></li>
+<li class="chapter" data-level="8.6.2" data-path="reg.html"><a href="reg.html#案例-3"><i class="fa fa-check"></i><b>8.6.2</b> 案例</a></li>
+<li class="chapter" data-level="8.6.3" data-path="reg.html"><a href="reg.html#其他乱七八糟的方法"><i class="fa fa-check"></i><b>8.6.3</b> 其他乱七八糟的方法</a></li>
+</ul></li>
+<li class="chapter" data-level="8.7" data-path="reg.html"><a href="reg.html#使用stargazer输出表格"><i class="fa fa-check"></i><b>8.7</b> 使用stargazer输出表格</a>
+<ul>
+<li class="chapter" data-level="8.7.1" data-path="reg.html"><a href="reg.html#标准回归表"><i class="fa fa-check"></i><b>8.7.1</b> 标准回归表</a></li>
+<li class="chapter" data-level="8.7.2" data-path="reg.html"><a href="reg.html#默认格式"><i class="fa fa-check"></i><b>8.7.2</b> 默认格式</a></li>
+<li class="chapter" data-level="8.7.3" data-path="reg.html"><a href="reg.html#表格表头"><i class="fa fa-check"></i><b>8.7.3</b> 表格表头</a></li>
+<li class="chapter" data-level="8.7.4" data-path="reg.html"><a href="reg.html#表格正文"><i class="fa fa-check"></i><b>8.7.4</b> 表格正文</a></li>
+<li class="chapter" data-level="8.7.5" data-path="reg.html"><a href="reg.html#添加变量信息"><i class="fa fa-check"></i><b>8.7.5</b> 添加变量信息</a></li>
+<li class="chapter" data-level="8.7.6" data-path="reg.html"><a href="reg.html#选择统计量"><i class="fa fa-check"></i><b>8.7.6</b> 选择统计量</a></li>
+<li class="chapter" data-level="8.7.7" data-path="reg.html"><a href="reg.html#表格注释"><i class="fa fa-check"></i><b>8.7.7</b> 表格注释</a></li>
+<li class="chapter" data-level="8.7.8" data-path="reg.html"><a href="reg.html#整体布局"><i class="fa fa-check"></i><b>8.7.8</b> 整体布局</a></li>
+<li class="chapter" data-level="8.7.9" data-path="reg.html"><a href="reg.html#其他"><i class="fa fa-check"></i><b>8.7.9</b> 其他</a></li>
+<li class="chapter" data-level="8.7.10" data-path="reg.html"><a href="reg.html#描述性统计表"><i class="fa fa-check"></i><b>8.7.10</b> 描述性统计表</a></li>
+</ul></li>
+<li class="chapter" data-level="8.8" data-path="reg.html"><a href="reg.html#回归结果的可视化"><i class="fa fa-check"></i><b>8.8</b> 回归结果的可视化</a>
+<ul>
+<li class="chapter" data-level="8.8.1" data-path="reg.html"><a href="reg.html#使用ggcoefstats可视化回归结果"><i class="fa fa-check"></i><b>8.8.1</b> 使用ggcoefstats可视化回归结果</a></li>
+<li class="chapter" data-level="8.8.2" data-path="reg.html"><a href="reg.html#使用"><i class="fa fa-check"></i><b>8.8.2</b> 使用</a></li>
+<li class="chapter" data-level="8.8.3" data-path="reg.html"><a href="reg.html#双重差分模型的可视化"><i class="fa fa-check"></i><b>8.8.3</b> 双重差分模型的可视化</a></li>
+</ul></li>
 </ul></li>
 <li class="appendix"><span><b>附录</b></span></li>
 <li class="chapter" data-level="A" data-path="sound.html"><a href="sound.html"><i class="fa fa-check"></i><b>A</b> 余音绕梁</a></li>
@@ -185,39 +337,114 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="make" class="section level1" number="3">
-<h1><span class="header-section-number">第 3 章</span> GUN Make</h1>
-<p>本章中我们将介绍如何使用GUN Make工具来帮助我们实现更为便捷的可复现数据分析。对于绝大多数数据分析人员，Make是一个完全陌生的概念；但对于软件工程师而言，Make则是再熟悉不过的工具。Make起源于1976年，是软件工程开发人员为了将多文件组成的复杂软件工程搭建过程自动化的工具。本章中，我们要解决三个问题：<strong>使用Make的必要性</strong>，<strong>Make的基本语法以及Make的高级语法</strong>。</p>
-<div id="使用make的必要性" class="section level2" number="3.1">
-<h2><span class="header-section-number">3.1</span> 使用Make的必要性</h2>
-<p>当前，数据分析已经成为一个系统性工程。从工程的视角来看，一个数据分析项目至少包括数据获取，数据清理，数据分析，结果展示，以及最终开发数据产品等环节。设想一下有一个三人合作的经济学研究项目，Alice负责从网页爬取数据，Bob负责原始数据的清理，Eve用机器学习的方法从数据中定义一个变量，然后Alice在用Bob和Eve的数据跑回归模型，Bob擅长分析结果的可视化展示，最后Alice写研究论文。该项目中的复杂性来自两个方面：第一是多人协同，三个合作者的工作是相互依赖的。例如，Bob需要Alice的原始数据作为输入，Alice的回归则依赖于Bob和Eve的数据清理结果，这种相互依赖性会意味着数据分析某一环节的变化（例如改变了对缺失值的处理方法）都会引起其后续步骤的变化；第二是多语言协同。之所以出现多语言协同，可能是因为不同合作者擅长的语言各异，更重要的是在这个项目中，Alice使用的是Python、Stata、Latex，Bob使用R，而Eve使用python, 本来就没有一个语言是各方面都是最优的。实际上，“根据任务特性选择合适的语言”本就是数据工程的一个重要原则。多语言意味着没办法将所有的代码整合进一个文件中。传统地，我们以来<strong>人工协同</strong>来完成数据分析项目，但是人工协同不但非常耗时，还增加了出错的概率。</p>
-<center>
-<em>加一个图来说明</em>
-</center>
-<p>Make为我们管理数据工程提供了自动化解决方案。首先，Make定义了数据分析的“菜单”，菜单上定义了所有文件的执行顺序与依赖关系。之后，我们可以在命令行使用<code>make</code>命令，与项目相关的所有相关文件将会按照菜单顺序依次执行。其次，Make是一种<strong>语言独立</strong>（Language Agnostic）的工具，这使得Make可以将任何语言的代码加入数据流（Data Pipeline）当中，在管理数据工程时非常灵活。
-## Make安装
-make –version
-[Make for windows])(<a href="http://gnuwin32.sourceforge.net/packages/make.htm" class="uri">http://gnuwin32.sourceforge.net/packages/make.htm</a>)</p>
+<div id="make" class="section level1" number="7">
+<h1><span class="header-section-number">第 7 章</span> GUN Make的数据生产线</h1>
+<p>本章中我们将介绍如何使用GUN Make工具来帮助我们实现更为便捷的可复现数据分析。对于绝大多数数据分析人员，GNU Make是一个完全陌生的概念；但对于软件工程师而言，Make则是再熟悉不过的工具。Make起源于1976年，是软件工程开发人员为了将多文件组成的复杂软件工程搭建过程自动化的工具。本章中，我们要解决三个问题：<strong>使用Make的必要性</strong>，<strong>Make的基本语法以及Make的高级语法</strong>。</p>
+<div id="使用make的必要性" class="section level2" number="7.1">
+<h2><span class="header-section-number">7.1</span> 使用Make的必要性</h2>
+<p>当前，数据分析已经成为一个系统性工程。从工程的视角来看，一个数据分析项目至少包括数据获取，数据清理，数据分析，结果展示，以及最终开发数据产品等环节。设想一下有一个三人合作的经济学研究项目(如下图所示)，Alice负责从网页爬取数据，Bob负责原始数据的清理，Eve用机器学习的方法从数据中定义一个变量，然后Alice在用Bob和Eve的数据跑回归模型，Bob擅长分析结果的可视化展示，最后Alice写研究论文。该项目中的复杂性来自两个方面：第一是多人协同，三个合作者的工作是相互依赖的。例如，Bob需要Alice的原始数据作为输入，Alice的回归则依赖于Bob和Eve的数据清理结果，这种相互依赖性会意味着数据分析某一环节的变化（例如改变了对缺失值的处理方法）都会引起其后续步骤的变化；第二是多语言协同。之所以出现多语言协同，可能是因为不同合作者擅长的语言各异，更重要的是在这个项目中，Alice使用的是Python、Stata、Latex，Bob使用R，而Eve使用python，本来就没有一个语言是各方面都是最优的。实际上，“根据任务特性选择合适的语言”本就是数据工程的一个重要原则。多语言意味着没办法将所有的代码整合进一个文件中。传统地，我们以来<strong>人工协同</strong>来完成数据分析项目，但是人工协同不但非常耗时，还增加了出错的概率。</p>
+<div id="htmlwidget-2df518eef356a455bc57" style="width:672px;height:480px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-2df518eef356a455bc57">{"x":{"diagram":"\ndigraph boxes_and_circles {\n\n  # a \"graph\" statement\n  graph [overlap = true, fontsize = 10,layout = circo]\n\n  # several \"node\" statements\n  node [shape = box,\n        fontname = Helvetica]\n        \n  WebPages; RawData;CleanData; Variables; Model; Figures; Articles\n\n  node [shape = circle,\n        fixedsize = false,\n        width = 1] // sets as circles\n  Alice_Crawler; Bob_DataClean; Eve_ML; Alice_Regression; Bob_Visualization; Alice_Writing;\n\n  # several \"edge\" statements\n  WebPages->Alice_Crawler Alice_Crawler->RawData\n  RawData->Bob_DataClean Bob_DataClean->CleanData\n  CleanData ->Eve_ML CleanData->Alice_Regression\n  Eve_ML -> Variables Variables->Alice_Regression\n  Alice_Regression -> Model Model->Bob_Visualization \n  CleanData ->Bob_Visualization Bob_Visualization -> Figures\n  Figures -> Alice_Writing Model -> Alice_Writing\n  Alice_Writing -> Articles\n}\n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<p>Make为我们管理数据工程提供了自动化解决方案。首先，Make定义了数据分析的“菜单”，菜单上定义了所有数据之间的依赖关系与转换步骤（即数据工程中使用的各类程序）。良好定义的Make可以实现复现数据的分析流程。</p>
+<p>之后，我们可以在命令行使用<code>make</code>命令，与项目相关的所有相关文件将会按照菜单顺序依次执行。其次，Make是一种<strong>语言独立</strong>（Language Agnostic）的工具，这使得Make可以将任何语言的代码加入数据流（Data Pipeline）当中，在管理数据工程时非常灵活。</p>
+<p><em>下面这写内容是从续本达课上学到的，所以需要和续本达确定是否可以在书稿中使用</em>
+## 数据流水线的构造目标
+对于任何数据工程项目，都可以抽象成三个要素：数据输入、数据输出和数据处理过程。在此基础上，我们还需要精确表达输入数据、输出数据与中间计算结果的依赖关系。同时，我们需要满足高效执行的要求包括并行处理与超级计算机上的运行。最后我们希望当时数据工程出现错误时，我们可以从最后一个正确的结果中恢复运算。</p>
+<p>GNU make是我们构造数据工程流水线的最佳工具。<em>这是我的结论</em></p>
+<p>可以实现复现原则；管理程序运行，在超级计算机上运行；可以从错误中恢复。</p>
 </div>
-<div id="快速上手make" class="section level2" number="3.2">
-<h2><span class="header-section-number">3.2</span> 快速上手Make</h2>
-<p>Make的工作原理
-Make allows you to construct a direct acyclic graph of dependencies amongst the files in your data analysis project.
-make is a domain-specific language for encoding a dependence graph.
-In this graph, a node is a file, and each node contains instructions on how to synthesize that file from its dependencies.
-By invoking make file, the user instructs make to synthesize file</p>
-<p>Make的语法简单明了，其基本规则如下：</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="make.html#cb1-1"></a><span class="ex">target</span> : prerequisites</span>
-<span id="cb1-2"><a href="make.html#cb1-2"></a>  <span class="ex">command1</span></span>
-<span id="cb1-3"><a href="make.html#cb1-3"></a>  <span class="ex">command2</span></span>
-<span id="cb1-4"><a href="make.html#cb1-4"></a>  <span class="ex">...</span></span></code></pre></div>
-<ul>
-<li><code>target</code> 是make执行的目标</li>
-<li><code>prerequisites</code>是生成target的所有依赖.target与prerequisites使用冒号连接</li>
-<li><code>command</code>是生成target需要执行的命令，可以使任意的shell命令。command前使用制表符<code>\t</code>缩进</li>
-</ul>
+<div id="make安装" class="section level2" number="7.2">
+<h2><span class="header-section-number">7.2</span> Make安装</h2>
+<p>Mac在命令行通过<code>brew install make</code>直接安装；Windows的安装参考<a href="http://gnuwin32.sourceforge.net/packages/make.htm">Make for windows</a>。</p>
+<p>安装完成后，可以在命令行通过<code>make --version</code>查看make的版本。</p>
+</div>
+<div id="快速上手make" class="section level2" number="7.3">
+<h2><span class="header-section-number">7.3</span> 快速上手make</h2>
+<p>安装make之后，可以根据上面的例子，编辑一个Makefile文件，如下：</p>
+<pre class="base"><code>targe
+</code></pre>
+<p><em>把前面的示意图的例子直接写一个demo出来</em>
+从上面的例子可以看出，Makefile的语法简单明了，其基本规则如下：</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb2-1"><a href="make.html#cb2-1"></a><span class="ex">target</span> : prerequisites</span>
+<span id="cb2-2"><a href="make.html#cb2-2"></a>  <span class="ex">command1</span></span>
+<span id="cb2-3"><a href="make.html#cb2-3"></a>  <span class="ex">command2</span></span>
+<span id="cb2-4"><a href="make.html#cb2-4"></a>  <span class="ex">...</span></span></code></pre></div>
+<p>其中:
+- <code>target</code> 是make的输出
+- <code>prerequisites</code>是生成target的所有输入，target与prerequisites使用冒号连接
+- <code>command</code>是生成target需要执行的命令，可以使任意的shell命令。command前使用制表符<code>\t</code>缩进。一般来说，make会以UNIX的标准Shell，也就是 /bin/sh 来执行命令。</p>
 <p>多个上述基本单元放在一起形成一个完整的文件依赖系统，Make根据target与其prerequisites时间关系来判断是否需要执行command中的命令。只要prerequisites中至少有一个文件比target更新，command的命令就会被执行。</p>
-<p>引入前面的例子，用前面的例子说明make是如何工作的。</p>
+<p>make更像是一个函数式编程语言，不再关注“执行什么操作”，而是关注“输入到输出的映射”</p>
+</div>
+<div id="make的工作方式" class="section level2" number="7.4">
+<h2><span class="header-section-number">7.4</span> make的工作方式</h2>
+<p>有了这个Makefile文件，我们在命令行中使用<code>make</code>来自动运行整个数据工程（是不是特别神奇）。实际上，GNU make工作时的执行逻辑为：</p>
+<ol style="list-style-type: decimal">
+<li>读入Makefile</li>
+<li>为所有的输出文件创建输入文件依赖关系链</li>
+<li>根据依赖关系，决定哪些文件要重新生成</li>
+<li>执行生成命令</li>
+</ol>
+<p>其中，1-2为第一阶段，3-4为第二阶段，5为第三阶段。Makefile支持<code>*</code>，<code>?</code>和<code>~</code>通配符，例如<code>*.csv</code>表示所有后缀为csv的文件。</p>
+</div>
+<div id="makefile-的高级写法" class="section level2" number="7.5">
+<h2><span class="header-section-number">7.5</span> Makefile 的高级写法</h2>
+<div id="特殊目标" class="section level3" number="7.5.1">
+<h3><span class="header-section-number">7.5.1</span> 特殊目标</h3>
+<p><code>.PHONY</code>用于指明伪目标，伪目标指的是不需要生成输出文件的目标。在下面的代码中，定义了一个没有没有依赖的伪目标clean，此时不会生成名字为clean的文件，它的作用是删除所有文件名中包含temp的文件。当我们运行<code>make clean</code>即可删除相关文件。</p>
+<pre><code>.PHONY : clean
+clean :
+    rm *temp.*</code></pre>
+<p>其他比较重要的特殊目标为:</p>
+<pre><code>.DELETE_ON_ERROR:出错时删掉坏文件，避免make认为出错但是依然输出的文件已存在而不更新
+.SECONDARY:保留中间结果，这样我们的数据运算更容易回溯与检查</code></pre>
+<p><em>后文中要修改语言风格为自己的风格</em>
+Makefile中， <code>#</code> 是注释符</p>
+<p>通常，make会把其要执行的命令行在命令执行前输出到屏幕上。当我们用 @ 字符在命令行前，那么，这个命令将不被make显示出来，最具代表性的例子是，我们用这个功能来向屏幕显示一些信息。如:
+<code>@echo 正在编译XXX模块......</code></p>
+<p>make一般是使用环境变量SHELL中所定义的系统Shell来执行命令，默认情况下使用UNIX的标准Shell——/bin/sh来执行命令。</p>
+</div>
+<div id="使用变量" class="section level3" number="7.5.2">
+<h3><span class="header-section-number">7.5.2</span> 使用变量</h3>
+<p>Makefile中可以使用变量，变量的命名字可以包含字符、数字，下划线（可以是数字开头），但不应该含有 : 、 # 、 = 或是空字符（空格、回车等）。注意Makefile中的变量名是大小写敏感的。变量在声明时需要通过<code>:=</code>给予初值，而在使用时，需要给在变量名前加上<code>$</code> 符号，但最好用小括号<code>()</code>。在Makefile中，变量可以使用在“目标”，“依赖目标”， “命令”或是Makefile的其它部分中。</p>
+<p>我们可以使用 += 操作符给变量追加值。</p>
+<pre><code>objects = main.o foo.o bar.o utils.o
+objects += another.o</code></pre>
+<p>a:= 1
+$(info $(a)) info是GNU make自带函数用于输出信息</p>
+<p>$^表示所有的输入
+$<span class="citation">(<span class="citeproc-not-found" data-reference-id="表示所有的输出"><strong>???</strong></span>)</span>
+$&lt;表示第一个输入
+$(word n, $^)表示第n个输入（此处，n是自然数）。</p>
+<p>Makefile中可以调用Shell命令，将其标准输出作为值。例如</p>
+<p>guile可以调用scheme语言</p>
+<p>字符串替代的结果</p>
+<p><code>#</code>是makefile的注释标识符</p>
+</div>
+<div id="分支与循环结构" class="section level3" number="7.5.3">
+<h3><span class="header-section-number">7.5.3</span> 分支与循环结构</h3>
+<p>使用条件判断，可以让make根据运行时的不同情况选择不同的执行分支。条件表达式可以是比较变量的值，或是比较变量和常量的值。下面的代码中，</p>
+<pre><code>libs_for_gcc = -lgnu
+normal_libs =
+
+foo: $(objects)
+ifeq ($(CC),gcc)
+    $(CC) -o foo $(objects) $(libs_for_gcc)
+else
+    $(CC) -o foo $(objects) $(normal_libs)
+endif</code></pre>
+<p>可见，在上面示例的这个规则中，目标 foo 可以根据变量 $(CC) 值来选取不同的函数库来编译程序。</p>
+<p>我们可以从上面的示例中看到三个关键字： ifeq 、 else 和 endif 。 ifeq 的意思表示条件语句的开始，并指定一个条件表达式，表达式包含两个参数，以逗号分隔，表达式以圆括号括起。 else 表示条件表达式为假的情况。 endif 表示一个条件语句的结束，任何一个条件表达式都应该以 endif 结束。</p>
+</div>
+<div id="函数" class="section level3" number="7.5.4">
+<h3><span class="header-section-number">7.5.4</span> 函数</h3>
+<p>在Makefile中可以使用函数来处理变量，从而让我们的命令或是规则更为的灵活和具有智能。make 所支持的函数也不算很多，不过已经足够我们的操作了。函数调用后，函数的返回值可以当做变量来使用。</p>
+<p>函数调用，很像变量的使用，也是以 $ 来标识的，其语法如下：
+<code>$(&lt;function&gt; &lt;arguments&gt;)</code></p>
+<p>例如，foreach函数可以用来做循环，</p>
+<pre><code>names := a b c d
+files := $(foreach n,$(names),$(n).o)</code></pre>
+<p>make使用惰性赋值，只有变量所在依赖关系被使用时，变量才会展开。</p>
 <p>之所以有一些语法看不懂，是因为对shell的命令不太清楚</p>
 <ul>
 <li>define something</li>
@@ -227,8 +454,9 @@ By invoking make file, the user instructs make to synthesize file</p>
 Make target 需要举一个例子作为不同的部分，这个地方需要画图加上去，然后要准备后续的部分，科学家的要处理起来
 然后准备机器学习的课件</p>
 </div>
-<div id="make的高级语法" class="section level2" number="3.3">
-<h2><span class="header-section-number">3.3</span> Make的高级语法</h2>
+</div>
+<div id="make的高级语法" class="section level2" number="7.6">
+<h2><span class="header-section-number">7.6</span> Make的高级语法</h2>
 <p>SHEBANG符号<code>#!</code>位于Unix系统脚本的第一行，用于指明执行该脚本的解释程序。符合以下规则：</p>
 <ol style="list-style-type: decimal">
 <li>脚本文件中没有<code>#!</code>这一行，那么它执行时会默认用当前Shell去解释这个脚本(即：$SHELL环境变量）；</li>
@@ -246,29 +474,105 @@ Automatic variables
 - <code>$(@F)</code>: 目标的文件部分
 - <code>$(&lt;D)</code>: 第一个依赖的路径/文件夹部分
 - <code>$(&lt;F)</code>: 第一个依赖的文件部分</p>
-<p>Pattern rules
-The key idea is that you can use the symbol % as a wildcard, to be expanded to any string of text.</p>
-<p>结合例子会更加清楚</p>
-<p>使用条件判断</p>
-<p>使用函数</p>
-<p>记录写作心得：
-信息爆炸会带来迷失！我们要做的是一个输入负熵的工作！
-我不缺少知识，缺少的是一个好的体系。
-相当于遇到什么问题，应该使用何种工具，以及在哪找到这个工具。每个工具在网络上都有非常丰富的资料。
-本书只提供作者认为最优的解决方案
-所以本书提供的是一个最简洁的工具箱，为我们提供线索。</p>
-<p>需要继续修改一下模板，对latex语法有深入的理解，自己改一个模板出来</p>
-<p>为了更好地编辑，我们需要另一个功能模块argparse，一个从R内部解析命令行参数的工具。我们通过什么</p>
-<p>程序定义它需要的参数，然后 argparse 将弄清如何从 sys.argv 解析出那些参数。 argparse 模块还会自动生成帮助和使用手册，并在用户给程序传入无效参数时报出错误信息。</p>
-<p>添加参数
-提取参数</p>
-<p>用一个例子</p>
-<pre><code>.PHONY: all clean
-.DELETE_ON_ERROR:
-.SECONDARY:</code></pre>
+<div id="并行计算" class="section level3" number="7.6.1">
+<h3><span class="header-section-number">7.6.1</span> 并行计算</h3>
+<p><code>make -j n target</code>使用n个核并行运行</p>
+<p>特殊目标
+<code>.PHONY</code>代表无对应文件的目标，例如下面的代码中，不用担心工作路径中是否已经存在一个all文件。
+.PHONY:all
+all:$(obs)</p>
+<pre><code>.PHONY:  clean
+.DELETE_ON_ERROR:出错时删掉坏文件，避免make认为出错但是依然输出的文件已存在而不更新
+.SECONDARY:保留中间结果，这样我们的数据运算更容易回溯与检查</code></pre>
+<p>基本内容都讲到了，需要一个例子作为练习才可以完成</p>
+<p>Make的工作原理可以参考John Graham-Cumming 的<a href="Graham-Cumming%20J.%20The%20GNU%20make%20book%5BM%5D.%20No%20Starch%20Press,%202015.">The GNU Make Book</a></p>
+<p>给一张结构图来解释make的用法</p>
+<p>Make allows you to construct a direct acyclic graph of dependencies amongst the files in your data analysis project.
+make is a domain-specific language for encoding a dependence graph.
+In this graph, a node is a file, and each node contains instructions on how to synthesize that file from its dependencies.
+By invoking make file, the user instructs make to synthesize file</p>
 </div>
-<div id="参考资料" class="section level2" number="3.4">
-<h2><span class="header-section-number">3.4</span> 参考资料</h2>
+</div>
+<div id="r的命令行选项" class="section level2" number="7.7">
+<h2><span class="header-section-number">7.7</span> R的命令行选项</h2>
+<p>为了能够使用Make来构建完整的数据自动分析流程，我们就需要R代码能够从命令行解析参数并在R代码中使用。argparse包是受到Python中同名包的启发开发的，其用法与Python中接近，可以让我们在跨语言编程的时候更加轻松。</p>
+<div id="linuxunix-shebang" class="section level3" number="7.7.1">
+<h3><span class="header-section-number">7.7.1</span> Linux/Unix Shebang</h3>
+<p>在命令行中运行R脚本，可以使用<code>Rscript example.R</code>的方式，其中<code>example.R</code>是我们希望运行的脚本。在Linux和Unix系统中，有一种更简介的方式，即通过在脚本第一行添加<code>#! /usr/bin/env Rscript</code>的方式，来告诉操作系统这段脚本的要调用Rscript来运行。此时只要进入到<code>example.R</code>所在的路径中，使用命令<code>./exmaple.R</code>便可以直接运行这段代码。类似地，如果是一段Python3脚本的话，我们可以使用`<code>#! /usr/bin/env Python3</code></p>
+<p>另外，<code>!#</code>被称作Shebang，翻译过来就是“井号叹号”，上一次我听到这么草率的命名还是我办公室所在的“新建楼”。</p>
+</div>
+<div id="argparse包实例" class="section level3" number="7.7.2">
+<h3><span class="header-section-number">7.7.2</span> argparse包实例</h3>
+<p>argparse包使用起来非常简洁，也没有太多函数。我们其官方教程中的一个实例来介绍如何使用它。</p>
+<p>在命令行中的参数可以完整参数(用<code>--</code>调用)，与短参数(用<code>-</code>调用)，同时每一个参数都有其缺省值，以及对应的帮助文档解释。命令行参数本身有各种灵活的设置方式，感兴趣的读者可以进一步阅读Data Science at the Command Line.<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a>。详细介绍这部分内容并不是本书的使命。</p>
+<p>argparse包分为三个步骤，第一步是使用<code>ArgumentParser()</code>创建一个参数解析对象，第二步是使用<code>add_argument</code>函数为前面的对象增加参数，第三步是通过<code>parse_args()</code>把解析对象赋值并在后续程序中调用。</p>
+<p>我们可以先把下面的脚本储存成为<code>example.R</code>，这段脚本的作用是输出若干个随机数，具体的随机分布与输出参数数量由命令行参数决定。</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="make.html#cb9-1"></a><span class="co">#! /usr/bin/env Rscript</span></span>
+<span id="cb9-2"><a href="make.html#cb9-2"></a><span class="kw">library</span>(argparse)</span>
+<span id="cb9-3"><a href="make.html#cb9-3"></a></span>
+<span id="cb9-4"><a href="make.html#cb9-4"></a><span class="co"># 创建参数解析对象</span></span>
+<span id="cb9-5"><a href="make.html#cb9-5"></a>parser &lt;-<span class="st"> </span><span class="kw">ArgumentParser</span>()</span>
+<span id="cb9-6"><a href="make.html#cb9-6"></a></span>
+<span id="cb9-7"><a href="make.html#cb9-7"></a><span class="co"># 设置参数</span></span>
+<span id="cb9-8"><a href="make.html#cb9-8"></a><span class="co"># 设置第一个参数verbose，缩写为v，其作用是告诉脚本是否打印完整的计算过程，其缺省值为TRUE</span></span>
+<span id="cb9-9"><a href="make.html#cb9-9"></a>parser<span class="op">$</span><span class="kw">add_argument</span>(<span class="st">&quot;-v&quot;</span>, <span class="st">&quot;--verbose&quot;</span>, <span class="dt">action=</span><span class="st">&quot;store_true&quot;</span>, <span class="dt">default=</span><span class="ot">TRUE</span>,</span>
+<span id="cb9-10"><a href="make.html#cb9-10"></a>        <span class="dt">help=</span><span class="st">&quot;Print extra output [default]&quot;</span>)</span>
+<span id="cb9-11"><a href="make.html#cb9-11"></a></span>
+<span id="cb9-12"><a href="make.html#cb9-12"></a><span class="co"># 设置第二个参数quietly，缩写为q，其作用是修改verbose参数，当调用改参数时，verbose被修改为FALSE，从而导致不再打印计算过程</span></span>
+<span id="cb9-13"><a href="make.html#cb9-13"></a>parser<span class="op">$</span><span class="kw">add_argument</span>(<span class="st">&quot;-q&quot;</span>, <span class="st">&quot;--quietly&quot;</span>, <span class="dt">action=</span><span class="st">&quot;store_false&quot;</span>, </span>
+<span id="cb9-14"><a href="make.html#cb9-14"></a>        <span class="dt">dest=</span><span class="st">&quot;verbose&quot;</span>, <span class="dt">help=</span><span class="st">&quot;Print little output&quot;</span>)</span>
+<span id="cb9-15"><a href="make.html#cb9-15"></a></span>
+<span id="cb9-16"><a href="make.html#cb9-16"></a><span class="co"># 设置第三个参数count，缩写为c，这是一个整数参数，缺省值5，在后续的代码中被用作确定输出随机数的个数</span></span>
+<span id="cb9-17"><a href="make.html#cb9-17"></a>parser<span class="op">$</span><span class="kw">add_argument</span>(<span class="st">&quot;-c&quot;</span>, <span class="st">&quot;--count&quot;</span>, <span class="dt">type=</span><span class="st">&quot;integer&quot;</span>, <span class="dt">default=</span><span class="dv">5</span>, </span>
+<span id="cb9-18"><a href="make.html#cb9-18"></a>        <span class="dt">help=</span><span class="st">&quot;Number of random normals to generate [default %(default)s]&quot;</span>,</span>
+<span id="cb9-19"><a href="make.html#cb9-19"></a>        <span class="dt">metavar=</span><span class="st">&quot;number&quot;</span>)</span>
+<span id="cb9-20"><a href="make.html#cb9-20"></a></span>
+<span id="cb9-21"><a href="make.html#cb9-21"></a><span class="co"># 设置第四个参数generator，无缩写，用于确定调用何种随机分布，缺省值rnorm对应于正态分布</span></span>
+<span id="cb9-22"><a href="make.html#cb9-22"></a>parser<span class="op">$</span><span class="kw">add_argument</span>(<span class="st">&quot;--generator&quot;</span>, <span class="dt">default=</span><span class="st">&quot;rnorm&quot;</span>, </span>
+<span id="cb9-23"><a href="make.html#cb9-23"></a>        <span class="dt">help =</span> <span class="st">&quot;Function to generate random deviates [default </span><span class="ch">\&quot;</span><span class="st">%(default)s</span><span class="ch">\&quot;</span><span class="st">]&quot;</span>)</span>
+<span id="cb9-24"><a href="make.html#cb9-24"></a></span>
+<span id="cb9-25"><a href="make.html#cb9-25"></a><span class="co"># 设置第五个参数mean，无缩写，浮点数，用于确定正态分布的均值，缺省值为0</span></span>
+<span id="cb9-26"><a href="make.html#cb9-26"></a>parser<span class="op">$</span><span class="kw">add_argument</span>(<span class="st">&quot;--mean&quot;</span>, <span class="dt">default=</span><span class="dv">0</span>, <span class="dt">type=</span><span class="st">&quot;double&quot;</span>,</span>
+<span id="cb9-27"><a href="make.html#cb9-27"></a>        <span class="dt">help=</span><span class="st">&quot;Mean if generator == </span><span class="ch">\&quot;</span><span class="st">rnorm</span><span class="ch">\&quot;</span><span class="st"> [default %(default)s]&quot;</span>)</span>
+<span id="cb9-28"><a href="make.html#cb9-28"></a></span>
+<span id="cb9-29"><a href="make.html#cb9-29"></a><span class="co"># 设置第五个参数sd，无缩写，浮点数，用于确定正态分布的标准差，缺省值为1</span></span>
+<span id="cb9-30"><a href="make.html#cb9-30"></a>parser<span class="op">$</span><span class="kw">add_argument</span>(<span class="st">&quot;--sd&quot;</span>, <span class="dt">default=</span><span class="dv">1</span>, <span class="dt">type=</span><span class="st">&quot;double&quot;</span>,</span>
+<span id="cb9-31"><a href="make.html#cb9-31"></a>        <span class="dt">metavar=</span><span class="st">&quot;standard deviation&quot;</span>,</span>
+<span id="cb9-32"><a href="make.html#cb9-32"></a>        <span class="dt">help=</span><span class="st">&quot;Standard deviation if generator == </span><span class="ch">\&quot;</span><span class="st">rnorm</span><span class="ch">\&quot;</span><span class="st"> [default %(default)s]&quot;</span>)</span>
+<span id="cb9-33"><a href="make.html#cb9-33"></a></span>
+<span id="cb9-34"><a href="make.html#cb9-34"></a><span class="co"># 调用解析器，此时args就被赋值为命令行参数输入的相应值</span></span>
+<span id="cb9-35"><a href="make.html#cb9-35"></a>args &lt;-<span class="st"> </span>parser<span class="op">$</span><span class="kw">parse_args</span>()</span>
+<span id="cb9-36"><a href="make.html#cb9-36"></a></span>
+<span id="cb9-37"><a href="make.html#cb9-37"></a><span class="co"># 根据verbose确定是否打印计算过程</span></span>
+<span id="cb9-38"><a href="make.html#cb9-38"></a><span class="cf">if</span> ( args<span class="op">$</span>verbose ) { </span>
+<span id="cb9-39"><a href="make.html#cb9-39"></a>        <span class="kw">write</span>(<span class="st">&quot;writing some verbose output to standard error...</span><span class="ch">\n</span><span class="st">&quot;</span>, <span class="kw">stderr</span>()) </span>
+<span id="cb9-40"><a href="make.html#cb9-40"></a>}</span>
+<span id="cb9-41"><a href="make.html#cb9-41"></a></span>
+<span id="cb9-42"><a href="make.html#cb9-42"></a><span class="co"># 根据其他参数，确定输出随机数的类型与次数</span></span>
+<span id="cb9-43"><a href="make.html#cb9-43"></a><span class="cf">if</span>( args<span class="op">$</span>generator <span class="op">==</span><span class="st"> &quot;rnorm&quot;</span>) {</span>
+<span id="cb9-44"><a href="make.html#cb9-44"></a>        <span class="kw">cat</span>(<span class="kw">paste</span>(<span class="kw">rnorm</span>(args<span class="op">$</span>count, <span class="dt">mean=</span>args<span class="op">$</span>mean, <span class="dt">sd=</span>args<span class="op">$</span>sd), <span class="dt">collapse=</span><span class="st">&quot;</span><span class="ch">\n</span><span class="st">&quot;</span>))</span>
+<span id="cb9-45"><a href="make.html#cb9-45"></a>} <span class="cf">else</span> {</span>
+<span id="cb9-46"><a href="make.html#cb9-46"></a>        <span class="kw">cat</span>(<span class="kw">paste</span>(<span class="kw">do.call</span>(args<span class="op">$</span>generator, <span class="kw">list</span>(args<span class="op">$</span>count)), <span class="dt">collapse=</span><span class="st">&quot;</span><span class="ch">\n</span><span class="st">&quot;</span>))</span>
+<span id="cb9-47"><a href="make.html#cb9-47"></a>}</span>
+<span id="cb9-48"><a href="make.html#cb9-48"></a><span class="kw">cat</span>(<span class="st">&quot;</span><span class="ch">\n</span><span class="st">&quot;</span>)</span></code></pre></div>
+<p>之后我们需要首先在命令行修改脚本的权限，为其添加可执行权限</p>
+<pre><code>sudo chmod +x example.R</code></pre>
+<p>然后便可以执行该脚本，例如我们可以查该脚本对应的帮助，</p>
+<pre><code>./example.R --help</code></pre>
+<p>输出结果为：
+<img src="argparser1.png" width="100%" /></p>
+<p>或者使用参数输出3个正态分布随机数。</p>
+<pre><code>./example.R --mean=10 --sd=10 --count=3</code></pre>
+<p>输出结果如下：
+<img src="argparser2.png" width="100%" /></p>
+<p>也可以输出均匀分布的随机数，并且选择不打印计算过程。</p>
+<pre><code>./example.R --quiet -c 4 --generator=&quot;runif&quot;</code></pre>
+<p>输出结果如下：
+<img src="argparser3.png" width="100%" /></p>
+</div>
+</div>
+<div id="参考资料" class="section level2" number="7.8">
+<h2><span class="header-section-number">7.8</span> 参考资料</h2>
 <p><a href="http://zmjones.com/make" class="uri">http://zmjones.com/make</a></p>
 <p><a href="https://bost.ocks.org/mike/make/" class="uri">https://bost.ocks.org/mike/make/</a></p>
 <p><a href="http://matt.might.net/articles/intro-to-make/" class="uri">http://matt.might.net/articles/intro-to-make/</a></p>
@@ -277,7 +581,7 @@ The key idea is that you can use the symbol % as a wildcard, to be expanded to a
 <p>有不错的R例子，然后还有其他课程资源</p>
 <p><a href="https://www.oreilly.com/openbook/make3/book/index.csp">Managing Projects with GNU Make, Third Edition</a>
 <a href="https://www.gnu.org/software/make/manual/make.html">Make Documents</a></p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="make.html#cb3-1"></a><span class="kw">summary</span>(cars)</span></code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="make.html#cb14-1"></a><span class="kw">summary</span>(cars)</span></code></pre></div>
 <pre><code>##      speed           dist       
 ##  Min.   : 4.0   Min.   :  2.00  
 ##  1st Qu.:12.0   1st Qu.: 26.00  
@@ -286,24 +590,28 @@ The key idea is that you can use the symbol % as a wildcard, to be expanded to a
 ##  3rd Qu.:19.0   3rd Qu.: 56.00  
 ##  Max.   :25.0   Max.   :120.00</code></pre>
 </div>
-<div id="including-plots" class="section level2" number="3.5">
-<h2><span class="header-section-number">3.5</span> Including Plots</h2>
+<div id="including-plots" class="section level2" number="7.9">
+<h2><span class="header-section-number">7.9</span> Including Plots</h2>
 <p>You can also embed plots, for example:</p>
 <p><img src="bookdown_files/figure-html/pressure-1.png" width="672" /></p>
 <p>Note that the <code>echo = FALSE</code> parameter was added to the code chunk to prevent printing of the R code that generated the plot.</p>
+<p><em>需要单独整理一期shell命令行的内容</em></p>
 
 </div>
 </div>
-
-
-
+<div class="footnotes">
+<hr />
+<ol start="2">
+<li id="fn2"><p><a href="https://www.datascienceatthecommandline.com/1e/" class="uri">https://www.datascienceatthecommandline.com/1e/</a><a href="make.html#fnref2" class="footnote-back">↩︎</a></p></li>
+</ol>
+</div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="flow.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="sound.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="md.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="reg.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

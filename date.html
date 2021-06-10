@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>1 R日期时间 | 21-datetime.utf8</title>
+  <meta name="description" content="" />
+  <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="1 R日期时间 | 21-datetime.utf8" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="1 R日期时间 | 21-datetime.utf8" />
+  
+  
+  
+
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+
+
+<script src="libs/header-attrs-2.3/header-attrs.js"></script>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="css/style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">数据工程讲义</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path=""><a href="#date"><i class="fa fa-check"></i><b>1</b> R日期时间</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path=""><a href="#日期-时间数据类型"><i class="fa fa-check"></i><b>1.1</b> 日期-时间数据类型</a></li>
+<li class="chapter" data-level="1.2" data-path=""><a href="#lubridate包"><i class="fa fa-check"></i><b>1.2</b> lubridate包</a>
+<ul>
+<li class="chapter" data-level="1.2.1" data-path=""><a href="#定义日期-时间变量"><i class="fa fa-check"></i><b>1.2.1</b> 定义日期-时间变量</a></li>
+</ul></li>
+<li class="chapter" data-level="1.3" data-path=""><a href="#从日期-时间中取出元素"><i class="fa fa-check"></i><b>1.3</b> 从日期-时间中取出元素</a></li>
+<li class="chapter" data-level="1.4" data-path=""><a href="#日期-时间取整"><i class="fa fa-check"></i><b>1.4</b> 日期-时间取整</a></li>
+<li class="chapter" data-level="1.5" data-path=""><a href="#日期-时间的数学运算"><i class="fa fa-check"></i><b>1.5</b> 日期-时间的数学运算</a>
+<ul>
+<li class="chapter" data-level="1.5.1" data-path=""><a href="#时间周期"><i class="fa fa-check"></i><b>1.5.1</b> 时间周期</a></li>
+<li class="chapter" data-level="1.5.2" data-path=""><a href="#时间区间"><i class="fa fa-check"></i><b>1.5.2</b> 时间区间</a></li>
+</ul></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://bookdown.org" target="blank">本书由 bookdown 强力驱动</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./"></a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<!--bookdown:title:end-->
+<!--bookdown:title:start-->
+<div id="date" class="section level1" number="1">
+<h1><span class="header-section-number">1</span> R日期时间</h1>
+<p>本节中我们将介绍在R中的日期与时间数据类型，以及如何通过lubridate包来处理日期与时间包来处理日期与时间。</p>
+<div id="日期-时间数据类型" class="section level2" number="1.1">
+<h2><span class="header-section-number">1.1</span> 日期-时间数据类型</h2>
+<p>R的基础包提供了三种日期-时间数据类型,采用POSIXt标准:
+- Date用于处理日期，它是一个整数，储存了距离1970年1月1日的天数，早于1970年1月1日的日期被储存为负数，Date不包括时间和时区信息；
+- POSIXct用于处理日期-时间，它也是一个整数，储存了以时间标准时间（UTC<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a>）时区为准的，从1970年1月1日开始计时的秒数；
+- POSIXlt也用于处理日期-时间，但是它是将POSIXct储存在一个列表中。</p>
+</div>
+<div id="lubridate包" class="section level2" number="1.2">
+<h2><span class="header-section-number">1.2</span> lubridate包</h2>
+<p><code>lubridate</code>是tidyverse家族的成员，同样出自大神Hadley Wickham之手。如同tidyverse的其他成员一样，<code>lubridate</code>包非常强大，它可以非常直观和灵活的处理日期与时间。<code>lubridate</code>的所有函数都会返回POSIXct类型的日期-时间，缺省情况下，<code>lubridate</code>使用UTC时区。<code>lubridate</code>包括两类函数，一类用于处理时点数据（time instants），另一类则用于处理时段数据（time spans）</p>
+<div id="定义日期-时间变量" class="section level3" number="1.2.1">
+<h3><span class="header-section-number">1.2.1</span> 定义日期-时间变量</h3>
+<p>我们先加载lubridate包</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="kw">library</span>(lubridate)</span></code></pre></div>
+<p>函数today与now可以返回当前的日期和时间</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a><span class="kw">today</span>()</span></code></pre></div>
+<pre><code>## [1] &quot;2021-01-28&quot;</code></pre>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a><span class="kw">now</span>()</span></code></pre></div>
+<pre><code>## [1] &quot;2021-01-28 20:56:52 +08&quot;</code></pre>
+<p><code>lubridate</code>包提供了将字符串转化成为日期-时间的函数族。在该函数族中，y表示年，m表示月份或者分钟，d表示日期，h表示小时，s表示秒，日期与时间的关键词之间通过<code>_</code>连接，从而组成非常灵活多变的函数组合，将各种形式的字符串方便的转换为日期-时间，整个过程的用户体验非常友好。例如<code>ymd_hms</code>函数可以转化各种形式的完整记录日期-时间的字符串：</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a><span class="kw">ymd_hms</span>(<span class="st">&quot;2017-11-28T14:02:00&quot;</span>)</span></code></pre></div>
+<pre><code>## [1] &quot;2017-11-28 14:02:00 UTC&quot;</code></pre>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a><span class="kw">ymd_hms</span>(<span class="st">&quot;2017-11-28 14:02:00&quot;</span>)</span></code></pre></div>
+<pre><code>## [1] &quot;2017-11-28 14:02:00 UTC&quot;</code></pre>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a><span class="kw">ymd_hms</span>(<span class="st">&quot;2017/11/28 14:02:00&quot;</span>)</span></code></pre></div>
+<pre><code>## [1] &quot;2017-11-28 14:02:00 UTC&quot;</code></pre>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a><span class="kw">ymd_hms</span>(<span class="st">&quot;2017 Nov 28 14:02:00&quot;</span>)</span></code></pre></div>
+<pre><code>## [1] &quot;2017-11-28 14:02:00 UTC&quot;</code></pre>
+<p>感觉到<code>lubridate</code>包的强大之处了吧！我们还可以随意组合关键词，从而转化不部分记录日期-时间信息的字符串，例如：</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1"></a><span class="kw">ymd</span>(<span class="dv">20170131</span>)</span></code></pre></div>
+<pre><code>## [1] &quot;2017-01-31&quot;</code></pre>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1"></a>hms<span class="op">::</span><span class="kw">hms</span>(<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">4</span>)</span></code></pre></div>
+<pre><code>## 04:04:03</code></pre>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1"></a><span class="kw">yq</span>(<span class="st">&quot;2001: Q3&quot;</span>) </span></code></pre></div>
+<pre><code>## [1] &quot;2001-07-01&quot;</code></pre>
+<p>上面的例子中，<code>hms::hms</code>可以将输入信息的三个元素对应为小时-分钟-秒，而<code>yq</code>函数可以转化季度信息到日期。</p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1"></a><span class="kw">ymd</span>()</span></code></pre></div>
+<pre><code>## Date of length 0</code></pre>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1"></a>hms<span class="op">::</span><span class="kw">hms</span>(<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">4</span>)</span></code></pre></div>
+<pre><code>## 04:04:03</code></pre>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1"></a><span class="kw">yq</span>(<span class="st">&quot;2001: Q3&quot;</span>) </span></code></pre></div>
+<pre><code>## [1] &quot;2001-07-01&quot;</code></pre>
+<p>最后，我们也可以直接将整数转化为日期时间，<code>lubridate</code>为我们提供了三个函数。<code>as_datetime</code>函数可以将“1970-01-01 00:00:00 UTC”以来的秒数转化为日期-时间，<code>as_date</code>将“1970-01-01”以来的天数转化为日期，<code>hms::as.hms</code>将“00:00:00”以来的秒数转化为时间。</p>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1"></a><span class="kw">as_datetime</span>(<span class="dv">1511870400</span>)</span></code></pre></div>
+<pre><code>## [1] &quot;2017-11-28 12:00:00 UTC&quot;</code></pre>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1"></a><span class="kw">as_date</span>(<span class="dv">17498</span>)</span></code></pre></div>
+<pre><code>## [1] &quot;2017-11-28&quot;</code></pre>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1"></a>hms<span class="op">::</span><span class="kw">as.hms</span>(<span class="dv">85</span>) </span></code></pre></div>
+<pre><code>## 00:01:25</code></pre>
+</div>
+</div>
+<div id="从日期-时间中取出元素" class="section level2" number="1.3">
+<h2><span class="header-section-number">1.3</span> 从日期-时间中取出元素</h2>
+<p>反过来，我们可以使用<code>lubridate</code>包的<code>date,year,month,quarter,day,wday,hour,minute,second</code>函数可以取出日期-时间的日期、年、月、季度、日、星期、小时、分钟以及秒钟。如下：</p>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1"></a>dt &lt;-<span class="st"> </span><span class="kw">ymd_hms</span>(<span class="st">&quot;2017-11-28T14:02:00&quot;</span>)</span>
+<span id="cb32-2"><a href="#cb32-2"></a><span class="kw">date</span>(dt)</span></code></pre></div>
+<pre><code>## [1] &quot;2017-11-28&quot;</code></pre>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1"></a><span class="kw">year</span>(dt) </span></code></pre></div>
+<pre><code>## [1] 2017</code></pre>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1"></a><span class="kw">month</span>(dt)</span></code></pre></div>
+<pre><code>## [1] 11</code></pre>
+<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1"></a><span class="kw">day</span>(dt)</span></code></pre></div>
+<pre><code>## [1] 28</code></pre>
+<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1"></a><span class="kw">wday</span>(dt)</span></code></pre></div>
+<pre><code>## [1] 3</code></pre>
+<p><code>update</code>函数可以直接修改日期-时间，例如：</p>
+<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1"></a><span class="kw">update</span>(dt, <span class="dt">day =</span> <span class="dv">3</span>, <span class="dt">hour =</span> <span class="dv">1</span>)</span></code></pre></div>
+<pre><code>## [1] &quot;2017-11-03 01:02:00 UTC&quot;</code></pre>
+<p><code>lubridate</code>还提供了其他一些便利的函数</p>
+<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1"></a><span class="kw">am</span>(dt) <span class="co"># 判断是否是上午</span></span></code></pre></div>
+<pre><code>## [1] FALSE</code></pre>
+<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1"></a><span class="kw">pm</span>(dt) <span class="co"># 判断是否是下午</span></span></code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1"></a><span class="kw">leap_year</span>(dt) <span class="co"># 判断是否是闰年</span></span></code></pre></div>
+<pre><code>## [1] FALSE</code></pre>
+</div>
+<div id="日期-时间取整" class="section level2" number="1.4">
+<h2><span class="header-section-number">1.4</span> 日期-时间取整</h2>
+<p><code>lubridate</code>提供了四个日期和时间取整函数，这极大简化了我们的数据分析。在实践中，我们经常需要把数据聚合起来分析，一种常用的方式就是把同一月份的数据都取整到当月的第一天。</p>
+<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1"></a><span class="kw">floor_date</span>(dt, <span class="dt">unit =</span> <span class="st">&quot;day&quot;</span>) <span class="co"># 向下取整到最近的unit，此处是天</span></span></code></pre></div>
+<pre><code>## [1] &quot;2017-11-28 UTC&quot;</code></pre>
+<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1"></a><span class="kw">round_date</span>(dt, <span class="dt">unit =</span> <span class="st">&quot;month&quot;</span>) <span class="co"># 就近取整到最近的unit，此处是月份</span></span></code></pre></div>
+<pre><code>## [1] &quot;2017-12-01 UTC&quot;</code></pre>
+<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="#cb54-1"></a><span class="kw">ceiling_date</span>(dt, <span class="dt">unit =</span> <span class="st">&quot;hour&quot;</span>) <span class="co"># 向上取整到最近的unit，此处是小时</span></span></code></pre></div>
+<pre><code>## [1] &quot;2017-11-28 15:00:00 UTC&quot;</code></pre>
+<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="#cb56-1"></a><span class="kw">rollback</span>(dt, <span class="dt">roll_to_first =</span> <span class="ot">FALSE</span>, <span class="dt">preserve_hms =</span> <span class="ot">TRUE</span>) <span class="co">#回滚到上一个月的最后一天</span></span></code></pre></div>
+<pre><code>## [1] &quot;2017-10-31 14:02:00 UTC&quot;</code></pre>
+</div>
+<div id="日期-时间的数学运算" class="section level2" number="1.5">
+<h2><span class="header-section-number">1.5</span> 日期-时间的数学运算</h2>
+<p><code>lubridate</code>支持三种类型的时间段数据，时间长度（duration），按整秒计算；时间周期（period），以相应单位如年、日计算；时间区间（interval），包含一个开始时间和一个结束时间。在此基础上，<code>lubridate</code>支持针对日期-时间的数学运算
+### 时间长度
+时间长度以整秒计数，以<code>d</code>开头的关键词函数<code>dseconds, dminutes, dhours, ddays, dweeks, dyears</code>生成，例如<code>ddays(1)</code>返回的是一天的秒数，即24*3600秒：</p>
+<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="#cb58-1"></a><span class="kw">ddays</span>(<span class="dv">1</span>)</span></code></pre></div>
+<pre><code>## [1] &quot;86400s (~1 days)&quot;</code></pre>
+<p>对于时间尺度小于1秒的，会返回浮点数，例如：</p>
+<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="#cb60-1"></a><span class="kw">dmilliseconds</span>(<span class="dv">1</span>)</span></code></pre></div>
+<pre><code>## [1] &quot;0.001s&quot;</code></pre>
+<p>由于duration统一用整秒计数，所以他们很方便进行计算，例如</p>
+<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb62-1"><a href="#cb62-1"></a><span class="kw">dhours</span>(<span class="dv">1</span>) <span class="op">+</span><span class="st"> </span><span class="kw">dseconds</span>(<span class="dv">5</span>)</span></code></pre></div>
+<pre><code>## [1] &quot;3605s (~1 hours)&quot;</code></pre>
+<div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb64-1"><a href="#cb64-1"></a><span class="kw">ddays</span>(<span class="dv">1</span>) <span class="op">==</span><span class="st"> </span><span class="kw">dhours</span>(<span class="dv">1</span>)<span class="op">*</span><span class="dv">24</span></span></code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<p>使用<code>as.duration</code>函数可以加个两个日期-时间相减的结果转化为时间长度，如：</p>
+<div class="sourceCode" id="cb66"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb66-1"><a href="#cb66-1"></a>dt1 &lt;-<span class="st"> </span><span class="kw">ymd_hms</span>(<span class="st">&quot;2017-11-28T14:02:00&quot;</span>)</span>
+<span id="cb66-2"><a href="#cb66-2"></a>dt2 &lt;-<span class="st"> </span><span class="kw">ymd_hms</span>(<span class="st">&quot;2020-12-10T14:54:00&quot;</span>)</span>
+<span id="cb66-3"><a href="#cb66-3"></a><span class="kw">as.duration</span>(dt2 <span class="op">-</span><span class="st"> </span>dt1)</span></code></pre></div>
+<pre><code>## [1] &quot;95734320s (~3.03 years)&quot;</code></pre>
+<p>我们也可以对日期-时间，加上或者减去时间长度，计算结果是按照整秒推移的，例如：</p>
+<div class="sourceCode" id="cb68"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb68-1"><a href="#cb68-1"></a><span class="kw">ymd</span>(<span class="st">&quot;2020-01-01&quot;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">dyears</span>(<span class="dv">1</span>)</span></code></pre></div>
+<pre><code>## [1] &quot;2020-12-31 06:00:00 UTC&quot;</code></pre>
+<p>细心的读者肯定已经发现了这里的问题，上面代码得到的结果是2020年12月31日而不是2021年1月1日，这是因为2020年是闰年，有366天，而dyears只会返回356天对应描述，因此相加的结果便是2020年12月31日。实践中，如果不小心，很容易在这里出问题。</p>
+<div id="时间周期" class="section level3" number="1.5.1">
+<h3><span class="header-section-number">1.5.1</span> 时间周期</h3>
+<p>时间周期可以解决上面的问题，例如</p>
+<div class="sourceCode" id="cb70"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb70-1"><a href="#cb70-1"></a><span class="kw">ymd</span>(<span class="st">&quot;2020-01-01&quot;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">years</span>(<span class="dv">1</span>)</span></code></pre></div>
+<pre><code>## [1] &quot;2021-01-01&quot;</code></pre>
+<p>实际上，时间周期是一种有歧义的，翻译成日历时间长度可能更合适。在前面的例子中时间周期函数<code>years</code>在运算时考虑到了日历时间的实际情况，当遇到闰年时，<code>years</code>会自动转换为366天。因此<code>years</code>对应的是一个日历年。类似的函数还有<code>seconds, minutes, hours, days, weeks</code>。</p>
+<p>时间周期也可以进行数学运算，如：</p>
+<div class="sourceCode" id="cb72"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb72-1"><a href="#cb72-1"></a><span class="kw">years</span>(<span class="dv">2</span>) <span class="op">+</span><span class="st"> </span><span class="dv">10</span><span class="op">*</span><span class="kw">days</span>(<span class="dv">1</span>)</span></code></pre></div>
+<pre><code>## [1] &quot;2y 0m 10d 0H 0M 0S&quot;</code></pre>
+<p>特别地，<code>lubridate</code>没有提供月份周期的函数，需要使用<code>lubridate::period(num, units="month")</code>生成月度周期，其中num是几个月的数值。</p>
+<div class="sourceCode" id="cb74"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb74-1"><a href="#cb74-1"></a><span class="kw">years</span>(<span class="dv">2</span>) <span class="op">+</span><span class="st"> </span><span class="dv">10</span><span class="op">*</span><span class="kw">period</span>(<span class="dv">1</span>, <span class="dt">units=</span><span class="st">&quot;month&quot;</span>)</span></code></pre></div>
+<pre><code>## [1] &quot;2y 10m 0d 0H 0M 0S&quot;</code></pre>
+</div>
+<div id="时间区间" class="section level3" number="1.5.2">
+<h3><span class="header-section-number">1.5.2</span> 时间区间</h3>
+<p><code>lubridate</code>有三种方式构造时间区间，时间区间可以类比于一个实数区间，可以对其进行集合运算。第一种是使用<code>%--%</code>运算符构造时间区间：</p>
+<div class="sourceCode" id="cb76"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb76-1"><a href="#cb76-1"></a>dt1 &lt;-<span class="st"> </span><span class="kw">ymd_hms</span>(<span class="st">&quot;2017-11-28T14:02:00&quot;</span>)</span>
+<span id="cb76-2"><a href="#cb76-2"></a>dt2 &lt;-<span class="st"> </span><span class="kw">ymd_hms</span>(<span class="st">&quot;2020-12-10T14:54:00&quot;</span>)</span>
+<span id="cb76-3"><a href="#cb76-3"></a>intv &lt;-<span class="st"> </span>(dt1 <span class="op">%--%</span><span class="st"> </span>dt2)</span>
+<span id="cb76-4"><a href="#cb76-4"></a>intv</span></code></pre></div>
+<pre><code>## [1] 2017-11-28 14:02:00 UTC--2020-12-10 14:54:00 UTC</code></pre>
+<p>也可以使用<code>interval</code>函数来构造，如：</p>
+<div class="sourceCode" id="cb78"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb78-1"><a href="#cb78-1"></a><span class="kw">interval</span>(dt1, dt2)</span></code></pre></div>
+<pre><code>## [1] 2017-11-28 14:02:00 UTC--2020-12-10 14:54:00 UTC</code></pre>
+<p>还可以使用<code>as.interval</code>函数，如：</p>
+<div class="sourceCode" id="cb80"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb80-1"><a href="#cb80-1"></a><span class="kw">as.interval</span>(<span class="kw">weeks</span>(<span class="dv">1</span>),<span class="dt">start =</span> dt1)</span></code></pre></div>
+<pre><code>## [1] 2017-11-28 14:02:00 UTC--2017-12-05 14:02:00 UTC</code></pre>
+<p>注意，时间区间是一个左闭右开的区间，也就是结束端点并没有被计算在内，所以上面的时间区间虽然涉及到了8个日期，但时长确实7天。</p>
+<p><code>int_start</code>和<code>int_end</code>可以分别取出时间区间的起始与结束端点：</p>
+<div class="sourceCode" id="cb82"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb82-1"><a href="#cb82-1"></a><span class="kw">int_start</span>(intv)</span></code></pre></div>
+<pre><code>## [1] &quot;2017-11-28 14:02:00 UTC&quot;</code></pre>
+<div class="sourceCode" id="cb84"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb84-1"><a href="#cb84-1"></a><span class="kw">int_end</span>(intv)</span></code></pre></div>
+<pre><code>## [1] &quot;2020-12-10 14:54:00 UTC&quot;</code></pre>
+<p><code>%within%</code>算符可以用于判断一个日期-时间是否位于时间区间内：</p>
+<div class="sourceCode" id="cb86"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb86-1"><a href="#cb86-1"></a><span class="kw">now</span>() <span class="op">%within%</span><span class="st"> </span>intv</span></code></pre></div>
+<pre><code>## [1] FALSE</code></pre>
+<p><code>int_shift</code>可以平移一个时间区间：</p>
+<div class="sourceCode" id="cb88"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb88-1"><a href="#cb88-1"></a><span class="kw">int_shift</span>(intv,<span class="dt">by =</span> <span class="kw">ddays</span>(<span class="dv">3</span>))</span></code></pre></div>
+<pre><code>## [1] 2017-12-01 14:02:00 UTC--2020-12-13 14:54:00 UTC</code></pre>
+<p><code>int_flip</code>可以反转一个时间区间：</p>
+<div class="sourceCode" id="cb90"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb90-1"><a href="#cb90-1"></a><span class="kw">int_flip</span>(intv)</span></code></pre></div>
+<pre><code>## [1] 2020-12-10 14:54:00 UTC--2017-11-28 14:02:00 UTC</code></pre>
+<p><code>int_length</code>可以用于计算时间区间的长度，以秒计数：</p>
+<div class="sourceCode" id="cb92"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb92-1"><a href="#cb92-1"></a><span class="kw">int_length</span>(intv)</span></code></pre></div>
+<pre><code>## [1] 95734320</code></pre>
+<p>我们也可以使用除法计算时间长度，好处在于可以使用不同的单位：</p>
+<div class="sourceCode" id="cb94"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb94-1"><a href="#cb94-1"></a>intv<span class="op">/</span><span class="kw">dyears</span>(<span class="dv">1</span>)</span></code></pre></div>
+<pre><code>## [1] 3.033638</code></pre>
+<p><code>int_overlaps</code>用于判断两个时间区间是否相交，<code>int_aligns</code>用于判断两个时间区间是否有相同的端点：</p>
+<div class="sourceCode" id="cb96"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb96-1"><a href="#cb96-1"></a>intv2 &lt;-<span class="st"> </span><span class="kw">int_shift</span>(intv,<span class="dt">by =</span> <span class="kw">ddays</span>(<span class="dv">3</span>))</span>
+<span id="cb96-2"><a href="#cb96-2"></a><span class="kw">int_overlaps</span>(intv, intv2)</span></code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<div class="sourceCode" id="cb98"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb98-1"><a href="#cb98-1"></a><span class="kw">int_aligns</span>(intv, intv2)</span></code></pre></div>
+<pre><code>## [1] FALSE</code></pre>
+<p>以上便是R中日期-时间基本知识以及<code>lubirdate</code>包的常规操作，这些知识对于时间序列数据的处理至关重要。</p>
+</div>
+</div>
+</div>
+
+
+
+
+
+
+<div class="footnotes">
+<hr />
+<ol start="1">
+<li id="fn1"><p>Coordinated Universal Time，是最主要的世界时间标准，其以原子时秒长为基础，在时刻上尽量接近于格林威治标准时间<a href="#fnref1" class="footnote-back">↩︎</a></p></li>
+</ol>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": true,
+"facebook": false,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/yihui/bookdown-chinese/edit/master/%s",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "none"
+},
+"search": false
+});
+});
+</script>
+
+</body>
+
+</html>

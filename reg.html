@@ -4,36 +4,34 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>第 3 章 回归分析 | 数据工程讲义：经济学分册</title>
-  <meta name="description" content="一个简单的中文书示例。" />
-  <meta name="generator" content="bookdown 0.17 and GitBook 2.6.7" />
+  <title>1 回归 | 07-regression.utf8</title>
+  <meta name="description" content="" />
+  <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="第 3 章 回归分析 | 数据工程讲义：经济学分册" />
+  <meta property="og:title" content="1 回归 | 07-regression.utf8" />
   <meta property="og:type" content="book" />
   
   
-  <meta property="og:description" content="一个简单的中文书示例。" />
-  <meta name="github-repo" content="yihui/bookdown-chinese" />
+  
+  
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="第 3 章 回归分析 | 数据工程讲义：经济学分册" />
+  <meta name="twitter:title" content="1 回归 | 07-regression.utf8" />
   
-  <meta name="twitter:description" content="一个简单的中文书示例。" />
+  
   
 
-<meta name="author" content="史冬波 续本达" />
 
 
-<meta name="date" content="2020-07-08" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="flow.html"/>
-<link rel="next" href="make.html"/>
-<script src="libs/header-attrs-2.1/header-attrs.js"></script>
+
+
+<script src="libs/header-attrs-2.6/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -57,6 +55,7 @@
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
 pre.sourceCode { margin: 0; }
 @media screen {
@@ -133,56 +132,65 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><a href="./">数据工程讲义</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>前言</a>
+<li class="chapter" data-level="1" data-path=""><a href="#reg"><i class="fa fa-check"></i><b>1</b> 回归</a>
 <ul>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#致谢"><i class="fa fa-check"></i>致谢</a></li>
-</ul></li>
-<li class="chapter" data-level="" data-path="author.html"><a href="author.html"><i class="fa fa-check"></i>作者简介</a></li>
-<li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> 写在前面</a>
+<li class="chapter" data-level="1.1" data-path=""><a href="#一般线性回归"><i class="fa fa-check"></i><b>1.1</b> 一般线性回归</a>
 <ul>
-<li class="chapter" data-level="1.1" data-path="intro.html"><a href="intro.html#为什么写本书"><i class="fa fa-check"></i><b>1.1</b> 为什么写本书</a></li>
-<li class="chapter" data-level="1.2" data-path="intro.html"><a href="intro.html#如何使用本书"><i class="fa fa-check"></i><b>1.2</b> 如何使用本书</a></li>
+<li class="chapter" data-level="1.1.1" data-path=""><a href="#基础模型"><i class="fa fa-check"></i><b>1.1.1</b> 基础模型</a></li>
+<li class="chapter" data-level="1.1.2" data-path=""><a href="#稳健性标准误"><i class="fa fa-check"></i><b>1.1.2</b> 稳健性标准误</a></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="flow.html"><a href="flow.html"><i class="fa fa-check"></i><b>2</b> 重塑经济学研究的流程</a>
+<li class="chapter" data-level="1.2" data-path=""><a href="#因果推断的反事实框架"><i class="fa fa-check"></i><b>1.2</b> 因果推断的反事实框架</a>
 <ul>
-<li class="chapter" data-level="2.1" data-path="flow.html"><a href="flow.html#人工智能时代的社会科学研究机遇与挑战"><i class="fa fa-check"></i><b>2.1</b> 人工智能时代的社会科学研究：机遇与挑战</a></li>
-<li class="chapter" data-level="2.2" data-path="flow.html"><a href="flow.html#数据工程与数据科学"><i class="fa fa-check"></i><b>2.2</b> 数据工程与数据科学</a></li>
-<li class="chapter" data-level="2.3" data-path="flow.html"><a href="flow.html#数据工程的四大原则"><i class="fa fa-check"></i><b>2.3</b> 数据工程的四大原则</a></li>
-<li class="chapter" data-level="2.4" data-path="flow.html"><a href="flow.html#数据处理的灵魂数据流"><i class="fa fa-check"></i><b>2.4</b> 数据处理的灵魂：数据流</a></li>
-<li class="chapter" data-level="2.5" data-path="flow.html"><a href="flow.html#数据处理的钥匙数据结构"><i class="fa fa-check"></i><b>2.5</b> 数据处理的钥匙：数据结构</a></li>
-<li class="chapter" data-level="2.6" data-path="flow.html"><a href="flow.html#数据工程师的工具箱"><i class="fa fa-check"></i><b>2.6</b> 数据工程师的工具箱</a></li>
-<li class="chapter" data-level="2.7" data-path="flow.html"><a href="flow.html#数据工程师的一天"><i class="fa fa-check"></i><b>2.7</b> 数据工程师的一天</a></li>
-<li class="chapter" data-level="2.8" data-path="flow.html"><a href="flow.html#数据工程data-engineering"><i class="fa fa-check"></i><b>2.8</b> 数据工程(Data Engineering)</a></li>
+<li class="chapter" data-level="1.2.1" data-path=""><a href="#定义因果关系"><i class="fa fa-check"></i><b>1.2.1</b> 定义因果关系</a></li>
+<li class="chapter" data-level="1.2.2" data-path=""><a href="#cef三定理"><i class="fa fa-check"></i><b>1.2.2</b> CEF三定理</a></li>
+<li class="chapter" data-level="1.2.3" data-path=""><a href="#交互项还是分组回归"><i class="fa fa-check"></i><b>1.2.3</b> 交互项还是分组回归</a></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="reg.html"><a href="reg.html"><i class="fa fa-check"></i><b>3</b> 回归分析</a>
+<li class="chapter" data-level="1.3" data-path=""><a href="#匹配"><i class="fa fa-check"></i><b>1.3</b> 匹配</a>
 <ul>
-<li class="chapter" data-level="3.1" data-path="reg.html"><a href="reg.html#一般线性回归"><i class="fa fa-check"></i><b>3.1</b> 一般线性回归</a></li>
-<li class="chapter" data-level="3.2" data-path="reg.html"><a href="reg.html#使用stargazer输出表格"><i class="fa fa-check"></i><b>3.2</b> 使用stargazer输出表格</a>
+<li class="chapter" data-level="1.3.1" data-path=""><a href="#原理"><i class="fa fa-check"></i><b>1.3.1</b> 原理</a></li>
+<li class="chapter" data-level="1.3.2" data-path=""><a href="#案例"><i class="fa fa-check"></i><b>1.3.2</b> 案例</a></li>
+</ul></li>
+<li class="chapter" data-level="1.4" data-path=""><a href="#工具变量"><i class="fa fa-check"></i><b>1.4</b> 工具变量</a>
 <ul>
-<li class="chapter" data-level="3.2.1" data-path="reg.html"><a href="reg.html#标准回归表"><i class="fa fa-check"></i><b>3.2.1</b> 标准回归表</a></li>
-<li class="chapter" data-level="3.2.2" data-path="reg.html"><a href="reg.html#默认格式"><i class="fa fa-check"></i><b>3.2.2</b> 默认格式</a></li>
-<li class="chapter" data-level="3.2.3" data-path="reg.html"><a href="reg.html#表格表头"><i class="fa fa-check"></i><b>3.2.3</b> 表格表头</a></li>
-<li class="chapter" data-level="3.2.4" data-path="reg.html"><a href="reg.html#表格正文"><i class="fa fa-check"></i><b>3.2.4</b> 表格正文</a></li>
-<li class="chapter" data-level="3.2.5" data-path="reg.html"><a href="reg.html#添加变量信息"><i class="fa fa-check"></i><b>3.2.5</b> 添加变量信息</a></li>
-<li class="chapter" data-level="3.2.6" data-path="reg.html"><a href="reg.html#选择统计量"><i class="fa fa-check"></i><b>3.2.6</b> 选择统计量</a></li>
-<li class="chapter" data-level="3.2.7" data-path="reg.html"><a href="reg.html#表格注释"><i class="fa fa-check"></i><b>3.2.7</b> 表格注释</a></li>
-<li class="chapter" data-level="3.2.8" data-path="reg.html"><a href="reg.html#整体布局"><i class="fa fa-check"></i><b>3.2.8</b> 整体布局</a></li>
-<li class="chapter" data-level="3.2.9" data-path="reg.html"><a href="reg.html#其他"><i class="fa fa-check"></i><b>3.2.9</b> 其他</a></li>
-<li class="chapter" data-level="3.2.10" data-path="reg.html"><a href="reg.html#描述性统计表"><i class="fa fa-check"></i><b>3.2.10</b> 描述性统计表</a></li>
+<li class="chapter" data-level="1.4.1" data-path=""><a href="#原理-1"><i class="fa fa-check"></i><b>1.4.1</b> 原理</a></li>
+<li class="chapter" data-level="1.4.2" data-path=""><a href="#案例-1"><i class="fa fa-check"></i><b>1.4.2</b> 案例</a></li>
 </ul></li>
-</ul></li>
-<li class="chapter" data-level="4" data-path="make.html"><a href="make.html"><i class="fa fa-check"></i><b>4</b> GUN Make</a>
+<li class="chapter" data-level="1.5" data-path=""><a href="#双重差分"><i class="fa fa-check"></i><b>1.5</b> 双重差分</a>
 <ul>
-<li class="chapter" data-level="4.1" data-path="make.html"><a href="make.html#使用make的必要性"><i class="fa fa-check"></i><b>4.1</b> 使用Make的必要性</a></li>
-<li class="chapter" data-level="4.2" data-path="make.html"><a href="make.html#make安装"><i class="fa fa-check"></i><b>4.2</b> Make安装</a></li>
-<li class="chapter" data-level="4.3" data-path="make.html"><a href="make.html#快速上手make"><i class="fa fa-check"></i><b>4.3</b> 快速上手Make</a></li>
-<li class="chapter" data-level="4.4" data-path="make.html"><a href="make.html#make的高级语法"><i class="fa fa-check"></i><b>4.4</b> Make的高级语法</a></li>
-<li class="chapter" data-level="4.5" data-path="make.html"><a href="make.html#参考资料"><i class="fa fa-check"></i><b>4.5</b> 参考资料</a></li>
-<li class="chapter" data-level="4.6" data-path="make.html"><a href="make.html#including-plots"><i class="fa fa-check"></i><b>4.6</b> Including Plots</a></li>
+<li class="chapter" data-level="1.5.1" data-path=""><a href="#原理-2"><i class="fa fa-check"></i><b>1.5.1</b> 原理</a></li>
+<li class="chapter" data-level="1.5.2" data-path=""><a href="#案例-2"><i class="fa fa-check"></i><b>1.5.2</b> 案例</a></li>
 </ul></li>
-<li class="appendix"><span><b>附录</b></span></li>
-<li class="chapter" data-level="A" data-path="sound.html"><a href="sound.html"><i class="fa fa-check"></i><b>A</b> 余音绕梁</a></li>
-<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>参考文献</a></li>
+<li class="chapter" data-level="1.6" data-path=""><a href="#断点回归"><i class="fa fa-check"></i><b>1.6</b> 断点回归</a>
+<ul>
+<li class="chapter" data-level="1.6.1" data-path=""><a href="#原理-3"><i class="fa fa-check"></i><b>1.6.1</b> 原理</a></li>
+<li class="chapter" data-level="1.6.2" data-path=""><a href="#案例-3"><i class="fa fa-check"></i><b>1.6.2</b> 案例</a></li>
+<li class="chapter" data-level="1.6.3" data-path=""><a href="#其他乱七八糟的方法"><i class="fa fa-check"></i><b>1.6.3</b> 其他乱七八糟的方法</a></li>
+</ul></li>
+<li class="chapter" data-level="1.7" data-path=""><a href="#formula-公式对象"><i class="fa fa-check"></i><b>1.7</b> formula (公式)对象</a>
+<ul>
+<li class="chapter" data-level="1.7.1" data-path=""><a href="#公式的生成"><i class="fa fa-check"></i><b>1.7.1</b> 公式的生成</a></li>
+<li class="chapter" data-level="1.7.2" data-path=""><a href="#生成公式的运算符"><i class="fa fa-check"></i><b>1.7.2</b> 生成公式的运算符</a></li>
+</ul></li>
+<li class="chapter" data-level="1.8" data-path=""><a href="#使用stargazer输出表格"><i class="fa fa-check"></i><b>1.8</b> 使用stargazer输出表格</a>
+<ul>
+<li class="chapter" data-level="1.8.1" data-path=""><a href="#标准回归表"><i class="fa fa-check"></i><b>1.8.1</b> 标准回归表</a></li>
+<li class="chapter" data-level="1.8.2" data-path=""><a href="#默认格式"><i class="fa fa-check"></i><b>1.8.2</b> 默认格式</a></li>
+<li class="chapter" data-level="1.8.3" data-path=""><a href="#表格表头"><i class="fa fa-check"></i><b>1.8.3</b> 表格表头</a></li>
+<li class="chapter" data-level="1.8.4" data-path=""><a href="#表格正文"><i class="fa fa-check"></i><b>1.8.4</b> 表格正文</a></li>
+<li class="chapter" data-level="1.8.5" data-path=""><a href="#添加变量信息"><i class="fa fa-check"></i><b>1.8.5</b> 添加变量信息</a></li>
+<li class="chapter" data-level="1.8.6" data-path=""><a href="#选择统计量"><i class="fa fa-check"></i><b>1.8.6</b> 选择统计量</a></li>
+<li class="chapter" data-level="1.8.7" data-path=""><a href="#表格注释"><i class="fa fa-check"></i><b>1.8.7</b> 表格注释</a></li>
+<li class="chapter" data-level="1.8.8" data-path=""><a href="#整体布局"><i class="fa fa-check"></i><b>1.8.8</b> 整体布局</a></li>
+<li class="chapter" data-level="1.8.9" data-path=""><a href="#其他"><i class="fa fa-check"></i><b>1.8.9</b> 其他</a></li>
+<li class="chapter" data-level="1.8.10" data-path=""><a href="#描述性统计表"><i class="fa fa-check"></i><b>1.8.10</b> 描述性统计表</a></li>
+</ul></li>
+<li class="chapter" data-level="1.9" data-path=""><a href="#回归结果的可视化"><i class="fa fa-check"></i><b>1.9</b> 回归结果的可视化</a>
+<ul>
+<li class="chapter" data-level="1.9.1" data-path=""><a href="#使用ggcoefstats可视化回归结果"><i class="fa fa-check"></i><b>1.9.1</b> 使用ggcoefstats可视化回归结果</a></li>
+<li class="chapter" data-level="1.9.2" data-path=""><a href="#使用"><i class="fa fa-check"></i><b>1.9.2</b> 使用</a></li>
+<li class="chapter" data-level="1.9.3" data-path=""><a href="#双重差分模型的可视化"><i class="fa fa-check"></i><b>1.9.3</b> 双重差分模型的可视化</a></li>
+</ul></li>
+</ul></li>
 <li class="divider"></li>
 <li><a href="https://bookdown.org" target="blank">本书由 bookdown 强力驱动</a></li>
 
@@ -195,7 +203,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">数据工程讲义：经济学分册</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./"></a>
           </h1>
         </div>
 
@@ -203,45 +211,204 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="reg" class="section level1" number="3">
-<h1><span class="header-section-number">第 3 章</span> 回归分析</h1>
-<div id="一般线性回归" class="section level2" number="3.1">
-<h2><span class="header-section-number">3.1</span> 一般线性回归</h2>
+<!--bookdown:title:end-->
+<!--bookdown:title:start-->
+<div id="reg" class="section level1" number="1">
+<h1><span class="header-section-number">1</span> 回归</h1>
+<blockquote>
+<p>我们听过无数的道理，却仍旧过不好这一生。<em>后会无期</em></p>
+</blockquote>
+<p>Angrist在<em>Most Harmless Econometrics</em><a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a>写到：</p>
+<blockquote>
+<p>Now we too spend our days happily perusing regression output, in the manner of our teaches and advisers in college and graduate school.</p>
+</blockquote>
+<p>作为一名经济学家或经济学的学生，我们不是在跑回归，就是在为回归做准备。你也许听了很多讲座，参加了不少暑期学校，花了几笔冤枉钱，（很可能还被我骗过钱），但你还是不会跑回归。大概率是你没有好好完成Wooldridge<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a> 的课后习题，或者没有搞清楚Angrist<a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a> 那些写在脚注里面的看似显然的证明。</p>
+<p>不用担心，相信我，等你学完本章，你依然不会跑回归，因为跑回归重要的不是知道写什么代码，而是知道统计原理，这是江湖骗子和经济学家的区别。</p>
+<p>作为本书的核心贡献，本章的目的是帮读者提炼出回归与因果推断中最核心的理论以及读者经常遇到的坑，并以案例的形式介绍在R中如何实现相关操作。如果你读了本章之后，照猫画虎的复制了几段代码就去江湖上招摇撞骗，我会画个圈圈诅咒你的。所以，如果你没有继续自学Wooldridge和Angrist，请闭上眼睛，想一下我在祖国东海边给你画的圈。</p>
+<div id="一般线性回归" class="section level2" number="1.1">
+<h2><span class="header-section-number">1.1</span> 一般线性回归</h2>
+<div id="基础模型" class="section level3" number="1.1.1">
+<h3><span class="header-section-number">1.1.1</span> 基础模型</h3>
+<p>使用矩阵方法写出来一般线性回归</p>
 </div>
-<div id="使用stargazer输出表格" class="section level2" number="3.2">
-<h2><span class="header-section-number">3.2</span> 使用stargazer输出表格</h2>
+<div id="稳健性标准误" class="section level3" number="1.1.2">
+<h3><span class="header-section-number">1.1.2</span> 稳健性标准误</h3>
+</div>
+</div>
+<div id="因果推断的反事实框架" class="section level2" number="1.2">
+<h2><span class="header-section-number">1.2</span> 因果推断的反事实框架</h2>
+<div id="定义因果关系" class="section level3" number="1.2.1">
+<h3><span class="header-section-number">1.2.1</span> 定义因果关系</h3>
+<p>在定义因果关系之前，我们必须清楚，目前主流的统计学工具中，只能定义两个变量线性的因果关系，即变量D与变量Y的因果关系。例如：人才流动对科研生产率、人才流动对合作网络、人才计划对人才流动，以及研发资助对企业创新等关系。</p>
+<p>如果D是Y原因，那D与Y显著相关（相关系数显著地不为0），且D发生在Y之前。但这两个条件仅仅是必要而非充分条件。以海外科学家回国任教是否有利其科研生涯这个问题为例，D是回国与否的0-1变量，Y是科研产出（例如科技论文数量）。即使我们观察到D与Y之间显著正相关，我们依然无法断言回国有利于科学家的科研生涯。这是因为很可能选择回归任教的科学家本身就是那些科研潜力更强、更适应国内研究环境的科学家，因此他们本身就应该比留在国外的华人科学家发表更多的论文。
+计量经济学中，有两个路径可以定义因果关系。一种是通过引入反事实项来定义因果关系（Angtist，参考文献），另一种则是控制通过其他其他因素不变定义回归中的因果关系（伍德里奇，参考文献）。本讲义中，我们将采用第一种路径，通过CEF的三个定理，其实这两种路径是等价的。</p>
+<p>沿用前面的表示方法，我们假定实验D是一个0-1变量（读者不用担心这一简化失去一般性，Angrsit已经将其推广到了连续变量）。对于观测个体i而言，<span class="math inline">\(D_{i} = 1\)</span> 表示其属于实验组，例如科学家i选择回国任教，<span class="math inline">\(D_{i} = 1\)</span> 则表示其属于对照组。个体i的观测结果依赖于是否参与实验，用<span class="math inline">\(Y_{i}\)</span>表示，则：</p>
+<p><span class="math display">\[Y_{i} = \left\{\begin{aligned}
+Y_{1,i},\quad if \quad D_{i} = 1\\
+Y_{0,i},\quad if \quad D_{i} = 0
+\end{aligned}
+\right.\]</span></p>
+<p>由于在现实世界中，完成论文之后讨论的结果然后完成之后</p>
+</div>
+<div id="cef三定理" class="section level3" number="1.2.2">
+<h3><span class="header-section-number">1.2.2</span> CEF三定理</h3>
+<p>这里主要是抛出来Angrist书中的三个定理</p>
+</div>
+<div id="交互项还是分组回归" class="section level3" number="1.2.3">
+<h3><span class="header-section-number">1.2.3</span> 交互项还是分组回归</h3>
+</div>
+</div>
+<div id="匹配" class="section level2" number="1.3">
+<h2><span class="header-section-number">1.3</span> 匹配</h2>
+<div id="原理" class="section level3" number="1.3.1">
+<h3><span class="header-section-number">1.3.1</span> 原理</h3>
+</div>
+<div id="案例" class="section level3" number="1.3.2">
+<h3><span class="header-section-number">1.3.2</span> 案例</h3>
+</div>
+</div>
+<div id="工具变量" class="section level2" number="1.4">
+<h2><span class="header-section-number">1.4</span> 工具变量</h2>
+<div id="原理-1" class="section level3" number="1.4.1">
+<h3><span class="header-section-number">1.4.1</span> 原理</h3>
+</div>
+<div id="案例-1" class="section level3" number="1.4.2">
+<h3><span class="header-section-number">1.4.2</span> 案例</h3>
+</div>
+</div>
+<div id="双重差分" class="section level2" number="1.5">
+<h2><span class="header-section-number">1.5</span> 双重差分</h2>
+<div id="原理-2" class="section level3" number="1.5.1">
+<h3><span class="header-section-number">1.5.1</span> 原理</h3>
+</div>
+<div id="案例-2" class="section level3" number="1.5.2">
+<h3><span class="header-section-number">1.5.2</span> 案例</h3>
+</div>
+</div>
+<div id="断点回归" class="section level2" number="1.6">
+<h2><span class="header-section-number">1.6</span> 断点回归</h2>
+<div id="原理-3" class="section level3" number="1.6.1">
+<h3><span class="header-section-number">1.6.1</span> 原理</h3>
+</div>
+<div id="案例-3" class="section level3" number="1.6.2">
+<h3><span class="header-section-number">1.6.2</span> 案例</h3>
+</div>
+<div id="其他乱七八糟的方法" class="section level3" number="1.6.3">
+<h3><span class="header-section-number">1.6.3</span> 其他乱七八糟的方法</h3>
+</div>
+</div>
+<div id="formula-公式对象" class="section level2" number="1.7">
+<h2><span class="header-section-number">1.7</span> formula (公式)对象</h2>
+<p>尽管formula不是R语言的基础类，但它构成了R语言进行统计分析的基础。formula直观地刻画了变量之间的关系。formula是独立于数据之外的对象，换句话说，我们可以针对不同的数据使用同一个公式。</p>
+<div id="公式的生成" class="section level3" number="1.7.1">
+<h3><span class="header-section-number">1.7.1</span> 公式的生成</h3>
+<p>使用<code>~</code>连接因变量y与自变量x便可定义一个简单的公式，<code>y ~ x</code>。<code>~</code>相当于数学公式中的<code>=</code>。如果在R中使用class函数查看公式的类型，会返回“formula”。例如：</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>f <span class="ot">&lt;-</span> y <span class="sc">~</span> x</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(f)</span></code></pre></div>
+<pre><code>## [1] &quot;formula&quot;</code></pre>
+<p><code>~</code>右边可以有多个变量，变量之间通过 <code>+</code> 连接，例如<code>y ~ x + z</code>。</p>
+</div>
+<div id="生成公式的运算符" class="section level3" number="1.7.2">
+<h3><span class="header-section-number">1.7.2</span> 生成公式的运算符</h3>
+<p>R语言还有一些特殊运算符来方便地生成公式，总结如下表：</p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">运算符</th>
+<th align="left">含义</th>
+<th align="left">例子</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">+</td>
+<td align="left">连接多个变量，说明有多个自变量</td>
+<td align="left">y ~ x1 + x2</td>
+</tr>
+<tr class="even">
+<td align="left">.</td>
+<td align="left">表示使用所有的变量</td>
+<td align="left">y ~ .</td>
+</tr>
+<tr class="odd">
+<td align="left">:</td>
+<td align="left">变量之间的交集</td>
+<td align="left">y ~ x1 : x2</td>
+</tr>
+<tr class="even">
+<td align="left">*</td>
+<td align="left">变量以及它们之间的交互</td>
+<td align="left">y ~ x1 * x2</td>
+</tr>
+<tr class="odd">
+<td align="left">^</td>
+<td align="left">变量及n个变量之间的交互</td>
+<td align="left">y ~ (x1 + x2)^2</td>
+</tr>
+<tr class="even">
+<td align="left">|</td>
+<td align="left">在给定x2的条件下处理x1</td>
+<td align="left">y ~ x1</td>
+</tr>
+<tr class="odd">
+<td align="left">I()</td>
+<td align="left">按照括号中的表达式进行算术表达式的处理</td>
+<td align="left">y ~ x1 + I(x1^2)</td>
+</tr>
+<tr class="even">
+<td align="left">log()</td>
+<td align="left">数学函数也可以用在formula中</td>
+<td align="left">log(y) ~ x1 + x2</td>
+</tr>
+<tr class="odd">
+<td align="left">factor()</td>
+<td align="left">将变量转换为因子</td>
+<td align="left">y ~ x1 + factor(x2)</td>
+</tr>
+<tr class="even">
+<td align="left">-</td>
+<td align="left">表示排除某个变量</td>
+<td align="left">y ~ x1 - x2</td>
+</tr>
+</tbody>
+</table>
+<p>其中比较常用的包括，<code>:</code>，<code>*</code> 以及factor函数。特别地，公式中使用<code>x1:x2</code>来表示交互项，而<code>x1*x2</code>并不是表示x1与x2的交互项，而是表示<code>x1 + x2 + x1:x2</code>。如果我们非要使用<code>*</code>来表达交互含义，则需要使用<code>I</code>运算符将公式写为，<code>I(x1*x2)</code>。</p>
+</div>
+</div>
+<div id="使用stargazer输出表格" class="section level2" number="1.8">
+<h2><span class="header-section-number">1.8</span> 使用stargazer输出表格</h2>
 <p>上一节中我们介绍了在R中如何拟合常见的回归模型。在实际的经济学研究中，拟合回归模型仅仅完成了回归分析一半的工作量，我们至少还需要花同样的时间将回归结果整理成正式发表（或投稿）论文中的标准回归表格式。初学者往往人工整理回归结果，这不仅与我们数据工程的自动化原则相违背，更重要的是，一旦在研究中对回归结果进行调整（这几乎是百分之百会发生的），人工整理将会耗费大量的时间与精力。</p>
-<p>本节我们将介绍如何使用stargazer包输出回归结果表。stargazer<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a>是政治经济学家 Marek Hlavac博士在哈佛大学肯尼迪学院攻读博士学位期间完成的包，已成为目前最流行的R包之一。stargazer可以将R的回归模型编码为html代码，LaTex代码或者是ASCII文本，将回归模型输出为可发表格式。除此之外，stargazer也可以输出描述性统计表，或者直接输出data.frame。通过下列代码安装与加载stargazer：</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="reg.html#cb1-1"></a><span class="kw">install.packages</span>(<span class="st">&quot;stargazer&quot;</span>)</span>
-<span id="cb1-2"><a href="reg.html#cb1-2"></a><span class="kw">library</span>(stargazer)</span></code></pre></div>
-<div id="标准回归表" class="section level3" number="3.2.1">
-<h3><span class="header-section-number">3.2.1</span> 标准回归表</h3>
-<p>在学习使用stagazer之前，我们首先来看下正式发表论文的标准回归表。下表源自Giroud在The Quarterly Journal of Economics发表的论文<em>Proximity and Investment: Evidence from Plant-Level Data</em><a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a>，我们可以发现，从上至下，标准回归表可以分为五个部分：第一部分包括因变量名、模型名以及模型编号；第二部分是自变量名与回归结果，包括回归系数、标准误差与显著性；第三部分是未汇报系数的变量；第三四部分是模型的统计指标；第五部分是注释。其中，第二部分是回归表的核心，而其他部分的重要性往往被初学者忽视。我们在回归表中标注了每一部分调整对应的stagazer中的参数，接下来我们将详细介绍各参数的使用方法。</p>
+<p>本节我们将介绍如何使用stargazer包输出回归结果表。stargazer<a href="#fn4" class="footnote-ref" id="fnref4"><sup>4</sup></a>是政治经济学家 Marek Hlavac博士在哈佛大学肯尼迪学院攻读博士学位期间完成的包，已成为目前最流行的R包之一。stargazer可以将R的回归模型编码为html代码，LaTex代码或者是ASCII文本，将回归模型输出为可发表格式。除此之外，stargazer也可以输出描述性统计表，或者直接输出data.frame。通过下列代码安装与加载stargazer：</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;stargazer&quot;</span>)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(stargazer)</span></code></pre></div>
+<div id="标准回归表" class="section level3" number="1.8.1">
+<h3><span class="header-section-number">1.8.1</span> 标准回归表</h3>
+<p>在学习使用stagazer之前，我们首先来看下正式发表论文的标准回归表。下表源自Giroud在The Quarterly Journal of Economics发表的论文<em>Proximity and Investment: Evidence from Plant-Level Data</em><a href="#fn5" class="footnote-ref" id="fnref5"><sup>5</sup></a>，我们可以发现，从上至下，标准回归表可以分为五个部分：第一部分包括因变量名、模型名以及模型编号；第二部分是自变量名与回归结果，包括回归系数、标准误差与显著性；第三部分是未汇报系数的变量；第三四部分是模型的统计指标；第五部分是注释。其中，第二部分是回归表的核心，而其他部分的重要性往往被初学者忽视。我们在回归表中标注了每一部分调整对应的stagazer中的参数，接下来我们将详细介绍各参数的使用方法。</p>
 <p><img src="regtb.png" width="80%" /></p>
 </div>
-<div id="默认格式" class="section level3" number="3.2.2">
-<h3><span class="header-section-number">3.2.2</span> 默认格式</h3>
-<p>我们使用Wooldridge(2012)<a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a> 收录的JTRAIN数据集(详情见第十四章习题C3)，该数据集源自Holzer等人(1993)<a href="#fn4" class="footnote-ref" id="fnref4"><sup>4</sup></a>的劳动经济学论文，研究了工作培训津贴对于公司为雇员提供培训的作用。我们使用jtrain数据集拟合回归模型。</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="reg.html#cb2-1"></a><span class="cf">if</span>(<span class="op">!</span><span class="kw">require</span>(wooldridge)){</span>
-<span id="cb2-2"><a href="reg.html#cb2-2"></a>  <span class="kw">install.packages</span>(<span class="st">&#39;wooldridge&#39;</span>)</span>
-<span id="cb2-3"><a href="reg.html#cb2-3"></a>}</span>
-<span id="cb2-4"><a href="reg.html#cb2-4"></a><span class="kw">library</span>(wooldridge)</span>
-<span id="cb2-5"><a href="reg.html#cb2-5"></a><span class="kw">library</span>(stargazer)</span>
-<span id="cb2-6"><a href="reg.html#cb2-6"></a></span>
-<span id="cb2-7"><a href="reg.html#cb2-7"></a><span class="kw">data</span>(<span class="st">&#39;jtrain&#39;</span>)</span>
-<span id="cb2-8"><a href="reg.html#cb2-8"></a><span class="kw">names</span>(jtrain)</span></code></pre></div>
+<div id="默认格式" class="section level3" number="1.8.2">
+<h3><span class="header-section-number">1.8.2</span> 默认格式</h3>
+<p>我们使用Wooldridge(2012)<a href="#fn6" class="footnote-ref" id="fnref6"><sup>6</sup></a> 收录的JTRAIN数据集(详情见第十四章习题C3)，该数据集源自Holzer等人(1993)<a href="#fn7" class="footnote-ref" id="fnref7"><sup>7</sup></a>的劳动经济学论文，研究了工作培训津贴对于公司为雇员提供培训的作用。我们使用jtrain数据集拟合回归模型。</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(<span class="sc">!</span><span class="fu">require</span>(wooldridge)){</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">install.packages</span>(<span class="st">&#39;wooldridge&#39;</span>)</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(wooldridge)</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(stargazer)</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(<span class="st">&#39;jtrain&#39;</span>)</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(jtrain)</span></code></pre></div>
 <pre><code>##  [1] &quot;year&quot;     &quot;fcode&quot;    &quot;employ&quot;   &quot;sales&quot;    &quot;avgsal&quot;   &quot;scrap&quot;   
 ##  [7] &quot;rework&quot;   &quot;tothrs&quot;   &quot;union&quot;    &quot;grant&quot;    &quot;d89&quot;      &quot;d88&quot;     
 ## [13] &quot;totrain&quot;  &quot;hrsemp&quot;   &quot;lscrap&quot;   &quot;lemploy&quot;  &quot;lsales&quot;   &quot;lrework&quot; 
 ## [19] &quot;lhrsemp&quot;  &quot;lscrap_1&quot; &quot;grant_1&quot;  &quot;clscrap&quot;  &quot;cgrant&quot;   &quot;clemploy&quot;
 ## [25] &quot;clsales&quot;  &quot;lavgsal&quot;  &quot;clavgsal&quot; &quot;cgrant_1&quot; &quot;chrsemp&quot;  &quot;clhrsemp&quot;</code></pre>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="reg.html#cb4-1"></a>mod1 &lt;-<span class="st"> </span><span class="kw">lm</span>(hrsemp <span class="op">~</span><span class="st"> </span>grant <span class="op">+</span><span class="st"> </span>grant_<span class="dv">1</span> <span class="op">+</span><span class="st"> </span>lemploy, <span class="dt">data =</span> jtrain)</span>
-<span id="cb4-2"><a href="reg.html#cb4-2"></a>mod2 &lt;-<span class="st"> </span><span class="kw">lm</span>(hrsemp <span class="op">~</span><span class="st"> </span>grant <span class="op">+</span><span class="st"> </span>grant_<span class="dv">1</span> <span class="op">+</span><span class="st"> </span>lemploy <span class="op">+</span><span class="st"> </span>union, <span class="dt">data =</span> jtrain)</span>
-<span id="cb4-3"><a href="reg.html#cb4-3"></a>mod3 &lt;-<span class="st"> </span><span class="kw">lm</span>(hrsemp <span class="op">~</span><span class="st"> </span>grant <span class="op">+</span><span class="st"> </span>grant_<span class="dv">1</span> <span class="op">+</span><span class="st"> </span>lemploy <span class="op">+</span><span class="st"> </span>union <span class="op">+</span><span class="st"> </span><span class="kw">factor</span>(fcode), <span class="dt">data =</span> jtrain)</span>
-<span id="cb4-4"><a href="reg.html#cb4-4"></a>mod4 &lt;-<span class="st"> </span><span class="kw">lm</span>(hrsemp <span class="op">~</span><span class="st"> </span>grant <span class="op">+</span><span class="st"> </span>grant_<span class="dv">1</span> <span class="op">+</span><span class="st"> </span>lemploy <span class="op">+</span><span class="st"> </span>union <span class="op">+</span><span class="st"> </span><span class="kw">factor</span>(fcode) <span class="op">+</span><span class="st"> </span><span class="kw">factor</span>(year), <span class="dt">data =</span> jtrain)</span>
-<span id="cb4-5"><a href="reg.html#cb4-5"></a>mod5 &lt;-<span class="st"> </span><span class="kw">glm</span>(grant<span class="op">~</span>lemploy <span class="op">+</span><span class="st"> </span>union, <span class="dt">data =</span> jtrain,<span class="dt">family =</span> <span class="kw">binomial</span>(<span class="dt">link =</span> <span class="st">&quot;logit&quot;</span>))</span>
-<span id="cb4-6"><a href="reg.html#cb4-6"></a><span class="co"># 在数据分析过程中，我们可以使用summary函数查看回归模型的结果</span></span>
-<span id="cb4-7"><a href="reg.html#cb4-7"></a><span class="kw">summary</span>(mod1)</span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>mod1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(hrsemp <span class="sc">~</span> grant <span class="sc">+</span> grant_1 <span class="sc">+</span> lemploy, <span class="at">data =</span> jtrain)</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>mod2 <span class="ot">&lt;-</span> <span class="fu">lm</span>(hrsemp <span class="sc">~</span> grant <span class="sc">+</span> grant_1 <span class="sc">+</span> lemploy <span class="sc">+</span> union, <span class="at">data =</span> jtrain)</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>mod3 <span class="ot">&lt;-</span> <span class="fu">lm</span>(hrsemp <span class="sc">~</span> grant <span class="sc">+</span> grant_1 <span class="sc">+</span> lemploy <span class="sc">+</span> union <span class="sc">+</span> <span class="fu">factor</span>(fcode), <span class="at">data =</span> jtrain)</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>mod4 <span class="ot">&lt;-</span> <span class="fu">lm</span>(hrsemp <span class="sc">~</span> grant <span class="sc">+</span> grant_1 <span class="sc">+</span> lemploy <span class="sc">+</span> union <span class="sc">+</span> <span class="fu">factor</span>(fcode) <span class="sc">+</span> <span class="fu">factor</span>(year), <span class="at">data =</span> jtrain)</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>mod5 <span class="ot">&lt;-</span> <span class="fu">glm</span>(grant<span class="sc">~</span>lemploy <span class="sc">+</span> union, <span class="at">data =</span> jtrain,<span class="at">family =</span> <span class="fu">binomial</span>(<span class="at">link =</span> <span class="st">&quot;logit&quot;</span>))</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="co"># 在数据分析过程中，我们可以使用summary函数查看回归模型的结果</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(mod1)</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## lm(formula = hrsemp ~ grant + grant_1 + lemploy, data = jtrain)
@@ -264,7 +431,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## Multiple R-squared:  0.2473, Adjusted R-squared:  0.2415 
 ## F-statistic: 42.28 on 3 and 386 DF,  p-value: &lt; 2.2e-16</code></pre>
 <p>在数据分析结束后，使用stargazer输出回归结果，stargazer定义了三种输出格式：html，LaTex和text，为方便我们使用html来做演示。</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="reg.html#cb6-1"></a><span class="kw">stargazer</span>(mod1, mod2, mod5, <span class="dt">type =</span> <span class="st">&quot;html&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">stargazer</span>(mod1, mod2, mod5, <span class="at">type =</span> <span class="st">&quot;html&quot;</span>)</span></code></pre></div>
 <table style="text-align:center">
 <tr>
 <td colspan="4" style="border-bottom: 1px solid black">
@@ -607,8 +774,8 @@ F Statistic
 </tr>
 </table>
 <p>stargazer内置了一些期刊风格的格式，可以使用style参数来指定，例如QJE的风格：</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="reg.html#cb7-1"></a><span class="co"># 在数据分析结束后，使用stargazer输出回归结果</span></span>
-<span id="cb7-2"><a href="reg.html#cb7-2"></a><span class="kw">stargazer</span>(mod1, mod2, mod5, <span class="dt">type =</span> <span class="st">&quot;html&quot;</span>,<span class="dt">style =</span> <span class="st">&quot;qje&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 在数据分析结束后，使用stargazer输出回归结果</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">stargazer</span>(mod1, mod2, mod5, <span class="at">type =</span> <span class="st">&quot;html&quot;</span>,<span class="at">style =</span> <span class="st">&quot;qje&quot;</span>)</span></code></pre></div>
 <table style="text-align:center">
 <tr>
 <td colspan="4" style="border-bottom: 1px solid black">
@@ -948,15 +1115,15 @@ F Statistic
 </tr>
 </table>
 <p>可以使用out参数将表格输出到文件</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="reg.html#cb8-1"></a><span class="co"># 在数据分析结束后，使用stargazer输出回归结果</span></span>
-<span id="cb8-2"><a href="reg.html#cb8-2"></a><span class="kw">stargazer</span>(mod1, mod2, mod5, <span class="dt">type =</span> <span class="st">&quot;html&quot;</span>,<span class="dt">style =</span> <span class="st">&quot;qje&quot;</span>,<span class="dt">out=</span><span class="st">&quot;reg_results.html&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 在数据分析结束后，使用stargazer输出回归结果</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">stargazer</span>(mod1, mod2, mod5, <span class="at">type =</span> <span class="st">&quot;html&quot;</span>,<span class="at">style =</span> <span class="st">&quot;qje&quot;</span>,<span class="at">out=</span><span class="st">&quot;reg_results.html&quot;</span>)</span></code></pre></div>
 </div>
-<div id="表格表头" class="section level3" number="3.2.3">
-<h3><span class="header-section-number">3.2.3</span> 表格表头</h3>
+<div id="表格表头" class="section level3" number="1.8.3">
+<h3><span class="header-section-number">1.8.3</span> 表格表头</h3>
 <p>通过title参数添加表格标题，通过dep.var.labels添加因变量标签，dep.var.caption设置因变量标题，默认情况也会输出模型名称。</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="reg.html#cb9-1"></a><span class="kw">stargazer</span>(mod1, mod2, mod5, <span class="dt">type =</span> <span class="st">&quot;html&quot;</span>,</span>
-<span id="cb9-2"><a href="reg.html#cb9-2"></a>          <span class="dt">title =</span> <span class="st">&quot;Table1: The empirical results&quot;</span>,</span>
-<span id="cb9-3"><a href="reg.html#cb9-3"></a>          <span class="dt">dep.var.labels =</span> <span class="kw">c</span>(<span class="st">&quot;Training hours&quot;</span>,<span class="st">&quot;Training grants&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">stargazer</span>(mod1, mod2, mod5, <span class="at">type =</span> <span class="st">&quot;html&quot;</span>,</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>          <span class="at">title =</span> <span class="st">&quot;Table1: The empirical results&quot;</span>,</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>          <span class="at">dep.var.labels =</span> <span class="fu">c</span>(<span class="st">&quot;Training hours&quot;</span>,<span class="st">&quot;Training grants&quot;</span>))</span></code></pre></div>
 <table style="text-align:center">
 <caption>
 <strong>Table1: The empirical results</strong>
@@ -1302,10 +1469,10 @@ F Statistic
 </tr>
 </table>
 <p>使用column.labels为回归结果添加列标签</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="reg.html#cb10-1"></a><span class="kw">stargazer</span>(mod1, mod2, mod5, <span class="dt">type =</span> <span class="st">&quot;html&quot;</span>,</span>
-<span id="cb10-2"><a href="reg.html#cb10-2"></a>          <span class="dt">title =</span> <span class="st">&quot;Table1: The empirical results&quot;</span>,</span>
-<span id="cb10-3"><a href="reg.html#cb10-3"></a>          <span class="dt">dep.var.labels =</span> <span class="kw">c</span>(<span class="st">&quot;Training hours&quot;</span>,<span class="st">&quot;Training grant&quot;</span>),</span>
-<span id="cb10-4"><a href="reg.html#cb10-4"></a>          <span class="dt">column.labels =</span> <span class="kw">c</span>(<span class="st">&quot;Basic&quot;</span>, <span class="st">&quot;With union&quot;</span>, <span class="st">&quot;Selection&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">stargazer</span>(mod1, mod2, mod5, <span class="at">type =</span> <span class="st">&quot;html&quot;</span>,</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>          <span class="at">title =</span> <span class="st">&quot;Table1: The empirical results&quot;</span>,</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>          <span class="at">dep.var.labels =</span> <span class="fu">c</span>(<span class="st">&quot;Training hours&quot;</span>,<span class="st">&quot;Training grant&quot;</span>),</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>          <span class="at">column.labels =</span> <span class="fu">c</span>(<span class="st">&quot;Basic&quot;</span>, <span class="st">&quot;With union&quot;</span>, <span class="st">&quot;Selection&quot;</span>))</span></code></pre></div>
 <table style="text-align:center">
 <caption>
 <strong>Table1: The empirical results</strong>
@@ -1664,11 +1831,11 @@ F Statistic
 </tr>
 </table>
 <p>多列结果共同使用同一个列标签，此时需要使用column.separate参数指定分割方法。</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="reg.html#cb11-1"></a><span class="kw">stargazer</span>(mod1, mod2, mod5, <span class="dt">type =</span> <span class="st">&quot;html&quot;</span>,</span>
-<span id="cb11-2"><a href="reg.html#cb11-2"></a>          <span class="dt">title =</span> <span class="st">&quot;Table1: The empirical results&quot;</span>,</span>
-<span id="cb11-3"><a href="reg.html#cb11-3"></a>          <span class="dt">dep.var.labels =</span> <span class="kw">c</span>(<span class="st">&quot;Training hours&quot;</span>,<span class="st">&quot;Training grant&quot;</span>),</span>
-<span id="cb11-4"><a href="reg.html#cb11-4"></a>          <span class="dt">column.labels =</span> <span class="kw">c</span>(<span class="st">&quot;Basic&quot;</span>, <span class="st">&quot;Selection&quot;</span>),</span>
-<span id="cb11-5"><a href="reg.html#cb11-5"></a>          <span class="dt">column.separate =</span> <span class="kw">c</span>(<span class="dv">2</span>, <span class="dv">1</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">stargazer</span>(mod1, mod2, mod5, <span class="at">type =</span> <span class="st">&quot;html&quot;</span>,</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>          <span class="at">title =</span> <span class="st">&quot;Table1: The empirical results&quot;</span>,</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>          <span class="at">dep.var.labels =</span> <span class="fu">c</span>(<span class="st">&quot;Training hours&quot;</span>,<span class="st">&quot;Training grant&quot;</span>),</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>          <span class="at">column.labels =</span> <span class="fu">c</span>(<span class="st">&quot;Basic&quot;</span>, <span class="st">&quot;Selection&quot;</span>),</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>          <span class="at">column.separate =</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">1</span>))</span></code></pre></div>
 <table style="text-align:center">
 <caption>
 <strong>Table1: The empirical results</strong>
@@ -2024,11 +2191,11 @@ F Statistic
 </tr>
 </table>
 <p>去除因变量标签、因变量标题、模型编码以及模型名称，当然实际应用中，不可能全部去除。</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="reg.html#cb12-1"></a><span class="kw">stargazer</span>(mod1, mod2, mod5, <span class="dt">type =</span> <span class="st">&quot;html&quot;</span>,</span>
-<span id="cb12-2"><a href="reg.html#cb12-2"></a>          <span class="dt">dep.var.caption =</span> <span class="st">&quot;&quot;</span>,</span>
-<span id="cb12-3"><a href="reg.html#cb12-3"></a>          <span class="dt">dep.var.labels.include =</span> <span class="ot">FALSE</span>,</span>
-<span id="cb12-4"><a href="reg.html#cb12-4"></a>          <span class="dt">model.numbers =</span> <span class="ot">FALSE</span>,</span>
-<span id="cb12-5"><a href="reg.html#cb12-5"></a>          <span class="dt">model.names =</span> <span class="ot">FALSE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">stargazer</span>(mod1, mod2, mod5, <span class="at">type =</span> <span class="st">&quot;html&quot;</span>,</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>          <span class="at">dep.var.caption =</span> <span class="st">&quot;&quot;</span>,</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>          <span class="at">dep.var.labels.include =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>          <span class="at">model.numbers =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>          <span class="at">model.names =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
 <table style="text-align:center">
 <tr>
 <td colspan="4" style="border-bottom: 1px solid black">
@@ -2321,16 +2488,16 @@ F Statistic
 </tr>
 </table>
 </div>
-<div id="表格正文" class="section level3" number="3.2.4">
-<h3><span class="header-section-number">3.2.4</span> 表格正文</h3>
+<div id="表格正文" class="section level3" number="1.8.4">
+<h3><span class="header-section-number">1.8.4</span> 表格正文</h3>
 <p>在mod3和mod4中我们逐步加入了所在企业与年份的固定效应，其中企业的固定效应包含了156个哑变量，我们不可能也不需要全部输出这些变量的回归系数。我们使用omit参数来确定不需要输出回归结果的变量。</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="reg.html#cb13-1"></a><span class="kw">stargazer</span>(mod1, mod2, mod3,mod4,mod5, </span>
-<span id="cb13-2"><a href="reg.html#cb13-2"></a>          <span class="dt">type =</span> <span class="st">&quot;html&quot;</span>,</span>
-<span id="cb13-3"><a href="reg.html#cb13-3"></a>          <span class="dt">dep.var.caption =</span> <span class="st">&quot;&quot;</span>,</span>
-<span id="cb13-4"><a href="reg.html#cb13-4"></a>          <span class="dt">column.labels =</span> <span class="kw">c</span>(<span class="st">&quot;Basic&quot;</span>,<span class="st">&quot;With Union&quot;</span>,<span class="st">&quot;Factory&quot;</span>,<span class="st">&quot;F&amp;Y&quot;</span>,<span class="st">&quot;Selection&quot;</span>),</span>
-<span id="cb13-5"><a href="reg.html#cb13-5"></a>          <span class="dt">dep.var.labels =</span> <span class="kw">c</span>(<span class="st">&quot;Training hours&quot;</span>,<span class="st">&quot;Training grant&quot;</span>),</span>
-<span id="cb13-6"><a href="reg.html#cb13-6"></a>          <span class="dt">model.names =</span> <span class="ot">FALSE</span>,</span>
-<span id="cb13-7"><a href="reg.html#cb13-7"></a>          <span class="dt">omit =</span> <span class="kw">c</span>(<span class="st">&quot;fcode&quot;</span>,<span class="st">&quot;year&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">stargazer</span>(mod1, mod2, mod3,mod4,mod5, </span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>          <span class="at">type =</span> <span class="st">&quot;html&quot;</span>,</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>          <span class="at">dep.var.caption =</span> <span class="st">&quot;&quot;</span>,</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>          <span class="at">column.labels =</span> <span class="fu">c</span>(<span class="st">&quot;Basic&quot;</span>,<span class="st">&quot;With Union&quot;</span>,<span class="st">&quot;Factory&quot;</span>,<span class="st">&quot;F&amp;Y&quot;</span>,<span class="st">&quot;Selection&quot;</span>),</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>          <span class="at">dep.var.labels =</span> <span class="fu">c</span>(<span class="st">&quot;Training hours&quot;</span>,<span class="st">&quot;Training grant&quot;</span>),</span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>          <span class="at">model.names =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>          <span class="at">omit =</span> <span class="fu">c</span>(<span class="st">&quot;fcode&quot;</span>,<span class="st">&quot;year&quot;</span>))</span></code></pre></div>
 <table style="text-align:center">
 <tr>
 <td colspan="6" style="border-bottom: 1px solid black">
@@ -2793,14 +2960,14 @@ F Statistic
 </tr>
 </table>
 <p>进一步，我们可以通过covariate.labels参数来为自变量设定标签。</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="reg.html#cb14-1"></a><span class="kw">stargazer</span>(mod1, mod2, mod3,mod4,mod5, </span>
-<span id="cb14-2"><a href="reg.html#cb14-2"></a>          <span class="dt">type =</span> <span class="st">&quot;html&quot;</span>,</span>
-<span id="cb14-3"><a href="reg.html#cb14-3"></a>          <span class="dt">dep.var.caption =</span> <span class="st">&quot;&quot;</span>,</span>
-<span id="cb14-4"><a href="reg.html#cb14-4"></a>          <span class="dt">column.labels =</span> <span class="kw">c</span>(<span class="st">&quot;Basic&quot;</span>,<span class="st">&quot;With Union&quot;</span>,<span class="st">&quot;Factory&quot;</span>,<span class="st">&quot;F&amp;Y&quot;</span>,<span class="st">&quot;Selection&quot;</span>),</span>
-<span id="cb14-5"><a href="reg.html#cb14-5"></a>          <span class="dt">dep.var.labels =</span> <span class="kw">c</span>(<span class="st">&quot;Training hours&quot;</span>,<span class="st">&quot;Training grant&quot;</span>),</span>
-<span id="cb14-6"><a href="reg.html#cb14-6"></a>          <span class="dt">model.names =</span> <span class="ot">FALSE</span>,</span>
-<span id="cb14-7"><a href="reg.html#cb14-7"></a>          <span class="dt">omit =</span> <span class="kw">c</span>(<span class="st">&quot;fcode&quot;</span>,<span class="st">&quot;year&quot;</span>),</span>
-<span id="cb14-8"><a href="reg.html#cb14-8"></a>          <span class="dt">covariate.labels =</span> <span class="kw">c</span>(<span class="st">&quot;Traning Grant&quot;</span>, <span class="st">&quot;Traning Grant 1 Year Before&quot;</span>,<span class="st">&quot;log(Employment)&quot;</span>,<span class="st">&quot;Labor Union&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">stargazer</span>(mod1, mod2, mod3,mod4,mod5, </span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>          <span class="at">type =</span> <span class="st">&quot;html&quot;</span>,</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>          <span class="at">dep.var.caption =</span> <span class="st">&quot;&quot;</span>,</span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>          <span class="at">column.labels =</span> <span class="fu">c</span>(<span class="st">&quot;Basic&quot;</span>,<span class="st">&quot;With Union&quot;</span>,<span class="st">&quot;Factory&quot;</span>,<span class="st">&quot;F&amp;Y&quot;</span>,<span class="st">&quot;Selection&quot;</span>),</span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>          <span class="at">dep.var.labels =</span> <span class="fu">c</span>(<span class="st">&quot;Training hours&quot;</span>,<span class="st">&quot;Training grant&quot;</span>),</span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>          <span class="at">model.names =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>          <span class="at">omit =</span> <span class="fu">c</span>(<span class="st">&quot;fcode&quot;</span>,<span class="st">&quot;year&quot;</span>),</span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>          <span class="at">covariate.labels =</span> <span class="fu">c</span>(<span class="st">&quot;Traning Grant&quot;</span>, <span class="st">&quot;Traning Grant 1 Year Before&quot;</span>,<span class="st">&quot;log(Employment)&quot;</span>,<span class="st">&quot;Labor Union&quot;</span>))</span></code></pre></div>
 <table style="text-align:center">
 <tr>
 <td colspan="6" style="border-bottom: 1px solid black">
@@ -3263,15 +3430,15 @@ F Statistic
 </tr>
 </table>
 <p>为了突出我们关心的回归系数（coefficients of interest），我们可以使用order参数来调整自变量的排列顺序,注意此时变量标签也要做相应的调整，否则会导致结果出错。</p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="reg.html#cb15-1"></a><span class="kw">stargazer</span>(mod1, mod2, mod3,mod4,mod5, </span>
-<span id="cb15-2"><a href="reg.html#cb15-2"></a>          <span class="dt">type =</span> <span class="st">&quot;html&quot;</span>,</span>
-<span id="cb15-3"><a href="reg.html#cb15-3"></a>          <span class="dt">dep.var.caption =</span> <span class="st">&quot;&quot;</span>,</span>
-<span id="cb15-4"><a href="reg.html#cb15-4"></a>          <span class="dt">column.labels =</span> <span class="kw">c</span>(<span class="st">&quot;Basic&quot;</span>,<span class="st">&quot;With Union&quot;</span>,<span class="st">&quot;Factory&quot;</span>,<span class="st">&quot;F&amp;Y&quot;</span>,<span class="st">&quot;Selection&quot;</span>),</span>
-<span id="cb15-5"><a href="reg.html#cb15-5"></a>          <span class="dt">dep.var.labels =</span> <span class="kw">c</span>(<span class="st">&quot;Training hours&quot;</span>,<span class="st">&quot;Training grant&quot;</span>),</span>
-<span id="cb15-6"><a href="reg.html#cb15-6"></a>          <span class="dt">model.names =</span> <span class="ot">FALSE</span>,</span>
-<span id="cb15-7"><a href="reg.html#cb15-7"></a>          <span class="dt">omit =</span> <span class="kw">c</span>(<span class="st">&quot;fcode&quot;</span>,<span class="st">&quot;year&quot;</span>),</span>
-<span id="cb15-8"><a href="reg.html#cb15-8"></a>          <span class="dt">covariate.labels =</span> <span class="kw">c</span>(<span class="st">&quot;log(Employment)&quot;</span>,<span class="st">&quot;Labor Union&quot;</span>,<span class="st">&quot;Traning Grant&quot;</span>, <span class="st">&quot;Traning Grant 1 Year Before&quot;</span>),</span>
-<span id="cb15-9"><a href="reg.html#cb15-9"></a>          <span class="dt">order =</span> <span class="kw">c</span>(<span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">1</span>, <span class="dv">2</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">stargazer</span>(mod1, mod2, mod3,mod4,mod5, </span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>          <span class="at">type =</span> <span class="st">&quot;html&quot;</span>,</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>          <span class="at">dep.var.caption =</span> <span class="st">&quot;&quot;</span>,</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>          <span class="at">column.labels =</span> <span class="fu">c</span>(<span class="st">&quot;Basic&quot;</span>,<span class="st">&quot;With Union&quot;</span>,<span class="st">&quot;Factory&quot;</span>,<span class="st">&quot;F&amp;Y&quot;</span>,<span class="st">&quot;Selection&quot;</span>),</span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>          <span class="at">dep.var.labels =</span> <span class="fu">c</span>(<span class="st">&quot;Training hours&quot;</span>,<span class="st">&quot;Training grant&quot;</span>),</span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>          <span class="at">model.names =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>          <span class="at">omit =</span> <span class="fu">c</span>(<span class="st">&quot;fcode&quot;</span>,<span class="st">&quot;year&quot;</span>),</span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>          <span class="at">covariate.labels =</span> <span class="fu">c</span>(<span class="st">&quot;log(Employment)&quot;</span>,<span class="st">&quot;Labor Union&quot;</span>,<span class="st">&quot;Traning Grant&quot;</span>, <span class="st">&quot;Traning Grant 1 Year Before&quot;</span>),</span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a>          <span class="at">order =</span> <span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">1</span>, <span class="dv">2</span>))</span></code></pre></div>
 <table style="text-align:center">
 <tr>
 <td colspan="6" style="border-bottom: 1px solid black">
@@ -3734,17 +3901,17 @@ F Statistic
 </tr>
 </table>
 <p>使用digits可以指定小数点后保留的有效数位，使用initial.zero=FALSE可以去掉小数点前的无效数字0</p>
-<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="reg.html#cb16-1"></a><span class="kw">stargazer</span>(mod1, mod2, mod3,mod4,mod5, </span>
-<span id="cb16-2"><a href="reg.html#cb16-2"></a>          <span class="dt">type =</span> <span class="st">&quot;html&quot;</span>,</span>
-<span id="cb16-3"><a href="reg.html#cb16-3"></a>          <span class="dt">dep.var.caption =</span> <span class="st">&quot;&quot;</span>,</span>
-<span id="cb16-4"><a href="reg.html#cb16-4"></a>          <span class="dt">column.labels =</span> <span class="kw">c</span>(<span class="st">&quot;Basic&quot;</span>,<span class="st">&quot;With Union&quot;</span>,<span class="st">&quot;Factory&quot;</span>,<span class="st">&quot;F&amp;Y&quot;</span>,<span class="st">&quot;Selection&quot;</span>),</span>
-<span id="cb16-5"><a href="reg.html#cb16-5"></a>          <span class="dt">dep.var.labels =</span> <span class="kw">c</span>(<span class="st">&quot;Training hours&quot;</span>,<span class="st">&quot;Training grant&quot;</span>),</span>
-<span id="cb16-6"><a href="reg.html#cb16-6"></a>          <span class="dt">model.names =</span> <span class="ot">FALSE</span>,</span>
-<span id="cb16-7"><a href="reg.html#cb16-7"></a>          <span class="dt">omit =</span> <span class="kw">c</span>(<span class="st">&quot;fcode&quot;</span>,<span class="st">&quot;year&quot;</span>),</span>
-<span id="cb16-8"><a href="reg.html#cb16-8"></a>          <span class="dt">covariate.labels =</span> <span class="kw">c</span>(<span class="st">&quot;log(Employment)&quot;</span>,<span class="st">&quot;Labor Union&quot;</span>,<span class="st">&quot;Traning Grant&quot;</span>, <span class="st">&quot;Traning Grant 1 Year Before&quot;</span>),</span>
-<span id="cb16-9"><a href="reg.html#cb16-9"></a>          <span class="dt">order =</span> <span class="kw">c</span>(<span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">1</span>, <span class="dv">2</span>),</span>
-<span id="cb16-10"><a href="reg.html#cb16-10"></a>          <span class="dt">digits =</span> <span class="dv">2</span>,</span>
-<span id="cb16-11"><a href="reg.html#cb16-11"></a>          <span class="dt">initial.zero=</span><span class="ot">FALSE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">stargazer</span>(mod1, mod2, mod3,mod4,mod5, </span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>          <span class="at">type =</span> <span class="st">&quot;html&quot;</span>,</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>          <span class="at">dep.var.caption =</span> <span class="st">&quot;&quot;</span>,</span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>          <span class="at">column.labels =</span> <span class="fu">c</span>(<span class="st">&quot;Basic&quot;</span>,<span class="st">&quot;With Union&quot;</span>,<span class="st">&quot;Factory&quot;</span>,<span class="st">&quot;F&amp;Y&quot;</span>,<span class="st">&quot;Selection&quot;</span>),</span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>          <span class="at">dep.var.labels =</span> <span class="fu">c</span>(<span class="st">&quot;Training hours&quot;</span>,<span class="st">&quot;Training grant&quot;</span>),</span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>          <span class="at">model.names =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>          <span class="at">omit =</span> <span class="fu">c</span>(<span class="st">&quot;fcode&quot;</span>,<span class="st">&quot;year&quot;</span>),</span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a>          <span class="at">covariate.labels =</span> <span class="fu">c</span>(<span class="st">&quot;log(Employment)&quot;</span>,<span class="st">&quot;Labor Union&quot;</span>,<span class="st">&quot;Traning Grant&quot;</span>, <span class="st">&quot;Traning Grant 1 Year Before&quot;</span>),</span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a>          <span class="at">order =</span> <span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">1</span>, <span class="dv">2</span>),</span>
+<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a>          <span class="at">digits =</span> <span class="dv">2</span>,</span>
+<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a>          <span class="at">initial.zero=</span><span class="cn">FALSE</span>)</span></code></pre></div>
 <table style="text-align:center">
 <tr>
 <td colspan="6" style="border-bottom: 1px solid black">
@@ -4207,17 +4374,17 @@ F Statistic
 </tr>
 </table>
 <p>stargazer默认的显著性水平标记为p&lt;0.1; p&lt;0.05; p&lt;0.01。有些时候我们需要调整显著性水平的标注标准，star.cutoffs参数可以实现这一调整。此外，star.char 参数可以修改显著性水平的标记。</p>
-<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="reg.html#cb17-1"></a><span class="kw">stargazer</span>(mod1, mod2, mod3,mod4,mod5, </span>
-<span id="cb17-2"><a href="reg.html#cb17-2"></a>          <span class="dt">type =</span> <span class="st">&quot;html&quot;</span>,</span>
-<span id="cb17-3"><a href="reg.html#cb17-3"></a>          <span class="dt">dep.var.caption =</span> <span class="st">&quot;&quot;</span>,</span>
-<span id="cb17-4"><a href="reg.html#cb17-4"></a>          <span class="dt">column.labels =</span> <span class="kw">c</span>(<span class="st">&quot;Basic&quot;</span>,<span class="st">&quot;With Union&quot;</span>,<span class="st">&quot;Factory&quot;</span>,<span class="st">&quot;F&amp;Y&quot;</span>,<span class="st">&quot;Selection&quot;</span>),</span>
-<span id="cb17-5"><a href="reg.html#cb17-5"></a>          <span class="dt">dep.var.labels =</span> <span class="kw">c</span>(<span class="st">&quot;Training hours&quot;</span>,<span class="st">&quot;Training grant&quot;</span>),</span>
-<span id="cb17-6"><a href="reg.html#cb17-6"></a>          <span class="dt">model.names =</span> <span class="ot">FALSE</span>,</span>
-<span id="cb17-7"><a href="reg.html#cb17-7"></a>          <span class="dt">omit =</span> <span class="kw">c</span>(<span class="st">&quot;fcode&quot;</span>,<span class="st">&quot;year&quot;</span>),</span>
-<span id="cb17-8"><a href="reg.html#cb17-8"></a>          <span class="dt">covariate.labels =</span> <span class="kw">c</span>(<span class="st">&quot;log(Employment)&quot;</span>,<span class="st">&quot;Labor Union&quot;</span>,<span class="st">&quot;Traning Grant&quot;</span>, <span class="st">&quot;Traning Grant 1 Year Before&quot;</span>),</span>
-<span id="cb17-9"><a href="reg.html#cb17-9"></a>          <span class="dt">order =</span> <span class="kw">c</span>(<span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">1</span>, <span class="dv">2</span>),</span>
-<span id="cb17-10"><a href="reg.html#cb17-10"></a>          <span class="dt">star.cutoffs =</span> <span class="kw">c</span>(<span class="fl">0.05</span>,<span class="fl">0.01</span>,<span class="fl">0.001</span>),</span>
-<span id="cb17-11"><a href="reg.html#cb17-11"></a>          <span class="dt">star.char =</span> <span class="kw">c</span>(<span class="st">&quot;†&quot;</span>,<span class="st">&quot;*&quot;</span>, <span class="st">&quot;**&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">stargazer</span>(mod1, mod2, mod3,mod4,mod5, </span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>          <span class="at">type =</span> <span class="st">&quot;html&quot;</span>,</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>          <span class="at">dep.var.caption =</span> <span class="st">&quot;&quot;</span>,</span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>          <span class="at">column.labels =</span> <span class="fu">c</span>(<span class="st">&quot;Basic&quot;</span>,<span class="st">&quot;With Union&quot;</span>,<span class="st">&quot;Factory&quot;</span>,<span class="st">&quot;F&amp;Y&quot;</span>,<span class="st">&quot;Selection&quot;</span>),</span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>          <span class="at">dep.var.labels =</span> <span class="fu">c</span>(<span class="st">&quot;Training hours&quot;</span>,<span class="st">&quot;Training grant&quot;</span>),</span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>          <span class="at">model.names =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>          <span class="at">omit =</span> <span class="fu">c</span>(<span class="st">&quot;fcode&quot;</span>,<span class="st">&quot;year&quot;</span>),</span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>          <span class="at">covariate.labels =</span> <span class="fu">c</span>(<span class="st">&quot;log(Employment)&quot;</span>,<span class="st">&quot;Labor Union&quot;</span>,<span class="st">&quot;Traning Grant&quot;</span>, <span class="st">&quot;Traning Grant 1 Year Before&quot;</span>),</span>
+<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a>          <span class="at">order =</span> <span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">1</span>, <span class="dv">2</span>),</span>
+<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a>          <span class="at">star.cutoffs =</span> <span class="fu">c</span>(<span class="fl">0.05</span>,<span class="fl">0.01</span>,<span class="fl">0.001</span>),</span>
+<span id="cb19-11"><a href="#cb19-11" aria-hidden="true" tabindex="-1"></a>          <span class="at">star.char =</span> <span class="fu">c</span>(<span class="st">&quot;†&quot;</span>,<span class="st">&quot;*&quot;</span>, <span class="st">&quot;**&quot;</span>))</span></code></pre></div>
 <table style="text-align:center">
 <tr>
 <td colspan="6" style="border-bottom: 1px solid black">
@@ -4680,20 +4847,20 @@ F Statistic
 </tr>
 </table>
 </div>
-<div id="添加变量信息" class="section level3" number="3.2.5">
-<h3><span class="header-section-number">3.2.5</span> 添加变量信息</h3>
-<p>对于没有汇报的固定效应，我们需要手动添加响应信息，对于其他控制变量，我们可以选择在note中加以说明。</p>
-<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="reg.html#cb18-1"></a><span class="kw">stargazer</span>(mod1, mod2, mod3,mod4,mod5, </span>
-<span id="cb18-2"><a href="reg.html#cb18-2"></a>          <span class="dt">type =</span> <span class="st">&quot;html&quot;</span>,</span>
-<span id="cb18-3"><a href="reg.html#cb18-3"></a>          <span class="dt">dep.var.caption =</span> <span class="st">&quot;&quot;</span>,</span>
-<span id="cb18-4"><a href="reg.html#cb18-4"></a>          <span class="dt">column.labels =</span> <span class="kw">c</span>(<span class="st">&quot;Basic&quot;</span>,<span class="st">&quot;With Union&quot;</span>,<span class="st">&quot;Factory&quot;</span>,<span class="st">&quot;F&amp;Y&quot;</span>,<span class="st">&quot;Selection&quot;</span>),</span>
-<span id="cb18-5"><a href="reg.html#cb18-5"></a>          <span class="dt">dep.var.labels =</span> <span class="kw">c</span>(<span class="st">&quot;Training hours&quot;</span>,<span class="st">&quot;Training grant&quot;</span>),</span>
-<span id="cb18-6"><a href="reg.html#cb18-6"></a>          <span class="dt">model.names =</span> <span class="ot">FALSE</span>,</span>
-<span id="cb18-7"><a href="reg.html#cb18-7"></a>          <span class="dt">omit =</span> <span class="kw">c</span>(<span class="st">&quot;fcode&quot;</span>,<span class="st">&quot;year&quot;</span>),</span>
-<span id="cb18-8"><a href="reg.html#cb18-8"></a>          <span class="dt">covariate.labels =</span> <span class="kw">c</span>(<span class="st">&quot;log(Employment)&quot;</span>,<span class="st">&quot;Labor Union&quot;</span>,<span class="st">&quot;Traning Grant&quot;</span>, <span class="st">&quot;Traning Grant 1 Year Before&quot;</span>),</span>
-<span id="cb18-9"><a href="reg.html#cb18-9"></a>          <span class="dt">order =</span> <span class="kw">c</span>(<span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">1</span>, <span class="dv">2</span>),</span>
-<span id="cb18-10"><a href="reg.html#cb18-10"></a>          <span class="dt">add.lines =</span> <span class="kw">list</span>(<span class="kw">c</span>(<span class="st">&quot;Factory FE&quot;</span>, <span class="st">&quot;No&quot;</span>, <span class="st">&quot;No&quot;</span>,<span class="st">&quot;Yes&quot;</span>,<span class="st">&quot;Yes&quot;</span>,<span class="st">&quot;Yes&quot;</span>),</span>
-<span id="cb18-11"><a href="reg.html#cb18-11"></a>                           <span class="kw">c</span>(<span class="st">&quot;Year FE&quot;</span>, <span class="st">&quot;No&quot;</span>, <span class="st">&quot;No&quot;</span>,<span class="st">&quot;No&quot;</span>,<span class="st">&quot;Yes&quot;</span>,<span class="st">&quot;Yes&quot;</span>)))</span></code></pre></div>
+<div id="添加变量信息" class="section level3" number="1.8.5">
+<h3><span class="header-section-number">1.8.5</span> 添加变量信息</h3>
+<p>对于没有汇报的固定效应，我们需要手动添加相应信息，对于其他控制变量，我们可以选择在note中加以说明。</p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">stargazer</span>(mod1, mod2, mod3,mod4,mod5, </span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>          <span class="at">type =</span> <span class="st">&quot;html&quot;</span>,</span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>          <span class="at">dep.var.caption =</span> <span class="st">&quot;&quot;</span>,</span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>          <span class="at">column.labels =</span> <span class="fu">c</span>(<span class="st">&quot;Basic&quot;</span>,<span class="st">&quot;With Union&quot;</span>,<span class="st">&quot;Factory&quot;</span>,<span class="st">&quot;F&amp;Y&quot;</span>,<span class="st">&quot;Selection&quot;</span>),</span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>          <span class="at">dep.var.labels =</span> <span class="fu">c</span>(<span class="st">&quot;Training hours&quot;</span>,<span class="st">&quot;Training grant&quot;</span>),</span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>          <span class="at">model.names =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a>          <span class="at">omit =</span> <span class="fu">c</span>(<span class="st">&quot;fcode&quot;</span>,<span class="st">&quot;year&quot;</span>),</span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a>          <span class="at">covariate.labels =</span> <span class="fu">c</span>(<span class="st">&quot;log(Employment)&quot;</span>,<span class="st">&quot;Labor Union&quot;</span>,<span class="st">&quot;Traning Grant&quot;</span>, <span class="st">&quot;Traning Grant 1 Year Before&quot;</span>),</span>
+<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a>          <span class="at">order =</span> <span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">1</span>, <span class="dv">2</span>),</span>
+<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a>          <span class="at">add.lines =</span> <span class="fu">list</span>(<span class="fu">c</span>(<span class="st">&quot;Factory FE&quot;</span>, <span class="st">&quot;No&quot;</span>, <span class="st">&quot;No&quot;</span>,<span class="st">&quot;Yes&quot;</span>,<span class="st">&quot;Yes&quot;</span>,<span class="st">&quot;Yes&quot;</span>),</span>
+<span id="cb20-11"><a href="#cb20-11" aria-hidden="true" tabindex="-1"></a>                           <span class="fu">c</span>(<span class="st">&quot;Year FE&quot;</span>, <span class="st">&quot;No&quot;</span>, <span class="st">&quot;No&quot;</span>,<span class="st">&quot;No&quot;</span>,<span class="st">&quot;Yes&quot;</span>,<span class="st">&quot;Yes&quot;</span>)))</span></code></pre></div>
 <table style="text-align:center">
 <tr>
 <td colspan="6" style="border-bottom: 1px solid black">
@@ -5196,8 +5363,8 @@ F Statistic
 </tr>
 </table>
 </div>
-<div id="选择统计量" class="section level3" number="3.2.6">
-<h3><span class="header-section-number">3.2.6</span> 选择统计量</h3>
+<div id="选择统计量" class="section level3" number="1.8.6">
+<h3><span class="header-section-number">1.8.6</span> 选择统计量</h3>
 <p>在输出结果时，我们需要根据模型来选择汇报哪些统计量。stargazer使用omit.stat或者keep.stat来指定忽略或者保留的统计量。具体统计量的对应关系如下：</p>
 <table>
 <thead>
@@ -5297,18 +5464,18 @@ F Statistic
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="reg.html#cb19-1"></a><span class="kw">stargazer</span>(mod1, mod2, mod3,mod4,mod5, </span>
-<span id="cb19-2"><a href="reg.html#cb19-2"></a>          <span class="dt">type =</span> <span class="st">&quot;html&quot;</span>,</span>
-<span id="cb19-3"><a href="reg.html#cb19-3"></a>          <span class="dt">dep.var.caption =</span> <span class="st">&quot;&quot;</span>,</span>
-<span id="cb19-4"><a href="reg.html#cb19-4"></a>          <span class="dt">column.labels =</span> <span class="kw">c</span>(<span class="st">&quot;Basic&quot;</span>,<span class="st">&quot;With Union&quot;</span>,<span class="st">&quot;Factory&quot;</span>,<span class="st">&quot;F&amp;Y&quot;</span>,<span class="st">&quot;Selection&quot;</span>),</span>
-<span id="cb19-5"><a href="reg.html#cb19-5"></a>          <span class="dt">dep.var.labels =</span> <span class="kw">c</span>(<span class="st">&quot;Training hours&quot;</span>,<span class="st">&quot;Training grant&quot;</span>),</span>
-<span id="cb19-6"><a href="reg.html#cb19-6"></a>          <span class="dt">model.names =</span> <span class="ot">FALSE</span>,</span>
-<span id="cb19-7"><a href="reg.html#cb19-7"></a>          <span class="dt">omit =</span> <span class="kw">c</span>(<span class="st">&quot;fcode&quot;</span>,<span class="st">&quot;year&quot;</span>),</span>
-<span id="cb19-8"><a href="reg.html#cb19-8"></a>          <span class="dt">covariate.labels =</span> <span class="kw">c</span>(<span class="st">&quot;log(Employment)&quot;</span>,<span class="st">&quot;Labor Union&quot;</span>,<span class="st">&quot;Traning Grant&quot;</span>, <span class="st">&quot;Traning Grant 1 Year Before&quot;</span>),</span>
-<span id="cb19-9"><a href="reg.html#cb19-9"></a>          <span class="dt">order =</span> <span class="kw">c</span>(<span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">1</span>, <span class="dv">2</span>),</span>
-<span id="cb19-10"><a href="reg.html#cb19-10"></a>          <span class="dt">add.lines =</span> <span class="kw">list</span>(<span class="kw">c</span>(<span class="st">&quot;Factory FE&quot;</span>, <span class="st">&quot;No&quot;</span>, <span class="st">&quot;No&quot;</span>,<span class="st">&quot;Yes&quot;</span>,<span class="st">&quot;Yes&quot;</span>,<span class="st">&quot;Yes&quot;</span>),</span>
-<span id="cb19-11"><a href="reg.html#cb19-11"></a>                           <span class="kw">c</span>(<span class="st">&quot;Year FE&quot;</span>, <span class="st">&quot;No&quot;</span>, <span class="st">&quot;No&quot;</span>,<span class="st">&quot;No&quot;</span>,<span class="st">&quot;Yes&quot;</span>,<span class="st">&quot;Yes&quot;</span>)),</span>
-<span id="cb19-12"><a href="reg.html#cb19-12"></a>          <span class="dt">keep.stat =</span> <span class="kw">c</span>(<span class="st">&quot;n&quot;</span>,<span class="st">&quot;ll&quot;</span>,<span class="st">&quot;rsq&quot;</span>,<span class="st">&quot;f&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">stargazer</span>(mod1, mod2, mod3,mod4,mod5, </span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>          <span class="at">type =</span> <span class="st">&quot;html&quot;</span>,</span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>          <span class="at">dep.var.caption =</span> <span class="st">&quot;&quot;</span>,</span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>          <span class="at">column.labels =</span> <span class="fu">c</span>(<span class="st">&quot;Basic&quot;</span>,<span class="st">&quot;With Union&quot;</span>,<span class="st">&quot;Factory&quot;</span>,<span class="st">&quot;F&amp;Y&quot;</span>,<span class="st">&quot;Selection&quot;</span>),</span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>          <span class="at">dep.var.labels =</span> <span class="fu">c</span>(<span class="st">&quot;Training hours&quot;</span>,<span class="st">&quot;Training grant&quot;</span>),</span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>          <span class="at">model.names =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a>          <span class="at">omit =</span> <span class="fu">c</span>(<span class="st">&quot;fcode&quot;</span>,<span class="st">&quot;year&quot;</span>),</span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a>          <span class="at">covariate.labels =</span> <span class="fu">c</span>(<span class="st">&quot;log(Employment)&quot;</span>,<span class="st">&quot;Labor Union&quot;</span>,<span class="st">&quot;Traning Grant&quot;</span>, <span class="st">&quot;Traning Grant 1 Year Before&quot;</span>),</span>
+<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a>          <span class="at">order =</span> <span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">1</span>, <span class="dv">2</span>),</span>
+<span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a>          <span class="at">add.lines =</span> <span class="fu">list</span>(<span class="fu">c</span>(<span class="st">&quot;Factory FE&quot;</span>, <span class="st">&quot;No&quot;</span>, <span class="st">&quot;No&quot;</span>,<span class="st">&quot;Yes&quot;</span>,<span class="st">&quot;Yes&quot;</span>,<span class="st">&quot;Yes&quot;</span>),</span>
+<span id="cb21-11"><a href="#cb21-11" aria-hidden="true" tabindex="-1"></a>                           <span class="fu">c</span>(<span class="st">&quot;Year FE&quot;</span>, <span class="st">&quot;No&quot;</span>, <span class="st">&quot;No&quot;</span>,<span class="st">&quot;No&quot;</span>,<span class="st">&quot;Yes&quot;</span>,<span class="st">&quot;Yes&quot;</span>)),</span>
+<span id="cb21-12"><a href="#cb21-12" aria-hidden="true" tabindex="-1"></a>          <span class="at">keep.stat =</span> <span class="fu">c</span>(<span class="st">&quot;n&quot;</span>,<span class="st">&quot;ll&quot;</span>,<span class="st">&quot;rsq&quot;</span>,<span class="st">&quot;f&quot;</span>))</span></code></pre></div>
 <table style="text-align:center">
 <tr>
 <td colspan="6" style="border-bottom: 1px solid black">
@@ -5757,19 +5924,19 @@ F Statistic
 </tr>
 </table>
 <p>进一步，我们使用df = FALSE去掉自由度，这样的表格看上去就清爽多了。</p>
-<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="reg.html#cb20-1"></a><span class="kw">stargazer</span>(mod1, mod2, mod3,mod4,mod5, </span>
-<span id="cb20-2"><a href="reg.html#cb20-2"></a>          <span class="dt">type =</span> <span class="st">&quot;html&quot;</span>,</span>
-<span id="cb20-3"><a href="reg.html#cb20-3"></a>          <span class="dt">dep.var.caption =</span> <span class="st">&quot;&quot;</span>,</span>
-<span id="cb20-4"><a href="reg.html#cb20-4"></a>          <span class="dt">column.labels =</span> <span class="kw">c</span>(<span class="st">&quot;Basic&quot;</span>,<span class="st">&quot;With Union&quot;</span>,<span class="st">&quot;Factory&quot;</span>,<span class="st">&quot;F&amp;Y&quot;</span>,<span class="st">&quot;Selection&quot;</span>),</span>
-<span id="cb20-5"><a href="reg.html#cb20-5"></a>          <span class="dt">dep.var.labels =</span> <span class="kw">c</span>(<span class="st">&quot;Training hours&quot;</span>,<span class="st">&quot;Training grant&quot;</span>),</span>
-<span id="cb20-6"><a href="reg.html#cb20-6"></a>          <span class="dt">model.names =</span> <span class="ot">FALSE</span>,</span>
-<span id="cb20-7"><a href="reg.html#cb20-7"></a>          <span class="dt">omit =</span> <span class="kw">c</span>(<span class="st">&quot;fcode&quot;</span>,<span class="st">&quot;year&quot;</span>),</span>
-<span id="cb20-8"><a href="reg.html#cb20-8"></a>          <span class="dt">covariate.labels =</span> <span class="kw">c</span>(<span class="st">&quot;log(Employment)&quot;</span>,<span class="st">&quot;Labor Union&quot;</span>,<span class="st">&quot;Traning Grant&quot;</span>, <span class="st">&quot;Traning Grant 1 Year Before&quot;</span>),</span>
-<span id="cb20-9"><a href="reg.html#cb20-9"></a>          <span class="dt">order =</span> <span class="kw">c</span>(<span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">1</span>, <span class="dv">2</span>),</span>
-<span id="cb20-10"><a href="reg.html#cb20-10"></a>          <span class="dt">add.lines =</span> <span class="kw">list</span>(<span class="kw">c</span>(<span class="st">&quot;Factory FE&quot;</span>, <span class="st">&quot;No&quot;</span>, <span class="st">&quot;No&quot;</span>,<span class="st">&quot;Yes&quot;</span>,<span class="st">&quot;Yes&quot;</span>,<span class="st">&quot;Yes&quot;</span>),</span>
-<span id="cb20-11"><a href="reg.html#cb20-11"></a>                           <span class="kw">c</span>(<span class="st">&quot;Year FE&quot;</span>, <span class="st">&quot;No&quot;</span>, <span class="st">&quot;No&quot;</span>,<span class="st">&quot;No&quot;</span>,<span class="st">&quot;Yes&quot;</span>,<span class="st">&quot;Yes&quot;</span>)),</span>
-<span id="cb20-12"><a href="reg.html#cb20-12"></a>          <span class="dt">keep.stat =</span> <span class="kw">c</span>(<span class="st">&quot;n&quot;</span>,<span class="st">&quot;ll&quot;</span>,<span class="st">&quot;rsq&quot;</span>,<span class="st">&quot;f&quot;</span>),</span>
-<span id="cb20-13"><a href="reg.html#cb20-13"></a>          <span class="dt">df =</span> <span class="ot">FALSE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">stargazer</span>(mod1, mod2, mod3,mod4,mod5, </span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>          <span class="at">type =</span> <span class="st">&quot;html&quot;</span>,</span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>          <span class="at">dep.var.caption =</span> <span class="st">&quot;&quot;</span>,</span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>          <span class="at">column.labels =</span> <span class="fu">c</span>(<span class="st">&quot;Basic&quot;</span>,<span class="st">&quot;With Union&quot;</span>,<span class="st">&quot;Factory&quot;</span>,<span class="st">&quot;F&amp;Y&quot;</span>,<span class="st">&quot;Selection&quot;</span>),</span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>          <span class="at">dep.var.labels =</span> <span class="fu">c</span>(<span class="st">&quot;Training hours&quot;</span>,<span class="st">&quot;Training grant&quot;</span>),</span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>          <span class="at">model.names =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a>          <span class="at">omit =</span> <span class="fu">c</span>(<span class="st">&quot;fcode&quot;</span>,<span class="st">&quot;year&quot;</span>),</span>
+<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a>          <span class="at">covariate.labels =</span> <span class="fu">c</span>(<span class="st">&quot;log(Employment)&quot;</span>,<span class="st">&quot;Labor Union&quot;</span>,<span class="st">&quot;Traning Grant&quot;</span>, <span class="st">&quot;Traning Grant 1 Year Before&quot;</span>),</span>
+<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a>          <span class="at">order =</span> <span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">1</span>, <span class="dv">2</span>),</span>
+<span id="cb22-10"><a href="#cb22-10" aria-hidden="true" tabindex="-1"></a>          <span class="at">add.lines =</span> <span class="fu">list</span>(<span class="fu">c</span>(<span class="st">&quot;Factory FE&quot;</span>, <span class="st">&quot;No&quot;</span>, <span class="st">&quot;No&quot;</span>,<span class="st">&quot;Yes&quot;</span>,<span class="st">&quot;Yes&quot;</span>,<span class="st">&quot;Yes&quot;</span>),</span>
+<span id="cb22-11"><a href="#cb22-11" aria-hidden="true" tabindex="-1"></a>                           <span class="fu">c</span>(<span class="st">&quot;Year FE&quot;</span>, <span class="st">&quot;No&quot;</span>, <span class="st">&quot;No&quot;</span>,<span class="st">&quot;No&quot;</span>,<span class="st">&quot;Yes&quot;</span>,<span class="st">&quot;Yes&quot;</span>)),</span>
+<span id="cb22-12"><a href="#cb22-12" aria-hidden="true" tabindex="-1"></a>          <span class="at">keep.stat =</span> <span class="fu">c</span>(<span class="st">&quot;n&quot;</span>,<span class="st">&quot;ll&quot;</span>,<span class="st">&quot;rsq&quot;</span>,<span class="st">&quot;f&quot;</span>),</span>
+<span id="cb22-13"><a href="#cb22-13" aria-hidden="true" tabindex="-1"></a>          <span class="at">df =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
 <table style="text-align:center">
 <tr>
 <td colspan="6" style="border-bottom: 1px solid black">
@@ -6218,26 +6385,26 @@ F Statistic
 </tr>
 </table>
 </div>
-<div id="表格注释" class="section level3" number="3.2.7">
-<h3><span class="header-section-number">3.2.7</span> 表格注释</h3>
+<div id="表格注释" class="section level3" number="1.8.7">
+<h3><span class="header-section-number">1.8.7</span> 表格注释</h3>
 <p>回归表格的注释在经济学论文中是非常重要的。经济学中往往要求表格本身是可以被独立阅读和理解的，因此经济学家往往会在表格的注释中添加大量的补充信息，例如模型的细节，表格正文中未汇报的变量，甚至一些变量的测度方式等。stargaze的notes参数可以用来添加注释，同时通过notes.append = FALSE/TRUE来设定是否覆盖模型默认的note，notes.align用来设置note的对齐方式，notes.label则用于设置note的标签名。</p>
-<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="reg.html#cb21-1"></a><span class="kw">stargazer</span>(mod1, mod2, mod3,mod4,mod5, </span>
-<span id="cb21-2"><a href="reg.html#cb21-2"></a>          <span class="dt">type =</span> <span class="st">&quot;html&quot;</span>,</span>
-<span id="cb21-3"><a href="reg.html#cb21-3"></a>          <span class="dt">dep.var.caption =</span> <span class="st">&quot;&quot;</span>,</span>
-<span id="cb21-4"><a href="reg.html#cb21-4"></a>          <span class="dt">column.labels =</span> <span class="kw">c</span>(<span class="st">&quot;Basic&quot;</span>,<span class="st">&quot;With Union&quot;</span>,<span class="st">&quot;Factory&quot;</span>,<span class="st">&quot;F&amp;Y&quot;</span>,<span class="st">&quot;Selection&quot;</span>),</span>
-<span id="cb21-5"><a href="reg.html#cb21-5"></a>          <span class="dt">dep.var.labels =</span> <span class="kw">c</span>(<span class="st">&quot;Training hours&quot;</span>,<span class="st">&quot;Training grant&quot;</span>),</span>
-<span id="cb21-6"><a href="reg.html#cb21-6"></a>          <span class="dt">model.names =</span> <span class="ot">FALSE</span>,</span>
-<span id="cb21-7"><a href="reg.html#cb21-7"></a>          <span class="dt">omit =</span> <span class="kw">c</span>(<span class="st">&quot;fcode&quot;</span>,<span class="st">&quot;year&quot;</span>),</span>
-<span id="cb21-8"><a href="reg.html#cb21-8"></a>          <span class="dt">covariate.labels =</span> <span class="kw">c</span>(<span class="st">&quot;log(Employment)&quot;</span>,<span class="st">&quot;Labor Union&quot;</span>,<span class="st">&quot;Traning Grant&quot;</span>, <span class="st">&quot;Traning Grant 1 Year Before&quot;</span>),</span>
-<span id="cb21-9"><a href="reg.html#cb21-9"></a>          <span class="dt">order =</span> <span class="kw">c</span>(<span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">1</span>, <span class="dv">2</span>),</span>
-<span id="cb21-10"><a href="reg.html#cb21-10"></a>          <span class="dt">add.lines =</span> <span class="kw">list</span>(<span class="kw">c</span>(<span class="st">&quot;Factory FE&quot;</span>, <span class="st">&quot;No&quot;</span>, <span class="st">&quot;No&quot;</span>,<span class="st">&quot;Yes&quot;</span>,<span class="st">&quot;Yes&quot;</span>,<span class="st">&quot;Yes&quot;</span>),</span>
-<span id="cb21-11"><a href="reg.html#cb21-11"></a>                           <span class="kw">c</span>(<span class="st">&quot;Year FE&quot;</span>, <span class="st">&quot;No&quot;</span>, <span class="st">&quot;No&quot;</span>,<span class="st">&quot;No&quot;</span>,<span class="st">&quot;Yes&quot;</span>,<span class="st">&quot;Yes&quot;</span>)),</span>
-<span id="cb21-12"><a href="reg.html#cb21-12"></a>          <span class="dt">keep.stat =</span> <span class="kw">c</span>(<span class="st">&quot;n&quot;</span>,<span class="st">&quot;ll&quot;</span>,<span class="st">&quot;rsq&quot;</span>,<span class="st">&quot;f&quot;</span>),</span>
-<span id="cb21-13"><a href="reg.html#cb21-13"></a>          <span class="dt">df =</span> <span class="ot">FALSE</span>,</span>
-<span id="cb21-14"><a href="reg.html#cb21-14"></a>          <span class="dt">notes =</span> <span class="st">&quot;* p&lt;0.1; ** p&lt;0.05; ***p&lt;0.01&quot;</span>,</span>
-<span id="cb21-15"><a href="reg.html#cb21-15"></a>          <span class="dt">notes.append =</span> <span class="ot">FALSE</span>,</span>
-<span id="cb21-16"><a href="reg.html#cb21-16"></a>          <span class="dt">notes.align =</span> <span class="st">&quot;l&quot;</span>,</span>
-<span id="cb21-17"><a href="reg.html#cb21-17"></a>          <span class="dt">notes.label =</span> <span class="st">&quot;New note label&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">stargazer</span>(mod1, mod2, mod3,mod4,mod5, </span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>          <span class="at">type =</span> <span class="st">&quot;html&quot;</span>,</span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>          <span class="at">dep.var.caption =</span> <span class="st">&quot;&quot;</span>,</span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>          <span class="at">column.labels =</span> <span class="fu">c</span>(<span class="st">&quot;Basic&quot;</span>,<span class="st">&quot;With Union&quot;</span>,<span class="st">&quot;Factory&quot;</span>,<span class="st">&quot;F&amp;Y&quot;</span>,<span class="st">&quot;Selection&quot;</span>),</span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>          <span class="at">dep.var.labels =</span> <span class="fu">c</span>(<span class="st">&quot;Training hours&quot;</span>,<span class="st">&quot;Training grant&quot;</span>),</span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>          <span class="at">model.names =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a>          <span class="at">omit =</span> <span class="fu">c</span>(<span class="st">&quot;fcode&quot;</span>,<span class="st">&quot;year&quot;</span>),</span>
+<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a>          <span class="at">covariate.labels =</span> <span class="fu">c</span>(<span class="st">&quot;log(Employment)&quot;</span>,<span class="st">&quot;Labor Union&quot;</span>,<span class="st">&quot;Traning Grant&quot;</span>, <span class="st">&quot;Traning Grant 1 Year Before&quot;</span>),</span>
+<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a>          <span class="at">order =</span> <span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">1</span>, <span class="dv">2</span>),</span>
+<span id="cb23-10"><a href="#cb23-10" aria-hidden="true" tabindex="-1"></a>          <span class="at">add.lines =</span> <span class="fu">list</span>(<span class="fu">c</span>(<span class="st">&quot;Factory FE&quot;</span>, <span class="st">&quot;No&quot;</span>, <span class="st">&quot;No&quot;</span>,<span class="st">&quot;Yes&quot;</span>,<span class="st">&quot;Yes&quot;</span>,<span class="st">&quot;Yes&quot;</span>),</span>
+<span id="cb23-11"><a href="#cb23-11" aria-hidden="true" tabindex="-1"></a>                           <span class="fu">c</span>(<span class="st">&quot;Year FE&quot;</span>, <span class="st">&quot;No&quot;</span>, <span class="st">&quot;No&quot;</span>,<span class="st">&quot;No&quot;</span>,<span class="st">&quot;Yes&quot;</span>,<span class="st">&quot;Yes&quot;</span>)),</span>
+<span id="cb23-12"><a href="#cb23-12" aria-hidden="true" tabindex="-1"></a>          <span class="at">keep.stat =</span> <span class="fu">c</span>(<span class="st">&quot;n&quot;</span>,<span class="st">&quot;ll&quot;</span>,<span class="st">&quot;rsq&quot;</span>,<span class="st">&quot;f&quot;</span>),</span>
+<span id="cb23-13"><a href="#cb23-13" aria-hidden="true" tabindex="-1"></a>          <span class="at">df =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb23-14"><a href="#cb23-14" aria-hidden="true" tabindex="-1"></a>          <span class="at">notes =</span> <span class="st">&quot;* p&lt;0.1; ** p&lt;0.05; *** p&lt;0.01&quot;</span>,</span>
+<span id="cb23-15"><a href="#cb23-15" aria-hidden="true" tabindex="-1"></a>          <span class="at">notes.append =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb23-16"><a href="#cb23-16" aria-hidden="true" tabindex="-1"></a>          <span class="at">notes.align =</span> <span class="st">&quot;l&quot;</span>,</span>
+<span id="cb23-17"><a href="#cb23-17" aria-hidden="true" tabindex="-1"></a>          <span class="at">notes.label =</span> <span class="st">&quot;New note label&quot;</span>)</span></code></pre></div>
 <table style="text-align:center">
 <tr>
 <td colspan="6" style="border-bottom: 1px solid black">
@@ -6682,33 +6849,33 @@ New note label
 </td>
 <td colspan="5" style="text-align:left">
 <ul>
-<li>p&lt;0.1; ** p&lt;0.05; ***p&lt;0.01
+<li>p&lt;0.1; ** p&lt;0.05; *** p&lt;0.01
 </td>
 </tr>
 </table></li>
 </ul>
 </div>
-<div id="整体布局" class="section level3" number="3.2.8">
-<h3><span class="header-section-number">3.2.8</span> 整体布局</h3>
+<div id="整体布局" class="section level3" number="1.8.8">
+<h3><span class="header-section-number">1.8.8</span> 整体布局</h3>
 <p>stargazer还允许我们对表格的整体布局进行调整，例如我们前面的回归表中有许多空行，我们可以用no.space=TRUE来将空行去掉。</p>
-<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="reg.html#cb22-1"></a><span class="kw">stargazer</span>(mod1, mod2, mod3,mod4,mod5, </span>
-<span id="cb22-2"><a href="reg.html#cb22-2"></a>          <span class="dt">type =</span> <span class="st">&quot;html&quot;</span>,</span>
-<span id="cb22-3"><a href="reg.html#cb22-3"></a>          <span class="dt">dep.var.caption =</span> <span class="st">&quot;&quot;</span>,</span>
-<span id="cb22-4"><a href="reg.html#cb22-4"></a>          <span class="dt">column.labels =</span> <span class="kw">c</span>(<span class="st">&quot;Basic&quot;</span>,<span class="st">&quot;With Union&quot;</span>,<span class="st">&quot;Factory&quot;</span>,<span class="st">&quot;F&amp;Y&quot;</span>,<span class="st">&quot;Selection&quot;</span>),</span>
-<span id="cb22-5"><a href="reg.html#cb22-5"></a>          <span class="dt">dep.var.labels =</span> <span class="kw">c</span>(<span class="st">&quot;Training hours&quot;</span>,<span class="st">&quot;Training grant&quot;</span>),</span>
-<span id="cb22-6"><a href="reg.html#cb22-6"></a>          <span class="dt">model.names =</span> <span class="ot">FALSE</span>,</span>
-<span id="cb22-7"><a href="reg.html#cb22-7"></a>          <span class="dt">omit =</span> <span class="kw">c</span>(<span class="st">&quot;fcode&quot;</span>,<span class="st">&quot;year&quot;</span>),</span>
-<span id="cb22-8"><a href="reg.html#cb22-8"></a>          <span class="dt">covariate.labels =</span> <span class="kw">c</span>(<span class="st">&quot;log(Employment)&quot;</span>,<span class="st">&quot;Labor Union&quot;</span>,<span class="st">&quot;Traning Grant&quot;</span>, <span class="st">&quot;Traning Grant 1 Year Before&quot;</span>),</span>
-<span id="cb22-9"><a href="reg.html#cb22-9"></a>          <span class="dt">order =</span> <span class="kw">c</span>(<span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">1</span>, <span class="dv">2</span>),</span>
-<span id="cb22-10"><a href="reg.html#cb22-10"></a>          <span class="dt">add.lines =</span> <span class="kw">list</span>(<span class="kw">c</span>(<span class="st">&quot;Factory FE&quot;</span>, <span class="st">&quot;No&quot;</span>, <span class="st">&quot;No&quot;</span>,<span class="st">&quot;Yes&quot;</span>,<span class="st">&quot;Yes&quot;</span>,<span class="st">&quot;Yes&quot;</span>),</span>
-<span id="cb22-11"><a href="reg.html#cb22-11"></a>                           <span class="kw">c</span>(<span class="st">&quot;Year FE&quot;</span>, <span class="st">&quot;No&quot;</span>, <span class="st">&quot;No&quot;</span>,<span class="st">&quot;No&quot;</span>,<span class="st">&quot;Yes&quot;</span>,<span class="st">&quot;Yes&quot;</span>)),</span>
-<span id="cb22-12"><a href="reg.html#cb22-12"></a>          <span class="dt">keep.stat =</span> <span class="kw">c</span>(<span class="st">&quot;n&quot;</span>,<span class="st">&quot;ll&quot;</span>,<span class="st">&quot;rsq&quot;</span>,<span class="st">&quot;f&quot;</span>),</span>
-<span id="cb22-13"><a href="reg.html#cb22-13"></a>          <span class="dt">df =</span> <span class="ot">FALSE</span>,</span>
-<span id="cb22-14"><a href="reg.html#cb22-14"></a>          <span class="dt">notes =</span> <span class="st">&quot;* p&lt;0.1; ** p&lt;0.05; ***p&lt;0.01&quot;</span>,</span>
-<span id="cb22-15"><a href="reg.html#cb22-15"></a>          <span class="dt">notes.append =</span> <span class="ot">FALSE</span>,</span>
-<span id="cb22-16"><a href="reg.html#cb22-16"></a>          <span class="dt">notes.align =</span> <span class="st">&quot;l&quot;</span>,</span>
-<span id="cb22-17"><a href="reg.html#cb22-17"></a>          <span class="dt">notes.label =</span> <span class="st">&quot;New note label&quot;</span>,</span>
-<span id="cb22-18"><a href="reg.html#cb22-18"></a>          <span class="dt">no.space =</span> <span class="ot">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">stargazer</span>(mod1, mod2, mod3,mod4,mod5, </span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>          <span class="at">type =</span> <span class="st">&quot;html&quot;</span>,</span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>          <span class="at">dep.var.caption =</span> <span class="st">&quot;&quot;</span>,</span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>          <span class="at">column.labels =</span> <span class="fu">c</span>(<span class="st">&quot;Basic&quot;</span>,<span class="st">&quot;With Union&quot;</span>,<span class="st">&quot;Factory&quot;</span>,<span class="st">&quot;F&amp;Y&quot;</span>,<span class="st">&quot;Selection&quot;</span>),</span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>          <span class="at">dep.var.labels =</span> <span class="fu">c</span>(<span class="st">&quot;Training hours&quot;</span>,<span class="st">&quot;Training grant&quot;</span>),</span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>          <span class="at">model.names =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a>          <span class="at">omit =</span> <span class="fu">c</span>(<span class="st">&quot;fcode&quot;</span>,<span class="st">&quot;year&quot;</span>),</span>
+<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a>          <span class="at">covariate.labels =</span> <span class="fu">c</span>(<span class="st">&quot;log(Employment)&quot;</span>,<span class="st">&quot;Labor Union&quot;</span>,<span class="st">&quot;Traning Grant&quot;</span>, <span class="st">&quot;Traning Grant 1 Year Before&quot;</span>),</span>
+<span id="cb24-9"><a href="#cb24-9" aria-hidden="true" tabindex="-1"></a>          <span class="at">order =</span> <span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">1</span>, <span class="dv">2</span>),</span>
+<span id="cb24-10"><a href="#cb24-10" aria-hidden="true" tabindex="-1"></a>          <span class="at">add.lines =</span> <span class="fu">list</span>(<span class="fu">c</span>(<span class="st">&quot;Factory FE&quot;</span>, <span class="st">&quot;No&quot;</span>, <span class="st">&quot;No&quot;</span>,<span class="st">&quot;Yes&quot;</span>,<span class="st">&quot;Yes&quot;</span>,<span class="st">&quot;Yes&quot;</span>),</span>
+<span id="cb24-11"><a href="#cb24-11" aria-hidden="true" tabindex="-1"></a>                           <span class="fu">c</span>(<span class="st">&quot;Year FE&quot;</span>, <span class="st">&quot;No&quot;</span>, <span class="st">&quot;No&quot;</span>,<span class="st">&quot;No&quot;</span>,<span class="st">&quot;Yes&quot;</span>,<span class="st">&quot;Yes&quot;</span>)),</span>
+<span id="cb24-12"><a href="#cb24-12" aria-hidden="true" tabindex="-1"></a>          <span class="at">keep.stat =</span> <span class="fu">c</span>(<span class="st">&quot;n&quot;</span>,<span class="st">&quot;ll&quot;</span>,<span class="st">&quot;rsq&quot;</span>,<span class="st">&quot;f&quot;</span>),</span>
+<span id="cb24-13"><a href="#cb24-13" aria-hidden="true" tabindex="-1"></a>          <span class="at">df =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb24-14"><a href="#cb24-14" aria-hidden="true" tabindex="-1"></a>          <span class="at">notes =</span> <span class="st">&quot;* p&lt;0.1; ** p&lt;0.05; ***p&lt;0.01&quot;</span>,</span>
+<span id="cb24-15"><a href="#cb24-15" aria-hidden="true" tabindex="-1"></a>          <span class="at">notes.append =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb24-16"><a href="#cb24-16" aria-hidden="true" tabindex="-1"></a>          <span class="at">notes.align =</span> <span class="st">&quot;l&quot;</span>,</span>
+<span id="cb24-17"><a href="#cb24-17" aria-hidden="true" tabindex="-1"></a>          <span class="at">notes.label =</span> <span class="st">&quot;New note label&quot;</span>,</span>
+<span id="cb24-18"><a href="#cb24-18" aria-hidden="true" tabindex="-1"></a>          <span class="at">no.space =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <table style="text-align:center">
 <tr>
 <td colspan="6" style="border-bottom: 1px solid black">
@@ -7159,25 +7326,25 @@ New note label
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="reg.html#cb23-1"></a><span class="kw">stargazer</span>(mod1, mod2, mod3,mod4,mod5, </span>
-<span id="cb23-2"><a href="reg.html#cb23-2"></a>          <span class="dt">type =</span> <span class="st">&quot;html&quot;</span>,</span>
-<span id="cb23-3"><a href="reg.html#cb23-3"></a>          <span class="dt">dep.var.caption =</span> <span class="st">&quot;&quot;</span>,</span>
-<span id="cb23-4"><a href="reg.html#cb23-4"></a>          <span class="dt">column.labels =</span> <span class="kw">c</span>(<span class="st">&quot;Basic&quot;</span>,<span class="st">&quot;With Union&quot;</span>,<span class="st">&quot;Factory&quot;</span>,<span class="st">&quot;F&amp;Y&quot;</span>,<span class="st">&quot;Selection&quot;</span>),</span>
-<span id="cb23-5"><a href="reg.html#cb23-5"></a>          <span class="dt">dep.var.labels =</span> <span class="kw">c</span>(<span class="st">&quot;Training hours&quot;</span>,<span class="st">&quot;Training grant&quot;</span>),</span>
-<span id="cb23-6"><a href="reg.html#cb23-6"></a>          <span class="dt">model.names =</span> <span class="ot">FALSE</span>,</span>
-<span id="cb23-7"><a href="reg.html#cb23-7"></a>          <span class="dt">omit =</span> <span class="kw">c</span>(<span class="st">&quot;fcode&quot;</span>,<span class="st">&quot;year&quot;</span>),</span>
-<span id="cb23-8"><a href="reg.html#cb23-8"></a>          <span class="dt">covariate.labels =</span> <span class="kw">c</span>(<span class="st">&quot;log(Employment)&quot;</span>,<span class="st">&quot;Labor Union&quot;</span>,<span class="st">&quot;Traning Grant&quot;</span>, <span class="st">&quot;Traning Grant 1 Year Before&quot;</span>),</span>
-<span id="cb23-9"><a href="reg.html#cb23-9"></a>          <span class="dt">order =</span> <span class="kw">c</span>(<span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">1</span>, <span class="dv">2</span>),</span>
-<span id="cb23-10"><a href="reg.html#cb23-10"></a>          <span class="dt">add.lines =</span> <span class="kw">list</span>(<span class="kw">c</span>(<span class="st">&quot;Factory FE&quot;</span>, <span class="st">&quot;No&quot;</span>, <span class="st">&quot;No&quot;</span>,<span class="st">&quot;Yes&quot;</span>,<span class="st">&quot;Yes&quot;</span>,<span class="st">&quot;Yes&quot;</span>),</span>
-<span id="cb23-11"><a href="reg.html#cb23-11"></a>                           <span class="kw">c</span>(<span class="st">&quot;Year FE&quot;</span>, <span class="st">&quot;No&quot;</span>, <span class="st">&quot;No&quot;</span>,<span class="st">&quot;No&quot;</span>,<span class="st">&quot;Yes&quot;</span>,<span class="st">&quot;Yes&quot;</span>)),</span>
-<span id="cb23-12"><a href="reg.html#cb23-12"></a>          <span class="dt">keep.stat =</span> <span class="kw">c</span>(<span class="st">&quot;n&quot;</span>,<span class="st">&quot;ll&quot;</span>,<span class="st">&quot;rsq&quot;</span>,<span class="st">&quot;f&quot;</span>),</span>
-<span id="cb23-13"><a href="reg.html#cb23-13"></a>          <span class="dt">df =</span> <span class="ot">FALSE</span>,</span>
-<span id="cb23-14"><a href="reg.html#cb23-14"></a>          <span class="dt">notes =</span> <span class="st">&quot;* p&lt;0.1; ** p&lt;0.05; ***p&lt;0.01&quot;</span>,</span>
-<span id="cb23-15"><a href="reg.html#cb23-15"></a>          <span class="dt">notes.append =</span> <span class="ot">FALSE</span>,</span>
-<span id="cb23-16"><a href="reg.html#cb23-16"></a>          <span class="dt">notes.align =</span> <span class="st">&quot;l&quot;</span>,</span>
-<span id="cb23-17"><a href="reg.html#cb23-17"></a>          <span class="dt">notes.label =</span> <span class="st">&quot;New note label&quot;</span>,</span>
-<span id="cb23-18"><a href="reg.html#cb23-18"></a>          <span class="dt">no.space =</span> <span class="ot">TRUE</span>,</span>
-<span id="cb23-19"><a href="reg.html#cb23-19"></a>          <span class="dt">table.layout =</span> <span class="st">&quot;=d#c-ta-s-n&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">stargazer</span>(mod1, mod2, mod3,mod4,mod5, </span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>          <span class="at">type =</span> <span class="st">&quot;html&quot;</span>,</span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>          <span class="at">dep.var.caption =</span> <span class="st">&quot;&quot;</span>,</span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>          <span class="at">column.labels =</span> <span class="fu">c</span>(<span class="st">&quot;Basic&quot;</span>,<span class="st">&quot;With Union&quot;</span>,<span class="st">&quot;Factory&quot;</span>,<span class="st">&quot;F&amp;Y&quot;</span>,<span class="st">&quot;Selection&quot;</span>),</span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>          <span class="at">dep.var.labels =</span> <span class="fu">c</span>(<span class="st">&quot;Training hours&quot;</span>,<span class="st">&quot;Training grant&quot;</span>),</span>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a>          <span class="at">model.names =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a>          <span class="at">omit =</span> <span class="fu">c</span>(<span class="st">&quot;fcode&quot;</span>,<span class="st">&quot;year&quot;</span>),</span>
+<span id="cb25-8"><a href="#cb25-8" aria-hidden="true" tabindex="-1"></a>          <span class="at">covariate.labels =</span> <span class="fu">c</span>(<span class="st">&quot;log(Employment)&quot;</span>,<span class="st">&quot;Labor Union&quot;</span>,<span class="st">&quot;Traning Grant&quot;</span>, <span class="st">&quot;Traning Grant 1 Year Before&quot;</span>),</span>
+<span id="cb25-9"><a href="#cb25-9" aria-hidden="true" tabindex="-1"></a>          <span class="at">order =</span> <span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">1</span>, <span class="dv">2</span>),</span>
+<span id="cb25-10"><a href="#cb25-10" aria-hidden="true" tabindex="-1"></a>          <span class="at">add.lines =</span> <span class="fu">list</span>(<span class="fu">c</span>(<span class="st">&quot;Factory FE&quot;</span>, <span class="st">&quot;No&quot;</span>, <span class="st">&quot;No&quot;</span>,<span class="st">&quot;Yes&quot;</span>,<span class="st">&quot;Yes&quot;</span>,<span class="st">&quot;Yes&quot;</span>),</span>
+<span id="cb25-11"><a href="#cb25-11" aria-hidden="true" tabindex="-1"></a>                           <span class="fu">c</span>(<span class="st">&quot;Year FE&quot;</span>, <span class="st">&quot;No&quot;</span>, <span class="st">&quot;No&quot;</span>,<span class="st">&quot;No&quot;</span>,<span class="st">&quot;Yes&quot;</span>,<span class="st">&quot;Yes&quot;</span>)),</span>
+<span id="cb25-12"><a href="#cb25-12" aria-hidden="true" tabindex="-1"></a>          <span class="at">keep.stat =</span> <span class="fu">c</span>(<span class="st">&quot;n&quot;</span>,<span class="st">&quot;ll&quot;</span>,<span class="st">&quot;rsq&quot;</span>,<span class="st">&quot;f&quot;</span>),</span>
+<span id="cb25-13"><a href="#cb25-13" aria-hidden="true" tabindex="-1"></a>          <span class="at">df =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb25-14"><a href="#cb25-14" aria-hidden="true" tabindex="-1"></a>          <span class="at">notes =</span> <span class="st">&quot;* p&lt;0.1; ** p&lt;0.05; *** p&lt;0.01&quot;</span>,</span>
+<span id="cb25-15"><a href="#cb25-15" aria-hidden="true" tabindex="-1"></a>          <span class="at">notes.append =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb25-16"><a href="#cb25-16" aria-hidden="true" tabindex="-1"></a>          <span class="at">notes.align =</span> <span class="st">&quot;l&quot;</span>,</span>
+<span id="cb25-17"><a href="#cb25-17" aria-hidden="true" tabindex="-1"></a>          <span class="at">notes.label =</span> <span class="st">&quot;New note label&quot;</span>,</span>
+<span id="cb25-18"><a href="#cb25-18" aria-hidden="true" tabindex="-1"></a>          <span class="at">no.space =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb25-19"><a href="#cb25-19" aria-hidden="true" tabindex="-1"></a>          <span class="at">table.layout =</span> <span class="st">&quot;=d#c-ta-s-n&quot;</span>)</span></code></pre></div>
 <table style="text-align:center">
 <tr>
 <td colspan="6" style="border-bottom: 1px solid black">
@@ -7552,31 +7719,31 @@ New note label
 </td>
 <td colspan="5" style="text-align:left">
 <ul>
-<li>p&lt;0.1; ** p&lt;0.05; ***p&lt;0.01
+<li>p&lt;0.1; ** p&lt;0.05; *** p&lt;0.01
 </td>
 </tr>
 </table></li>
 </ul>
 <p>stargazer同样支持LaTex和HTML语法，下表中我们使用HTML语法将回归表的log(Employment)加粗，同时让note label使用斜体。</p>
-<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="reg.html#cb24-1"></a><span class="kw">stargazer</span>(mod1, mod2, mod3,mod4,mod5, </span>
-<span id="cb24-2"><a href="reg.html#cb24-2"></a>          <span class="dt">type =</span> <span class="st">&quot;html&quot;</span>,</span>
-<span id="cb24-3"><a href="reg.html#cb24-3"></a>          <span class="dt">dep.var.caption =</span> <span class="st">&quot;&quot;</span>,</span>
-<span id="cb24-4"><a href="reg.html#cb24-4"></a>          <span class="dt">column.labels =</span> <span class="kw">c</span>(<span class="st">&quot;Basic&quot;</span>,<span class="st">&quot;With Union&quot;</span>,<span class="st">&quot;Factory&quot;</span>,<span class="st">&quot;F&amp;Y&quot;</span>,<span class="st">&quot;Selection&quot;</span>),</span>
-<span id="cb24-5"><a href="reg.html#cb24-5"></a>          <span class="dt">dep.var.labels =</span> <span class="kw">c</span>(<span class="st">&quot;Training hours&quot;</span>,<span class="st">&quot;Training grant&quot;</span>),</span>
-<span id="cb24-6"><a href="reg.html#cb24-6"></a>          <span class="dt">model.names =</span> <span class="ot">FALSE</span>,</span>
-<span id="cb24-7"><a href="reg.html#cb24-7"></a>          <span class="dt">omit =</span> <span class="kw">c</span>(<span class="st">&quot;fcode&quot;</span>,<span class="st">&quot;year&quot;</span>),</span>
-<span id="cb24-8"><a href="reg.html#cb24-8"></a>          <span class="dt">covariate.labels =</span> <span class="kw">c</span>(<span class="st">&quot;&lt;b&gt; log(Employment) &lt;/b&gt; &quot;</span>,<span class="st">&quot;Labor Union&quot;</span>,<span class="st">&quot;Traning Grant&quot;</span>, <span class="st">&quot;Traning Grant 1 Year Before&quot;</span>),</span>
-<span id="cb24-9"><a href="reg.html#cb24-9"></a>          <span class="dt">order =</span> <span class="kw">c</span>(<span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">1</span>, <span class="dv">2</span>),</span>
-<span id="cb24-10"><a href="reg.html#cb24-10"></a>          <span class="dt">add.lines =</span> <span class="kw">list</span>(<span class="kw">c</span>(<span class="st">&quot;Factory FE&quot;</span>, <span class="st">&quot;No&quot;</span>, <span class="st">&quot;No&quot;</span>,<span class="st">&quot;Yes&quot;</span>,<span class="st">&quot;Yes&quot;</span>,<span class="st">&quot;Yes&quot;</span>),</span>
-<span id="cb24-11"><a href="reg.html#cb24-11"></a>                           <span class="kw">c</span>(<span class="st">&quot;Year FE&quot;</span>, <span class="st">&quot;No&quot;</span>, <span class="st">&quot;No&quot;</span>,<span class="st">&quot;No&quot;</span>,<span class="st">&quot;Yes&quot;</span>,<span class="st">&quot;Yes&quot;</span>)),</span>
-<span id="cb24-12"><a href="reg.html#cb24-12"></a>          <span class="dt">keep.stat =</span> <span class="kw">c</span>(<span class="st">&quot;n&quot;</span>,<span class="st">&quot;ll&quot;</span>,<span class="st">&quot;rsq&quot;</span>,<span class="st">&quot;f&quot;</span>),</span>
-<span id="cb24-13"><a href="reg.html#cb24-13"></a>          <span class="dt">df =</span> <span class="ot">FALSE</span>,</span>
-<span id="cb24-14"><a href="reg.html#cb24-14"></a>          <span class="dt">notes =</span> <span class="st">&quot;* p&lt;0.1; ** p&lt;0.05; ***p&lt;0.01&quot;</span>,</span>
-<span id="cb24-15"><a href="reg.html#cb24-15"></a>          <span class="dt">notes.append =</span> <span class="ot">FALSE</span>,</span>
-<span id="cb24-16"><a href="reg.html#cb24-16"></a>          <span class="dt">notes.align =</span> <span class="st">&quot;l&quot;</span>,</span>
-<span id="cb24-17"><a href="reg.html#cb24-17"></a>          <span class="dt">notes.label =</span> <span class="st">&quot;&lt;em&gt; New note label &lt;/em&gt;&quot;</span>,</span>
-<span id="cb24-18"><a href="reg.html#cb24-18"></a>          <span class="dt">no.space =</span> <span class="ot">TRUE</span>,</span>
-<span id="cb24-19"><a href="reg.html#cb24-19"></a>          <span class="dt">table.layout =</span> <span class="st">&quot;=d#c-ta-s-n&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">stargazer</span>(mod1, mod2, mod3,mod4,mod5, </span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>          <span class="at">type =</span> <span class="st">&quot;html&quot;</span>,</span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>          <span class="at">dep.var.caption =</span> <span class="st">&quot;&quot;</span>,</span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>          <span class="at">column.labels =</span> <span class="fu">c</span>(<span class="st">&quot;Basic&quot;</span>,<span class="st">&quot;With Union&quot;</span>,<span class="st">&quot;Factory&quot;</span>,<span class="st">&quot;F&amp;Y&quot;</span>,<span class="st">&quot;Selection&quot;</span>),</span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>          <span class="at">dep.var.labels =</span> <span class="fu">c</span>(<span class="st">&quot;Training hours&quot;</span>,<span class="st">&quot;Training grant&quot;</span>),</span>
+<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a>          <span class="at">model.names =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a>          <span class="at">omit =</span> <span class="fu">c</span>(<span class="st">&quot;fcode&quot;</span>,<span class="st">&quot;year&quot;</span>),</span>
+<span id="cb26-8"><a href="#cb26-8" aria-hidden="true" tabindex="-1"></a>          <span class="at">covariate.labels =</span> <span class="fu">c</span>(<span class="st">&quot;&lt;b&gt; log(Employment) &lt;/b&gt; &quot;</span>,<span class="st">&quot;Labor Union&quot;</span>,<span class="st">&quot;Traning Grant&quot;</span>, <span class="st">&quot;Traning Grant 1 Year Before&quot;</span>),</span>
+<span id="cb26-9"><a href="#cb26-9" aria-hidden="true" tabindex="-1"></a>          <span class="at">order =</span> <span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">1</span>, <span class="dv">2</span>),</span>
+<span id="cb26-10"><a href="#cb26-10" aria-hidden="true" tabindex="-1"></a>          <span class="at">add.lines =</span> <span class="fu">list</span>(<span class="fu">c</span>(<span class="st">&quot;Factory FE&quot;</span>, <span class="st">&quot;No&quot;</span>, <span class="st">&quot;No&quot;</span>,<span class="st">&quot;Yes&quot;</span>,<span class="st">&quot;Yes&quot;</span>,<span class="st">&quot;Yes&quot;</span>),</span>
+<span id="cb26-11"><a href="#cb26-11" aria-hidden="true" tabindex="-1"></a>                           <span class="fu">c</span>(<span class="st">&quot;Year FE&quot;</span>, <span class="st">&quot;No&quot;</span>, <span class="st">&quot;No&quot;</span>,<span class="st">&quot;No&quot;</span>,<span class="st">&quot;Yes&quot;</span>,<span class="st">&quot;Yes&quot;</span>)),</span>
+<span id="cb26-12"><a href="#cb26-12" aria-hidden="true" tabindex="-1"></a>          <span class="at">keep.stat =</span> <span class="fu">c</span>(<span class="st">&quot;n&quot;</span>,<span class="st">&quot;ll&quot;</span>,<span class="st">&quot;rsq&quot;</span>,<span class="st">&quot;f&quot;</span>),</span>
+<span id="cb26-13"><a href="#cb26-13" aria-hidden="true" tabindex="-1"></a>          <span class="at">df =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb26-14"><a href="#cb26-14" aria-hidden="true" tabindex="-1"></a>          <span class="at">notes =</span> <span class="st">&quot;* p&lt;0.1; ** p&lt;0.05; ***p&lt;0.01&quot;</span>,</span>
+<span id="cb26-15"><a href="#cb26-15" aria-hidden="true" tabindex="-1"></a>          <span class="at">notes.append =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb26-16"><a href="#cb26-16" aria-hidden="true" tabindex="-1"></a>          <span class="at">notes.align =</span> <span class="st">&quot;l&quot;</span>,</span>
+<span id="cb26-17"><a href="#cb26-17" aria-hidden="true" tabindex="-1"></a>          <span class="at">notes.label =</span> <span class="st">&quot;&lt;em&gt; New note label &lt;/em&gt;&quot;</span>,</span>
+<span id="cb26-18"><a href="#cb26-18" aria-hidden="true" tabindex="-1"></a>          <span class="at">no.space =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb26-19"><a href="#cb26-19" aria-hidden="true" tabindex="-1"></a>          <span class="at">table.layout =</span> <span class="st">&quot;=d#c-ta-s-n&quot;</span>)</span></code></pre></div>
 <table style="text-align:center">
 <tr>
 <td colspan="6" style="border-bottom: 1px solid black">
@@ -7957,42 +8124,42 @@ F Statistic
 </table></li>
 </ul>
 </div>
-<div id="其他" class="section level3" number="3.2.9">
-<h3><span class="header-section-number">3.2.9</span> 其他</h3>
-<p>在绝大多数正经的经济学论文最终都会使用聚类标准误差来替代标注误差<a href="#fn5" class="footnote-ref" id="fnref5"><sup>5</sup></a>。R中的sandwich包可以计算聚类标准误，将其结果直接赋值给stargazer的se参数并可替换标准误差。</p>
-<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="reg.html#cb25-1"></a><span class="kw">library</span>(sandwich)</span>
-<span id="cb25-2"><a href="reg.html#cb25-2"></a><span class="co"># Adjust standard errors</span></span>
-<span id="cb25-3"><a href="reg.html#cb25-3"></a>cov1 &lt;-<span class="st"> </span><span class="kw">vcovHC</span>(mod1, <span class="dt">type =</span> <span class="st">&quot;HC1&quot;</span>) <span class="co"># HC1保证与stata结果一致</span></span>
-<span id="cb25-4"><a href="reg.html#cb25-4"></a>rbs1 &lt;-<span class="st"> </span><span class="kw">sqrt</span>(<span class="kw">diag</span>(cov1))</span>
-<span id="cb25-5"><a href="reg.html#cb25-5"></a>cov2 &lt;-<span class="st"> </span><span class="kw">vcovHC</span>(mod2, <span class="dt">type =</span> <span class="st">&quot;HC1&quot;</span>)</span>
-<span id="cb25-6"><a href="reg.html#cb25-6"></a>rbs2 &lt;-<span class="st"> </span><span class="kw">sqrt</span>(<span class="kw">diag</span>(cov2))</span>
-<span id="cb25-7"><a href="reg.html#cb25-7"></a>cov3 &lt;-<span class="st"> </span><span class="kw">vcovHC</span>(mod3, <span class="dt">type =</span> <span class="st">&quot;HC1&quot;</span>)</span>
-<span id="cb25-8"><a href="reg.html#cb25-8"></a>rbs3 &lt;-<span class="st"> </span><span class="kw">sqrt</span>(<span class="kw">diag</span>(cov3))</span>
-<span id="cb25-9"><a href="reg.html#cb25-9"></a>cov4 &lt;-<span class="st"> </span><span class="kw">vcovHC</span>(mod4, <span class="dt">type =</span> <span class="st">&quot;HC1&quot;</span>)</span>
-<span id="cb25-10"><a href="reg.html#cb25-10"></a>rbs4 &lt;-<span class="st"> </span><span class="kw">sqrt</span>(<span class="kw">diag</span>(cov4))</span>
-<span id="cb25-11"><a href="reg.html#cb25-11"></a>cov5 &lt;-<span class="st"> </span><span class="kw">vcovHC</span>(mod5, <span class="dt">type =</span> <span class="st">&quot;HC1&quot;</span>)</span>
-<span id="cb25-12"><a href="reg.html#cb25-12"></a>rbs5 &lt;-<span class="st"> </span><span class="kw">sqrt</span>(<span class="kw">diag</span>(cov5))</span>
-<span id="cb25-13"><a href="reg.html#cb25-13"></a></span>
-<span id="cb25-14"><a href="reg.html#cb25-14"></a><span class="kw">stargazer</span>(mod1, mod2, mod3,mod4,mod5, </span>
-<span id="cb25-15"><a href="reg.html#cb25-15"></a>          <span class="dt">type =</span> <span class="st">&quot;html&quot;</span>,</span>
-<span id="cb25-16"><a href="reg.html#cb25-16"></a>          <span class="dt">dep.var.caption =</span> <span class="st">&quot;&quot;</span>,</span>
-<span id="cb25-17"><a href="reg.html#cb25-17"></a>          <span class="dt">column.labels =</span> <span class="kw">c</span>(<span class="st">&quot;Basic&quot;</span>,<span class="st">&quot;With Union&quot;</span>,<span class="st">&quot;Factory&quot;</span>,<span class="st">&quot;F&amp;Y&quot;</span>,<span class="st">&quot;Selection&quot;</span>),</span>
-<span id="cb25-18"><a href="reg.html#cb25-18"></a>          <span class="dt">dep.var.labels =</span> <span class="kw">c</span>(<span class="st">&quot;Training hours&quot;</span>,<span class="st">&quot;Training grant&quot;</span>),</span>
-<span id="cb25-19"><a href="reg.html#cb25-19"></a>          <span class="dt">model.names =</span> <span class="ot">FALSE</span>,</span>
-<span id="cb25-20"><a href="reg.html#cb25-20"></a>          <span class="dt">omit =</span> <span class="kw">c</span>(<span class="st">&quot;fcode&quot;</span>,<span class="st">&quot;year&quot;</span>),</span>
-<span id="cb25-21"><a href="reg.html#cb25-21"></a>          <span class="dt">covariate.labels =</span> <span class="kw">c</span>(<span class="st">&quot;log(Employment)&quot;</span>,<span class="st">&quot;Labor Union&quot;</span>,<span class="st">&quot;Traning Grant&quot;</span>, <span class="st">&quot;Traning Grant 1 Year Before&quot;</span>),</span>
-<span id="cb25-22"><a href="reg.html#cb25-22"></a>          <span class="dt">order =</span> <span class="kw">c</span>(<span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">1</span>, <span class="dv">2</span>),</span>
-<span id="cb25-23"><a href="reg.html#cb25-23"></a>          <span class="dt">add.lines =</span> <span class="kw">list</span>(<span class="kw">c</span>(<span class="st">&quot;Factory FE&quot;</span>, <span class="st">&quot;No&quot;</span>, <span class="st">&quot;No&quot;</span>,<span class="st">&quot;Yes&quot;</span>,<span class="st">&quot;Yes&quot;</span>,<span class="st">&quot;Yes&quot;</span>),</span>
-<span id="cb25-24"><a href="reg.html#cb25-24"></a>                           <span class="kw">c</span>(<span class="st">&quot;Year FE&quot;</span>, <span class="st">&quot;No&quot;</span>, <span class="st">&quot;No&quot;</span>,<span class="st">&quot;No&quot;</span>,<span class="st">&quot;Yes&quot;</span>,<span class="st">&quot;Yes&quot;</span>)),</span>
-<span id="cb25-25"><a href="reg.html#cb25-25"></a>          <span class="dt">keep.stat =</span> <span class="kw">c</span>(<span class="st">&quot;n&quot;</span>,<span class="st">&quot;ll&quot;</span>,<span class="st">&quot;rsq&quot;</span>,<span class="st">&quot;f&quot;</span>),</span>
-<span id="cb25-26"><a href="reg.html#cb25-26"></a>          <span class="dt">df =</span> <span class="ot">FALSE</span>,</span>
-<span id="cb25-27"><a href="reg.html#cb25-27"></a>          <span class="dt">notes =</span> <span class="st">&quot;* p&lt;0.1; ** p&lt;0.05; ***p&lt;0.01&quot;</span>,</span>
-<span id="cb25-28"><a href="reg.html#cb25-28"></a>          <span class="dt">notes.append =</span> <span class="ot">FALSE</span>,</span>
-<span id="cb25-29"><a href="reg.html#cb25-29"></a>          <span class="dt">notes.align =</span> <span class="st">&quot;l&quot;</span>,</span>
-<span id="cb25-30"><a href="reg.html#cb25-30"></a>          <span class="dt">notes.label =</span> <span class="st">&quot;New note label&quot;</span>,</span>
-<span id="cb25-31"><a href="reg.html#cb25-31"></a>          <span class="dt">no.space =</span> <span class="ot">TRUE</span>,</span>
-<span id="cb25-32"><a href="reg.html#cb25-32"></a>          <span class="dt">table.layout =</span> <span class="st">&quot;=d#c-ta-s-n&quot;</span>,</span>
-<span id="cb25-33"><a href="reg.html#cb25-33"></a>          <span class="dt">se =</span> <span class="kw">list</span>(rbs1, rbs2, rbs3, rbs4, rbs5))</span></code></pre></div>
+<div id="其他" class="section level3" number="1.8.9">
+<h3><span class="header-section-number">1.8.9</span> 其他</h3>
+<p>在绝大多数正经的经济学论文最终都会使用聚类标准误差来替代标注误差<a href="#fn8" class="footnote-ref" id="fnref8"><sup>8</sup></a>。R中的sandwich包可以计算聚类标准误，将其结果直接赋值给stargazer的se参数并可替换标准误差。</p>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(sandwich)</span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Adjust standard errors</span></span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>cov1 <span class="ot">&lt;-</span> <span class="fu">vcovHC</span>(mod1, <span class="at">type =</span> <span class="st">&quot;HC1&quot;</span>) <span class="co"># HC1保证与stata结果一致</span></span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>rbs1 <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(<span class="fu">diag</span>(cov1))</span>
+<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a>cov2 <span class="ot">&lt;-</span> <span class="fu">vcovHC</span>(mod2, <span class="at">type =</span> <span class="st">&quot;HC1&quot;</span>)</span>
+<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a>rbs2 <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(<span class="fu">diag</span>(cov2))</span>
+<span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a>cov3 <span class="ot">&lt;-</span> <span class="fu">vcovHC</span>(mod3, <span class="at">type =</span> <span class="st">&quot;HC1&quot;</span>)</span>
+<span id="cb27-8"><a href="#cb27-8" aria-hidden="true" tabindex="-1"></a>rbs3 <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(<span class="fu">diag</span>(cov3))</span>
+<span id="cb27-9"><a href="#cb27-9" aria-hidden="true" tabindex="-1"></a>cov4 <span class="ot">&lt;-</span> <span class="fu">vcovHC</span>(mod4, <span class="at">type =</span> <span class="st">&quot;HC1&quot;</span>)</span>
+<span id="cb27-10"><a href="#cb27-10" aria-hidden="true" tabindex="-1"></a>rbs4 <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(<span class="fu">diag</span>(cov4))</span>
+<span id="cb27-11"><a href="#cb27-11" aria-hidden="true" tabindex="-1"></a>cov5 <span class="ot">&lt;-</span> <span class="fu">vcovHC</span>(mod5, <span class="at">type =</span> <span class="st">&quot;HC1&quot;</span>)</span>
+<span id="cb27-12"><a href="#cb27-12" aria-hidden="true" tabindex="-1"></a>rbs5 <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(<span class="fu">diag</span>(cov5))</span>
+<span id="cb27-13"><a href="#cb27-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-14"><a href="#cb27-14" aria-hidden="true" tabindex="-1"></a><span class="fu">stargazer</span>(mod1, mod2, mod3,mod4,mod5, </span>
+<span id="cb27-15"><a href="#cb27-15" aria-hidden="true" tabindex="-1"></a>          <span class="at">type =</span> <span class="st">&quot;html&quot;</span>,</span>
+<span id="cb27-16"><a href="#cb27-16" aria-hidden="true" tabindex="-1"></a>          <span class="at">dep.var.caption =</span> <span class="st">&quot;&quot;</span>,</span>
+<span id="cb27-17"><a href="#cb27-17" aria-hidden="true" tabindex="-1"></a>          <span class="at">column.labels =</span> <span class="fu">c</span>(<span class="st">&quot;Basic&quot;</span>,<span class="st">&quot;With Union&quot;</span>,<span class="st">&quot;Factory&quot;</span>,<span class="st">&quot;F&amp;Y&quot;</span>,<span class="st">&quot;Selection&quot;</span>),</span>
+<span id="cb27-18"><a href="#cb27-18" aria-hidden="true" tabindex="-1"></a>          <span class="at">dep.var.labels =</span> <span class="fu">c</span>(<span class="st">&quot;Training hours&quot;</span>,<span class="st">&quot;Training grant&quot;</span>),</span>
+<span id="cb27-19"><a href="#cb27-19" aria-hidden="true" tabindex="-1"></a>          <span class="at">model.names =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb27-20"><a href="#cb27-20" aria-hidden="true" tabindex="-1"></a>          <span class="at">omit =</span> <span class="fu">c</span>(<span class="st">&quot;fcode&quot;</span>,<span class="st">&quot;year&quot;</span>),</span>
+<span id="cb27-21"><a href="#cb27-21" aria-hidden="true" tabindex="-1"></a>          <span class="at">covariate.labels =</span> <span class="fu">c</span>(<span class="st">&quot;log(Employment)&quot;</span>,<span class="st">&quot;Labor Union&quot;</span>,<span class="st">&quot;Traning Grant&quot;</span>, <span class="st">&quot;Traning Grant 1 Year Before&quot;</span>),</span>
+<span id="cb27-22"><a href="#cb27-22" aria-hidden="true" tabindex="-1"></a>          <span class="at">order =</span> <span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">1</span>, <span class="dv">2</span>),</span>
+<span id="cb27-23"><a href="#cb27-23" aria-hidden="true" tabindex="-1"></a>          <span class="at">add.lines =</span> <span class="fu">list</span>(<span class="fu">c</span>(<span class="st">&quot;Factory FE&quot;</span>, <span class="st">&quot;No&quot;</span>, <span class="st">&quot;No&quot;</span>,<span class="st">&quot;Yes&quot;</span>,<span class="st">&quot;Yes&quot;</span>,<span class="st">&quot;Yes&quot;</span>),</span>
+<span id="cb27-24"><a href="#cb27-24" aria-hidden="true" tabindex="-1"></a>                           <span class="fu">c</span>(<span class="st">&quot;Year FE&quot;</span>, <span class="st">&quot;No&quot;</span>, <span class="st">&quot;No&quot;</span>,<span class="st">&quot;No&quot;</span>,<span class="st">&quot;Yes&quot;</span>,<span class="st">&quot;Yes&quot;</span>)),</span>
+<span id="cb27-25"><a href="#cb27-25" aria-hidden="true" tabindex="-1"></a>          <span class="at">keep.stat =</span> <span class="fu">c</span>(<span class="st">&quot;n&quot;</span>,<span class="st">&quot;ll&quot;</span>,<span class="st">&quot;rsq&quot;</span>,<span class="st">&quot;f&quot;</span>),</span>
+<span id="cb27-26"><a href="#cb27-26" aria-hidden="true" tabindex="-1"></a>          <span class="at">df =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb27-27"><a href="#cb27-27" aria-hidden="true" tabindex="-1"></a>          <span class="at">notes =</span> <span class="st">&quot;* p&lt;0.1; ** p&lt;0.05; *** p&lt;0.01&quot;</span>,</span>
+<span id="cb27-28"><a href="#cb27-28" aria-hidden="true" tabindex="-1"></a>          <span class="at">notes.append =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb27-29"><a href="#cb27-29" aria-hidden="true" tabindex="-1"></a>          <span class="at">notes.align =</span> <span class="st">&quot;l&quot;</span>,</span>
+<span id="cb27-30"><a href="#cb27-30" aria-hidden="true" tabindex="-1"></a>          <span class="at">notes.label =</span> <span class="st">&quot;New note label&quot;</span>,</span>
+<span id="cb27-31"><a href="#cb27-31" aria-hidden="true" tabindex="-1"></a>          <span class="at">no.space =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb27-32"><a href="#cb27-32" aria-hidden="true" tabindex="-1"></a>          <span class="at">table.layout =</span> <span class="st">&quot;=d#c-ta-s-n&quot;</span>,</span>
+<span id="cb27-33"><a href="#cb27-33" aria-hidden="true" tabindex="-1"></a>          <span class="at">se =</span> <span class="fu">list</span>(rbs1, rbs2, rbs3, rbs4, rbs5))</span></code></pre></div>
 <table style="text-align:center">
 <tr>
 <td colspan="6" style="border-bottom: 1px solid black">
@@ -8367,26 +8534,18 @@ New note label
 </td>
 <td colspan="5" style="text-align:left">
 <ul>
-<li>p&lt;0.1; ** p&lt;0.05; ***p&lt;0.01
+<li>p&lt;0.1; ** p&lt;0.05; *** p&lt;0.01
 </td>
 </tr>
 </table></li>
 </ul>
 </div>
-<div id="描述性统计表" class="section level3" number="3.2.10">
-<h3><span class="header-section-number">3.2.10</span> 描述性统计表</h3>
-<p>stargazer还可以直接输出描述性统计表以及数据表本文，这一功能极大地增强了stargazer的可用性。</p>
-<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="reg.html#cb26-1"></a><span class="kw">library</span>(dplyr)</span></code></pre></div>
-<pre><code>## 
-## Attaching package: &#39;dplyr&#39;</code></pre>
-<pre><code>## The following objects are masked from &#39;package:stats&#39;:
-## 
-##     filter, lag</code></pre>
-<pre><code>## The following objects are masked from &#39;package:base&#39;:
-## 
-##     intersect, setdiff, setequal, union</code></pre>
-<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="reg.html#cb30-1"></a>data &lt;-<span class="st">  </span>jtrain <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(hrsemp,grant,grant_<span class="dv">1</span>,lemploy,union,fcode ,year)</span>
-<span id="cb30-2"><a href="reg.html#cb30-2"></a><span class="kw">stargazer</span>(data, <span class="dt">type =</span> <span class="st">&quot;html&quot;</span>)</span></code></pre></div>
+<div id="描述性统计表" class="section level3" number="1.8.10">
+<h3><span class="header-section-number">1.8.10</span> 描述性统计表</h3>
+<p>stargazer还可以直接输出描述性统计表以及数据表本身，这一功能极大地增强了stargazer的可用性。</p>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span>  jtrain <span class="sc">%&gt;%</span> <span class="fu">select</span>(hrsemp,grant,grant_1,lemploy,union,fcode ,year)</span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a><span class="fu">stargazer</span>(data, <span class="at">type =</span> <span class="st">&quot;html&quot;</span>)</span></code></pre></div>
 <table style="text-align:center">
 <tr>
 <td colspan="8" style="border-bottom: 1px solid black">
@@ -8609,7 +8768,7 @@ year
 </td>
 </tr>
 </table>
-<p>我们可以通过rownames与colnames参数来设定是否输出行列名称，一般情况不会去掉。summary.stat可以设定输出那些描述性统计变量</p>
+<p>我们可以通过<code>rownames</code>与<code>colnames</code>参数来设定是否输出行列名称，一般情况不会去掉。<code>summary.stat</code>可以设定输出哪些描述性统计变量</p>
 <table>
 <thead>
 <tr class="header">
@@ -8652,9 +8811,9 @@ year
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="reg.html#cb31-1"></a><span class="kw">stargazer</span>(data, <span class="dt">type =</span> <span class="st">&quot;html&quot;</span>,</span>
-<span id="cb31-2"><a href="reg.html#cb31-2"></a>          <span class="dt">summary.stat =</span> <span class="kw">c</span>(<span class="st">&quot;n&quot;</span>,<span class="st">&quot;mean&quot;</span>,<span class="st">&quot;sd&quot;</span>,<span class="st">&quot;min&quot;</span>,<span class="st">&quot;max&quot;</span>),</span>
-<span id="cb31-3"><a href="reg.html#cb31-3"></a>          <span class="dt">digits =</span> <span class="dv">2</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">stargazer</span>(data, <span class="at">type =</span> <span class="st">&quot;html&quot;</span>,</span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>          <span class="at">summary.stat =</span> <span class="fu">c</span>(<span class="st">&quot;n&quot;</span>,<span class="st">&quot;mean&quot;</span>,<span class="st">&quot;sd&quot;</span>,<span class="st">&quot;min&quot;</span>,<span class="st">&quot;max&quot;</span>),</span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>          <span class="at">digits =</span> <span class="dv">2</span>)</span></code></pre></div>
 <table style="text-align:center">
 <tr>
 <td colspan="6" style="border-bottom: 1px solid black">
@@ -8830,10 +8989,10 @@ year
 </tr>
 </table>
 <p>当设定flip = TRUE时，可以转置描述性统计表的横轴与纵轴</p>
-<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="reg.html#cb32-1"></a><span class="kw">stargazer</span>(data, <span class="dt">type =</span> <span class="st">&quot;html&quot;</span>,</span>
-<span id="cb32-2"><a href="reg.html#cb32-2"></a>          <span class="dt">summary.stat =</span> <span class="kw">c</span>(<span class="st">&quot;n&quot;</span>,<span class="st">&quot;mean&quot;</span>,<span class="st">&quot;sd&quot;</span>,<span class="st">&quot;min&quot;</span>,<span class="st">&quot;max&quot;</span>),</span>
-<span id="cb32-3"><a href="reg.html#cb32-3"></a>          <span class="dt">digits =</span> <span class="dv">2</span>,</span>
-<span id="cb32-4"><a href="reg.html#cb32-4"></a>          <span class="dt">flip =</span> <span class="ot">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">stargazer</span>(data, <span class="at">type =</span> <span class="st">&quot;html&quot;</span>,</span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>          <span class="at">summary.stat =</span> <span class="fu">c</span>(<span class="st">&quot;n&quot;</span>,<span class="st">&quot;mean&quot;</span>,<span class="st">&quot;sd&quot;</span>,<span class="st">&quot;min&quot;</span>,<span class="st">&quot;max&quot;</span>),</span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>          <span class="at">digits =</span> <span class="dv">2</span>,</span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a>          <span class="at">flip =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <table style="text-align:center">
 <tr>
 <td colspan="8" style="border-bottom: 1px solid black">
@@ -9005,8 +9164,8 @@ Max
 </tr>
 </table>
 <p>当设定summary = FALSE时，stargaze可以直接输出表格</p>
-<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="reg.html#cb33-1"></a><span class="kw">stargazer</span>(<span class="kw">head</span>(data), <span class="dt">type =</span> <span class="st">&quot;html&quot;</span>,</span>
-<span id="cb33-2"><a href="reg.html#cb33-2"></a>          <span class="dt">summary =</span> <span class="ot">FALSE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">stargazer</span>(<span class="fu">head</span>(data), <span class="at">type =</span> <span class="st">&quot;html&quot;</span>,</span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>          <span class="at">summary =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
 <table style="text-align:center">
 <tr>
 <td colspan="8" style="border-bottom: 1px solid black">
@@ -9202,18 +9361,78 @@ year
 </td>
 </tr>
 </table>
+</div>
+</div>
+<div id="回归结果的可视化" class="section level2" number="1.9">
+<h2><span class="header-section-number">1.9</span> 回归结果的可视化</h2>
+<p>无论是在幻灯片还是最后的论文中，数据可视化都是至关重要的。图片永远是比表格更直观，近年来，经济学论文也越来越重视可视化，尤其是回归结果的可视化。回归结果可视化拢共分两步：第一步设计好图的布局和内容；第二步用R完成这个设计。在我们看来，当我们掌握了大杀器ggplot2之后，只要有耐心，第二步总是可以完成的。因此，回归结果的可视化的难度在于设计，即以什么样的形式来传递哪些信息。设计部分主要是靠积累，当你在别人的论文中看到一个很厉害的图的时候，一定要存下来，以后用到自己的论文当中。当然也有一个捷径，例如ggstatsplot这样的成熟R包，已经设计了一些不错的可视化方案，我们可以直接使用他们完成可视化，或者借鉴其设计，然后再自己使用ggplot2来完成类似的可视化。</p>
+<div id="使用ggcoefstats可视化回归结果" class="section level3" number="1.9.1">
+<h3><span class="header-section-number">1.9.1</span> 使用ggcoefstats可视化回归结果</h3>
+<p>ggstatsplot包含了针对各类统计模型设计的可视化方案，是一个非常新的包。其中，ggcoefstats函数用于可视化回归结果。例如：</p>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggstatsplot)</span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>ggstatsplot<span class="sc">::</span><span class="fu">ggcoefstats</span>(</span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">x =</span> stats<span class="sc">::</span><span class="fu">lm</span>(</span>
+<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">formula =</span> rating <span class="sc">~</span> genre,</span>
+<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">data =</span> dplyr<span class="sc">::</span><span class="fu">filter</span>(</span>
+<span id="cb32-6"><a href="#cb32-6" aria-hidden="true" tabindex="-1"></a>      <span class="at">.data =</span> ggstatsplot<span class="sc">::</span>movies_long,</span>
+<span id="cb32-7"><a href="#cb32-7" aria-hidden="true" tabindex="-1"></a>      genre <span class="sc">%in%</span> <span class="fu">c</span>(</span>
+<span id="cb32-8"><a href="#cb32-8" aria-hidden="true" tabindex="-1"></a>        <span class="st">&quot;Action&quot;</span>,</span>
+<span id="cb32-9"><a href="#cb32-9" aria-hidden="true" tabindex="-1"></a>        <span class="st">&quot;Action Comedy&quot;</span>,</span>
+<span id="cb32-10"><a href="#cb32-10" aria-hidden="true" tabindex="-1"></a>        <span class="st">&quot;Action Drama&quot;</span>,</span>
+<span id="cb32-11"><a href="#cb32-11" aria-hidden="true" tabindex="-1"></a>        <span class="st">&quot;Comedy&quot;</span>,</span>
+<span id="cb32-12"><a href="#cb32-12" aria-hidden="true" tabindex="-1"></a>        <span class="st">&quot;Drama&quot;</span>,</span>
+<span id="cb32-13"><a href="#cb32-13" aria-hidden="true" tabindex="-1"></a>        <span class="st">&quot;Comedy Drama&quot;</span></span>
+<span id="cb32-14"><a href="#cb32-14" aria-hidden="true" tabindex="-1"></a>      )</span>
+<span id="cb32-15"><a href="#cb32-15" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb32-16"><a href="#cb32-16" aria-hidden="true" tabindex="-1"></a>  ),</span>
+<span id="cb32-17"><a href="#cb32-17" aria-hidden="true" tabindex="-1"></a>  <span class="at">conf.level =</span> <span class="fl">0.99</span>, <span class="co"># 置信区间水平设置为0.01</span></span>
+<span id="cb32-18"><a href="#cb32-18" aria-hidden="true" tabindex="-1"></a>  <span class="at">sort =</span> <span class="st">&quot;ascending&quot;</span>, <span class="co"># 展示顺序从系数从大到小排列</span></span>
+<span id="cb32-19"><a href="#cb32-19" aria-hidden="true" tabindex="-1"></a>  <span class="at">ggtheme =</span> ggplot2<span class="sc">::</span><span class="fu">theme_gray</span>(), <span class="co"># 使用grey模板</span></span>
+<span id="cb32-20"><a href="#cb32-20" aria-hidden="true" tabindex="-1"></a>  <span class="at">stats.label.color =</span> <span class="fu">c</span>(<span class="st">&quot;#CC79A7&quot;</span>, <span class="st">&quot;darkgreen&quot;</span>, <span class="st">&quot;#0072B2&quot;</span>, <span class="st">&quot;black&quot;</span>, <span class="st">&quot;red&quot;</span>),</span>
+<span id="cb32-21"><a href="#cb32-21" aria-hidden="true" tabindex="-1"></a>  <span class="at">title =</span> <span class="st">&quot;Movie ratings by their genre&quot;</span>,</span>
+<span id="cb32-22"><a href="#cb32-22" aria-hidden="true" tabindex="-1"></a>  <span class="at">subtitle =</span> <span class="st">&quot;Source: www.imdb.com&quot;</span></span>
+<span id="cb32-23"><a href="#cb32-23" aria-hidden="true" tabindex="-1"></a>) <span class="sc">+</span></span>
+<span id="cb32-24"><a href="#cb32-24" aria-hidden="true" tabindex="-1"></a>  <span class="co"># 修改y轴的刻度标签</span></span>
+<span id="cb32-25"><a href="#cb32-25" aria-hidden="true" tabindex="-1"></a>  ggplot2<span class="sc">::</span><span class="fu">scale_y_discrete</span>(<span class="at">labels =</span> <span class="fu">c</span>(</span>
+<span id="cb32-26"><a href="#cb32-26" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;Comedy&quot;</span>,</span>
+<span id="cb32-27"><a href="#cb32-27" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;Action Comedy&quot;</span>,</span>
+<span id="cb32-28"><a href="#cb32-28" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;Action Drama&quot;</span>,</span>
+<span id="cb32-29"><a href="#cb32-29" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;Comedy Drama&quot;</span>,</span>
+<span id="cb32-30"><a href="#cb32-30" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;Drama&quot;</span></span>
+<span id="cb32-31"><a href="#cb32-31" aria-hidden="true" tabindex="-1"></a>  )) <span class="sc">+</span></span>
+<span id="cb32-32"><a href="#cb32-32" aria-hidden="true" tabindex="-1"></a>  ggplot2<span class="sc">::</span><span class="fu">labs</span>(<span class="at">y =</span> <span class="st">&quot;Genre compared to Action movies)&quot;</span>) <span class="sc">+</span></span>
+<span id="cb32-33"><a href="#cb32-33" aria-hidden="true" tabindex="-1"></a>  ggplot2<span class="sc">::</span><span class="fu">theme</span>(<span class="at">axis.title.y =</span> ggplot2<span class="sc">::</span><span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">14</span>, <span class="at">face =</span> <span class="st">&quot;bold&quot;</span>))</span></code></pre></div>
+<p><img src="07-regression_files/figure-html/unnamed-chunk-29-1.png" width="672" /></p>
+</div>
+<div id="使用" class="section level3" number="1.9.2">
+<h3><span class="header-section-number">1.9.2</span> 使用</h3>
+</div>
+<div id="双重差分模型的可视化" class="section level3" number="1.9.3">
+<h3><span class="header-section-number">1.9.3</span> 双重差分模型的可视化</h3>
+</div>
+</div>
+</div>
 
-</div>
-</div>
-</div>
+
+
+
+
+
+
+
+
+
+
+
+
 <div class="footnotes">
 <hr />
-<ol start="1">
-<li id="fn1"><p>Hlavac,Marek (2018).stargazer: Well-Formatted Regression and Summary Statistics Tables. R package version 5.2.2. <a href="https://CRAN.R-project.org/package=stargazer" class="uri">https://CRAN.R-project.org/package=stargazer</a><a href="reg.html#fnref1" class="footnote-back">↩︎</a></p></li>
-<li id="fn2"><p>Xavier Giroud, Proximity and Investment: Evidence from Plant-Level Data , The Quarterly Journal of Economics, Volume 128, Issue 2, May 2013, Pages 861–915, <a href="https://doi.org/10.1093/qje/qjs073" class="uri">https://doi.org/10.1093/qje/qjs073</a> <a href="reg.html#fnref2" class="footnote-back">↩︎</a></p></li>
-<li id="fn3"><p>Introductory Econometrics: A Modern Approach by Wooldridge, Jeffrey M. 5th Edition<a href="reg.html#fnref3" class="footnote-back">↩︎</a></p></li>
-<li id="fn4"><p>H. Holzer, R. Block, M. Cheatham, and J. Knott (1993), “Are Training Subsidies Effective? The Michigan Experience,” Industrial and Labor Relations Review 46, 625-636.<a href="reg.html#fnref4" class="footnote-back">↩︎</a></p></li>
-<li id="fn5"><p>Abadie, A., Athey, S., Imbens, G. W., &amp; Wooldridge, J. (2017). When Should You Adjust Standard Errors for Clustering. National Bureau of Economic Research.<a href="reg.html#fnref5" class="footnote-back">↩︎</a></p></li>
+<ol start="4">
+<li id="fn4"><p>Hlavac,Marek (2018).stargazer: Well-Formatted Regression and Summary Statistics Tables. R package version 5.2.2. <a href="https://CRAN.R-project.org/package=stargazer" class="uri">https://CRAN.R-project.org/package=stargazer</a><a href="#fnref4" class="footnote-back">↩︎</a></p></li>
+<li id="fn5"><p>Xavier Giroud, Proximity and Investment: Evidence from Plant-Level Data , The Quarterly Journal of Economics, Volume 128, Issue 2, May 2013, Pages 861–915, <a href="https://doi.org/10.1093/qje/qjs073" class="uri">https://doi.org/10.1093/qje/qjs073</a> <a href="#fnref5" class="footnote-back">↩︎</a></p></li>
+<li id="fn6"><p>Introductory Econometrics: A Modern Approach by Wooldridge, Jeffrey M. 5th Edition<a href="#fnref6" class="footnote-back">↩︎</a></p></li>
+<li id="fn7"><p>H. Holzer, R. Block, M. Cheatham, and J. Knott (1993), “Are Training Subsidies Effective? The Michigan Experience,” Industrial and Labor Relations Review 46, 625-636.<a href="#fnref7" class="footnote-back">↩︎</a></p></li>
+<li id="fn8"><p>Abadie, A., Athey, S., Imbens, G. W., &amp; Wooldridge, J. (2017). When Should You Adjust Standard Errors for Clustering. National Bureau of Economic Research.<a href="#fnref8" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
             </section>
@@ -9221,8 +9440,8 @@ year
           </div>
         </div>
       </div>
-<a href="flow.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="make.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+
+
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -9253,8 +9472,8 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/yihui/bookdown-chinese/edit/master/04-regression.Rmd",
-"text": "编辑"
+"link": "https://github.com/yihui/bookdown-chinese/edit/master/%s",
+"text": "Edit"
 },
 "history": {
 "link": null,
@@ -9264,14 +9483,29 @@ gitbook.start({
 "link": null,
 "text": null
 },
-"download": ["bookdown.pdf", "bookdown.epub"],
+"download": null,
 "toc": {
 "collapse": "none"
-}
+},
+"search": false
 });
 });
 </script>
 
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
 </body>
 
 </html>

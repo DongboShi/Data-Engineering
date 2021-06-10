@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>第 3 章 网络数据采集 | 数据工程讲义：经济学分册</title>
+  <title>第 5 章 网络数据采集 | 数据工程讲义：经济学分册</title>
   <meta name="description" content="一个简单的中文书示例。" />
-  <meta name="generator" content="bookdown 0.17 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="第 3 章 网络数据采集 | 数据工程讲义：经济学分册" />
+  <meta property="og:title" content="第 5 章 网络数据采集 | 数据工程讲义：经济学分册" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="yihui/bookdown-chinese" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="第 3 章 网络数据采集 | 数据工程讲义：经济学分册" />
+  <meta name="twitter:title" content="第 5 章 网络数据采集 | 数据工程讲义：经济学分册" />
   
   <meta name="twitter:description" content="一个简单的中文书示例。" />
   
@@ -24,16 +24,16 @@
 <meta name="author" content="史冬波 续本达" />
 
 
-<meta name="date" content="2020-07-26" />
+<meta name="date" content="2020-09-01" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="flow.html"/>
-<link rel="next" href="reg.html"/>
-<script src="libs/header-attrs-2.1/header-attrs.js"></script>
+<link rel="prev" href="rw.html"/>
+<link rel="next" href="md.html"/>
+<script src="libs/header-attrs-2.3/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -51,6 +51,7 @@
 
 
 
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
 
 
 <style type="text/css">
@@ -154,85 +155,138 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2.7" data-path="flow.html"><a href="flow.html#数据工程师的一天"><i class="fa fa-check"></i><b>2.7</b> 数据工程师的一天</a></li>
 <li class="chapter" data-level="2.8" data-path="flow.html"><a href="flow.html#数据工程data-engineering"><i class="fa fa-check"></i><b>2.8</b> 数据工程(Data Engineering)</a></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="web.html"><a href="web.html"><i class="fa fa-check"></i><b>3</b> 网络数据采集</a>
+<li class="chapter" data-level="3" data-path="flow.html"><a href="flow.html#flow"><i class="fa fa-check"></i><b>3</b> R编程基础</a>
 <ul>
-<li class="chapter" data-level="3.1" data-path="web.html"><a href="web.html#网络数据格式"><i class="fa fa-check"></i><b>3.1</b> 网络数据格式</a>
+<li class="chapter" data-level="3.1" data-path="flow.html"><a href="flow.html#r对文件和路径的相关操作"><i class="fa fa-check"></i><b>3.1</b> R对文件和路径的相关操作</a>
 <ul>
-<li class="chapter" data-level="3.1.1" data-path="web.html"><a href="web.html#csv"><i class="fa fa-check"></i><b>3.1.1</b> CSV</a></li>
-<li class="chapter" data-level="3.1.2" data-path="web.html"><a href="web.html#xml"><i class="fa fa-check"></i><b>3.1.2</b> XML</a></li>
-<li class="chapter" data-level="3.1.3" data-path="web.html"><a href="web.html#json"><i class="fa fa-check"></i><b>3.1.3</b> JSON</a></li>
-</ul></li>
-<li class="chapter" data-level="3.2" data-path="web.html"><a href="web.html#html"><i class="fa fa-check"></i><b>3.2</b> HTML</a>
-<ul>
-<li class="chapter" data-level="3.2.1" data-path="web.html"><a href="web.html#html的基本语法"><i class="fa fa-check"></i><b>3.2.1</b> HTML的基本语法</a></li>
-<li class="chapter" data-level="3.2.2" data-path="web.html"><a href="web.html#常见html标签"><i class="fa fa-check"></i><b>3.2.2</b> 常见HTML标签</a></li>
-<li class="chapter" data-level="3.2.3" data-path="web.html"><a href="web.html#dom树形数据结构"><i class="fa fa-check"></i><b>3.2.3</b> DOM树形数据结构</a></li>
-</ul></li>
-<li class="chapter" data-level="3.3" data-path="web.html"><a href="web.html#css"><i class="fa fa-check"></i><b>3.3</b> CSS</a>
-<ul>
-<li class="chapter" data-level="3.3.1" data-path="web.html"><a href="web.html#css的基本语法"><i class="fa fa-check"></i><b>3.3.1</b> CSS的基本语法</a></li>
-<li class="chapter" data-level="3.3.2" data-path="web.html"><a href="web.html#id选择器"><i class="fa fa-check"></i><b>3.3.2</b> id选择器</a></li>
-<li class="chapter" data-level="3.3.3" data-path="web.html"><a href="web.html#类选择器"><i class="fa fa-check"></i><b>3.3.3</b> 类选择器</a></li>
-</ul></li>
-<li class="chapter" data-level="3.4" data-path="web.html"><a href="web.html#javascript"><i class="fa fa-check"></i><b>3.4</b> JavaScript</a>
-<ul>
-<li class="chapter" data-level="3.4.1" data-path="web.html"><a href="web.html#javascript案例"><i class="fa fa-check"></i><b>3.4.1</b> JavaScript案例</a></li>
-<li class="chapter" data-level="3.4.2" data-path="web.html"><a href="web.html#javascript的基本语法"><i class="fa fa-check"></i><b>3.4.2</b> JavaScript的基本语法</a></li>
-<li class="chapter" data-level="3.4.3" data-path="web.html"><a href="web.html#ajax"><i class="fa fa-check"></i><b>3.4.3</b> AJAX</a></li>
-</ul></li>
-<li class="chapter" data-level="3.5" data-path="web.html"><a href="web.html#开发者工具"><i class="fa fa-check"></i><b>3.5</b> 开发者工具</a>
-<ul>
-<li class="chapter" data-level="3.5.1" data-path="web.html"><a href="web.html#打开开发者工具"><i class="fa fa-check"></i><b>3.5.1</b> 打开开发者工具</a></li>
-<li class="chapter" data-level="3.5.2" data-path="web.html"><a href="web.html#查看器与样式"><i class="fa fa-check"></i><b>3.5.2</b> 查看器与样式</a></li>
-<li class="chapter" data-level="3.5.3" data-path="web.html"><a href="web.html#其他功能"><i class="fa fa-check"></i><b>3.5.3</b> 其他功能</a></li>
-</ul></li>
-<li class="chapter" data-level="3.6" data-path="web.html"><a href="web.html#xpath"><i class="fa fa-check"></i><b>3.6</b> Xpath</a>
-<ul>
-<li class="chapter" data-level="3.6.1" data-path="web.html"><a href="web.html#基本查询"><i class="fa fa-check"></i><b>3.6.1</b> 基本查询</a></li>
-</ul></li>
-<li class="chapter" data-level="3.7" data-path="web.html"><a href="web.html#http"><i class="fa fa-check"></i><b>3.7</b> HTTP</a>
-<ul>
-<li class="chapter" data-level="3.7.1" data-path="web.html"><a href="web.html#http常见方法"><i class="fa fa-check"></i><b>3.7.1</b> HTTP常见方法</a></li>
-</ul></li>
-<li class="chapter" data-level="3.8" data-path="web.html"><a href="web.html#静态爬虫"><i class="fa fa-check"></i><b>3.8</b> 静态爬虫</a></li>
-<li class="chapter" data-level="3.9" data-path="web.html"><a href="web.html#使用rselenium的动态爬虫"><i class="fa fa-check"></i><b>3.9</b> 使用RSelenium的动态爬虫</a>
-<ul>
-<li class="chapter" data-level="3.9.1" data-path="web.html"><a href="web.html#rselenium简介与安装"><i class="fa fa-check"></i><b>3.9.1</b> RSelenium简介与安装</a></li>
-<li class="chapter" data-level="3.9.2" data-path="web.html"><a href="web.html#安装docker"><i class="fa fa-check"></i><b>3.9.2</b> 安装Docker</a></li>
-<li class="chapter" data-level="3.9.3" data-path="web.html"><a href="web.html#rselenum语法"><i class="fa fa-check"></i><b>3.9.3</b> RSelenum语法</a></li>
-<li class="chapter" data-level="3.9.4" data-path="web.html"><a href="web.html#案例1在链家搜索并获取相关信息"><i class="fa fa-check"></i><b>3.9.4</b> 案例1:在链家搜索并获取相关信息</a></li>
-<li class="chapter" data-level="3.9.5" data-path="web.html"><a href="web.html#案例2登录豆瓣"><i class="fa fa-check"></i><b>3.9.5</b> 案例2:登录豆瓣</a></li>
+<li class="chapter" data-level="3.1.1" data-path="flow.html"><a href="flow.html#路径操作"><i class="fa fa-check"></i><b>3.1.1</b> 路径操作</a></li>
+<li class="chapter" data-level="3.1.2" data-path="flow.html"><a href="flow.html#文件操作"><i class="fa fa-check"></i><b>3.1.2</b> 文件操作</a></li>
+<li class="chapter" data-level="3.1.3" data-path="flow.html"><a href="flow.html#特殊路径"><i class="fa fa-check"></i><b>3.1.3</b> 特殊路径</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="reg.html"><a href="reg.html"><i class="fa fa-check"></i><b>4</b> 回归分析</a>
+<li class="chapter" data-level="4" data-path="rw.html"><a href="rw.html"><i class="fa fa-check"></i><b>4</b> 数据读写</a>
 <ul>
-<li class="chapter" data-level="4.1" data-path="reg.html"><a href="reg.html#一般线性回归"><i class="fa fa-check"></i><b>4.1</b> 一般线性回归</a></li>
-<li class="chapter" data-level="4.2" data-path="reg.html"><a href="reg.html#使用stargazer输出表格"><i class="fa fa-check"></i><b>4.2</b> 使用stargazer输出表格</a>
+<li class="chapter" data-level="4.1" data-path="rw.html"><a href="rw.html#数据文件类型"><i class="fa fa-check"></i><b>4.1</b> 数据文件类型</a>
 <ul>
-<li class="chapter" data-level="4.2.1" data-path="reg.html"><a href="reg.html#标准回归表"><i class="fa fa-check"></i><b>4.2.1</b> 标准回归表</a></li>
-<li class="chapter" data-level="4.2.2" data-path="reg.html"><a href="reg.html#默认格式"><i class="fa fa-check"></i><b>4.2.2</b> 默认格式</a></li>
-<li class="chapter" data-level="4.2.3" data-path="reg.html"><a href="reg.html#表格表头"><i class="fa fa-check"></i><b>4.2.3</b> 表格表头</a></li>
-<li class="chapter" data-level="4.2.4" data-path="reg.html"><a href="reg.html#表格正文"><i class="fa fa-check"></i><b>4.2.4</b> 表格正文</a></li>
-<li class="chapter" data-level="4.2.5" data-path="reg.html"><a href="reg.html#添加变量信息"><i class="fa fa-check"></i><b>4.2.5</b> 添加变量信息</a></li>
-<li class="chapter" data-level="4.2.6" data-path="reg.html"><a href="reg.html#选择统计量"><i class="fa fa-check"></i><b>4.2.6</b> 选择统计量</a></li>
-<li class="chapter" data-level="4.2.7" data-path="reg.html"><a href="reg.html#表格注释"><i class="fa fa-check"></i><b>4.2.7</b> 表格注释</a></li>
-<li class="chapter" data-level="4.2.8" data-path="reg.html"><a href="reg.html#整体布局"><i class="fa fa-check"></i><b>4.2.8</b> 整体布局</a></li>
-<li class="chapter" data-level="4.2.9" data-path="reg.html"><a href="reg.html#其他"><i class="fa fa-check"></i><b>4.2.9</b> 其他</a></li>
-<li class="chapter" data-level="4.2.10" data-path="reg.html"><a href="reg.html#描述性统计表"><i class="fa fa-check"></i><b>4.2.10</b> 描述性统计表</a></li>
+<li class="chapter" data-level="4.1.1" data-path="rw.html"><a href="rw.html#hdf5"><i class="fa fa-check"></i><b>4.1.1</b> HDF5</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="md.html"><a href="md.html"><i class="fa fa-check"></i><b>5</b> 文学式编程</a>
+<li class="chapter" data-level="5" data-path="web.html"><a href="web.html"><i class="fa fa-check"></i><b>5</b> 网络数据采集</a>
 <ul>
-<li class="chapter" data-level="5.1" data-path="md.html"><a href="md.html#什么是文学式编程"><i class="fa fa-check"></i><b>5.1</b> 什么是文学式编程</a></li>
+<li class="chapter" data-level="5.1" data-path="web.html"><a href="web.html#网络数据格式"><i class="fa fa-check"></i><b>5.1</b> 网络数据格式</a>
+<ul>
+<li class="chapter" data-level="5.1.1" data-path="web.html"><a href="web.html#csv"><i class="fa fa-check"></i><b>5.1.1</b> CSV</a></li>
+<li class="chapter" data-level="5.1.2" data-path="web.html"><a href="web.html#xml"><i class="fa fa-check"></i><b>5.1.2</b> XML</a></li>
+<li class="chapter" data-level="5.1.3" data-path="web.html"><a href="web.html#json"><i class="fa fa-check"></i><b>5.1.3</b> JSON</a></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="make.html"><a href="make.html"><i class="fa fa-check"></i><b>6</b> GUN Make</a>
+<li class="chapter" data-level="5.2" data-path="web.html"><a href="web.html#html"><i class="fa fa-check"></i><b>5.2</b> HTML</a>
 <ul>
-<li class="chapter" data-level="6.1" data-path="make.html"><a href="make.html#使用make的必要性"><i class="fa fa-check"></i><b>6.1</b> 使用Make的必要性</a></li>
-<li class="chapter" data-level="6.2" data-path="make.html"><a href="make.html#make安装"><i class="fa fa-check"></i><b>6.2</b> Make安装</a></li>
-<li class="chapter" data-level="6.3" data-path="make.html"><a href="make.html#快速上手make"><i class="fa fa-check"></i><b>6.3</b> 快速上手Make</a></li>
-<li class="chapter" data-level="6.4" data-path="make.html"><a href="make.html#make的高级语法"><i class="fa fa-check"></i><b>6.4</b> Make的高级语法</a></li>
-<li class="chapter" data-level="6.5" data-path="make.html"><a href="make.html#参考资料"><i class="fa fa-check"></i><b>6.5</b> 参考资料</a></li>
-<li class="chapter" data-level="6.6" data-path="make.html"><a href="make.html#including-plots"><i class="fa fa-check"></i><b>6.6</b> Including Plots</a></li>
+<li class="chapter" data-level="5.2.1" data-path="web.html"><a href="web.html#html的基本语法"><i class="fa fa-check"></i><b>5.2.1</b> HTML的基本语法</a></li>
+<li class="chapter" data-level="5.2.2" data-path="web.html"><a href="web.html#常见html标签"><i class="fa fa-check"></i><b>5.2.2</b> 常见HTML标签</a></li>
+<li class="chapter" data-level="5.2.3" data-path="web.html"><a href="web.html#dom树形数据结构"><i class="fa fa-check"></i><b>5.2.3</b> DOM树形数据结构</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="web.html"><a href="web.html#css"><i class="fa fa-check"></i><b>5.3</b> CSS</a>
+<ul>
+<li class="chapter" data-level="5.3.1" data-path="web.html"><a href="web.html#css的基本语法"><i class="fa fa-check"></i><b>5.3.1</b> CSS的基本语法</a></li>
+<li class="chapter" data-level="5.3.2" data-path="web.html"><a href="web.html#id选择器"><i class="fa fa-check"></i><b>5.3.2</b> id选择器</a></li>
+<li class="chapter" data-level="5.3.3" data-path="web.html"><a href="web.html#类选择器"><i class="fa fa-check"></i><b>5.3.3</b> 类选择器</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="web.html"><a href="web.html#javascript"><i class="fa fa-check"></i><b>5.4</b> JavaScript</a>
+<ul>
+<li class="chapter" data-level="5.4.1" data-path="web.html"><a href="web.html#javascript案例"><i class="fa fa-check"></i><b>5.4.1</b> JavaScript案例</a></li>
+<li class="chapter" data-level="5.4.2" data-path="web.html"><a href="web.html#javascript的基本语法"><i class="fa fa-check"></i><b>5.4.2</b> JavaScript的基本语法</a></li>
+<li class="chapter" data-level="5.4.3" data-path="web.html"><a href="web.html#ajax"><i class="fa fa-check"></i><b>5.4.3</b> AJAX</a></li>
+</ul></li>
+<li class="chapter" data-level="5.5" data-path="web.html"><a href="web.html#开发者工具"><i class="fa fa-check"></i><b>5.5</b> 开发者工具</a>
+<ul>
+<li class="chapter" data-level="5.5.1" data-path="web.html"><a href="web.html#打开开发者工具"><i class="fa fa-check"></i><b>5.5.1</b> 打开开发者工具</a></li>
+<li class="chapter" data-level="5.5.2" data-path="web.html"><a href="web.html#查看器与样式"><i class="fa fa-check"></i><b>5.5.2</b> 查看器与样式</a></li>
+<li class="chapter" data-level="5.5.3" data-path="web.html"><a href="web.html#其他功能"><i class="fa fa-check"></i><b>5.5.3</b> 其他功能</a></li>
+</ul></li>
+<li class="chapter" data-level="5.6" data-path="web.html"><a href="web.html#xpath"><i class="fa fa-check"></i><b>5.6</b> Xpath</a>
+<ul>
+<li class="chapter" data-level="5.6.1" data-path="web.html"><a href="web.html#基本查询"><i class="fa fa-check"></i><b>5.6.1</b> 基本查询</a></li>
+</ul></li>
+<li class="chapter" data-level="5.7" data-path="web.html"><a href="web.html#http"><i class="fa fa-check"></i><b>5.7</b> HTTP</a>
+<ul>
+<li class="chapter" data-level="5.7.1" data-path="web.html"><a href="web.html#http常见方法"><i class="fa fa-check"></i><b>5.7.1</b> HTTP常见方法</a></li>
+</ul></li>
+<li class="chapter" data-level="5.8" data-path="web.html"><a href="web.html#静态爬虫"><i class="fa fa-check"></i><b>5.8</b> 静态爬虫</a></li>
+<li class="chapter" data-level="5.9" data-path="web.html"><a href="web.html#使用rselenium的动态爬虫"><i class="fa fa-check"></i><b>5.9</b> 使用RSelenium的动态爬虫</a>
+<ul>
+<li class="chapter" data-level="5.9.1" data-path="web.html"><a href="web.html#rselenium简介与安装"><i class="fa fa-check"></i><b>5.9.1</b> RSelenium简介与安装</a></li>
+<li class="chapter" data-level="5.9.2" data-path="web.html"><a href="web.html#安装docker"><i class="fa fa-check"></i><b>5.9.2</b> 安装Docker</a></li>
+<li class="chapter" data-level="5.9.3" data-path="web.html"><a href="web.html#rselenum语法"><i class="fa fa-check"></i><b>5.9.3</b> RSelenum语法</a></li>
+<li class="chapter" data-level="5.9.4" data-path="web.html"><a href="web.html#案例1在链家搜索并获取相关信息"><i class="fa fa-check"></i><b>5.9.4</b> 案例1:在链家搜索并获取相关信息</a></li>
+<li class="chapter" data-level="5.9.5" data-path="web.html"><a href="web.html#案例2登录豆瓣"><i class="fa fa-check"></i><b>5.9.5</b> 案例2:登录豆瓣</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="md.html"><a href="md.html"><i class="fa fa-check"></i><b>6</b> 文学式编程</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="md.html"><a href="md.html#什么是文学式编程"><i class="fa fa-check"></i><b>6.1</b> 什么是文学式编程</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="make.html"><a href="make.html"><i class="fa fa-check"></i><b>7</b> GUN Make</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="make.html"><a href="make.html#使用make的必要性"><i class="fa fa-check"></i><b>7.1</b> 使用Make的必要性</a></li>
+<li class="chapter" data-level="7.2" data-path="make.html"><a href="make.html#make安装"><i class="fa fa-check"></i><b>7.2</b> Make安装</a></li>
+<li class="chapter" data-level="7.3" data-path="make.html"><a href="make.html#快速上手make"><i class="fa fa-check"></i><b>7.3</b> 快速上手Make</a></li>
+<li class="chapter" data-level="7.4" data-path="make.html"><a href="make.html#make的高级语法"><i class="fa fa-check"></i><b>7.4</b> Make的高级语法</a></li>
+<li class="chapter" data-level="7.5" data-path="make.html"><a href="make.html#参考资料"><i class="fa fa-check"></i><b>7.5</b> 参考资料</a></li>
+<li class="chapter" data-level="7.6" data-path="make.html"><a href="make.html#including-plots"><i class="fa fa-check"></i><b>7.6</b> Including Plots</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="reg.html"><a href="reg.html"><i class="fa fa-check"></i><b>8</b> 回归</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="reg.html"><a href="reg.html#一般线性回归"><i class="fa fa-check"></i><b>8.1</b> 一般线性回归</a>
+<ul>
+<li class="chapter" data-level="8.1.1" data-path="reg.html"><a href="reg.html#基础模型"><i class="fa fa-check"></i><b>8.1.1</b> 基础模型</a></li>
+<li class="chapter" data-level="8.1.2" data-path="reg.html"><a href="reg.html#稳健性标准误"><i class="fa fa-check"></i><b>8.1.2</b> 稳健性标准误</a></li>
+</ul></li>
+<li class="chapter" data-level="8.2" data-path="reg.html"><a href="reg.html#因果推断的反事实框架"><i class="fa fa-check"></i><b>8.2</b> 因果推断的反事实框架</a>
+<ul>
+<li class="chapter" data-level="8.2.1" data-path="reg.html"><a href="reg.html#定义因果关系"><i class="fa fa-check"></i><b>8.2.1</b> 定义因果关系</a></li>
+<li class="chapter" data-level="8.2.2" data-path="reg.html"><a href="reg.html#cef三定理"><i class="fa fa-check"></i><b>8.2.2</b> CEF三定理</a></li>
+<li class="chapter" data-level="8.2.3" data-path="reg.html"><a href="reg.html#交互项还是分组回归"><i class="fa fa-check"></i><b>8.2.3</b> 交互项还是分组回归</a></li>
+</ul></li>
+<li class="chapter" data-level="8.3" data-path="reg.html"><a href="reg.html#匹配"><i class="fa fa-check"></i><b>8.3</b> 匹配</a>
+<ul>
+<li class="chapter" data-level="8.3.1" data-path="reg.html"><a href="reg.html#原理"><i class="fa fa-check"></i><b>8.3.1</b> 原理</a></li>
+<li class="chapter" data-level="8.3.2" data-path="reg.html"><a href="reg.html#案例"><i class="fa fa-check"></i><b>8.3.2</b> 案例</a></li>
+</ul></li>
+<li class="chapter" data-level="8.4" data-path="reg.html"><a href="reg.html#工具变量"><i class="fa fa-check"></i><b>8.4</b> 工具变量</a>
+<ul>
+<li class="chapter" data-level="8.4.1" data-path="reg.html"><a href="reg.html#原理-1"><i class="fa fa-check"></i><b>8.4.1</b> 原理</a></li>
+<li class="chapter" data-level="8.4.2" data-path="reg.html"><a href="reg.html#案例-1"><i class="fa fa-check"></i><b>8.4.2</b> 案例</a></li>
+</ul></li>
+<li class="chapter" data-level="8.5" data-path="reg.html"><a href="reg.html#双重差分"><i class="fa fa-check"></i><b>8.5</b> 双重差分</a>
+<ul>
+<li class="chapter" data-level="8.5.1" data-path="reg.html"><a href="reg.html#原理-2"><i class="fa fa-check"></i><b>8.5.1</b> 原理</a></li>
+<li class="chapter" data-level="8.5.2" data-path="reg.html"><a href="reg.html#案例-2"><i class="fa fa-check"></i><b>8.5.2</b> 案例</a></li>
+</ul></li>
+<li class="chapter" data-level="8.6" data-path="reg.html"><a href="reg.html#断点回归"><i class="fa fa-check"></i><b>8.6</b> 断点回归</a>
+<ul>
+<li class="chapter" data-level="8.6.1" data-path="reg.html"><a href="reg.html#原理-3"><i class="fa fa-check"></i><b>8.6.1</b> 原理</a></li>
+<li class="chapter" data-level="8.6.2" data-path="reg.html"><a href="reg.html#案例-3"><i class="fa fa-check"></i><b>8.6.2</b> 案例</a></li>
+<li class="chapter" data-level="8.6.3" data-path="reg.html"><a href="reg.html#其他乱七八糟的方法"><i class="fa fa-check"></i><b>8.6.3</b> 其他乱七八糟的方法</a></li>
+</ul></li>
+<li class="chapter" data-level="8.7" data-path="reg.html"><a href="reg.html#使用stargazer输出表格"><i class="fa fa-check"></i><b>8.7</b> 使用stargazer输出表格</a>
+<ul>
+<li class="chapter" data-level="8.7.1" data-path="reg.html"><a href="reg.html#标准回归表"><i class="fa fa-check"></i><b>8.7.1</b> 标准回归表</a></li>
+<li class="chapter" data-level="8.7.2" data-path="reg.html"><a href="reg.html#默认格式"><i class="fa fa-check"></i><b>8.7.2</b> 默认格式</a></li>
+<li class="chapter" data-level="8.7.3" data-path="reg.html"><a href="reg.html#表格表头"><i class="fa fa-check"></i><b>8.7.3</b> 表格表头</a></li>
+<li class="chapter" data-level="8.7.4" data-path="reg.html"><a href="reg.html#表格正文"><i class="fa fa-check"></i><b>8.7.4</b> 表格正文</a></li>
+<li class="chapter" data-level="8.7.5" data-path="reg.html"><a href="reg.html#添加变量信息"><i class="fa fa-check"></i><b>8.7.5</b> 添加变量信息</a></li>
+<li class="chapter" data-level="8.7.6" data-path="reg.html"><a href="reg.html#选择统计量"><i class="fa fa-check"></i><b>8.7.6</b> 选择统计量</a></li>
+<li class="chapter" data-level="8.7.7" data-path="reg.html"><a href="reg.html#表格注释"><i class="fa fa-check"></i><b>8.7.7</b> 表格注释</a></li>
+<li class="chapter" data-level="8.7.8" data-path="reg.html"><a href="reg.html#整体布局"><i class="fa fa-check"></i><b>8.7.8</b> 整体布局</a></li>
+<li class="chapter" data-level="8.7.9" data-path="reg.html"><a href="reg.html#其他"><i class="fa fa-check"></i><b>8.7.9</b> 其他</a></li>
+<li class="chapter" data-level="8.7.10" data-path="reg.html"><a href="reg.html#描述性统计表"><i class="fa fa-check"></i><b>8.7.10</b> 描述性统计表</a></li>
+</ul></li>
+<li class="chapter" data-level="8.8" data-path="reg.html"><a href="reg.html#回归结果的可视化"><i class="fa fa-check"></i><b>8.8</b> 回归结果的可视化</a>
+<ul>
+<li class="chapter" data-level="8.8.1" data-path="reg.html"><a href="reg.html#使用ggcoefstats可视化回归结果"><i class="fa fa-check"></i><b>8.8.1</b> 使用ggcoefstats可视化回归结果</a></li>
+<li class="chapter" data-level="8.8.2" data-path="reg.html"><a href="reg.html#使用"><i class="fa fa-check"></i><b>8.8.2</b> 使用</a></li>
+<li class="chapter" data-level="8.8.3" data-path="reg.html"><a href="reg.html#双重差分模型的可视化"><i class="fa fa-check"></i><b>8.8.3</b> 双重差分模型的可视化</a></li>
+</ul></li>
 </ul></li>
 <li class="appendix"><span><b>附录</b></span></li>
 <li class="chapter" data-level="A" data-path="sound.html"><a href="sound.html"><i class="fa fa-check"></i><b>A</b> 余音绕梁</a></li>
@@ -257,24 +311,24 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="web" class="section level1" number="3">
-<h1><span class="header-section-number">第 3 章</span> 网络数据采集</h1>
+<div id="web" class="section level1" number="5">
+<h1><span class="header-section-number">第 5 章</span> 网络数据采集</h1>
 <blockquote>
 <p>就是为了这点儿醋，我才包的这顿饺子。
 <em>—邪不压正</em></p>
 </blockquote>
-<p>这一章我们将介绍如何通过R采集网络数据。互联网每一秒都在产生数据，网络已经成为经济学研究以及很多数据公司的重要数据来源，因此学习网络数据采集就非常有必要。本章的第一节我们将介绍网络上数据传输的主要格式，这是采集网络数据的基础；第二节将介绍超文本链接语言的基本语法，这对于采集网页基础；第三节中，我们将介绍一种针对html的特定查询语言-Xpath，它将帮助我们从HTML中快速找到我们需要的信息；第四节我们将补充介绍CSS（层叠样式表）的基础知识，一方面CSS可以提到Xpath帮助我们解析网页信息，另一方面，CSS的基础知识将在文学式编程中起到四两拨千斤的作用；第五节我们将介绍HTTP通信的基本方式；第六节中我们介绍一个静态网页爬虫的案例；第七节中我们将介绍如何使用Selenuim框架完成动态网页爬虫；第八节（如果能完成的话）我们将使用HTTP基本通信方法实现动态网页爬虫</p>
-<div id="网络数据格式" class="section level2" number="3.1">
-<h2><span class="header-section-number">3.1</span> 网络数据格式</h2>
+<p>这一章我们将介绍如何通过R采集网络数据。互联网每一秒都在产生数据，网络已经成为经济学研究以及很多数据公司的重要数据来源，因此学习网络数据采集就非常有必要。本章的第一节我们将介绍网络上数据传输的主要格式；第二节将介绍超文本链接语言的基本语法，这是采集网络数据的基础；第三节中，我们将介绍一种针对HTML的特定查询语言-Xpath，它将帮助我们从HTML中快速找到我们需要的信息；第四节我们将补充介绍CSS（层叠样式表）的基础知识，一方面CSS可以提到Xpath帮助我们解析网页信息，另一方面，CSS的基础知识将在文学式编程中起到四两拨千斤的作用；第五节我们将介绍HTTP通信的基本方式；第六节中我们介绍一个静态网页爬虫的案例；第七节中我们将介绍如何使用Selenuim框架完成动态网页爬虫；第八节（如果能完成的话）我们将使用HTTP基本通信方法实现动态网页爬虫</p>
+<div id="网络数据格式" class="section level2" number="5.1">
+<h2><span class="header-section-number">5.1</span> 网络数据格式</h2>
 <p>正如我们在最前面介绍的，数据不仅仅是数据工程分析的对象，更是数据工程不同部分之间衔接的接口，数据读写是数据分析的基础。而网络通信说到底也是数据的交流过程。</p>
-<p>按照数据的使用方式，我们可以将数据进一部分为通用数据与非通用数据，前者不限于特定的编程工具，在程序世界中扮演者“通用货币”的角色，是可以跨语言跨工具使用的标准数据，例如txt,csv,xml,json, hdf5等；后者则是特定语言使用的数据，在一定程度上也可以跨语言使用，但是跨语言使用时经常伴随有信息的错误与损失，常见的非通用数据有dta(Stata),xls(MS Excel),spv(SPSS), RData(R)等。RStudio在使用非通用数据时，可以从<code>Import Dataset</code>下来菜单中选择相应的选项。在网络通信中，通用数据是主角。</p>
-<div id="csv" class="section level3" number="3.1.1">
-<h3><span class="header-section-number">3.1.1</span> CSV</h3>
+<p>按照数据的使用方式，我们可以将数据进一步分为通用数据与非通用数据，前者不限于特定的编程工具，在程序世界中扮演着“通用货币”的角色，是可以跨语言跨工具使用的标准数据，例如txt,csv,xml,json, hdf5等；后者则是特定语言使用的数据，在一定程度上也可以跨语言使用，但是跨语言使用时经常伴随有信息的错误与损失，常见的非通用数据有dta(Stata),xls(MS Excel),spv(SPSS), RData(R)等。RStudio在使用非通用数据时，可以从<code>Import Dataset</code>下拉菜单中选择相应的选项。在网络通信中，通用数据是主角。</p>
+<div id="csv" class="section level3" number="5.1.1">
+<h3><span class="header-section-number">5.1.1</span> CSV</h3>
 <p>CSV(Comma-Separated Values)逗号分隔值文本数据，以纯文本形式存储表格数据（数字和文本）。纯文本意味着该文件是一个字符序列，不含必须像二进制数字那样被解读的数据。CSV文件由任意数目的记录组成，记录间以某种换行符分隔；每条记录由字段组成，字段间的分隔符是其它字符或字符串，最常见的是逗号或制表符(tsv)。
 CSV的优势在于可以用MS Excel直接编辑，读写简便，跨平台使用方便，其最大劣势为以表结构为基础，灵活性较差，尤其是数据结构比较复杂时，CSV的效率会变得很差。</p>
 </div>
-<div id="xml" class="section level3" number="3.1.2">
-<h3><span class="header-section-number">3.1.2</span> XML</h3>
+<div id="xml" class="section level3" number="5.1.2">
+<h3><span class="header-section-number">5.1.2</span> XML</h3>
 <p>XML(Extensible Markup Language),-可扩展标记语言-是专门设计用来传输数据的标记语言。R中我们使用<strong>XML</strong>包读入XML数据，</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="web.html#cb1-1"></a><span class="kw">library</span>(XML)</span>
 <span id="cb1-2"><a href="web.html#cb1-2"></a>math &lt;-<span class="st"> </span><span class="kw">xmlParse</span>(<span class="st">&quot;math_sample.xml&quot;</span>)</span>
@@ -304,36 +358,36 @@ CSV的优势在于可以用MS Excel直接编辑，读写简便，跨平台使用
 ##   &lt;/publication&gt;
 ## &lt;/publications&gt;
 ## </code></pre>
-<p>标准的XML可以分为标记（Markup）与内容（content）两类。标记通常以<code>&lt;</code>开头，以<code>/&gt;</code>结尾，在上面的例子中，<code>publications</code>以及<code>publication</code>都是标记。</p>
-<p>标记也称为标签Tag，是规定XML文件结构的部分,是数据的结构。</p>
-<p>内容又称为元素Element，是标签“标记”的部分,是数据的值。上面的例子中<code>Torsional vibrations of nonhomogeneous magnetostrictive elastic circular cylinder</code>便是标记<code>title</code>的值。</p>
-<p>每一个标签可以拥有若干属性Attribute,属性以name=value的形式出现。每个元素中,一个属性最多出现一次,一个属性只能有一个值。例如第一个<code>publication</code>标记拥有一个属性id,取值为zbmath:0790.73063。</p>
-<p>从数据结构上来说XML是树形结构，其优点在于跨平台表现优异，可以传输传输结构复杂的数据。因此，经常被用作通用数据标准。但是细心的读者很容易发现XML的劣势，大部分标签名都重复出现了两次。另外，仅仅从数据传输而不是数据可视化的角度来说，属性本质上也可以用标签+内容的方式来表达，而不需要单独设置。这都使得XML在传输数据方面，显得比较“笨重”，效率还有提升的空间。</p>
+<p>标准的XML可以分为标记（Markup）与内容（Content）两类。标记通常以<code>&lt;</code>开头，以<code>/&gt;</code>结尾，在上面的例子中，<code>publications</code>以及<code>publication</code>都是标记。</p>
+<p>标记也称为标签Tag，是规定XML文件结构的部分，是数据的结构。</p>
+<p>内容又称为元素Element，是标签“标记”的部分，是数据的值。上面的例子中<code>Torsional vibrations of nonhomogeneous magnetostrictive elastic circular cylinder</code>便是标记<code>title</code>的值。</p>
+<p>每一个标签可以拥有若干属性Attribute，属性以name=value的形式出现。每个元素中，一个属性最多出现一次，一个属性只能有一个值。例如第一个<code>publication</code>标记拥有一个属性id，取值为zbmath:0790.73063。</p>
+<p>从数据结构上来说XML是树形结构，其优点在于跨平台表现优异，可以传输结构复杂的数据。因此，经常被用作通用数据标准。但是细心的读者很容易发现XML的劣势，大部分标签名都重复出现了两次。另外，仅仅从数据传输而不是数据可视化的角度来说，属性本质上也可以用标签+内容的方式来表达，而不需要单独设置。这都使得XML在传输数据方面，显得比较“笨重”，效率还有提升的空间。</p>
 </div>
-<div id="json" class="section level3" number="3.1.3">
-<h3><span class="header-section-number">3.1.3</span> JSON</h3>
+<div id="json" class="section level3" number="5.1.3">
+<h3><span class="header-section-number">5.1.3</span> JSON</h3>
 <p>JASON(JavaScript Object Notation,JavaScript)-Java对象表示法-是由道格拉斯·克罗克福特构想和设计、轻量级的数据交换语言，该语言以易于让人阅读的文字为基础，用来传输由属性值或者序列性的值组成的数据对象。尽管JSON起初是为JavaScript设计的，但如今早已发展成为独立于特定语言之外的通用数据格式。</p>
-<p>R中可以使用<strong>jsonlite</strong>读写JSON文件,读入数据成为一个list</p>
+<p>R中可以使用<strong>jsonlite</strong>读写JSON文件，读入数据成为一个list</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="web.html#cb3-1"></a><span class="kw">library</span>(jsonlite)</span>
 <span id="cb3-2"><a href="web.html#cb3-2"></a>leadboard &lt;-<span class="st"> </span><span class="kw">fromJSON</span>(<span class="st">&quot;leaderboards.json&quot;</span>,<span class="dt">flatten =</span> <span class="ot">TRUE</span>)</span></code></pre></div>
 <p><img src="leaderboards.png" width="80%" /></p>
-<p>JSON由对象object与数组组成。对象（object）是一个对象包含一系列非排序的名称／值对(pair)，一个对象以<code>{</code>开始，并以<code>}</code>结束。每个名称／值对之间使用<code>:</code>分割。上面的例子中<code>"version":3</code>就是一个对象，其名称是version，value是3。</p>
+<p>JSON由对象object与数组组成。对象(object)是一个对象包含一系列非排序的名称／值对(pair)，一个对象以<code>{</code>开始，并以<code>}</code>结束。每个名称／值对之间使用<code>:</code>分割。上面的例子中<code>"version":3</code>就是一个对象，其名称是version，value是3。</p>
 <p>数组(array)：一个数组是一个值(value)的集合，一个数组以<code>[</code>开始，并以<code>]</code>结束。数组成员之间使用<code>,</code>分割。上面例子中<code>"ordinals"</code>对应的值便是一个数组。</p>
 <p>JSON与XML最大的不同在于XML是一个完整的标记语言，而JSON不是。XML利用标记语言的特性提供了绝佳的延展性（如XPath），在数据存储，扩展及高级检索方面具备对JSON的优势，而JSON则由于比XML更加小巧，以及浏览器的内建快速解析支持，使得其更适用于网络数据传输领域。</p>
 </div>
 </div>
-<div id="html" class="section level2" number="3.2">
-<h2><span class="header-section-number">3.2</span> HTML</h2>
+<div id="html" class="section level2" number="5.2">
+<h2><span class="header-section-number">5.2</span> HTML</h2>
 <p>由于我们的任务是从网页上采集数据，所以非常有必要学习网页设计的基本知识。网页设计有三大件：HTML、CSS 和 Javascript，相当于80年代的冰箱、彩电、洗衣机三大件。HTML是一种标记语言，用来设计网页的内容以及内容的层次结构；CSS规定网页展示的方式，例如颜色、字体和布局；Javascript是一种脚本语言，用来实现动态内容。 MDN (Mozilla Developer Network), w3schools.com提供了丰富且详细的教程与案例。不过要友情提示一下，W3school的教程简洁明了，还有可以运行的案例，经常一学起来就会停不下来，挺耽误正事儿的，一不小心容易把自己学成一个前端工程师。我们的目的并不是成为一名优秀的前端工程师，因此本书中并不会事无巨细地介绍相关语言，仅仅是为大家后续学习提供一个接口。</p>
 <p>HTML(Hyper Text Markup Language)，超文本标记语言不是一种编程语言，而是一种标记语言，使用一整套标签规则来描述网页的信息。这里的信息既包括网页需要承载的内容，也包括如何展示这些内容的设计。实际上，我们打开浏览器之后看到的内容的源码都是HTML。</p>
-<div id="html的基本语法" class="section level3" number="3.2.1">
-<h3><span class="header-section-number">3.2.1</span> HTML的基本语法</h3>
+<div id="html的基本语法" class="section level3" number="5.2.1">
+<h3><span class="header-section-number">5.2.1</span> HTML的基本语法</h3>
 <p>标签与内容组合起来构成了HTML的组成元素。标签(tag)是有尖括号括起来的关键词，例如，<code>&lt;tb&gt;</code>。除了极少数情况(例如表示换行的<code>&lt;br&gt;</code>)外，标签通常是成对出现的，一个开放标签与一个闭合标签。例如<code>&lt;div&gt;与&lt;/div&gt;</code>，闭合标签多了一个<code>/</code>。</p>
 <p>HTML标签可以拥有属性，属性出现在开放标签内，以name=“value”的形式出现。注意这里的<code>""</code>不可以省略。另外属性值对于大小写不敏感。</p>
 <p><em>加入google的例子作为说明</em></p>
 </div>
-<div id="常见html标签" class="section level3" number="3.2.2">
-<h3><span class="header-section-number">3.2.2</span> 常见HTML标签</h3>
+<div id="常见html标签" class="section level3" number="5.2.2">
+<h3><span class="header-section-number">5.2.2</span> 常见HTML标签</h3>
 <p><strong>锚标签</strong><code>&lt;a&gt;&lt;/a&gt;</code>允许HTML网页可以链接到其他文档，从而把HTML从单纯的标记语言编程超文本标记语言。</p>
 <p>第一种用法是使用网页地址作为绝对路径的锚标签：</p>
 <pre><code>&lt;a href = &quot;https://www.w3school.com.cn/html/index.asp&quot;&gt;点击此处打开W3school &lt;/a&gt;</code></pre>
@@ -452,7 +506,7 @@ row 2, cell 2
 </tr>
 </table>
 <p><strong>外部脚本标签</strong><code>&lt;script&gt;</code>用于定义客户端脚本，在HTML中引入javascript脚本。</p>
-<p><strong>表单</strong><code>&lt;form&gt;</code>是一类特殊的特殊的标签，其作用在于收集用户的输入，根据不同的收集方式，表单可以分为不同的类型。例如，<code>&lt;input type="text"&gt;</code> 定义用于文本输入的单行输入字段。更详细的表单使用方法可以参考W3school。</p>
+<p><strong>表单</strong><code>&lt;form&gt;</code>是一类特殊的标签，其作用在于收集用户的输入，根据不同的收集方式，表单可以分为不同的类型。例如，<code>&lt;input type="text"&gt;</code> 定义用于文本输入的单行输入字段。更详细的表单使用方法可以参考W3school。</p>
 <pre><code>&lt;form&gt;
  First name:&lt;br&gt;
 &lt;input type=&quot;text&quot; name=&quot;firstname&quot;&gt;
@@ -469,17 +523,17 @@ Last name:<br>
 <input type="text" name="lastname">
 </form>
 </div>
-<div id="dom树形数据结构" class="section level3" number="3.2.3">
-<h3><span class="header-section-number">3.2.3</span> DOM树形数据结构</h3>
+<div id="dom树形数据结构" class="section level3" number="5.2.3">
+<h3><span class="header-section-number">5.2.3</span> DOM树形数据结构</h3>
 <p>网页实际上是标签嵌套标签构成的，从数据结构上来看，标准的HTML都是一个树状结构，这与XML 和JSON是一致的。在R中，可以使用XML包的htmlParse函数将一个储存在向量中的字符串状态的html数据解析成为树状结构。</p>
 <p>在采集网络数据之前，我们往往需要先在浏览器中熟悉一下网页的HTML源码。Chrome 浏览器的开发者工具与Firefox的Web开发者工具中查看网页的源代码。</p>
 </div>
 </div>
-<div id="css" class="section level2" number="3.3">
-<h2><span class="header-section-number">3.3</span> CSS</h2>
-<p>CSS(Cascading Style Sheets)层叠样式表用于规定网页的布局(例如将网页分成几个板块)与风格(例如颜色、字体大小等)，从而实现网页设计中的内容与样式的正交分割，从而极大地提升了网页设计的工作效率。熟悉CSS不仅可以在网络数据爬取中使用CSS选择器来解析网页信息，也可以让你对文学式编程中的排版游刃有余。CSS既可以位于HTML的<code>&lt;head&gt;</code>标签内部，也可以储存在一个外部<code>.css</code>文件中，并通过<code>&lt;head&gt;</code>标签内<code>&lt;link rel="stylesheet" href="styles.css"&gt;</code>来调用，其中style.css是CSS文件名称，需要与<code>.html</code>文件放在同一个路径中。</p>
-<div id="css的基本语法" class="section level3" number="3.3.1">
-<h3><span class="header-section-number">3.3.1</span> CSS的基本语法</h3>
+<div id="css" class="section level2" number="5.3">
+<h2><span class="header-section-number">5.3</span> CSS</h2>
+<p>CSS(Cascading Style Sheets)层叠样式表用于规定网页的布局（例如将网页分成几个板块）与风格（例如颜色、字体大小等），从而实现网页设计中的内容与样式的正交分割，从而极大地提升了网页设计的工作效率。熟悉CSS不仅可以在网络数据爬取中使用CSS选择器来解析网页信息，也可以让你对文学式编程中的排版游刃有余。CSS既可以位于HTML的<code>&lt;head&gt;</code>标签内部，也可以储存在一个外部<code>.css</code>文件中，并通过<code>&lt;head&gt;</code>标签内<code>&lt;link rel="stylesheet" href="styles.css"&gt;</code>来调用，其中style.css是CSS文件名称，需要与<code>.html</code>文件放在同一个路径中。</p>
+<div id="css的基本语法" class="section level3" number="5.3.1">
+<h3><span class="header-section-number">5.3.1</span> CSS的基本语法</h3>
 <p>CSS规则由两部分构成：选择器与声明，<code>selector {property: value}</code>,其中声明包括“属性:值”对的形式出现，多个声明用分号分割。例如，</p>
 <pre><code>&lt;html&gt;
   &lt;head&gt;
@@ -497,7 +551,7 @@ Last name:<br>
     &lt;h5&gt;Hello World!&lt;/h5&gt;
   &lt;/body&gt;
 &lt;/html&gt;</code></pre>
-上述代码中，我们设置了一个h5(五级标题)，字体颜色为蓝色，背景颜色为黄色，边框为宽度为1的黑色实线，并且我们将该样式应用于“Hello World”，其现实效果为：
+上述代码中，我们设置了一个h5（五级标题），字体颜色为蓝色，背景颜色为黄色，边框为宽度为1的黑色实线，并且我们将该样式应用于“Hello World”，其现实效果为：
 <html>
 <head>
 <meta charset="utf-8">
@@ -529,8 +583,8 @@ Hello World!
   &lt;/body&gt;
 &lt;/html&gt;</code></pre>
 </div>
-<div id="id选择器" class="section level3" number="3.3.2">
-<h3><span class="header-section-number">3.3.2</span> id选择器</h3>
+<div id="id选择器" class="section level3" number="5.3.2">
+<h3><span class="header-section-number">5.3.2</span> id选择器</h3>
 <p>id选择器可以为有特定id的HTML元素指定特定的样式，id选择器以<code>#</code>来定义。例如下面的代码中定义了两个id选择器，对应字体分别为红色和绿色，并在后续的html中使用该样式：</p>
 <pre><code>&lt;html&gt;
   &lt;head&gt;
@@ -568,8 +622,8 @@ My CSS experiment
 </body>
 </html>
 </div>
-<div id="类选择器" class="section level3" number="3.3.3">
-<h3><span class="header-section-number">3.3.3</span> 类选择器</h3>
+<div id="类选择器" class="section level3" number="5.3.3">
+<h3><span class="header-section-number">5.3.3</span> 类选择器</h3>
 <p>类选择器以一个点号定义，在html中通过<code>class=""</code>来使用。在下面的例子中，我们定义了一个居中样式的类选择器，</p>
 <pre><code>&lt;html&gt;
   &lt;head&gt;
@@ -603,13 +657,13 @@ My CSS experiment
 <p>当然CSS的内容远远要比我们此处介绍的丰富，网页上的所有样式都是通过CSS设定的，推荐大家在MDN与W3school深入学习。特别需要指出的是，CSS还可以辅助我们从DOM中提取相关信息，虽然本书的技术重点是通过XPath来解析网页，但是我们也会介绍CSS的方法。</p>
 </div>
 </div>
-<div id="javascript" class="section level2" number="3.4">
-<h2><span class="header-section-number">3.4</span> JavaScript</h2>
-<p>JavaScript 是一种针对网页的脚本编程语言，可以在网页上实现复杂的功能，网页可以从静态网页编程包括交互式、动画以及滚动播放等功能的动态网页。JavaScript是一个典型的面向对象的编程语言，对于已经掌握本书前面基础知识的读者，自学JS并不是一个很大的挑战。还有个事儿得解释一下，JavaScript并不是Java的衍生品。可以说JavaScript和Java的关系就相当于周杰伦和周杰的关系。</p>
+<div id="javascript" class="section level2" number="5.4">
+<h2><span class="header-section-number">5.4</span> JavaScript</h2>
+<p>JavaScript 是一种针对网页的脚本编程语言，可以在网页上实现复杂的功能，网页可以从静态网页，变成包括交互式、动画以及滚动播放等功能的动态网页。JavaScript是一个典型的面向对象的编程语言，对于已经掌握本书前面基础知识的读者，自学JS并不是一个很大的挑战。还有个事儿得解释一下，JavaScript并不是Java的衍生品。可以说JavaScript和Java的关系就相当于周杰伦和周杰的关系。</p>
 <p>本书的篇幅不允许我们对JavaScript做全面和深入的介绍，这也不是本书的任务。同时，市面上已经有足够多优秀的JavaScript教材，而且W3School和MDN也为我们提供了足够详细的教程。再次提醒读者，在学习JS时候，一定要利用好开发者工具。</p>
-<p>本节中，我们参考MDN教程<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a>改变了一个案例，来给大家展示JavaScript的基本语法与功能。</p>
-<div id="javascript案例" class="section level3" number="3.4.1">
-<h3><span class="header-section-number">3.4.1</span> JavaScript案例</h3>
+<p>本节中，我们参考MDN教程<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a>改编了一个案例，来给大家展示JavaScript的基本语法与功能。</p>
+<div id="javascript案例" class="section level3" number="5.4.1">
+<h3><span class="header-section-number">5.4.1</span> JavaScript案例</h3>
 <p>通过这段代码，我们可以玩一个名字是黑魔法的猜字游戏，你最多有十次机会猜中一个我们附魔的词汇（如果你是一个聚会高手，或者看过《向往的生活》的话，这个题目肯定难不住你）。在看讲解之前，大家可以先自己玩几盘这个小游戏，看看能否解锁这个游戏的逻辑。
 其编译结果为：</p>
 <html>
@@ -623,7 +677,7 @@ My CSS experiment
 黑魔法游戏
 </h4>
 <p>
-我刚才附魔了一个词汇,请你发挥你的魔法天赋，看看能否猜中它！你将有10次机会，考验你魔力的时刻到了！
+我刚才附魔了一个词汇，请你发挥你的魔法天赋，看看能否猜中它！你将有10次机会，考验你魔力的时刻到了！
 </p>
 <div class="form">
 <label for="guessField">请猜词：</label><input type="text" id="guessField" class="guessField">
@@ -785,8 +839,8 @@ My CSS experiment
   &lt;/body&gt;
 &lt;/html&gt;</code></pre>
 </div>
-<div id="javascript的基本语法" class="section level3" number="3.4.2">
-<h3><span class="header-section-number">3.4.2</span> JavaScript的基本语法</h3>
+<div id="javascript的基本语法" class="section level3" number="5.4.2">
+<h3><span class="header-section-number">5.4.2</span> JavaScript的基本语法</h3>
 <p>实际上，这段代码中覆盖了JavaScript的常见功能，下面来简述其原理。首先，JavaScript位于<code>&lt;script&gt;</code>标签中间，置于HTML的<code>&lt;body&gt;</code>标签内的最底部。另外，JavaScript还可以置于外部.js文件中，在HTML中通过<code>&lt;script src="sample.js"&gt;&lt;/script&gt;</code>进行调用。</p>
 <p>其次，上面代码中，通过<code>let</code>和<code>const</code>创建变量与常量，并通过<code>=</code>对变量进行赋值。在下面的HTML代码中，将两个常量指向网页的段落中的元素。</p>
 <pre><code>&lt;p class=&quot;guesses&quot;&gt;&lt;/p&gt;
@@ -795,9 +849,9 @@ My CSS experiment
 <pre><code>&lt;label for=&quot;guessField&quot;&gt;请猜词：&lt;/label&gt;
 &lt;input type=&quot;text&quot; id=&quot;guessField&quot; class=&quot;guessField&quot;&gt;
 &lt;input type=&quot;submit&quot; value=&quot;我猜&quot; class=&quot;guessSubmit&quot;&gt;</code></pre>
-<p><code>let resetButton;</code>设置了一个重置按钮，但是这个功能在我们的书稿中无法正常显示，感兴趣的读者可以将本段代码存成html文件后用浏览器打开，可以看到全部功能。</p>
-<p>第三，<code>document.querySelector</code>与<code>document.createElement</code>代表了HTML DOM方法，用于能够(在HTML元素上)执行的动作，可以通过 JavaScript进行访问与操作，其中<code>document.querySelector</code>是一个CSS类选择器，允许JS关联页面中的对应CSS类元素；<code>document.createElement</code>用于创建一个元素。</p>
-<p>第四，我们定义了三个函数，第一个函数<code>checkGuess()</code>用于检查读者输入的词汇是否正确，你并根据判断结果与猜词的次数来决定反馈给读者的提示信息；第二个函数<code>setGameOver(x)</code>是一个带有参数的函数，用来决定游戏结束条件与结束时的反馈；第三个函数<code>resetGame()</code>用于重置游戏。JavaScript函数的基本结构为：</p>
+<p><code>let resetButton;</code>设置了一个重置按钮，但是这个功能在我们的书稿中无法正常显示，感兴趣的读者可以将本段代码存成<code>.html</code>文件后用浏览器打开，可以看到全部功能。</p>
+<p>第三，<code>document.querySelector</code>与<code>document.createElement</code>代表了HTML DOM方法，用于能够（在HTML元素上）执行的动作，可以通过 JavaScript进行访问与操作，其中<code>document.querySelector</code>是一个CSS类选择器，允许JS关联页面中的对应CSS类元素；<code>document.createElement</code>用于创建一个元素。</p>
+<p>第四，我们定义了三个函数，第一个函数<code>checkGuess()</code>用于检查读者输入的词汇是否正确，并根据判断结果与猜词的次数来决定反馈给读者的提示信息；第二个函数<code>setGameOver(x)</code>是一个带有参数的函数，用来决定游戏结束条件与结束时的反馈；第三个函数<code>resetGame()</code>用于重置游戏。JavaScript函数的基本结构为：</p>
 <pre><code>function checkGuess() {
 
 }</code></pre>
@@ -815,31 +869,31 @@ My CSS experiment
 resetParas[i].textContent = &#39;&#39;;//执行代码;
 }</code></pre>
 </div>
-<div id="ajax" class="section level3" number="3.4.3">
-<h3><span class="header-section-number">3.4.3</span> AJAX</h3>
+<div id="ajax" class="section level3" number="5.4.3">
+<h3><span class="header-section-number">5.4.3</span> AJAX</h3>
 <p>这节待补充完善~</p>
 </div>
 </div>
-<div id="开发者工具" class="section level2" number="3.5">
-<h2><span class="header-section-number">3.5</span> 开发者工具</h2>
-<p>前文中我们已经多次提到，开发者工具对于熟悉网页设计以及熟练爬取网页信息而言非常重要。我们讲以火狐浏览器为例介绍如何熟练使用开发者工具。</p>
-<div id="打开开发者工具" class="section level3" number="3.5.1">
-<h3><span class="header-section-number">3.5.1</span> 打开开发者工具</h3>
+<div id="开发者工具" class="section level2" number="5.5">
+<h2><span class="header-section-number">5.5</span> 开发者工具</h2>
+<p>前文中我们已经多次提到，开发者工具对于熟悉网页设计以及熟练爬取网页信息而言非常重要。我们将以火狐浏览器为例介绍如何熟练使用开发者工具。</p>
+<div id="打开开发者工具" class="section level3" number="5.5.1">
+<h3><span class="header-section-number">5.5.1</span> 打开开发者工具</h3>
 <p>Windows系统用户（虽然我不知道为什么你会用windows）可以通过<code>Ctrl + Shift + I</code>，Mac用户可以通过<code>Command + Option + I</code>，来打开浏览器的开发者工具。开发者工具的视图如下
 <img src="lianjia.png" width="100%" /></p>
 <p>开发者工具也可以从浏览器菜单栏中打开。火狐浏览器的操作路径是：<em>工具 ➢ Web开发者</em>。</p>
 </div>
-<div id="查看器与样式" class="section level3" number="3.5.2">
-<h3><span class="header-section-number">3.5.2</span> 查看器与样式</h3>
-<p>默认情况下，开发者工具的窗口是<em>查看器</em>和<em>CSS</em>，在查看其中我们可以看到当前网页的HTML源码以及对应的CSS。如果点击查看器左边的箭头，查看器会根据鼠标悬停的位置定位对应的HTML代码段，其效果如下所示：
+<div id="查看器与样式" class="section level3" number="5.5.2">
+<h3><span class="header-section-number">5.5.2</span> 查看器与样式</h3>
+<p>默认情况下，开发者工具的窗口是<em>查看器</em>和<em>CSS</em>，在查看器中我们可以看到当前网页的HTML源码以及对应的CSS。如果点击查看器左边的箭头，查看器会根据鼠标悬停的位置定位对应的HTML代码段，其效果如下所示：
 <img src="lianjia2.png" width="100%" /></p>
 <p>选中特定的HTML代码段后鼠标右键单击，此时会出现一个编辑HTML的菜单选项，允许我们操作HTML的内容、节点、以及属性。
 <img src="lianjia3.png" width="100%" /></p>
 <p>例如，我们可以选择<em>编辑HTML</em>选项，对链家的首页进行了一些修改，这段修改表达了一个青年经济学家的灵魂拷问。
 <img src="lianjia4.png" width="100%" /></p>
 </div>
-<div id="其他功能" class="section level3" number="3.5.3">
-<h3><span class="header-section-number">3.5.3</span> 其他功能</h3>
+<div id="其他功能" class="section level3" number="5.5.3">
+<h3><span class="header-section-number">5.5.3</span> 其他功能</h3>
 <p>查看器旁边的<em>控制台</em>是一个JavaScript编译器，可以编译并调试JavaScript代码，这部分在网络数据采集时候并不经常使用。<em>网络</em>窗口中可以看到打开网页工程中的网络通信结果。<em>样式编辑器</em>窗口可用于修改对应的CSS，我将搜索栏目对应的CSS改为：</p>
 <pre><code>.header .header-wrap .search-box-wrap .search-box-con .search .text {
  width:626px;
@@ -855,17 +909,17 @@ resetParas[i].textContent = &#39;&#39;;//执行代码;
 <img src="lianjia5.png" width="100%" /></p>
 </div>
 </div>
-<div id="xpath" class="section level2" number="3.6">
-<h2><span class="header-section-number">3.6</span> Xpath</h2>
+<div id="xpath" class="section level2" number="5.6">
+<h2><span class="header-section-number">5.6</span> Xpath</h2>
 <p>XPath 是一种查询语言，用于在HTML和XML文档中定位并提取信息，学习过HTML之后我们知道，相关信息可以储存在HTML的内容或者属性中。XPath是一种特定域语言（Domain-Specific Language,DSL），专用于标记语言文档。</p>
 <p>为了写这部分的内容，还得专门制作了一个实验室网页完成</p>
-<div id="基本查询" class="section level3" number="3.6.1">
-<h3><span class="header-section-number">3.6.1</span> 基本查询</h3>
+<div id="基本查询" class="section level3" number="5.6.1">
+<h3><span class="header-section-number">5.6.1</span> 基本查询</h3>
 <p>Xpath 基本查询使用“/”分割的节点序列来表达基本路径，例如可以通过</p>
 </div>
 </div>
-<div id="http" class="section level2" number="3.7">
-<h2><span class="header-section-number">3.7</span> HTTP</h2>
+<div id="http" class="section level2" number="5.7">
+<h2><span class="header-section-number">5.7</span> HTTP</h2>
 <p>HTTP(HyperText Transfer Protocal,超文本传输协议)是20世纪80年代，欧洲核子研究中心工作的科学家Tim Berners-Lee, Roy Fielding等人发明的(谁再说基础研究没有价值，就禁止他浏览网站)。HTTP是当前网络客户端和服务器之间进行通信的最常用协议。可以类比于写信的格式。如果把一份HTTP文件比作一封信，每一个标准的HTTP信件都有三个部分组成:</p>
 <ul>
 <li>起始行</li>
@@ -877,8 +931,8 @@ resetParas[i].textContent = &#39;&#39;;//执行代码;
 <li>第一步是客户端向服务器发出请求</li>
 <li>第二步是服务器向客户端返回响应</li>
 </ul>
-<div id="http常见方法" class="section level3" number="3.7.1">
-<h3><span class="header-section-number">3.7.1</span> HTTP常见方法</h3>
+<div id="http常见方法" class="section level3" number="5.7.1">
+<h3><span class="header-section-number">5.7.1</span> HTTP常见方法</h3>
 <p>常见HTTP 请求方法包括：</p>
 <table>
 <thead>
@@ -924,8 +978,8 @@ resetParas[i].textContent = &#39;&#39;;//执行代码;
 </table>
 </div>
 </div>
-<div id="静态爬虫" class="section level2" number="3.8">
-<h2><span class="header-section-number">3.8</span> 静态爬虫</h2>
+<div id="静态爬虫" class="section level2" number="5.8">
+<h2><span class="header-section-number">5.8</span> 静态爬虫</h2>
 <p>在掌握以上基础知识之后，我们可以</p>
 <div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="web.html#cb27-1"></a><span class="kw">library</span>(RCurl)</span>
 <span id="cb27-2"><a href="web.html#cb27-2"></a><span class="kw">library</span>(XML)</span>
@@ -959,17 +1013,17 @@ resetParas[i].textContent = &#39;&#39;;//执行代码;
 <span id="cb27-30"><a href="web.html#cb27-30"></a>        <span class="kw">print</span>(i)</span>
 <span id="cb27-31"><a href="web.html#cb27-31"></a>}</span></code></pre></div>
 </div>
-<div id="使用rselenium的动态爬虫" class="section level2" number="3.9">
-<h2><span class="header-section-number">3.9</span> 使用RSelenium的动态爬虫</h2>
-<div id="rselenium简介与安装" class="section level3" number="3.9.1">
-<h3><span class="header-section-number">3.9.1</span> RSelenium简介与安装</h3>
+<div id="使用rselenium的动态爬虫" class="section level2" number="5.9">
+<h2><span class="header-section-number">5.9</span> 使用RSelenium的动态爬虫</h2>
+<div id="rselenium简介与安装" class="section level3" number="5.9.1">
+<h3><span class="header-section-number">5.9.1</span> RSelenium简介与安装</h3>
 <p>Selenium是一个跨平台、多语言的浏览器测试工具，可以实现浏览器的自动化测试。RSelenium允许R语言通过Selenuim操纵浏览器，可以帮助我们实现动态爬虫。RSelenium 的目标是让R更容易的连接Selenium Server。RSelenium绑定了R与Selenium Webdriver API。RSelenium可以从CRAN直接安装：</p>
 <div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="web.html#cb28-1"></a><span class="kw">install.packages</span>(<span class="st">&quot;RSelenium&quot;</span>)</span></code></pre></div>
 </div>
-<div id="安装docker" class="section level3" number="3.9.2">
-<h3><span class="header-section-number">3.9.2</span> 安装Docker</h3>
+<div id="安装docker" class="section level3" number="5.9.2">
+<h3><span class="header-section-number">5.9.2</span> 安装Docker</h3>
 <p>Docker是当前最主流软件容器平台，是用Google公司Go语言开发的基于Linux内核的容器。如果你至少存在一个合作伙伴，那么你大概率遇到过这样的情形，一段在你的电脑上运行良好的代码，放在小伙伴的机器上就出现了各种报错，“这段代码在我机器上没问题啊，我代码肯定没问题呀”。这是因为任何一段代码的运行都是依赖于一个外部环境的，既包括硬件环境，也包括软件环境，例如我们安装和调用的R包，就是一段代码的软件环境，如果小伙伴的机器上并没有安装我们需要的包，代码在运行时候会出错。解决这个问题的最直接的办法是在每一台机器上配置同样的环境，尽管辛苦，但还是可以解决的。但是当使用云端服务器的时候，我们不仅经常切换服务器，甚至有时候都不知道具体用的是哪一个硬件环境，因此，每次都配置一次环境不仅花费时间，设置有时候无法实现。</p>
-<p>那么，为什么不把环境和代码封装在一起呢？如果我们规定好这个容器的尺寸和接口，那么我们就不需要每次都在服务器上配置环境了。服务器就好比一个远洋航运公司的轮船，容器就好比是统一尺寸的集装箱，只要客户使用了标准集装箱，无论你集装箱内部装了什么，都不会放在任何一艘轮船上运输都不会有问题。这便是Docker的技术思想,Docker技术的发展真正是实现了代码实现跨平台，跨系统的一致性，从而让开发人员专注于他们擅长的事情，<strong>写出优秀的代码</strong>。这又一次体现了正交分割思想，正交分割思想万岁。</p>
+<p>那么，为什么不把环境和代码封装在一起呢？如果我们规定好这个容器的尺寸和接口，那么我们就不需要每次都在服务器上配置环境了。服务器就好比一个远洋航运公司的轮船，容器就好比是统一尺寸的集装箱，只要客户使用了标准集装箱，无论你集装箱内部装了什么，放在任何一艘轮船上运输都不会有问题。这便是Docker的技术思想，Docker技术的发展真正是实现了代码实现跨平台，跨系统的一致性，从而让开发人员专注于他们擅长的事情，<strong>写出优秀的代码</strong>。这又一次体现了正交分割思想，正交分割思想万岁。</p>
 <p>最新版本的RSelenuim通过Docker技术构建一个虚拟的浏览器运行环境，进而模拟浏览器行为。首先下载对应系统的Docker桌面<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a>并安装。安装完成之后，运行下面代码为Firefox指定端口：</p>
 <pre><code>docker run -d -p 4445:4444 selenium/standalone-firefox:2.53.1</code></pre>
 <p>然后，打开Docker的Dashborad，我们能够看到本地所有的镜像：
@@ -977,8 +1031,8 @@ resetParas[i].textContent = &#39;&#39;;//执行代码;
 <p>运行Firefox对应的镜像，之后就会看到镜像的运行状况：
 <img src="docker2.png" width="100%" /></p>
 </div>
-<div id="rselenum语法" class="section level3" number="3.9.3">
-<h3><span class="header-section-number">3.9.3</span> RSelenum语法</h3>
+<div id="rselenum语法" class="section level3" number="5.9.3">
+<h3><span class="header-section-number">5.9.3</span> RSelenum语法</h3>
 <p>Relenium中两个最重要的函数为remoteDriver()和webElement(),分别指向Selenium server(可以看做一个浏览器)和页面元素（即各种HTML元素等）。这两个函数创建的对象有很多方法可以用来爬取数据和操作浏览器，读者可以通过<code>help(package="Rselenium")</code>查看完整的函数与使用方法。</p>
 <p>remoteDriver()函数常用方法如下：</p>
 <table>
@@ -1154,63 +1208,59 @@ resetParas[i].textContent = &#39;&#39;;//执行代码;
 <td align="left">元素是否被展示</td>
 </tr>
 <tr class="even">
-<td align="left">isElementDisplayed()</td>
-<td align="left">元素是否被展示</td>
-</tr>
-<tr class="odd">
 <td align="left">isElementSelected()</td>
 <td align="left">元素是否被选中</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">compareElement(otherElem)</td>
 <td align="left">与另一元素对比，测试是否为同一元素</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left"><strong>2.发送鼠标与键盘操作</strong></td>
 <td align="left"></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">clearElement()</td>
 <td align="left">针对文本输入框，清楚内</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">clickElement()</td>
 <td align="left">单击元素</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">highlightElement()</td>
 <td align="left">高亮闪烁元素，主要用于确认定位的元素是否正确</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">sendKeysToElement()</td>
 <td align="left">用法与remoteDriver函数中的sendKeysToActiveElement(sendKeys)方法相同</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">submitElement()</td>
 <td align="left">针对<code>&lt;form&gt;</code>表单，提交表单</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">setElementAttribute()</td>
 <td align="left">效用函数，设定元素属性</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left"><strong>3.抓取子页面元素</strong></td>
 <td align="left"></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">findChildElement()</td>
 <td align="left">如果当前页面元素下还有子元素，则可以用此方法抓取单个子元素，用法与remDr$findElement()相同</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">findChildElements()</td>
 <td align="left">抓取多个子元素</td>
 </tr>
 </tbody>
 </table>
 </div>
-<div id="案例1在链家搜索并获取相关信息" class="section level3" number="3.9.4">
-<h3><span class="header-section-number">3.9.4</span> 案例1:在链家搜索并获取相关信息</h3>
-<p>本节我们将前面的链家静态爬虫的基础上，使用RSelenium在链家官网检索“上海交通大学”，并爬取相关搜索结果。</p>
+<div id="案例1在链家搜索并获取相关信息" class="section level3" number="5.9.4">
+<h3><span class="header-section-number">5.9.4</span> 案例1:在链家搜索并获取相关信息</h3>
+<p>本节我们将在前面的链家静态爬虫的基础上，使用RSelenium在链家官网检索“上海交通大学”，并爬取相关搜索结果。</p>
 <div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="web.html#cb30-1"></a><span class="kw">library</span>(RSelenium)</span>
 <span id="cb30-2"><a href="web.html#cb30-2"></a><span class="kw">library</span>(XML)</span>
 <span id="cb30-3"><a href="web.html#cb30-3"></a><span class="kw">library</span>(RCurl)</span>
@@ -1294,8 +1344,8 @@ resetParas[i].textContent = &#39;&#39;;//执行代码;
 <span id="cb30-81"><a href="web.html#cb30-81"></a>        <span class="kw">cat</span>(<span class="st">&quot;第&quot;</span>,i,<span class="st">&quot;页爬成功&quot;</span>,<span class="st">&quot;</span><span class="ch">\n</span><span class="st">&quot;</span>)</span>
 <span id="cb30-82"><a href="web.html#cb30-82"></a>}</span></code></pre></div>
 </div>
-<div id="案例2登录豆瓣" class="section level3" number="3.9.5">
-<h3><span class="header-section-number">3.9.5</span> 案例2:登录豆瓣</h3>
+<div id="案例2登录豆瓣" class="section level3" number="5.9.5">
+<h3><span class="header-section-number">5.9.5</span> 案例2:登录豆瓣</h3>
 <p>本节我们将使用RSelenium模拟登录豆瓣账号。</p>
 <div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="web.html#cb31-1"></a><span class="kw">library</span>(RSelenium)</span>
 <span id="cb31-2"><a href="web.html#cb31-2"></a><span class="kw">library</span>(XML)</span>
@@ -1351,8 +1401,8 @@ resetParas[i].textContent = &#39;&#39;;//执行代码;
           </div>
         </div>
       </div>
-<a href="flow.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="reg.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="rw.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="md.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -1383,7 +1433,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/yihui/bookdown-chinese/edit/master/03-web.Rmd",
+"link": "https://github.com/yihui/bookdown-chinese/edit/master/04-web.Rmd",
 "text": "编辑"
 },
 "history": {
